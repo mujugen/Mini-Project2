@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -30,6 +31,10 @@
               Upload
             </button>
           </form>
+          <button id="convertBtn" class="btn btn-secondary btn-block mt-2">
+            Convert to Text
+          </button>
+          <div id="pdfContainers"></div>
         </div>
       </div>
     </div>
