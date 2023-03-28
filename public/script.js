@@ -1,5 +1,7 @@
+var rawTexts = [];
+
 // Function to convert PDF to text
-function processPdf(blob) {
+async function processPdf(blob) {
   return new Promise(async (resolve, reject) => {
     const reader = new FileReader();
     reader.onload = async (event) => {
@@ -51,23 +53,25 @@ async function convertUploadedFiles() {
   for (const file of files) {
     const filePath = `uploads/${file}`;
     const name = file;
-
+    // Try to convert pdfs to text
     try {
       const pdfBytes = await fetch(filePath).then((response) =>
         response.arrayBuffer()
       );
       // Text == converted text from pdf
-      const { x, text } = await processPdf(new Blob([pdfBytes]));
-      console.log(text);
+      const result = await processPdf(new Blob([pdfBytes]));
+      var rawText = result.text;
+      rawText = rawText.replace(//g, "");
+      rawTexts.push(rawText); // Store the raw text in the global array
+      console.log(rawText);
       console.log("PDF converted");
-      const applicant = await fetchCVSummarize(text);
+      const applicant = await fetchCVSummarize(rawText);
       const name = applicant.name;
       const education = applicant.education;
       const skills = applicant.skills;
       const experience = applicant.experience;
       const certifications = applicant.certification;
       const accomplishments = applicant.accomplishment;
-      console.log(JSON.stringify(applicant));
       // Create an HTML container for the raw text
       const container = $(`
         <div class="pdf-container mt-4">
@@ -77,6 +81,7 @@ async function convertUploadedFiles() {
           <div class="pdf-text"><b>Experience:</b> ${experience}</div>
           <div class="pdf-text"><b>Certifications:</b> ${certifications}</div>
           <div class="pdf-text"><b>Accomplishments:</b> ${accomplishments}</div>
+          <div class="pdf-text"><b>Raw Text:</b> ${rawText}</div>
         </div>
       `);
 
@@ -87,7 +92,6 @@ async function convertUploadedFiles() {
     }
   }
 }
-
 // Event listeners to load when document is ready
 $(document).ready(function () {
   $("#uploadForm").on("submit", function (event) {
@@ -127,4 +131,52 @@ $(document).ready(function () {
     console.log("Convert button clicked");
     convertUploadedFiles();
   });
+
+  // Event listener for filter checkboxes
+  $("#analyzeBtn").on("click", function () {
+    console.log("Analyze button clicked");
+    if (rawTexts.length === 0) {
+      alert("Nothing to analyze");
+      event.preventDefault();
+    } else {
+      runRedFlag();
+    }
+  });
+  convertUploadedFiles();
 });
+
+// Function to retrieve filter data
+
+function getSelectedFilters() {
+  var filters = [""];
+  const filterForm = document.getElementById("filterForm");
+  for (let i = 0; i < filterForm.length; i++) {
+    if (filterForm[i].checked) {
+      filters.push(filterForm[i].value);
+    }
+  }
+  return filters;
+  /* console.log(filters); */
+}
+// Call redFlagRemover API endpoint
+async function fetchredFlagRemover(rawTexts, filters) {
+  const response = await fetch("http://localhost:3000/redFlagRemover", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ rawTexts, filters }),
+  });
+  const redFlagAnalysis = await response.json();
+  return redFlagAnalysis;
+}
+// End of fetchCVSummarize
+
+// Run fetchredFlagRemover
+async function runRedFlag() {
+  filters = getSelectedFilters();
+  console.log(filters);
+  console.log(rawTexts);
+  const analysis = await fetchredFlagRemover(rawTexts, filters);
+  console.log(analysis);
+}

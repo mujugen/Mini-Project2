@@ -1,9 +1,18 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  background-color: #244464;
   padding-top: 50px;
 }
 
 h1 {
   margin-bottom: 30px;
+}
+
+section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 30px;
+  background-color: aliceblue;
+  min-width: 70%;
+  max-width: 70%;
 }

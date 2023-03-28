@@ -1,3 +1,38 @@
+// Main function that will ask a prompt to openAI API, retrieve a response, and extract the features
+// Creates and returns an Applicant class with the found features
+async function CVSummarize(text, openai) {
+  const pdfText = text;
+  const prompt = `${pdfText}\n\n\n\n\n
+      can you find only these information and put them in this format,
+      Full Name:
+      Education:
+      Experience:
+      Skills:
+      Certifications:
+      Accomplishments:
+      `;
+
+  const response = await askPrompt(prompt, openai);
+  const fullName = featureRetrieval("Full Name:", response);
+  const education = featureRetrieval("Education:", response);
+  const experience = featureRetrieval("Experience:", response);
+  const skills = featureRetrieval("Skills:", response);
+  const certifications = featureRetrieval("Certifications:", response);
+  const accomplishments = featureRetrieval("Accomplishments:", response);
+
+  const applicant = new Applicant(
+    fullName,
+    education,
+    experience,
+    skills,
+    certifications,
+    accomplishments
+  );
+  console.log("CVSummarize finished");
+  return applicant;
+}
+// End of CVSummarize()
+
 // Function that takes the text prompt and puts it into OpenAI API
 // Returns text response
 async function askPrompt(prompt, openai) {
@@ -70,41 +105,6 @@ class Applicant {
   }
 }
 // End of Applicant Class
-
-// Main function that will ask a prompt to openAI API, retrieve a response, and extract the features
-// Creates and returns an Applicant class with the found features
-async function CVSummarize(text, openai) {
-  const pdfText = text;
-  const prompt = `${pdfText}\n\n\n\n\n
-      can you find only these information and put them in this format,
-      Full Name:
-      Education:
-      Experience:
-      Skills:
-      Certifications:
-      Accomplishments:
-      `;
-
-  const response = await askPrompt(prompt, openai);
-  const fullName = featureRetrieval("Full Name:", response);
-  const education = featureRetrieval("Education:", response);
-  const experience = featureRetrieval("Experience:", response);
-  const skills = featureRetrieval("Skills:", response);
-  const certifications = featureRetrieval("Certifications:", response);
-  const accomplishments = featureRetrieval("Accomplishments:", response);
-
-  const applicant = new Applicant(
-    fullName,
-    education,
-    experience,
-    skills,
-    certifications,
-    accomplishments
-  );
-  console.log("CVSummarize finished");
-  return applicant;
-}
-// End of CVSummarize()
 
 module.exports = {
   CVSummarize,

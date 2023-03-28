@@ -1,4 +1,5 @@
 const { CVSummarize } = require("./modules/CVSummarizer.js");
+const { redFlagRemover } = require("./modules/redFlagRemover.js");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
@@ -18,6 +19,20 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 // End of open AI initialization
+
+// Handle requests for redFlagRemover
+app.post("/redFlagRemover", async (req, res) => {
+  const { rawTexts, filters } = req.body;
+  try {
+    console.log(req);
+    console.log(filters);
+    const redFlagAnalysis = await redFlagRemover(rawTexts, openai, filters);
+    res.json(redFlagAnalysis);
+  } catch (error) {
+    console.error("Error", error);
+    res.status(500).send("Failed");
+  }
+});
 
 // Handle requests for CV summarization
 app.post("/cvsummarize", async (req, res) => {
