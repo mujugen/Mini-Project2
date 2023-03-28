@@ -56,7 +56,9 @@ async function convertUploadedFiles() {
       const pdfBytes = await fetch(filePath).then((response) =>
         response.arrayBuffer()
       );
+      // Text == converted text from pdf
       const { x, text } = await processPdf(new Blob([pdfBytes]));
+      console.log(text);
       console.log("PDF converted");
       const applicant = await fetchCVSummarize(text);
       const name = applicant.name;
