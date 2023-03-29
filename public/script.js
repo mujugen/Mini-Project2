@@ -142,13 +142,13 @@ $(document).ready(function () {
       runRedFlag();
     }
   });
-  convertUploadedFiles();
+  /* convertUploadedFiles(); */
 });
 
 // Function to retrieve filter data
 
 function getSelectedFilters() {
-  var filters = [""];
+  var filters = [];
   const filterForm = document.getElementById("filterForm");
   for (let i = 0; i < filterForm.length; i++) {
     if (filterForm[i].checked) {
@@ -159,13 +159,13 @@ function getSelectedFilters() {
   /* console.log(filters); */
 }
 // Call redFlagRemover API endpoint
-async function fetchredFlagRemover(rawTexts, filters) {
+async function fetchredFlagRemover(rawText, filters) {
   const response = await fetch("http://localhost:3000/redFlagRemover", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ rawTexts, filters }),
+    body: JSON.stringify({ rawText, filters }),
   });
   const redFlagAnalysis = await response.json();
   return redFlagAnalysis;
@@ -177,6 +177,34 @@ async function runRedFlag() {
   filters = getSelectedFilters();
   console.log(filters);
   console.log(rawTexts);
-  const analysis = await fetchredFlagRemover(rawTexts, filters);
-  console.log(analysis);
+  if (filters.length != 0) {
+    for (let i = 0; i < rawTexts.length; i++) {
+      const analysis = await fetchredFlagRemover(rawTexts[i], filters);
+      console.log(analysis);
+      const container_id = "applicant-container";
+      addCard(container_id, analysis);
+    }
+  } else {
+    alert("No filters selected");
+  }
+}
+
+/* Function to create reproducable cells */
+function addCard(container_id, text) {
+  /* Initialize where to put elements */
+  const container = document.getElementById(container_id);
+  /* Create elements */
+  const cell = document.createElement("div");
+  const cell_text = document.createElement("div");
+  const img = document.createElement("img");
+  var img_filename = "profile-placeholder.jpg";
+  /* Set class names */
+  cell.className = "p-2 cell";
+  img.src = img_filename;
+  img.className = "cell-img";
+  cell_text.className = "cell-text-container";
+  /* Append all created elements */
+  container.append(cell);
+  cell.append(img, cell_text);
+  cell_text.innerHTML = text;
 }

@@ -16,3 +16,51 @@ section {
   min-width: 70%;
   max-width: 70%;
 }
+
+/* Cells */
+.flexbox-container {
+  height: auto;
+  margin-bottom: 5%;
+}
+
+@media screen and (orientation: landscape) {
+  .cell {
+    background-color: white;
+    width: 35vw;
+    height: fit-content;
+    margin: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 0;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .cell {
+    background-color: white;
+    width: 40vw;
+    height: fit-content;
+    margin: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 0;
+  }
+}
+.cell-text-container {
+  text-align: center;
+  padding: 5%;
+  font-size: calc(1rem + 20%);
+}
+.cell-text-title {
+  text-align: center;
+  font-size: calc(1rem + 20%);
+  font-weight: bold;
+}
+.cell-text-content {
+  text-align: center;
+  font-size: calc(1rem + 20%);
+}
+
+.cell-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}

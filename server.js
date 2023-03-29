@@ -22,11 +22,12 @@ const openai = new OpenAIApi(configuration);
 
 // Handle requests for redFlagRemover
 app.post("/redFlagRemover", async (req, res) => {
-  const { rawTexts, filters } = req.body;
+  const { rawText, filters } = req.body;
   try {
     console.log(req);
+    console.log(rawText);
     console.log(filters);
-    const redFlagAnalysis = await redFlagRemover(rawTexts, openai, filters);
+    const redFlagAnalysis = await redFlagRemover(rawText, openai, filters);
     res.json(redFlagAnalysis);
   } catch (error) {
     console.error("Error", error);

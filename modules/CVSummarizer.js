@@ -43,7 +43,7 @@ async function askPrompt(prompt, openai) {
     model: model_engine,
     prompt: prompt,
     temperature: 0,
-    max_tokens: 1000,
+    max_tokens: 2000,
     n: 1,
     top_p: 1.0,
   });

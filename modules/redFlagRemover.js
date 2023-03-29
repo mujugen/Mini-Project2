@@ -1,10 +1,11 @@
-async function redFlagRemover(rawTexts, openai, filters) {
+async function redFlagRemover(rawText, openai, filters) {
   console.log("running red flag remover");
-  text = rawTexts[0];
+  text = rawText;
   prompt = text;
+  console.log(prompt);
   prompt += "FUCK SHIT BULLSHIT MOTHERFUCKER ASDHJFUIASHNJDA";
   prompt +=
-    '\n\nAnswer these questions below in yes or no only in this format "QUESTION: ANSWER" and separate each question per line,\n';
+    '\n\nAnswer these questions below in yes or no only in this format "QUESTION: ANSWER" and add this character before and after the answer "<br>"\n';
   for (const filter of filters) {
     if (filter == 1) {
       prompt += "Did you notice bad formatting?\n";
@@ -47,7 +48,7 @@ async function askPrompt(prompt, openai) {
     model: model_engine,
     prompt: prompt,
     temperature: 0,
-    max_tokens: 1000,
+    max_tokens: 2000,
     n: 1,
     top_p: 1.0,
   });
