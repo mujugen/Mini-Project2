@@ -7,8 +7,74 @@ const fs = require("fs");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Configuration, OpenAIApi } = require("openai");
+const sqlite3 = require("sqlite3").verbose();
 // Create an Express app
 const app = express();
+
+// Initialize the SQLite database
+const db = new sqlite3.Database("users.db");
+
+// Create a table to store user data
+db.run(
+  "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT NOT NULL UNIQUE, education TEXT, skills TEXT, experience TEXT, certifications TEXT, accomplishments TEXT, raw_text TEXT)"
+);
+
+function insertUser(userData) {
+  const {
+    name,
+    education,
+    skills,
+    experience,
+    certifications,
+    accomplishments,
+    raw_text,
+  } = userData;
+
+  db.get("SELECT * FROM users WHERE name = ?", [name], (err, row) => {
+    if (err) {
+      console.error(err.message);
+      return;
+    }
+
+    if (row) {
+      console.log(`User ${name} already exists with ID: ${row.id}`);
+    } else {
+      db.run(
+        `INSERT INTO users (name, education, skills, experience, certifications, accomplishments, raw_text) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        [
+          name,
+          education,
+          skills,
+          experience,
+          certifications,
+          accomplishments,
+          raw_text,
+        ],
+        function (err) {
+          if (err) {
+            console.log(err.message);
+          }
+          console.log(`User ${name} added with ID: ${this.lastID}`);
+        }
+      );
+    }
+  });
+}
+
+function getUsers(callback) {
+  db.all("SELECT * FROM users", [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    callback(rows);
+  });
+}
+
+app.get("/users", (req, res) => {
+  getUsers((users) => {
+    res.json(users);
+  });
+});
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -40,6 +106,7 @@ app.post("/cvsummarize", async (req, res) => {
   const { pdfText } = req.body;
   try {
     const applicant = await CVSummarize(pdfText, openai);
+    insertUser(applicant); // Insert the user data into the database
     res.json(applicant);
   } catch (error) {
     console.error("Error processing CV:", error);

@@ -208,3 +208,20 @@ function addCard(container_id, text) {
   cell.append(img, cell_text);
   cell_text.innerHTML = text;
 }
+
+async function fetchUserDBP() {
+  fetch("/users")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((users) => {
+      console.log(users);
+      // Do something with the users data, e.g., display it in the frontend
+    })
+    .catch((error) => {
+      console.error("Error fetching users:", error);
+    });
+}
