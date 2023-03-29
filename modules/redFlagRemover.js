@@ -2,7 +2,7 @@ async function redFlagRemover(rawText, openai, filters) {
   console.log("running red flag remover");
   text = rawText;
   prompt = text;
-  console.log(prompt);
+  /* console.log(prompt); */
   prompt += "FUCK SHIT BULLSHIT MOTHERFUCKER ASDHJFUIASHNJDA";
   prompt +=
     '\n\nAnswer these questions below in yes or no only in this format "QUESTION: ANSWER" and add this character before and after the answer "<br>"\n';
@@ -33,7 +33,7 @@ async function redFlagRemover(rawText, openai, filters) {
       prompt += "Were they changing careers too often?\n";
     }
   }
-  console.log(prompt);
+  console.log("Aking prompt in redFlagRemover");
   const response = await askPrompt(prompt, openai);
   return response;
 }

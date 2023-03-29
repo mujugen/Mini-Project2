@@ -19,6 +19,7 @@ async function CVSummarize(text, openai) {
   const skills = featureRetrieval("Skills:", response);
   const certifications = featureRetrieval("Certifications:", response);
   const accomplishments = featureRetrieval("Accomplishments:", response);
+  const raw_text = text;
 
   const applicant = new Applicant(
     fullName,
@@ -26,7 +27,8 @@ async function CVSummarize(text, openai) {
     experience,
     skills,
     certifications,
-    accomplishments
+    accomplishments,
+    raw_text
   );
   console.log("CVSummarize finished");
   return applicant;
@@ -74,7 +76,8 @@ class Applicant {
     experience = [],
     skills = [],
     certification = [],
-    accomplishment = []
+    accomplishment = [],
+    raw_text = []
   ) {
     this.name = name;
     this.education = education;
@@ -82,6 +85,7 @@ class Applicant {
     this.experience = experience;
     this.certification = certification;
     this.accomplishment = accomplishment;
+    this.raw_text = raw_text;
   }
 
   add_education(education) {
@@ -102,6 +106,9 @@ class Applicant {
 
   add_accomplishment(accomplishment) {
     this.accomplishment.push(accomplishment);
+  }
+  add_raw_text(raw_text) {
+    this.raw_text.push(raw_text);
   }
 }
 // End of Applicant Class

@@ -10,7 +10,8 @@ const { Configuration, OpenAIApi } = require("openai");
 const sqlite3 = require("sqlite3").verbose();
 // Create an Express app
 const app = express();
-
+app.use(cors());
+app.use(bodyParser.json());
 // Initialize the SQLite database
 const db = new sqlite3.Database("users.db");
 
@@ -76,8 +77,46 @@ app.get("/users", (req, res) => {
   });
 });
 
-app.use(cors());
-app.use(bodyParser.json());
+app.post("/applicantByRawText", (req, res) => {
+  // Check if the request body contains the expected `rawText` property
+  if (!req.body || !req.body.rawText) {
+    res.status(400).json({ message: "Invalid request body" });
+    return;
+  }
+
+  // Extract the `rawText` property from the request body
+  const rawText = req.body.rawText;
+
+  console.error("calling getApplicantByRawText");
+
+  // Call the `getApplicantByRawText` function with the `rawText` parameter
+  getApplicantByRawText(rawText, (applicant) => {
+    if (applicant) {
+      res.json(applicant);
+    } else {
+      res.status(404).json({ message: "Applicant not found" });
+    }
+  });
+});
+
+function getApplicantByRawText(rawText, callback) {
+  db.get("SELECT * FROM users WHERE raw_text = ?", [rawText], (err, row) => {
+    if (err) {
+      console.error(err.message);
+      console.error("getApplicantByRawText failed to get row");
+      callback(null);
+      return;
+    }
+
+    if (row) {
+      callback(row);
+      console.error("getApplicantByRawText found matching row");
+    } else {
+      callback(null);
+      console.error("getApplicantByRawText no matching row");
+    }
+  });
+}
 
 // Initialization of openai API variable
 const configuration = new Configuration({
@@ -90,9 +129,10 @@ const openai = new OpenAIApi(configuration);
 app.post("/redFlagRemover", async (req, res) => {
   const { rawText, filters } = req.body;
   try {
-    console.log(req);
+    /* console.log(req);
     console.log(rawText);
-    console.log(filters);
+    console.log(filters); */
+    console.log("Request received in /redFlagRemover");
     const redFlagAnalysis = await redFlagRemover(rawText, openai, filters);
     res.json(redFlagAnalysis);
   } catch (error) {
