@@ -34,6 +34,12 @@ $(document).ready(function () {
   });
   // Event listener for convert button
   $("#convertBtn").on("click", function () {
+    const parentDiv = document.getElementById("pdfContainers");
+    let childDiv = parentDiv.querySelector("div");
+    while (childDiv) {
+      parentDiv.removeChild(childDiv);
+      childDiv = parentDiv.querySelector("div");
+    }
     console.log("Convert button clicked");
     convertUploadedFiles();
   });
@@ -50,6 +56,12 @@ $(document).ready(function () {
   });
   // Event listener for user parse button
   $("#parseBtn").on("click", function () {
+    const parentDiv = document.getElementById("userContainers");
+    let childDiv = parentDiv.querySelector("div");
+    while (childDiv) {
+      parentDiv.removeChild(childDiv);
+      childDiv = parentDiv.querySelector("div");
+    }
     console.log("Parse button clicked");
     if (rawTexts.length === 0) {
       alert("Nothing to to convert");
@@ -126,38 +138,42 @@ async function convertUploadedFiles() {
       rawTexts.push(rawText); // Store the raw text in the global array
       /* console.log(rawText); */
       console.log("PDF converted to Raw Text");
+      // Shortens text if longer than 10000 characters
+      if (rawText.length > 10000) {
+        rawTexts = rawText.substring(0, 9000) + "...";
+      }
       // Check if rawText already exists in the database
-      const response = await fetch("http://localhost:3000/applicantByRawText", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ rawText }),
-      });
-
+      const response = await fetchApplicantByRawText(rawText);
       let applicant;
 
       if (response.status === 404) {
-        // If not found in the database, call fetchCVSummarize
+        // If not found in the database, call fetchCVSummarize and logs user in db
         console.log("Applicant not found in DB");
         applicant = await fetchCVSummarize(rawText);
+        // Update globalUserArray
+        globalUserArray = await fetchUserDBP();
       } else {
         // If found in the database, use the returned applicant data
         console.log("Applicant found in DB");
         applicant = await response.json();
         /* console.log(applicant); */
       }
-      const name = applicant.name;
-      // Create an HTML container for the raw text
-      const container = $(`
-        <div class="pdf-container mt-4">
-          <h3>${name}</h3>
-          <div class="pdf-text"><b>Raw Text:</b> ${rawText}</div>
-        </div>
-      `);
+      let name = applicant.name;
+      if (rawText.length > 50) {
+        shortText = rawText.substring(0, 200) + "...";
+      }
+      if (name != "") {
+        // Create an HTML container for the raw text
+        const container = $(`
+      <div class="pdf-container mt-4">
+        <h3>${name}</h3>
+        <div class="pdf-text"><b>Raw Text:</b> ${shortText}</div>
+      </div>
+    `);
 
-      // Append the container to the page
-      $("#pdfContainers").append(container);
+        // Append the container to the page
+        $("#pdfContainers").append(container);
+      }
     } catch (error) {
       console.error(`Error processing file: ${file}`, error);
     }
@@ -166,7 +182,7 @@ async function convertUploadedFiles() {
 
 // Retrieves users array from DB
 async function displayUserSummary() {
-  let userArray = await fetchUserDBP();
+  let userArray = globalUserArray;
   // Create an HTML container for the raw text
   for (i = 0; i < userArray.length; i++) {
     container_id = "userContainers";
@@ -187,53 +203,129 @@ function getSelectedFilters() {
   /* console.log(filters); */
 }
 // Sends raw text and selected filter to receive red flag analysis in text form
-async function fetchredFlagRemover(rawText, filters) {
+async function fetchredFlagRemover(rawText, filters, name) {
   const response = await fetch("http://localhost:3000/redFlagRemover", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ rawText, filters }),
+    body: JSON.stringify({ rawText, filters, name }),
   });
-  const redFlagAnalysis = await response.json();
-  return redFlagAnalysis;
+  console.log("Response received");
+  const redFlags = await response.json();
+  if (response.status !== 200) {
+    console.error(`Error: ${redFlags.error}`);
+    return;
+  }
+
+  return redFlags;
 }
 
-// Run fetchredFlagRemover
 async function runRedFlag() {
   filters = getSelectedFilters();
-  /* console.log(filters);
-  console.log(rawTexts); */
   if (filters.length != 0) {
-    for (let i = 0; i < rawTexts.length; i++) {
-      const analysis = await fetchredFlagRemover(rawTexts[i], filters);
-      console.log(analysis);
-      const container_id = "applicant-container";
-      addCard(container_id, analysis);
+    for (let i = 0; i < globalUserArray.length; i++) {
+      let redFlags;
+      if (globalUserArray[i].red_flag_1 == null) {
+        console.log(
+          `User ${globalUserArray[i].name} doesn't have red flags in DB`
+        );
+        redFlags = await fetchredFlagRemover(
+          globalUserArray[i].raw_text,
+          filters,
+          globalUserArray[i].name
+        );
+      } else {
+        console.log(`User ${globalUserArray[i].name} has red flags in DB`);
+        redFlags = {
+          red_flag_1: globalUserArray[i].red_flag_1,
+          red_flag_2: globalUserArray[i].red_flag_2,
+          red_flag_3: globalUserArray[i].red_flag_3,
+          red_flag_4: globalUserArray[i].red_flag_4,
+          red_flag_5: globalUserArray[i].red_flag_5,
+          red_flag_6: globalUserArray[i].red_flag_6,
+          red_flag_7: globalUserArray[i].red_flag_7,
+          red_flag_8: globalUserArray[i].red_flag_8,
+        };
+      }
+
+      let redFlag_title = document.createElement("p");
+      let redFlag_content = document.createElement("p");
+      redFlag_title.className = "cell-text-title";
+      let container_id =
+        "container_" + globalUserArray[i].name.replace(/ /g, "_");
+      // Loop through redFlags object and check for values equal to 1
+      for (let flag in redFlags) {
+        if (redFlags[flag] == 1) {
+          document.getElementById(container_id).style.backgroundColor = "red";
+          switch (flag) {
+            case "red_flag_1":
+              redFlag_content.innerHTML += `Sloppy Formatting<br>`;
+              break;
+            case "red_flag_2":
+              redFlag_content.innerHTML += `Lack of achievements<br>`;
+              break;
+            case "red_flag_3":
+              redFlag_content.innerHTML += `Unexplained gaps in employment<br>`;
+              break;
+            case "red_flag_4":
+              redFlag_content.innerHTML += `Job hopping<br>`;
+              break;
+            case "red_flag_5":
+              redFlag_content.innerHTML += `Excessive grammar, spelling, and punctuation mistakes<br>`;
+              break;
+            case "red_flag_6":
+              redFlag_content.innerHTML += `Usage of swear words<br>`;
+              break;
+            case "red_flag_7":
+              redFlag_content.innerHTML += `Stagnant career<br>`;
+              break;
+            case "red_flag_8":
+              redFlag_content.innerHTML += `Multiple career changes<br>`;
+              break;
+            default:
+              break;
+          }
+        }
+      }
+
+      // Format the user name into the desired ID format
+
+      let cell_text_id =
+        "cell_text_" + globalUserArray[i].name.replace(/ /g, "_");
+      document.getElementById(cell_text_id).appendChild(redFlag_title);
+      // Append the redFlag_content element to the DOM using the formatted ID
+      document.getElementById(cell_text_id).appendChild(redFlag_content);
     }
   } else {
     alert("No filters selected");
   }
 }
 
-/* Function to create reproducable cells */
-function addCard(container_id, text) {
-  /* Initialize where to put elements */
-  const container = document.getElementById(container_id);
-  /* Create elements */
-  const cell = document.createElement("div");
-  const cell_text = document.createElement("div");
-  const img = document.createElement("img");
-  var img_filename = "profile-placeholder.jpg";
-  /* Set class names */
-  cell.className = "p-2 cell";
-  img.src = img_filename;
-  img.className = "cell-img";
-  cell_text.className = "cell-text-container";
-  /* Append all created elements */
-  container.append(cell);
-  cell.append(img, cell_text);
-  cell_text.innerHTML = text;
+// Checks whether user is in DB through rawText, returns applicant object if so
+async function fetchApplicantByRawText(rawText) {
+  console.log(`Checking if user exist in database`);
+  const response = await fetch("/applicantByRawText", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ rawText }),
+  });
+  return response;
+}
+
+// Checks whether user is in DB through name, returns applicant object if so
+async function fetchApplicantByname(name) {
+  console.log(`Checking if user exist in database`);
+  const response = await fetch("/applicantByName", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name }),
+  });
+  return response;
 }
 
 // Fetches user DB and returns array
@@ -250,6 +342,20 @@ async function fetchUserDBP() {
     console.error("Error fetching users:", error);
   }
 }
+
+var globalUserArray;
+
+const fetchAndAssignUserArray = async () => {
+  globalUserArray = await fetchUserDBP();
+};
+
+fetchAndAssignUserArray()
+  .then(() => {
+    console.log(globalUserArray);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 /* Function to create reproducable cells */
 function addCardApplicant(container_id, user) {
@@ -297,6 +403,13 @@ function addCardApplicant(container_id, user) {
   skills_content.textContent = user.skills ?? "N/A";
   certifications_content.textContent = user.certifications ?? "N/A";
   accomplishments_content.textContent = user.accomplishments ?? "N/A";
+  /* Set unique ID for the container using name_content */
+  const containerUniqueId =
+    "container_" + name_content.textContent.replace(/\s+/g, "_");
+  cell.id = containerUniqueId;
+  const cellTextUniqueId =
+    "cell_text_" + name_content.textContent.replace(/\s+/g, "_");
+  cell_text.id = cellTextUniqueId;
   /* Append all created elements */
   container.append(cell);
   cell.append(img, cell_text);

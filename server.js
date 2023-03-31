@@ -17,11 +17,27 @@ const db = new sqlite3.Database("users.db");
 
 // Create a table to store user data
 db.run(
-  "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT NOT NULL UNIQUE, education TEXT, skills TEXT, experience TEXT, certifications TEXT, accomplishments TEXT, raw_text TEXT)"
+  "CREATE TABLE IF NOT EXISTS users \
+  (\
+    id INTEGER PRIMARY KEY, \
+    name TEXT NOT NULL UNIQUE, \
+    education TEXT, skills TEXT, \
+    experience TEXT, \
+    certifications TEXT, \
+    accomplishments TEXT, \
+    raw_text TEXT, \
+    red_flag_1 BOOLEAN, \
+    red_flag_2 BOOLEAN, \
+    red_flag_3 BOOLEAN, \
+    red_flag_4 BOOLEAN, \
+    red_flag_5 BOOLEAN, \
+    red_flag_6 BOOLEAN, \
+    red_flag_7 BOOLEAN, \
+    red_flag_8 BOOLEAN)"
 );
 
 function insertUser(userData) {
-  const {
+  let {
     name,
     education,
     skills,
@@ -30,7 +46,9 @@ function insertUser(userData) {
     accomplishments,
     raw_text,
   } = userData;
-
+  if (name == "") {
+    return;
+  }
   db.get("SELECT * FROM users WHERE name = ?", [name], (err, row) => {
     if (err) {
       console.error(err.message);
@@ -60,6 +78,46 @@ function insertUser(userData) {
       );
     }
   });
+}
+
+function insertRedFlags(name, redFlags) {
+  const {
+    red_flag_1,
+    red_flag_2,
+    red_flag_3,
+    red_flag_4,
+    red_flag_5,
+    red_flag_6,
+    red_flag_7,
+    red_flag_8,
+  } = redFlags;
+
+  db.run(
+    `UPDATE users SET red_flag_1 = ?, red_flag_2 = ?, red_flag_3 = ?, red_flag_4 = ?, red_flag_5 = ?, red_flag_6 = ?, red_flag_7 = ?, red_flag_8 = ? WHERE name = ?`,
+    [
+      red_flag_1,
+      red_flag_2,
+      red_flag_3,
+      red_flag_4,
+      red_flag_5,
+      red_flag_6,
+      red_flag_7,
+      red_flag_8,
+      name,
+    ],
+    function (err) {
+      if (err) {
+        console.error(err.message);
+        return;
+      }
+
+      if (this.changes === 0) {
+        console.log(`User ${name} not found`);
+      } else {
+        console.log(`Red flags updated for user ${name}`);
+      }
+    }
+  );
 }
 
 function getUsers(callback) {
@@ -99,6 +157,46 @@ app.post("/applicantByRawText", (req, res) => {
   });
 });
 
+app.post("/applicantByName", (req, res) => {
+  // Check if the request body contains the expected `rawText` property
+  if (!req.body || !req.body.name) {
+    res.status(400).json({ message: "Invalid request body" });
+    return;
+  }
+
+  // Extract the `rawText` property from the request body
+  const name = req.body.name;
+
+  console.error("calling getApplicantByName");
+
+  getApplicantByName(name, (applicant) => {
+    if (applicant) {
+      res.json(applicant);
+    } else {
+      res.status(404).json({ message: "Applicant not found" });
+    }
+  });
+});
+
+function getApplicantByName(name, callback) {
+  db.get("SELECT * FROM users WHERE name = ?", [name], (err, row) => {
+    if (err) {
+      console.error(err.message);
+      console.error("getApplicantByName failed to get row");
+      callback(null);
+      return;
+    }
+
+    if (row) {
+      callback(row);
+      console.error("getApplicantByName found matching row");
+    } else {
+      callback(null);
+      console.error("getApplicantByName no matching row");
+    }
+  });
+}
+
 function getApplicantByRawText(rawText, callback) {
   db.get("SELECT * FROM users WHERE raw_text = ?", [rawText], (err, row) => {
     if (err) {
@@ -127,17 +225,15 @@ const openai = new OpenAIApi(configuration);
 
 // Handle requests for redFlagRemover
 app.post("/redFlagRemover", async (req, res) => {
-  const { rawText, filters } = req.body;
+  const { rawText, filters, name } = req.body;
+  console.log(`${name} received`);
   try {
-    /* console.log(req);
-    console.log(rawText);
-    console.log(filters); */
-    console.log("Request received in /redFlagRemover");
-    const redFlagAnalysis = await redFlagRemover(rawText, openai, filters);
-    res.json(redFlagAnalysis);
+    var redFlags = await redFlagRemover(rawText, openai, filters, name);
+    insertRedFlags(name, redFlags);
+    res.json(redFlags);
   } catch (error) {
     console.error("Error", error);
-    res.status(500).send("Failed");
+    res.status(500).json({ error: "Failed" });
   }
 });
 

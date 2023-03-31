@@ -18,6 +18,12 @@
       <div class="row justify-content-center">
         <section class="w-50 shadow">
           <h1 class="text-center">Upload PDFs</h1>
+          <p class="text-center">
+            When the user submits the file upload form, it checks if any files
+            are selected, creates a FormData object, appends the files to it,
+            and sends the files to the server. If the files are uploaded
+            successfully, it shows a success alert, otherwise an error alert.
+          </p>
           <form id="uploadForm">
             <div class="form-group">
               <input
@@ -38,6 +44,11 @@
       <div class="row justify-content-center">
         <section class="w-50 shadow">
           <h3 class="text-center mb-4">Select Filters</h3>
+          <p class="text-center">
+            The filter section contains checkboxes that allow users to select
+            different filters for analyzing the uploaded resumes. When the
+            "Analyze" button is clicked, it triggers the runRedFlag() function.
+          </p>
           <form id="filterForm">
             <div class="form-group">
               <div class="form-check">
@@ -157,7 +168,17 @@
     <div class="container">
       <div class="row justify-content-center">
         <section class="shadow">
-          <h3 class="text-center">Convert to Raw Text</h3>
+          <h3 class="text-center">
+            Convert to Raw Text & Extracts Summarized Info
+          </h3>
+          <p class="text-center">
+            When clicked, it clears the existing PDF containers and calls the
+            convertUploadedFiles() function, which fetches the list of uploaded
+            files from the server, converts PDFs to text, and displays the raw
+            text on the page. It also checks if the text already exists in the
+            database, and if not, it calls the CVSummarize API to process the
+            text and save it to the database.
+          </p>
           <button id="convertBtn" class="btn btn-secondary btn-block mt-2">
             Process
           </button>
@@ -168,7 +189,12 @@
     <div class="container">
       <div class="row justify-content-center">
         <section class="shadow">
-          <h3 class="text-center">Parse User Information</h3>
+          <h3 class="text-center">Displays Summarized User Information</h3>
+          <p class="text-center">
+            When clicked, it clears the existing user containers and calls the
+            displayUserSummary() function, which fetches the users from the
+            database and displays their summary on the page.
+          </p>
           <button id="parseBtn" class="btn btn-secondary btn-block mt-2">
             Process
           </button>
@@ -183,6 +209,12 @@
       <div class="row justify-content-center">
         <section class="shadow">
           <h3 class="text-center">Red Flag Analysis</h3>
+          <p class="text-center">
+            When clicked, it checks if there are any texts to analyze. If so, it
+            calls the runRedFlag() function, which fetches the red flag analysis
+            for each user based on the selected filters and displays the results
+            on the page.
+          </p>
           <button id="analyzeBtn" class="btn btn-secondary btn-block mt-2">
             Analyze
           </button>
