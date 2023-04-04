@@ -47,11 +47,21 @@ $(document).ready(function () {
   // Event listener for filter checkboxes
   $("#analyzeBtn").on("click", function () {
     console.log("Analyze button clicked");
-    if (rawTexts.length === 0) {
+    if (globalUserArray.length == 0) {
       alert("Nothing to analyze");
       event.preventDefault();
     } else {
       runRedFlag();
+    }
+  });
+  // Event listener to remove those with RF
+  $("#rfRemoveBtn").on("click", function () {
+    console.log("RF Remove button clicked");
+    if (globalUserArray.length == 0) {
+      alert("Nothing to remove");
+      event.preventDefault();
+    } else {
+      runRedFlagRemover();
     }
   });
   // Event listener for user parse button
@@ -301,6 +311,28 @@ async function runRedFlag() {
     }
   } else {
     alert("No filters selected");
+  }
+}
+
+async function runRedFlagRemover() {
+  for (let i = 0; i < globalUserArray.length; i++) {
+    redFlags = {
+      red_flag_1: globalUserArray[i].red_flag_1,
+      red_flag_2: globalUserArray[i].red_flag_2,
+      red_flag_3: globalUserArray[i].red_flag_3,
+      red_flag_4: globalUserArray[i].red_flag_4,
+      red_flag_5: globalUserArray[i].red_flag_5,
+      red_flag_6: globalUserArray[i].red_flag_6,
+      red_flag_7: globalUserArray[i].red_flag_7,
+      red_flag_8: globalUserArray[i].red_flag_8,
+    };
+    let container_id =
+      "#container_" + globalUserArray[i].name.replace(/ /g, "_");
+    for (let flag in redFlags) {
+      if (redFlags[flag] == 1) {
+        $(container_id).remove();
+      }
+    }
   }
 }
 
