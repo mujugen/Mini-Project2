@@ -63,7 +63,7 @@ $(document).ready(function () {
       childDiv = parentDiv.querySelector("div");
     }
     console.log("Parse button clicked");
-    if (rawTexts.length === 0) {
+    if (globalUserArray == null) {
       alert("Nothing to to convert");
       event.preventDefault();
     } else {
@@ -454,19 +454,19 @@ function addCardApplicant(container_id, user) {
     skills_content.innerHTML += "<br><hr>";
   }
   if (user.programmingLanguage2 != "N/A") {
-    skills_content.innerHTML = user.programmingLanguage2;
+    skills_content.innerHTML += user.programmingLanguage2;
     skills_content.innerHTML += "<br><hr>";
   }
   if (user.programmingLanguage3 != "N/A") {
-    skills_content.innerHTML = user.programmingLanguage3;
+    skills_content.innerHTML += user.programmingLanguage3;
     skills_content.innerHTML += "<br><hr>";
   }
   if (user.programmingLanguage4 != "N/A") {
-    skills_content.innerHTML = user.programmingLanguage4;
+    skills_content.innerHTML += user.programmingLanguage4;
     skills_content.innerHTML += "<br><hr>";
   }
   if (user.programmingLanguage5 != "N/A") {
-    skills_content.innerHTML = user.programmingLanguage5;
+    skills_content.innerHTML += user.programmingLanguage5;
     skills_content.innerHTML += "<br><hr>";
   }
   if (user.certification1Title != "N/A") {
@@ -474,19 +474,19 @@ function addCardApplicant(container_id, user) {
     certification_content.innerHTML += "<br><hr>";
   }
   if (user.certification2Title != "N/A") {
-    certification_content.innerHTML = user.certification2Title;
+    certification_content.innerHTML += user.certification2Title;
     certification_content.innerHTML += "<br><hr>";
   }
   if (user.certification3Title != "N/A") {
-    certification_content.innerHTML = user.certification3Title;
+    certification_content.innerHTML += user.certification3Title;
     certification_content.innerHTML += "<br><hr>";
   }
   if (user.certification4Title != "N/A") {
-    certification_content.innerHTML = user.certification4Title;
+    certification_content.innerHTML += user.certification4Title;
     certification_content.innerHTML += "<br><hr>";
   }
   if (user.certification5Title != "N/A") {
-    certification_content.innerHTML = user.certification5Title;
+    certification_content.innerHTML += user.certification5Title;
     certification_content.innerHTML += "<br><hr>";
   }
   if (user.accomplishment1Title != "N/A") {
@@ -494,19 +494,19 @@ function addCardApplicant(container_id, user) {
     accomplishments_content.innerHTML += "<br><hr>";
   }
   if (user.accomplishment2Title != "N/A") {
-    accomplishments_content.innerHTML = user.accomplishment2Title;
+    accomplishments_content.innerHTML += user.accomplishment2Title;
     accomplishments_content.innerHTML += "<br><hr>";
   }
   if (user.accomplishment3Title != "N/A") {
-    accomplishments_content.innerHTML = user.accomplishment3Title;
+    accomplishments_content.innerHTML += user.accomplishment3Title;
     accomplishments_content.innerHTML += "<br><hr>";
   }
   if (user.accomplishment4Title != "N/A") {
-    accomplishments_content.innerHTML = user.accomplishment4Title;
+    accomplishments_content.innerHTML += user.accomplishment4Title;
     accomplishments_content.innerHTML += "<br><hr>";
   }
   if (user.accomplishment5Title != "N/A") {
-    accomplishments_content.innerHTML = user.accomplishment5Title;
+    accomplishments_content.innerHTML += user.accomplishment5Title;
     accomplishments_content.innerHTML += "<br><hr>";
   }
   if (!accomplishments_content.textContent.trim()) {
@@ -594,7 +594,23 @@ function addSkillFormGroup(skill) {
   input.className = "form-check-input";
   input.type = "checkbox";
   input.value = skill;
-  input.onchange = "getSelectedSkillFilters()";
+  input.onchange = function () {
+    const parentDiv = document.getElementById("userContainers");
+    let childDiv = parentDiv.querySelector("div");
+    while (childDiv) {
+      parentDiv.removeChild(childDiv);
+      childDiv = parentDiv.querySelector("div");
+    }
+    console.log("Parse button clicked");
+    if (globalUserArray == null) {
+      alert("Nothing to to convert");
+      event.preventDefault();
+    } else {
+      displayUserSummary();
+    }
+    getSelectedSkillFilters();
+    removeUnskilledApplicants();
+  };
   const label = document.createElement("label");
   label.className = "form-check-label";
   label.textContent = skill;
@@ -608,5 +624,36 @@ function updateSkillFilters() {
   for (skill in availableSkills) {
     const skillName = availableSkills[skill];
     addSkillFormGroup(skillName);
+  }
+}
+function hasSelectedLanguages(globalUserArray, filters, userID) {
+  for (let i = 0; i < filters.length; i++) {
+    let filterFound = false;
+
+    for (let j = 0; j < 5; j++) {
+      const skillKey = `programmingLanguage${j + 1}`;
+
+      if (globalUserArray[userID][skillKey] === filters[i]) {
+        filterFound = true;
+        break;
+      }
+    }
+
+    if (!filterFound) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function removeUnskilledApplicants() {
+  filters = getSelectedSkillFilters();
+  for (let i = 0; i < globalUserArray.length; i++) {
+    if (!hasSelectedLanguages(globalUserArray, filters, i)) {
+      let container_id =
+        "#container_" + globalUserArray[i].name.replace(/ /g, "_");
+      $(container_id).remove();
+    }
   }
 }

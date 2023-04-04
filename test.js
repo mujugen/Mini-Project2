@@ -1,19 +1,16 @@
-/* Function to create reproducable cells */
-function addSkillFormGroup(skill) {
-    container_id = "skillFilterForm";
-    const container = document.getElementById(container_id);
-    /* Create elements */
-    const form_check = document.createElement("div");
-    form_check.className = "cell-text-title";
-    const input = document.createElement("input");
-    input.className = "form-check-input";
-    input.type = "checkbox";
-    input.value = "0";
-    input.onchange = "getSelectedSkillFilters()";
-    const label = document.createElement("label");
-    label.className = "form-check-label";
-    label.textContent = skill;
-    /* Append all created elements */
-    container.append(form_check);
-    form_check.append(input,label);
+function hasSelectedLanguages(globalUserArray, filters) {
+  for (let i = 0; i < filters.length; i++) {
+    for (let j = 0; j < 5; j++) {
+      const skillKey = `programmingLanguage${j}`;
+      if (!globalUserArray[i][skillKey].includes(filters[i])) {
+        return false;
+      }
+    }
   }
+  return true;
+}
+
+const skillKey = `programmingLanguage${i}`;
+if (skillKey in user) {
+  availableSkills.add(user[skillKey]);
+}
