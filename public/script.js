@@ -160,18 +160,19 @@ async function convertUploadedFiles() {
       }
       let name = applicant.name;
       if (rawText.length > 50) {
-        shortText = rawText.substring(0, 200) + "...";
+        shortText = rawText.substring(0, 400) + "...";
       }
       if (name != "") {
         // Create an HTML container for the raw text
         const container = $(`
-      <div class="pdf-container mt-4">
+      <div class="mb-5">
         <h3>${name}</h3>
         <div class="pdf-text"><b>Raw Text:</b> ${shortText}</div>
       </div>
     `);
 
         // Append the container to the page
+        $("#pdfContainers").addClass("raw-text-cell");
         $("#pdfContainers").append(container);
       }
     } catch (error) {

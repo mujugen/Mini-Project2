@@ -1,7 +1,28 @@
+html {
+  height: 100%;
+}
 body {
   font-family: Arial, sans-serif;
   background-color: #244464;
-  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.left-side {
+  width: 25%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgb(19, 26, 34);
+  height: 100%;
+}
+
+.right-side {
+  width: 75%;
+  overflow-y: auto;
+  height: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 h1 {
@@ -9,12 +30,12 @@ h1 {
 }
 
 section {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   padding: 30px;
   background-color: aliceblue;
-  min-width: 70%;
-  max-width: 70%;
+  min-width: 90%;
+  max-width: 90%;
 }
 
 /* Cells */
@@ -26,9 +47,9 @@ section {
 @media screen and (orientation: landscape) {
   .cell {
     background-color: white;
-    width: 25vw;
+    width: 20vw;
     height: fit-content;
-    margin: 2vw;
+    margin: 1vw;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 0;
   }
@@ -63,4 +84,14 @@ section {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
+}
+
+.raw-text-cell {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 30px;
+  background-color: aliceblue;
+  min-width: 100%;
+  max-width: 100%;
+  box-shadow: black;
 }
