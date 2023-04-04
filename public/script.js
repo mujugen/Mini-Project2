@@ -132,7 +132,7 @@ async function convertUploadedFiles() {
   // Get the list of uploaded files from the server
   const response = await fetch("http://localhost:3000/list");
   const files = await response.json();
-
+  globalUserArray = await fetchUserDBP();
   for (const file of files) {
     const filePath = `uploads/${file}`;
     const name = file;
@@ -316,7 +316,7 @@ async function runRedFlag() {
 
 async function runRedFlagRemover() {
   for (let i = 0; i < globalUserArray.length; i++) {
-    redFlags = {
+    let redFlags = {
       red_flag_1: globalUserArray[i].red_flag_1,
       red_flag_2: globalUserArray[i].red_flag_2,
       red_flag_3: globalUserArray[i].red_flag_3,
@@ -326,12 +326,22 @@ async function runRedFlagRemover() {
       red_flag_7: globalUserArray[i].red_flag_7,
       red_flag_8: globalUserArray[i].red_flag_8,
     };
+
+    let flagToRemove = false;
     let container_id =
       "#container_" + globalUserArray[i].name.replace(/ /g, "_");
     for (let flag in redFlags) {
       if (redFlags[flag] == 1) {
         $(container_id).remove();
+        updateSkillFilters();
+        flagToRemove = true;
+        break;
       }
+    }
+
+    if (flagToRemove) {
+      globalUserArray.splice(i, 1);
+      i--; // Decrement the index to compensate for the removed element
     }
   }
 }
@@ -652,6 +662,12 @@ function addSkillFormGroup(skill) {
 }
 
 function updateSkillFilters() {
+  const parentDiv = document.getElementById("skillFilterForm");
+  let childDiv = parentDiv.querySelector("div");
+  while (childDiv) {
+    parentDiv.removeChild(childDiv);
+    childDiv = parentDiv.querySelector("div");
+  }
   availableSkills = getAvailableSkills(globalUserArray);
   for (skill in availableSkills) {
     const skillName = availableSkills[skill];
