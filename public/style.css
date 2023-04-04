@@ -81,7 +81,7 @@ section {
   .cell {
     background-color: white;
     width: 20vw;
-    height: fit-content;
+    min-height: 100%;
     margin: 1vw;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 0;
@@ -92,7 +92,7 @@ section {
   .cell {
     background-color: white;
     width: 40vw;
-    height: fit-content;
+    min-height: 100%;
     margin: 2vw;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 0;
