@@ -63,7 +63,7 @@ $(document).ready(function () {
       childDiv = parentDiv.querySelector("div");
     }
     console.log("Parse button clicked");
-    if (globalUserArray == null) {
+    if (globalUserArray.length == 0) {
       alert("Nothing to to convert");
       event.preventDefault();
     } else {
@@ -602,7 +602,7 @@ function addSkillFormGroup(skill) {
       childDiv = parentDiv.querySelector("div");
     }
     console.log("Parse button clicked");
-    if (globalUserArray == null) {
+    if (globalUserArray.length == 0) {
       alert("Nothing to to convert");
       event.preventDefault();
     } else {
