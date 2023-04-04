@@ -152,6 +152,7 @@ async function convertUploadedFiles() {
         applicant = await fetchCVSummarize(rawText);
         // Update globalUserArray
         globalUserArray = await fetchUserDBP();
+        updateSkillFilters();
       } else {
         // If found in the database, use the returned applicant data
         console.log("Applicant found in DB");
@@ -348,6 +349,7 @@ var globalUserArray;
 
 const fetchAndAssignUserArray = async () => {
   globalUserArray = await fetchUserDBP();
+  updateSkillFilters();
 };
 
 fetchAndAssignUserArray()
@@ -549,4 +551,62 @@ function addCardApplicant(container_id, user) {
     accomplishments,
     accomplishments_content
   );
+}
+
+function getAvailableSkills(globalUserArray) {
+  const availableSkills = new Set();
+
+  globalUserArray.forEach((user) => {
+    for (let i = 1; i <= 5; i++) {
+      const skillKey = `programmingLanguage${i}`;
+      if (skillKey in user) {
+        availableSkills.add(user[skillKey]);
+      }
+    }
+  });
+
+  return Array.from(availableSkills);
+}
+
+// Function to retrieve filter data
+function getSelectedSkillFilters() {
+  let filters = [];
+  const filterForm = document.getElementById("skillFilterForm");
+  for (let i = 0; i < filterForm.length; i++) {
+    if (filterForm[i].checked) {
+      filters.push(filterForm[i].value);
+    }
+  }
+  return filters;
+  /* console.log(filters); */
+}
+
+/* Function to create reproducable cells */
+function addSkillFormGroup(skill) {
+  container_id = "skillFilterForm";
+  const container = document.getElementById(container_id);
+  /* Create elements */
+  const form_group = document.createElement("div");
+  form_group.className = "form-group";
+  const form_check = document.createElement("div");
+  form_check.className = "form-check";
+  const input = document.createElement("input");
+  input.className = "form-check-input";
+  input.type = "checkbox";
+  input.value = skill;
+  input.onchange = "getSelectedSkillFilters()";
+  const label = document.createElement("label");
+  label.className = "form-check-label";
+  label.textContent = skill;
+  /* Append all created elements */
+  container.append(form_check);
+  form_check.append(input, label);
+}
+
+function updateSkillFilters() {
+  availableSkills = getAvailableSkills(globalUserArray);
+  for (skill in availableSkills) {
+    const skillName = availableSkills[skill];
+    addSkillFormGroup(skillName);
+  }
 }
