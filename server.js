@@ -21,10 +21,66 @@ db.run(
   (\
     id INTEGER PRIMARY KEY, \
     name TEXT NOT NULL UNIQUE, \
-    education TEXT, skills TEXT, \
-    experience TEXT, \
-    certifications TEXT, \
-    accomplishments TEXT, \
+    highestEducation TEXT, \
+    education1FullTitle TEXT, \
+    education1SchoolName TEXT, \
+    education1YearEnded TEXT, \
+    education2FullTitle TEXT, \
+    education2SchoolName TEXT, \
+    education2YearEnded TEXT, \
+    education3FullTitle TEXT, \
+    education3SchoolName TEXT, \
+    education3YearEnded TEXT, \
+    mostNotableSkill1 TEXT, \
+    mostNotableSkill2 TEXT, \
+    mostNotableSkill3 TEXT, \
+    mostNotableSkill4 TEXT, \
+    mostNotableSkill5 TEXT, \
+    programmingLanguage1 TEXT, \
+    programmingLanguage2 TEXT, \
+    programmingLanguage3 TEXT, \
+    programmingLanguage4 TEXT, \
+    programmingLanguage5 TEXT, \
+    otherSkills TEXT, \
+    jobExperience1Title TEXT, \
+    jobExperience1Company TEXT, \
+    jobExperience1YearStarted TEXT, \
+    jobExperience1YearEnded TEXT, \
+    jobExperience2Title TEXT, \
+    jobExperience2Company TEXT, \
+    jobExperience2YearStarted TEXT, \
+    jobExperience2YearEnded TEXT, \
+    jobExperience3Title TEXT, \
+    jobExperience3Company TEXT, \
+    jobExperience3YearStarted TEXT, \
+    jobExperience3YearEnded TEXT, \
+    jobExperience4Title TEXT, \
+    jobExperience4Company TEXT, \
+    jobExperience4YearStarted TEXT, \
+    jobExperience4YearEnded TEXT, \
+    jobExperience5Title TEXT, \
+    jobExperience5Company TEXT, \
+    jobExperience5YearStarted TEXT, \
+    jobExperience5YearEnded TEXT, \
+    certification1Title TEXT, \
+    certification2Title TEXT, \
+    certification3Title TEXT, \
+    certification4Title TEXT, \
+    certification5Title TEXT, \
+    accomplishment1Title TEXT, \
+    accomplishment2Title TEXT, \
+    accomplishment3Title TEXT, \
+    accomplishment4Title TEXT, \
+    accomplishment5Title TEXT, \
+    reference1Name TEXT, \
+    reference1Title TEXT, \
+    reference1ContactInfo TEXT, \
+    reference2Name TEXT, \
+    reference2Title TEXT, \
+    reference2ContactInfo TEXT, \
+    reference3Name TEXT, \
+    reference3Title TEXT, \
+    reference3ContactInfo TEXT, \
     raw_text TEXT, \
     red_flag_1 BOOLEAN, \
     red_flag_2 BOOLEAN, \
@@ -33,17 +89,73 @@ db.run(
     red_flag_5 BOOLEAN, \
     red_flag_6 BOOLEAN, \
     red_flag_7 BOOLEAN, \
-    red_flag_8 BOOLEAN)"
+    red_flag_8 BOOLEAN\
+    )"
 );
 
 function insertUser(userData) {
   let {
     name,
-    education,
-    skills,
-    experience,
-    certifications,
-    accomplishments,
+    highestEducation,
+    education1FullTitle,
+    education1SchoolName,
+    education1YearEnded,
+    education2FullTitle,
+    education2SchoolName,
+    education2YearEnded,
+    education3FullTitle,
+    education3SchoolName,
+    education3YearEnded,
+    mostNotableSkill1,
+    mostNotableSkill2,
+    mostNotableSkill3,
+    mostNotableSkill4,
+    mostNotableSkill5,
+    programmingLanguage1,
+    programmingLanguage2,
+    programmingLanguage3,
+    programmingLanguage4,
+    programmingLanguage5,
+    otherSkills,
+    jobExperience1Title,
+    jobExperience1Company,
+    jobExperience1YearStarted,
+    jobExperience1YearEnded,
+    jobExperience2Title,
+    jobExperience2Company,
+    jobExperience2YearStarted,
+    jobExperience2YearEnded,
+    jobExperience3Title,
+    jobExperience3Company,
+    jobExperience3YearStarted,
+    jobExperience3YearEnded,
+    jobExperience4Title,
+    jobExperience4Company,
+    jobExperience4YearStarted,
+    jobExperience4YearEnded,
+    jobExperience5Title,
+    jobExperience5Company,
+    jobExperience5YearStarted,
+    jobExperience5YearEnded,
+    certification1Title,
+    certification2Title,
+    certification3Title,
+    certification4Title,
+    certification5Title,
+    accomplishment1Title,
+    accomplishment2Title,
+    accomplishment3Title,
+    accomplishment4Title,
+    accomplishment5Title,
+    reference1Name,
+    reference1Title,
+    reference1ContactInfo,
+    reference2Name,
+    reference2Title,
+    reference2ContactInfo,
+    reference3Name,
+    reference3Title,
+    reference3ContactInfo,
     raw_text,
   } = userData;
   if (name == "") {
@@ -59,14 +171,132 @@ function insertUser(userData) {
       console.log(`User ${name} already exists with ID: ${row.id}`);
     } else {
       db.run(
-        `INSERT INTO users (name, education, skills, experience, certifications, accomplishments, raw_text) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO users (
+          name,
+          highestEducation,
+          education1FullTitle,
+          education1SchoolName,
+          education1YearEnded,
+          education2FullTitle,
+          education2SchoolName,
+          education2YearEnded,
+          education3FullTitle,
+          education3SchoolName,
+          education3YearEnded,
+          mostNotableSkill1,
+          mostNotableSkill2,
+          mostNotableSkill3,
+          mostNotableSkill4,
+          mostNotableSkill5,
+          programmingLanguage1,
+          programmingLanguage2,
+          programmingLanguage3,
+          programmingLanguage4,
+          programmingLanguage5,
+          otherSkills,
+          jobExperience1Title,
+          jobExperience1Company,
+          jobExperience1YearStarted,
+          jobExperience1YearEnded,
+          jobExperience2Title,
+          jobExperience2Company,
+          jobExperience2YearStarted,
+          jobExperience2YearEnded,
+          jobExperience3Title,
+          jobExperience3Company,
+          jobExperience3YearStarted,
+          jobExperience3YearEnded,
+          jobExperience4Title,
+          jobExperience4Company,
+          jobExperience4YearStarted,
+          jobExperience4YearEnded,
+          jobExperience5Title,
+          jobExperience5Company,
+          jobExperience5YearStarted,
+          jobExperience5YearEnded,
+          certification1Title,
+          certification2Title,
+          certification3Title,
+          certification4Title,
+          certification5Title,
+          accomplishment1Title,
+          accomplishment2Title,
+          accomplishment3Title,
+          accomplishment4Title,
+          accomplishment5Title,
+          reference1Name,
+          reference1Title,
+          reference1ContactInfo,
+          reference2Name,
+          reference2Title,
+          reference2ContactInfo,
+          reference3Name,
+          reference3Title,
+          reference3ContactInfo,
+          raw_text
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           name,
-          education,
-          skills,
-          experience,
-          certifications,
-          accomplishments,
+          highestEducation,
+          education1FullTitle,
+          education1SchoolName,
+          education1YearEnded,
+          education2FullTitle,
+          education2SchoolName,
+          education2YearEnded,
+          education3FullTitle,
+          education3SchoolName,
+          education3YearEnded,
+          mostNotableSkill1,
+          mostNotableSkill2,
+          mostNotableSkill3,
+          mostNotableSkill4,
+          mostNotableSkill5,
+          programmingLanguage1,
+          programmingLanguage2,
+          programmingLanguage3,
+          programmingLanguage4,
+          programmingLanguage5,
+          otherSkills,
+          jobExperience1Title,
+          jobExperience1Company,
+          jobExperience1YearStarted,
+          jobExperience1YearEnded,
+          jobExperience2Title,
+          jobExperience2Company,
+          jobExperience2YearStarted,
+          jobExperience2YearEnded,
+          jobExperience3Title,
+          jobExperience3Company,
+          jobExperience3YearStarted,
+          jobExperience3YearEnded,
+          jobExperience4Title,
+          jobExperience4Company,
+          jobExperience4YearStarted,
+          jobExperience4YearEnded,
+          jobExperience5Title,
+          jobExperience5Company,
+          jobExperience5YearStarted,
+          jobExperience5YearEnded,
+          certification1Title,
+          certification2Title,
+          certification3Title,
+          certification4Title,
+          certification5Title,
+          accomplishment1Title,
+          accomplishment2Title,
+          accomplishment3Title,
+          accomplishment4Title,
+          accomplishment5Title,
+          reference1Name,
+          reference1Title,
+          reference1ContactInfo,
+          reference2Name,
+          reference2Title,
+          reference2ContactInfo,
+          reference3Name,
+          reference3Title,
+          reference3ContactInfo,
           raw_text,
         ],
         function (err) {
@@ -242,6 +472,7 @@ app.post("/cvsummarize", async (req, res) => {
   const { pdfText } = req.body;
   try {
     const applicant = await CVSummarize(pdfText, openai);
+    console.log(applicant);
     insertUser(applicant); // Insert the user data into the database
     res.json(applicant);
   } catch (error) {

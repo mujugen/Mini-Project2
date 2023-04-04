@@ -369,13 +369,13 @@ function addCardApplicant(container_id, user) {
   const education = document.createElement("p");
   const experience = document.createElement("p");
   const skills = document.createElement("p");
-  const certifications = document.createElement("p");
+  const certification = document.createElement("p");
   const accomplishments = document.createElement("p");
   const name_content = document.createElement("p");
   const education_content = document.createElement("p");
   const experience_content = document.createElement("p");
   const skills_content = document.createElement("p");
-  const certifications_content = document.createElement("p");
+  const certification_content = document.createElement("p");
   const accomplishments_content = document.createElement("p");
   const img = document.createElement("img");
   var img_filename = "profile-placeholder.jpg";
@@ -388,28 +388,149 @@ function addCardApplicant(container_id, user) {
   education.className = "cell-text-title";
   experience.className = "cell-text-title";
   skills.className = "cell-text-title";
-  certifications.className = "cell-text-title";
+  certification.className = "cell-text-title";
   accomplishments.className = "cell-text-title";
   /* Text Title */
-  name.textContent = "Name";
-  education.textContent = "Education";
-  experience.textContent = "Experience";
-  skills.textContent = "Skills";
-  certifications.textContent = "Certifications";
-  accomplishments.textContent = "Accomplishments";
+  name.innerHTML = "Name";
+  education.innerHTML = "Education";
+  experience.innerHTML = "Experience";
+  skills.innerHTML = "Skills";
+  certification.innerHTML = "Certifications";
+  accomplishments.innerHTML = "Accomplishments";
   // Text Content
-  name_content.textContent = user.name ?? "N/A";
-  education_content.textContent = user.education ?? "N/A";
-  experience_content.textContent = user.experience ?? "N/A";
-  skills_content.textContent = user.skills ?? "N/A";
-  certifications_content.textContent = user.certifications ?? "N/A";
-  accomplishments_content.textContent = user.accomplishments ?? "N/A";
+  name_content.innerHTML = user.name;
+  if (user.education1FullTitle != "N/A") {
+    education_content.innerHTML = user.education1FullTitle;
+    education_content.innerHTML += "<br>";
+    education_content.innerHTML += user.education1SchoolName;
+    education_content.innerHTML += "<br>";
+    education_content.innerHTML += user.education1YearEnded;
+    education_content.innerHTML += "<br><hr>";
+  }
+  if (user.education2FullTitle != "N/A") {
+    education_content.innerHTML += user.education2FullTitle;
+    education_content.innerHTML += "<br>";
+    education_content.innerHTML += user.education2SchoolName;
+    education_content.innerHTML += "<br>";
+    education_content.innerHTML += user.education2YearEnded;
+    education_content.innerHTML += "<br><hr>";
+  }
+  if (user.education3FullTitle != "N/A") {
+    education_content.innerHTML += user.education3FullTitle;
+    education_content.innerHTML += "<br>";
+    education_content.innerHTML += user.education3SchoolName;
+    education_content.innerHTML += "<br>";
+    education_content.innerHTML += user.education3YearEnded;
+    education_content.innerHTML += "<br><hr>";
+  }
+  if (user.jobExperience1Title != "N/A") {
+    experience_content.innerHTML = user.jobExperience1Title;
+    experience_content.innerHTML += "<br>";
+    experience_content.innerHTML += user.jobExperience1Company;
+    experience_content.innerHTML += "<br>";
+    experience_content.innerHTML += user.jobExperience1YearEnded;
+    experience_content.innerHTML += "<br><hr>";
+  }
+  if (user.jobExperience2Title != "N/A") {
+    experience_content.innerHTML += user.jobExperience2Title;
+    experience_content.innerHTML += "<br>";
+    experience_content.innerHTML += user.jobExperience2Company;
+    experience_content.innerHTML += "<br>";
+    experience_content.innerHTML += user.jobExperience2YearEnded;
+    experience_content.innerHTML += "<br><hr>";
+  }
+  if (user.jobExperience3Title != "N/A") {
+    experience_content.innerHTML += user.jobExperience3Title;
+    experience_content.innerHTML += "<br>";
+    experience_content.innerHTML += user.jobExperience3Company;
+    experience_content.innerHTML += "<br>";
+    experience_content.innerHTML += user.jobExperience3YearEnded;
+    experience_content.innerHTML += "<br><hr>";
+  }
+  if (user.programmingLanguage1 != "N/A") {
+    skills_content.innerHTML = user.programmingLanguage1;
+    skills_content.innerHTML += "<br><hr>";
+  }
+  if (user.programmingLanguage2 != "N/A") {
+    skills_content.innerHTML = user.programmingLanguage2;
+    skills_content.innerHTML += "<br><hr>";
+  }
+  if (user.programmingLanguage3 != "N/A") {
+    skills_content.innerHTML = user.programmingLanguage3;
+    skills_content.innerHTML += "<br><hr>";
+  }
+  if (user.programmingLanguage4 != "N/A") {
+    skills_content.innerHTML = user.programmingLanguage4;
+    skills_content.innerHTML += "<br><hr>";
+  }
+  if (user.programmingLanguage5 != "N/A") {
+    skills_content.innerHTML = user.programmingLanguage5;
+    skills_content.innerHTML += "<br><hr>";
+  }
+  if (user.certification1Title != "N/A") {
+    certification_content.innerHTML = user.certification1Title;
+    certification_content.innerHTML += "<br><hr>";
+  }
+  if (user.certification2Title != "N/A") {
+    certification_content.innerHTML = user.certification2Title;
+    certification_content.innerHTML += "<br><hr>";
+  }
+  if (user.certification3Title != "N/A") {
+    certification_content.innerHTML = user.certification3Title;
+    certification_content.innerHTML += "<br><hr>";
+  }
+  if (user.certification4Title != "N/A") {
+    certification_content.innerHTML = user.certification4Title;
+    certification_content.innerHTML += "<br><hr>";
+  }
+  if (user.certification5Title != "N/A") {
+    certification_content.innerHTML = user.certification5Title;
+    certification_content.innerHTML += "<br><hr>";
+  }
+  if (user.accomplishment1Title != "N/A") {
+    accomplishments_content.innerHTML = user.accomplishment1Title;
+    accomplishments_content.innerHTML += "<br><hr>";
+  }
+  if (user.accomplishment2Title != "N/A") {
+    accomplishments_content.innerHTML = user.accomplishment2Title;
+    accomplishments_content.innerHTML += "<br><hr>";
+  }
+  if (user.accomplishment3Title != "N/A") {
+    accomplishments_content.innerHTML = user.accomplishment3Title;
+    accomplishments_content.innerHTML += "<br><hr>";
+  }
+  if (user.accomplishment4Title != "N/A") {
+    accomplishments_content.innerHTML = user.accomplishment4Title;
+    accomplishments_content.innerHTML += "<br><hr>";
+  }
+  if (user.accomplishment5Title != "N/A") {
+    accomplishments_content.innerHTML = user.accomplishment5Title;
+    accomplishments_content.innerHTML += "<br><hr>";
+  }
+  if (!accomplishments_content.textContent.trim()) {
+    accomplishments_content.innerHTML = "N/A";
+  }
+  if (!certification_content.textContent.trim()) {
+    certification_content.innerHTML = "N/A";
+  }
+  if (!skills_content.textContent.trim()) {
+    skills_content.innerHTML = "N/A";
+  }
+  if (!experience_content.textContent.trim()) {
+    experience_content.innerHTML = "N/A";
+  }
+  if (!education_content.textContent.trim()) {
+    education_content.innerHTML = "N/A";
+  }
+  if (!name_content.textContent.trim()) {
+    name_content.innerHTML = "N/A";
+  }
   /* Set unique ID for the container using name_content */
   const containerUniqueId =
-    "container_" + name_content.textContent.replace(/\s+/g, "_");
+    "container_" + name_content.innerHTML.replace(/\s+/g, "_");
   cell.id = containerUniqueId;
   const cellTextUniqueId =
-    "cell_text_" + name_content.textContent.replace(/\s+/g, "_");
+    "cell_text_" + name_content.innerHTML.replace(/\s+/g, "_");
   cell_text.id = cellTextUniqueId;
   /* Append all created elements */
   container.append(cell);
@@ -423,8 +544,8 @@ function addCardApplicant(container_id, user) {
     experience_content,
     skills,
     skills_content,
-    certifications,
-    certifications_content,
+    certification,
+    certification_content,
     accomplishments,
     accomplishments_content
   );
