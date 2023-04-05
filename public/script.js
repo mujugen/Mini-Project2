@@ -81,7 +81,17 @@ $(document).ready(function () {
     }
     $("#pdfContainers").remove();
   });
-  /* convertUploadedFiles(); */
+  // Event listener to finalize selection and move to next page
+  $("#finalizeBtn").on("click", function () {
+    console.log("Finalize button clicked");
+    selectedApplicants = retrieveSelectedApplicants();
+    if (selectedApplicants.length == 0) {
+      alert("Nothing to finalize");
+      event.preventDefault();
+    } else {
+      // Send to other page with list of selected applicants
+    }
+  });
   displaySelectedFilter();
 });
 
