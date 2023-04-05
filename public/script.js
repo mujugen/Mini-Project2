@@ -618,6 +618,11 @@ function addCardApplicant(container_id, user) {
   );
 }
 
+
+// Start of skill filter functions
+// Start of skill filter functions
+
+// Checks all the available skills from the globalUserArray
 function getAvailableSkills(globalUserArray) {
   const skillFrequencyMap = new Map();
 
@@ -642,7 +647,7 @@ function getAvailableSkills(globalUserArray) {
   return availableSkills;
 }
 
-// Function to retrieve filter data
+// Checks what checkboxes are checked on the skillFilterForm
 function getSelectedSkillFilters() {
   let filters = [];
   const filterForm = document.getElementById("skillFilterForm");
@@ -657,7 +662,7 @@ function getSelectedSkillFilters() {
   /* console.log(filters); */
 }
 
-/* Function to create reproducable cells */
+// Adds more checkboxes onto skillFilterFrom based on getAvailableSkills
 function addSkillFormGroup(skill) {
   container_id = "skillFilterForm";
   const container = document.getElementById(container_id);
@@ -696,6 +701,7 @@ function addSkillFormGroup(skill) {
   }
 }
 
+// Search function to only display checkboxes based on searched label
 function filterSkills() {
   const searchInput = document.getElementById("skillSearch");
   const searchQuery = searchInput.value.toLowerCase();
@@ -711,6 +717,7 @@ function filterSkills() {
   }
 }
 
+// Updates skillFormGroup based on current available skills
 function updateSkillFilters() {
   const parentDiv = document.getElementById("skillFilterForm");
   let childDiv = parentDiv.querySelector("div");
@@ -724,6 +731,8 @@ function updateSkillFilters() {
     addSkillFormGroup(skillName);
   }
 }
+
+// Checks if user has selected skills based on checkboxes checked
 function hasSelectedLanguages(globalUserArray, filters, userID) {
   for (let i = 0; i < filters.length; i++) {
     let filterFound = false;
@@ -745,6 +754,7 @@ function hasSelectedLanguages(globalUserArray, filters, userID) {
   return true;
 }
 
+// Removes users who doesn't meet criteria
 function removeUnskilledApplicants() {
   filters = getSelectedSkillFilters();
   for (let i = 0; i < globalUserArray.length; i++) {
@@ -758,3 +768,5 @@ function removeUnskilledApplicants() {
     }
   }
 }
+// End of skill filter functions
+// End of skill filter functions
