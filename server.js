@@ -22,46 +22,46 @@ db.run(
     id INTEGER PRIMARY KEY, \
     name TEXT NOT NULL UNIQUE, \
     highestEducation TEXT, \
-    education1FullTitle TEXT, \
-    education1SchoolName TEXT, \
-    education1YearEnded TEXT, \
-    education2FullTitle TEXT, \
-    education2SchoolName TEXT, \
-    education2YearEnded TEXT, \
-    education3FullTitle TEXT, \
-    education3SchoolName TEXT, \
-    education3YearEnded TEXT, \
-    mostNotableSkill1 TEXT, \
-    mostNotableSkill2 TEXT, \
-    mostNotableSkill3 TEXT, \
-    mostNotableSkill4 TEXT, \
-    mostNotableSkill5 TEXT, \
-    programmingLanguage1 TEXT, \
-    programmingLanguage2 TEXT, \
-    programmingLanguage3 TEXT, \
-    programmingLanguage4 TEXT, \
-    programmingLanguage5 TEXT, \
+    educationFullTitle1 TEXT, \
+    educationSchoolName1 TEXT, \
+    educationYearEnded1 TEXT, \
+    educationFullTitle2 TEXT, \
+    educationSchoolName2 TEXT, \
+    educationYearEnded2 TEXT, \
+    educationFullTitle3 TEXT, \
+    educationSchoolName3 TEXT, \
+    educationYearEnded3 TEXT, \
+    skill1 TEXT, \
+    skill2 TEXT, \
+    skill3 TEXT, \
+    skill4 TEXT, \
+    skill5 TEXT, \
+    skill6 TEXT, \
+    skill7 TEXT, \
+    skill8 TEXT, \
+    skill9 TEXT, \
+    skill10 TEXT, \
     otherSkills TEXT, \
-    jobExperience1Title TEXT, \
-    jobExperience1Company TEXT, \
-    jobExperience1YearStarted TEXT, \
-    jobExperience1YearEnded TEXT, \
-    jobExperience2Title TEXT, \
-    jobExperience2Company TEXT, \
-    jobExperience2YearStarted TEXT, \
-    jobExperience2YearEnded TEXT, \
-    jobExperience3Title TEXT, \
-    jobExperience3Company TEXT, \
-    jobExperience3YearStarted TEXT, \
-    jobExperience3YearEnded TEXT, \
+    jobExperienceTitle1 TEXT, \
+    jobExperienceCompany1 TEXT, \
+    jobExperienceYearStarted1 TEXT, \
+    jobExperienceYearEnded1 TEXT, \
+    jobExperienceTitle2 TEXT, \
+    jobExperienceCompany2 TEXT, \
+    jobExperienceYearStarted2 TEXT, \
+    jobExperienceYearEnded2 TEXT, \
+    jobExperienceTitle3 TEXT, \
+    jobExperienceCompany3 TEXT, \
+    jobExperienceYearStarted3 TEXT, \
+    jobExperienceYearEnded3 TEXT, \
     jobExperience4Title TEXT, \
-    jobExperience4Company TEXT, \
-    jobExperience4YearStarted TEXT, \
-    jobExperience4YearEnded TEXT, \
+    jobExperienceCompany4 TEXT, \
+    jobExperienceYearStarted4 TEXT, \
+    jobExperienceYearEnded4 TEXT, \
     jobExperience5Title TEXT, \
-    jobExperience5Company TEXT, \
-    jobExperience5YearStarted TEXT, \
-    jobExperience5YearEnded TEXT, \
+    jobExperienceCompany5 TEXT, \
+    jobExperienceYearStarted5 TEXT, \
+    jobExperienceYearEnded5 TEXT, \
     certification1Title TEXT, \
     certification2Title TEXT, \
     certification3Title TEXT, \
@@ -72,15 +72,15 @@ db.run(
     accomplishment3Title TEXT, \
     accomplishment4Title TEXT, \
     accomplishment5Title TEXT, \
-    reference1Name TEXT, \
-    reference1Title TEXT, \
-    reference1ContactInfo TEXT, \
-    reference2Name TEXT, \
-    reference2Title TEXT, \
-    reference2ContactInfo TEXT, \
-    reference3Name TEXT, \
-    reference3Title TEXT, \
-    reference3ContactInfo TEXT, \
+    referenceName1 TEXT, \
+    referenceTitle1 TEXT, \
+    referenceContactInfo1 TEXT, \
+    referenceName2 TEXT, \
+    referenceTitle2 TEXT, \
+    referenceContactInfo2 TEXT, \
+    referenceName3 TEXT, \
+    referenceTitle3 TEXT, \
+    referenceContactInfo3 TEXT, \
     raw_text TEXT, \
     red_flag_1 BOOLEAN, \
     red_flag_2 BOOLEAN, \
@@ -97,46 +97,46 @@ function insertUser(userData) {
   let {
     name,
     highestEducation,
-    education1FullTitle,
-    education1SchoolName,
-    education1YearEnded,
-    education2FullTitle,
-    education2SchoolName,
-    education2YearEnded,
-    education3FullTitle,
-    education3SchoolName,
-    education3YearEnded,
-    mostNotableSkill1,
-    mostNotableSkill2,
-    mostNotableSkill3,
-    mostNotableSkill4,
-    mostNotableSkill5,
-    programmingLanguage1,
-    programmingLanguage2,
-    programmingLanguage3,
-    programmingLanguage4,
-    programmingLanguage5,
+    educationFullTitle1,
+    educationSchoolName1,
+    educationYearEnded1,
+    educationFullTitle2,
+    educationSchoolName2,
+    educationYearEnded2,
+    educationFullTitle3,
+    educationSchoolName3,
+    educationYearEnded3,
+    skill1,
+    skill2,
+    skill3,
+    skill4,
+    skill5,
+    skill6,
+    skill7,
+    skill8,
+    skill9,
+    skill10,
     otherSkills,
-    jobExperience1Title,
-    jobExperience1Company,
-    jobExperience1YearStarted,
-    jobExperience1YearEnded,
-    jobExperience2Title,
-    jobExperience2Company,
-    jobExperience2YearStarted,
-    jobExperience2YearEnded,
-    jobExperience3Title,
-    jobExperience3Company,
-    jobExperience3YearStarted,
-    jobExperience3YearEnded,
+    jobExperienceTitle1,
+    jobExperienceCompany1,
+    jobExperienceYearStarted1,
+    jobExperienceYearEnded1,
+    jobExperienceTitle2,
+    jobExperienceCompany2,
+    jobExperienceYearStarted2,
+    jobExperienceYearEnded2,
+    jobExperienceTitle3,
+    jobExperienceCompany3,
+    jobExperienceYearStarted3,
+    jobExperienceYearEnded3,
     jobExperience4Title,
-    jobExperience4Company,
-    jobExperience4YearStarted,
-    jobExperience4YearEnded,
+    jobExperienceCompany4,
+    jobExperienceYearStarted4,
+    jobExperienceYearEnded4,
     jobExperience5Title,
-    jobExperience5Company,
-    jobExperience5YearStarted,
-    jobExperience5YearEnded,
+    jobExperienceCompany5,
+    jobExperienceYearStarted5,
+    jobExperienceYearEnded5,
     certification1Title,
     certification2Title,
     certification3Title,
@@ -147,15 +147,15 @@ function insertUser(userData) {
     accomplishment3Title,
     accomplishment4Title,
     accomplishment5Title,
-    reference1Name,
-    reference1Title,
-    reference1ContactInfo,
-    reference2Name,
-    reference2Title,
-    reference2ContactInfo,
-    reference3Name,
-    reference3Title,
-    reference3ContactInfo,
+    referenceName1,
+    referenceTitle1,
+    referenceContactInfo1,
+    referenceName2,
+    referenceTitle2,
+    referenceContactInfo2,
+    referenceName3,
+    referenceTitle3,
+    referenceContactInfo3,
     raw_text,
   } = userData;
   if (name == "") {
@@ -174,46 +174,46 @@ function insertUser(userData) {
         `INSERT INTO users (
           name,
           highestEducation,
-          education1FullTitle,
-          education1SchoolName,
-          education1YearEnded,
-          education2FullTitle,
-          education2SchoolName,
-          education2YearEnded,
-          education3FullTitle,
-          education3SchoolName,
-          education3YearEnded,
-          mostNotableSkill1,
-          mostNotableSkill2,
-          mostNotableSkill3,
-          mostNotableSkill4,
-          mostNotableSkill5,
-          programmingLanguage1,
-          programmingLanguage2,
-          programmingLanguage3,
-          programmingLanguage4,
-          programmingLanguage5,
+          educationFullTitle1,
+          educationSchoolName1,
+          educationYearEnded1,
+          educationFullTitle2,
+          educationSchoolName2,
+          educationYearEnded2,
+          educationFullTitle3,
+          educationSchoolName3,
+          educationYearEnded3,
+          skill1,
+          skill2,
+          skill3,
+          skill4,
+          skill5,
+          skill6,
+          skill7,
+          skill8,
+          skill9,
+          skill10,
           otherSkills,
-          jobExperience1Title,
-          jobExperience1Company,
-          jobExperience1YearStarted,
-          jobExperience1YearEnded,
-          jobExperience2Title,
-          jobExperience2Company,
-          jobExperience2YearStarted,
-          jobExperience2YearEnded,
-          jobExperience3Title,
-          jobExperience3Company,
-          jobExperience3YearStarted,
-          jobExperience3YearEnded,
+          jobExperienceTitle1,
+          jobExperienceCompany1,
+          jobExperienceYearStarted1,
+          jobExperienceYearEnded1,
+          jobExperienceTitle2,
+          jobExperienceCompany2,
+          jobExperienceYearStarted2,
+          jobExperienceYearEnded2,
+          jobExperienceTitle3,
+          jobExperienceCompany3,
+          jobExperienceYearStarted3,
+          jobExperienceYearEnded3,
           jobExperience4Title,
-          jobExperience4Company,
-          jobExperience4YearStarted,
-          jobExperience4YearEnded,
+          jobExperienceCompany4,
+          jobExperienceYearStarted4,
+          jobExperienceYearEnded4,
           jobExperience5Title,
-          jobExperience5Company,
-          jobExperience5YearStarted,
-          jobExperience5YearEnded,
+          jobExperienceCompany5,
+          jobExperienceYearStarted5,
+          jobExperienceYearEnded5,
           certification1Title,
           certification2Title,
           certification3Title,
@@ -224,60 +224,60 @@ function insertUser(userData) {
           accomplishment3Title,
           accomplishment4Title,
           accomplishment5Title,
-          reference1Name,
-          reference1Title,
-          reference1ContactInfo,
-          reference2Name,
-          reference2Title,
-          reference2ContactInfo,
-          reference3Name,
-          reference3Title,
-          reference3ContactInfo,
+          referenceName1,
+          referenceTitle1,
+          referenceContactInfo1,
+          referenceName2,
+          referenceTitle2,
+          referenceContactInfo2,
+          referenceName3,
+          referenceTitle3,
+          referenceContactInfo3,
           raw_text
         ) VALUES (COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'))`,
         [
           name,
           highestEducation,
-          education1FullTitle,
-          education1SchoolName,
-          education1YearEnded,
-          education2FullTitle,
-          education2SchoolName,
-          education2YearEnded,
-          education3FullTitle,
-          education3SchoolName,
-          education3YearEnded,
-          mostNotableSkill1,
-          mostNotableSkill2,
-          mostNotableSkill3,
-          mostNotableSkill4,
-          mostNotableSkill5,
-          programmingLanguage1,
-          programmingLanguage2,
-          programmingLanguage3,
-          programmingLanguage4,
-          programmingLanguage5,
+          educationFullTitle1,
+          educationSchoolName1,
+          educationYearEnded1,
+          educationFullTitle2,
+          educationSchoolName2,
+          educationYearEnded2,
+          educationFullTitle3,
+          educationSchoolName3,
+          educationYearEnded3,
+          skill1,
+          skill2,
+          skill3,
+          skill4,
+          skill5,
+          skill6,
+          skill7,
+          skill8,
+          skill9,
+          skill10,
           otherSkills,
-          jobExperience1Title,
-          jobExperience1Company,
-          jobExperience1YearStarted,
-          jobExperience1YearEnded,
-          jobExperience2Title,
-          jobExperience2Company,
-          jobExperience2YearStarted,
-          jobExperience2YearEnded,
-          jobExperience3Title,
-          jobExperience3Company,
-          jobExperience3YearStarted,
-          jobExperience3YearEnded,
+          jobExperienceTitle1,
+          jobExperienceCompany1,
+          jobExperienceYearStarted1,
+          jobExperienceYearEnded1,
+          jobExperienceTitle2,
+          jobExperienceCompany2,
+          jobExperienceYearStarted2,
+          jobExperienceYearEnded2,
+          jobExperienceTitle3,
+          jobExperienceCompany3,
+          jobExperienceYearStarted3,
+          jobExperienceYearEnded3,
           jobExperience4Title,
-          jobExperience4Company,
-          jobExperience4YearStarted,
-          jobExperience4YearEnded,
+          jobExperienceCompany4,
+          jobExperienceYearStarted4,
+          jobExperienceYearEnded4,
           jobExperience5Title,
-          jobExperience5Company,
-          jobExperience5YearStarted,
-          jobExperience5YearEnded,
+          jobExperienceCompany5,
+          jobExperienceYearStarted5,
+          jobExperienceYearEnded5,
           certification1Title,
           certification2Title,
           certification3Title,
@@ -288,15 +288,15 @@ function insertUser(userData) {
           accomplishment3Title,
           accomplishment4Title,
           accomplishment5Title,
-          reference1Name,
-          reference1Title,
-          reference1ContactInfo,
-          reference2Name,
-          reference2Title,
-          reference2ContactInfo,
-          reference3Name,
-          reference3Title,
-          reference3ContactInfo,
+          referenceName1,
+          referenceTitle1,
+          referenceContactInfo1,
+          referenceName2,
+          referenceTitle2,
+          referenceContactInfo2,
+          referenceName3,
+          referenceTitle3,
+          referenceContactInfo3,
           raw_text,
         ],
         function (err) {

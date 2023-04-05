@@ -163,7 +163,13 @@ async function convertUploadedFiles() {
         applicant = await fetchCVSummarize(rawText);
         // Update globalUserArray
         globalUserArray = await fetchUserDBP();
-        updateSkillFilters();
+        updateItemFilters(
+          globalUserArray,
+          "skill",
+          5,
+          "skillFilterForm",
+          skillFilterCallback
+        );
       } else {
         // If found in the database, use the returned applicant data
         console.log("Applicant found in DB");
@@ -353,7 +359,13 @@ async function runRedFlagRemover() {
       $(container_id).remove();
       globalUserArray.splice(i, 1);
       i--; // Decrement the index to compensate for the removed element
-      updateSkillFilters();
+      updateItemFilters(
+        globalUserArray,
+        "skill",
+        5,
+        "skillFilterForm",
+        skillFilterCallback
+      );
     }
   }
 }
@@ -403,7 +415,13 @@ var globalUserArray;
 
 const fetchAndAssignUserArray = async () => {
   globalUserArray = await fetchUserDBP();
-  updateSkillFilters();
+  updateItemFilters(
+    globalUserArray,
+    "skill",
+    5,
+    "skillFilterForm",
+    skillFilterCallback
+  );
 };
 
 fetchAndAssignUserArray()
@@ -455,72 +473,72 @@ function addCardApplicant(container_id, user) {
   accomplishments.innerHTML = `<hr style="height:2px;border-width:0;color:gray;background-color:gray">Accomplishments`;
   // Text Content
   name_content.innerHTML = user.name;
-  if (user.education1FullTitle != "N/A" && user.education1FullTitle != "") {
-    education_content.innerHTML = user.education1FullTitle;
+  if (user.educationFullTitle1 != "N/A" && user.educationFullTitle1 != "") {
+    education_content.innerHTML = user.educationFullTitle1;
     education_content.innerHTML += "<br>";
-    education_content.innerHTML += user.education1SchoolName;
+    education_content.innerHTML += user.educationSchoolName1;
     education_content.innerHTML += "<br>";
-    education_content.innerHTML += user.education1YearEnded;
+    education_content.innerHTML += user.educationYearEnded1;
     education_content.innerHTML += "<br><hr>";
   }
-  if (user.education2FullTitle != "N/A" && user.education2FullTitle != "") {
-    education_content.innerHTML += user.education2FullTitle;
+  if (user.educationFullTitle2 != "N/A" && user.educationFullTitle2 != "") {
+    education_content.innerHTML += user.educationFullTitle2;
     education_content.innerHTML += "<br>";
-    education_content.innerHTML += user.education2SchoolName;
+    education_content.innerHTML += user.educationSchoolName2;
     education_content.innerHTML += "<br>";
-    education_content.innerHTML += user.education2YearEnded;
+    education_content.innerHTML += user.educationYearEnded2;
     education_content.innerHTML += "<br><hr>";
   }
-  if (user.education3FullTitle != "N/A" && user.education3FullTitle != "") {
-    education_content.innerHTML += user.education3FullTitle;
+  if (user.educationFullTitle3 != "N/A" && user.educationFullTitle3 != "") {
+    education_content.innerHTML += user.educationFullTitle3;
     education_content.innerHTML += "<br>";
-    education_content.innerHTML += user.education3SchoolName;
+    education_content.innerHTML += user.educationSchoolName3;
     education_content.innerHTML += "<br>";
-    education_content.innerHTML += user.education3YearEnded;
+    education_content.innerHTML += user.educationYearEnded3;
     education_content.innerHTML += "<br><hr>";
   }
-  if (user.jobExperience1Title != "N/A" && user.jobExperience1Title != "") {
-    experience_content.innerHTML = user.jobExperience1Title;
+  if (user.jobExperienceTitle1 != "N/A" && user.jobExperienceTitle1 != "") {
+    experience_content.innerHTML = user.jobExperienceTitle1;
     experience_content.innerHTML += "<br>";
-    experience_content.innerHTML += user.jobExperience1Company;
+    experience_content.innerHTML += user.jobExperienceCompany1;
     experience_content.innerHTML += "<br>";
-    experience_content.innerHTML += user.jobExperience1YearEnded;
+    experience_content.innerHTML += user.jobExperienceYearEnded1;
     experience_content.innerHTML += "<br><hr>";
   }
-  if (user.jobExperience2Title != "N/A" && user.jobExperience2Title != "") {
-    experience_content.innerHTML += user.jobExperience2Title;
+  if (user.jobExperienceTitle2 != "N/A" && user.jobExperienceTitle2 != "") {
+    experience_content.innerHTML += user.jobExperienceTitle2;
     experience_content.innerHTML += "<br>";
-    experience_content.innerHTML += user.jobExperience2Company;
+    experience_content.innerHTML += user.jobExperienceCompany2;
     experience_content.innerHTML += "<br>";
-    experience_content.innerHTML += user.jobExperience2YearEnded;
+    experience_content.innerHTML += user.jobExperienceYearEnded2;
     experience_content.innerHTML += "<br><hr>";
   }
-  if (user.jobExperience3Title != "N/A" && user.jobExperience3Title != "") {
-    experience_content.innerHTML += user.jobExperience3Title;
+  if (user.jobExperienceTitle3 != "N/A" && user.jobExperienceTitle3 != "") {
+    experience_content.innerHTML += user.jobExperienceTitle3;
     experience_content.innerHTML += "<br>";
-    experience_content.innerHTML += user.jobExperience3Company;
+    experience_content.innerHTML += user.jobExperienceCompany3;
     experience_content.innerHTML += "<br>";
-    experience_content.innerHTML += user.jobExperience3YearEnded;
+    experience_content.innerHTML += user.jobExperienceYearEnded3;
     experience_content.innerHTML += "<br><hr>";
   }
-  if (user.programmingLanguage1 != "N/A" && user.programmingLanguage1 != "") {
-    skills_content.innerHTML = user.programmingLanguage1;
+  if (user.skill1 != "N/A" && user.skill1 != "") {
+    skills_content.innerHTML = user.skill1;
     skills_content.innerHTML += "<br><hr>";
   }
-  if (user.programmingLanguage2 != "N/A" && user.programmingLanguage2 != "") {
-    skills_content.innerHTML += user.programmingLanguage2;
+  if (user.skill2 != "N/A" && user.skill2 != "") {
+    skills_content.innerHTML += user.skill2;
     skills_content.innerHTML += "<br><hr>";
   }
-  if (user.programmingLanguage3 != "N/A" && user.programmingLanguage3 != "") {
-    skills_content.innerHTML += user.programmingLanguage3;
+  if (user.skill3 != "N/A" && user.skill3 != "") {
+    skills_content.innerHTML += user.skill3;
     skills_content.innerHTML += "<br><hr>";
   }
-  if (user.programmingLanguage4 != "N/A" && user.programmingLanguage4 != "") {
-    skills_content.innerHTML += user.programmingLanguage4;
+  if (user.skill4 != "N/A" && user.skill4 != "") {
+    skills_content.innerHTML += user.skill4;
     skills_content.innerHTML += "<br><hr>";
   }
-  if (user.programmingLanguage5 != "N/A" && user.programmingLanguage5 != "") {
-    skills_content.innerHTML += user.programmingLanguage5;
+  if (user.skill5 != "N/A" && user.skill5 != "") {
+    skills_content.innerHTML += user.skill5;
     skills_content.innerHTML += "<br><hr>";
   }
   if (user.certification1Title != "N/A" && user.certification1Title != "") {
@@ -618,39 +636,38 @@ function addCardApplicant(container_id, user) {
   );
 }
 
-
 // Start of skill filter functions
 // Start of skill filter functions
 
 // Checks all the available skills from the globalUserArray
-function getAvailableSkills(globalUserArray) {
-  const skillFrequencyMap = new Map();
+function getAvailableItems(globalUserArray, itemKeyPrefix, itemCount) {
+  const itemFrequencyMap = new Map();
 
   globalUserArray.forEach((user) => {
-    for (let i = 1; i <= 5; i++) {
-      const skillKey = `programmingLanguage${i}`;
-      if (skillKey in user) {
-        const skill = user[skillKey];
-        if (skillFrequencyMap.has(skill)) {
-          skillFrequencyMap.set(skill, skillFrequencyMap.get(skill) + 1);
+    for (let i = 1; i <= itemCount; i++) {
+      const itemKey = `${itemKeyPrefix}${i}`;
+      if (itemKey in user) {
+        const item = user[itemKey];
+        if (itemFrequencyMap.has(item)) {
+          itemFrequencyMap.set(item, itemFrequencyMap.get(item) + 1);
         } else {
-          skillFrequencyMap.set(skill, 1);
+          itemFrequencyMap.set(item, 1);
         }
       }
     }
   });
 
-  const availableSkills = Array.from(skillFrequencyMap.entries())
+  const availableItems = Array.from(itemFrequencyMap.entries())
     .sort((a, b) => b[1] - a[1])
     .map(([key]) => key);
 
-  return availableSkills;
+  return availableItems;
 }
 
-// Checks what checkboxes are checked on the skillFilterForm
-function getSelectedSkillFilters() {
+// Checks what checkboxes are checked on the filterFormId
+function getSelectedCategoryFilters(filterFormId) {
   let filters = [];
-  const filterForm = document.getElementById("skillFilterForm");
+  const filterForm = document.getElementById(filterFormId);
   const checkboxes = filterForm.querySelectorAll("input[type='checkbox']");
 
   for (let i = 0; i < checkboxes.length; i++) {
@@ -659,12 +676,10 @@ function getSelectedSkillFilters() {
     }
   }
   return filters;
-  /* console.log(filters); */
 }
 
 // Adds more checkboxes onto skillFilterFrom based on getAvailableSkills
-function addSkillFormGroup(skill) {
-  container_id = "skillFilterForm";
+function addItemFormGroup(item, container_id, callbackFunction) {
   const container = document.getElementById(container_id);
   /* Create elements */
   const form_group = document.createElement("div");
@@ -674,26 +689,11 @@ function addSkillFormGroup(skill) {
   const input = document.createElement("input");
   input.className = "form-check-input";
   input.type = "checkbox";
-  input.value = skill;
-  input.onchange = function () {
-    const parentDiv = document.getElementById("userContainers");
-    let childDiv = parentDiv.querySelector("div");
-    while (childDiv) {
-      parentDiv.removeChild(childDiv);
-      childDiv = parentDiv.querySelector("div");
-    }
-    if (globalUserArray.length == 0) {
-      alert("Nothing to to convert");
-      event.preventDefault();
-    } else {
-      displayUserSummary();
-    }
-    getSelectedSkillFilters();
-    removeUnskilledApplicants();
-  };
+  input.value = item;
+  input.onchange = callbackFunction;
   const label = document.createElement("label");
   label.className = "form-check-label";
-  label.textContent = skill;
+  label.textContent = item;
   /* Append all created elements */
   if (label.textContent != "N/A") {
     container.append(form_check);
@@ -718,29 +718,41 @@ function filterSkills() {
 }
 
 // Updates skillFormGroup based on current available skills
-function updateSkillFilters() {
-  const parentDiv = document.getElementById("skillFilterForm");
+function updateItemFilters(
+  globalUserArray,
+  itemKeyPrefix,
+  itemCount,
+  container_id,
+  callbackFunction
+) {
+  const parentDiv = document.getElementById(container_id);
   let childDiv = parentDiv.querySelector("div");
   while (childDiv) {
     parentDiv.removeChild(childDiv);
     childDiv = parentDiv.querySelector("div");
   }
-  availableSkills = getAvailableSkills(globalUserArray);
-  for (skill in availableSkills) {
-    const skillName = availableSkills[skill];
-    addSkillFormGroup(skillName);
+  availableItems = getAvailableItems(globalUserArray, itemKeyPrefix, itemCount);
+  for (item in availableItems) {
+    const itemName = availableItems[item];
+    addItemFormGroup(itemName, container_id, callbackFunction);
   }
 }
 
 // Checks if user has selected skills based on checkboxes checked
-function hasSelectedLanguages(globalUserArray, filters, userID) {
+function hasSelectedItems(
+  globalUserArray,
+  filters,
+  userID,
+  itemKeyPrefix,
+  itemCount
+) {
   for (let i = 0; i < filters.length; i++) {
     let filterFound = false;
 
-    for (let j = 0; j < 5; j++) {
-      const skillKey = `programmingLanguage${j + 1}`;
+    for (let j = 0; j < itemCount; j++) {
+      const itemKey = `${itemKeyPrefix}${j + 1}`;
 
-      if (globalUserArray[userID][skillKey] === filters[i]) {
+      if (globalUserArray[userID][itemKey] === filters[i]) {
         filterFound = true;
         break;
       }
@@ -755,10 +767,17 @@ function hasSelectedLanguages(globalUserArray, filters, userID) {
 }
 
 // Removes users who doesn't meet criteria
-function removeUnskilledApplicants() {
-  filters = getSelectedSkillFilters();
+function removeFilteredApplicants(
+  globalUserArray,
+  filterFormId,
+  itemKeyPrefix,
+  itemCount
+) {
+  filters = getSelectedCategoryFilters(filterFormId);
   for (let i = 0; i < globalUserArray.length; i++) {
-    if (!hasSelectedLanguages(globalUserArray, filters, i)) {
+    if (
+      !hasSelectedItems(globalUserArray, filters, i, itemKeyPrefix, itemCount)
+    ) {
       let container_id =
         "#container_" +
         globalUserArray[i].name
@@ -768,5 +787,50 @@ function removeUnskilledApplicants() {
     }
   }
 }
+
+function skillFilterCallback() {
+  const parentDiv = document.getElementById("userContainers");
+  let childDiv = parentDiv.querySelector("div");
+  while (childDiv) {
+    parentDiv.removeChild(childDiv);
+    childDiv = parentDiv.querySelector("div");
+  }
+  if (globalUserArray.length == 0) {
+    alert("Nothing to convert");
+    event.preventDefault();
+  } else {
+    displayUserSummary();
+  }
+  getSelectedFilters("skillFilterForm");
+  removeFilteredApplicants(
+    globalUserArray,
+    "skillFilterForm",
+    "skill",
+    5
+  );
+}
+
+function educationFilterCallback() {
+  const parentDiv = document.getElementById("userContainers");
+  let childDiv = parentDiv.querySelector("div");
+  while (childDiv) {
+    parentDiv.removeChild(childDiv);
+    childDiv = parentDiv.querySelector("div");
+  }
+  if (globalUserArray.length == 0) {
+    alert("Nothing to convert");
+    event.preventDefault();
+  } else {
+    displayUserSummary();
+  }
+  getSelectedFilters("skillFilterForm");
+  removeFilteredApplicants(
+    globalUserArray,
+    "educationFilterForm",
+    "educationFullTitle1",
+    3
+  );
+}
+
 // End of skill filter functions
 // End of skill filter functions

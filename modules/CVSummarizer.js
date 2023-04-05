@@ -15,16 +15,16 @@ Education 2 Year Ended:
 Education 3 Course:
 Education 3 School Name:
 Education 3 Year Ended:
-Most Notable Skill 1:
-Most Notable Skill 2:
-Most Notable Skill 3:
-Most Notable Skill 4:
-Most Notable Skill 5:
 Technical Skill 1:
 Technical Skill 2:
 Technical Skill 3:
 Technical Skill 4:
 Technical Skill 5:
+Technical Skill 6:
+Technical Skill 7:
+Technical Skill 8:
+Technical Skill 9:
+Technical Skill 10:
 Other Skills:
 Job Experience 1 Title:
 Job Experience 1 Company:
@@ -71,89 +71,90 @@ Reference 3 Contact information:
   const response = await askPrompt(prompt, openai);
   const name = featureRetrieval("Full Name:", response);
   const highestEducation = featureRetrieval("Highest Education:", response);
-  const education1FullTitle = featureRetrieval("Education 1 Course:", response);
-  const education1SchoolName = featureRetrieval(
+  const educationFullTitle1 = featureRetrieval("Education 1 Course:", response);
+  const educationSchoolName1 = featureRetrieval(
     "Education 1 School Name:",
     response
   );
-  const education1YearEnded = featureRetrieval(
+  const educationYearEnded1 = featureRetrieval(
     "Education 1 Year Ended:",
     response
   );
-  const education2FullTitle = featureRetrieval("Education 2 Course:", response);
-  const education2SchoolName = featureRetrieval(
+  const educationFullTitle2 = featureRetrieval("Education 2 Course:", response);
+  const educationSchoolName2 = featureRetrieval(
     "Education 2 School Name:",
     response
   );
-  const education2YearEnded = featureRetrieval(
+  const educationYearEnded2 = featureRetrieval(
     "Education 2 Year Ended:",
     response
   );
-  const education3FullTitle = featureRetrieval("Education 3 Course:", response);
-  const education3SchoolName = featureRetrieval(
+  const educationFullTitle3 = featureRetrieval("Education 3 Course:", response);
+  const educationSchoolName3 = featureRetrieval(
     "Education 3 School Name:",
     response
   );
-  const education3YearEnded = featureRetrieval(
+  const educationYearEnded3 = featureRetrieval(
     "Education 3 Year Ended:",
     response
   );
-  const mostNotableSkill1 = featureRetrieval("Most Notable Skill 1:", response);
-  const mostNotableSkill2 = featureRetrieval("Most Notable Skill 2:", response);
-  const mostNotableSkill3 = featureRetrieval("Most Notable Skill 3:", response);
-  const mostNotableSkill4 = featureRetrieval("Most Notable Skill 4:", response);
-  const mostNotableSkill5 = featureRetrieval("Most Notable Skill 5:", response);
-  const programmingLanguage1 = featureRetrieval("Technical Skill 1:", response);
-  const programmingLanguage2 = featureRetrieval("Technical Skill 2:", response);
-  const programmingLanguage3 = featureRetrieval("Technical Skill 3:", response);
-  const programmingLanguage4 = featureRetrieval("Technical Skill 4:", response);
-  const programmingLanguage5 = featureRetrieval("Technical Skill 5:", response);
+  
+  const skill1 = featureRetrieval("Technical Skill 1:", response);
+  const skill2 = featureRetrieval("Technical Skill 2:", response);
+  const skill3 = featureRetrieval("Technical Skill 3:", response);
+  const skill4 = featureRetrieval("Technical Skill 4:", response);
+  const skill5 = featureRetrieval("Technical Skill 5:", response);
+  const skill6 = featureRetrieval("Technical Skill 6:", response);
+  const skill7 = featureRetrieval("Technical Skill 7:", response);
+  const skill8 = featureRetrieval("Technical Skill 8:", response);
+  const skill9 = featureRetrieval("Technical Skill 9:", response);
+  const skill10 = featureRetrieval("Technical Skill 10:", response);
   const otherSkills = featureRetrieval("Other Skills:", response);
-  const jobExperience1Title = featureRetrieval(
+  const jobExperienceTitle1 = featureRetrieval(
     "Job Experience 1 Title:",
     response
   );
-  const jobExperience1Company = featureRetrieval(
+  const jobExperienceCompany1 = featureRetrieval(
     "Job Experience 1 Company:",
     response
   );
-  const jobExperience1YearStarted = featureRetrieval(
+  const jobExperienceYearStarted1 = featureRetrieval(
     "Job Experience 1 Year Started:",
     response
   );
-  const jobExperience1YearEnded = featureRetrieval(
+  const jobExperienceYearEnded1 = featureRetrieval(
     "Job Experience 1 Year Ended:",
     response
   );
-  const jobExperience2Title = featureRetrieval(
+  const jobExperienceTitle2 = featureRetrieval(
     "Job Experience 2 Title:",
     response
   );
-  const jobExperience2Company = featureRetrieval(
+  const jobExperienceCompany2 = featureRetrieval(
     "Job Experience 2 Company:",
     response
   );
-  const jobExperience2YearStarted = featureRetrieval(
+  const jobExperienceYearStarted2 = featureRetrieval(
     "Job Experience 2 Year Started:",
     response
   );
-  const jobExperience2YearEnded = featureRetrieval(
+  const jobExperienceYearEnded2 = featureRetrieval(
     "Job Experience 2 Year Ended:",
     response
   );
-  const jobExperience3Title = featureRetrieval(
+  const jobExperienceTitle3 = featureRetrieval(
     "Job Experience 3 Title:",
     response
   );
-  const jobExperience3Company = featureRetrieval(
+  const jobExperienceCompany3 = featureRetrieval(
     "Job Experience 3 Company:",
     response
   );
-  const jobExperience3YearStarted = featureRetrieval(
+  const jobExperienceYearStarted3 = featureRetrieval(
     "Job Experience 3 Year Started:",
     response
   );
-  const jobExperience3YearEnded = featureRetrieval(
+  const jobExperienceYearEnded3 = featureRetrieval(
     "Job Experience 3 Year Ended:",
     response
   );
@@ -161,7 +162,7 @@ Reference 3 Contact information:
     "Job Experience 4 Title:",
     response
   );
-  const jobExperience4Company = featureRetrieval(
+  const jobExperienceCompany4 = featureRetrieval(
     "Job Experience 4 Company:",
     response
   );
@@ -169,7 +170,7 @@ Reference 3 Contact information:
     "Job Experience 4 Year Started:",
     response
   );
-  const jobExperience4YearEnded = featureRetrieval(
+  const jobExperienceYearEnded4 = featureRetrieval(
     "Job Experience 4 Year Ended:",
     response
   );
@@ -177,15 +178,15 @@ Reference 3 Contact information:
     "Job Experience 5 Title:",
     response
   );
-  const jobExperience5Company = featureRetrieval(
+  const jobExperienceCompany5 = featureRetrieval(
     "Job Experience 5 Company:",
     response
   );
-  const jobExperience5YearStarted = featureRetrieval(
+  const jobExperienceYearStarted5 = featureRetrieval(
     "Job Experience 5 Year Started:",
     response
   );
-  const jobExperience5YearEnded = featureRetrieval(
+  const jobExperienceYearEnded5 = featureRetrieval(
     "Job Experience 5 Year Ended:",
     response
   );
@@ -229,21 +230,21 @@ Reference 3 Contact information:
     "Accomplishment 5 Title:",
     response
   );
-  const reference1Name = featureRetrieval("Reference 1 Name:", response);
-  const reference1Title = featureRetrieval("Reference 1 Title:", response);
-  const reference1ContactInfo = featureRetrieval(
+  const referenceName1 = featureRetrieval("Reference 1 Name:", response);
+  const referenceTitle1 = featureRetrieval("Reference 1 Title:", response);
+  const referenceContactInfo1 = featureRetrieval(
     "Reference 1 Contact Info:",
     response
   );
-  const reference2Name = featureRetrieval("Reference 2 Name:", response);
-  const reference2Title = featureRetrieval("Reference 2 Title:", response);
-  const reference2ContactInfo = featureRetrieval(
+  const referenceName2 = featureRetrieval("Reference 2 Name:", response);
+  const referenceTitle2 = featureRetrieval("Reference 2 Title:", response);
+  const referenceContactInfo2 = featureRetrieval(
     "Reference 2 Contact Info:",
     response
   );
-  const reference3Name = featureRetrieval("Reference 3 Name:", response);
-  const reference3Title = featureRetrieval("Reference 3 Title:", response);
-  const reference3ContactInfo = featureRetrieval(
+  const referenceName3 = featureRetrieval("Reference 3 Name:", response);
+  const referenceTitle3 = featureRetrieval("Reference 3 Title:", response);
+  const referenceContactInfo3 = featureRetrieval(
     "Reference 3 Contact Info:",
     response
   );
@@ -252,46 +253,46 @@ Reference 3 Contact information:
   const applicant = new Applicant(
     name,
     highestEducation,
-    education1FullTitle,
-    education1SchoolName,
-    education1YearEnded,
-    education2FullTitle,
-    education2SchoolName,
-    education2YearEnded,
-    education3FullTitle,
-    education3SchoolName,
-    education3YearEnded,
-    mostNotableSkill1,
-    mostNotableSkill2,
-    mostNotableSkill3,
-    mostNotableSkill4,
-    mostNotableSkill5,
-    programmingLanguage1,
-    programmingLanguage2,
-    programmingLanguage3,
-    programmingLanguage4,
-    programmingLanguage5,
+    educationFullTitle1,
+    educationSchoolName1,
+    educationYearEnded1,
+    educationFullTitle2,
+    educationSchoolName2,
+    educationYearEnded2,
+    educationFullTitle3,
+    educationSchoolName3,
+    educationYearEnded3,
+    skill1,
+    skill2,
+    skill3,
+    skill4,
+    skill5,
+    skill6,
+    skill7,
+    skill8,
+    skill9,
+    skill10,
     otherSkills,
-    jobExperience1Title,
-    jobExperience1Company,
-    jobExperience1YearStarted,
-    jobExperience1YearEnded,
-    jobExperience2Title,
-    jobExperience2Company,
-    jobExperience2YearStarted,
-    jobExperience2YearEnded,
-    jobExperience3Title,
-    jobExperience3Company,
-    jobExperience3YearStarted,
-    jobExperience3YearEnded,
+    jobExperienceTitle1,
+    jobExperienceCompany1,
+    jobExperienceYearStarted1,
+    jobExperienceYearEnded1,
+    jobExperienceTitle2,
+    jobExperienceCompany2,
+    jobExperienceYearStarted2,
+    jobExperienceYearEnded2,
+    jobExperienceTitle3,
+    jobExperienceCompany3,
+    jobExperienceYearStarted3,
+    jobExperienceYearEnded3,
     jobExperience4Title,
-    jobExperience4Company,
+    jobExperienceCompany4,
     jobExperience4YearStarted,
-    jobExperience4YearEnded,
+    jobExperienceYearEnded4,
     jobExperience5Title,
-    jobExperience5Company,
-    jobExperience5YearStarted,
-    jobExperience5YearEnded,
+    jobExperienceCompany5,
+    jobExperienceYearStarted5,
+    jobExperienceYearEnded5,
     certification1Title,
     certification2Title,
     certification3Title,
@@ -302,15 +303,15 @@ Reference 3 Contact information:
     accomplishment3Title,
     accomplishment4Title,
     accomplishment5Title,
-    reference1Name,
-    reference1Title,
-    reference1ContactInfo,
-    reference2Name,
-    reference2Title,
-    reference2ContactInfo,
-    reference3Name,
-    reference3Title,
-    reference3ContactInfo,
+    referenceName1,
+    referenceTitle1,
+    referenceContactInfo1,
+    referenceName2,
+    referenceTitle2,
+    referenceContactInfo2,
+    referenceName3,
+    referenceTitle3,
+    referenceContactInfo3,
     raw_text
   );
   console.log("CVSummarize finished");
@@ -360,46 +361,46 @@ class Applicant {
   constructor(
     name,
     highestEducation,
-    education1FullTitle,
-    education1SchoolName,
-    education1YearEnded,
-    education2FullTitle,
-    education2SchoolName,
-    education2YearEnded,
-    education3FullTitle,
-    education3SchoolName,
-    education3YearEnded,
-    mostNotableSkill1,
-    mostNotableSkill2,
-    mostNotableSkill3,
-    mostNotableSkill4,
-    mostNotableSkill5,
-    programmingLanguage1,
-    programmingLanguage2,
-    programmingLanguage3,
-    programmingLanguage4,
-    programmingLanguage5,
+    educationFullTitle1,
+    educationSchoolName1,
+    educationYearEnded1,
+    educationFullTitle2,
+    educationSchoolName2,
+    educationYearEnded2,
+    educationFullTitle3,
+    educationSchoolName3,
+    educationYearEnded3,
+    skill1,
+    skill2,
+    skill3,
+    skill4,
+    skill5,
+    skill6,
+    skill7,
+    skill8,
+    skill9,
+    skill10,
     otherSkills,
-    jobExperience1Title,
-    jobExperience1Company,
-    jobExperience1YearStarted,
-    jobExperience1YearEnded,
-    jobExperience2Title,
-    jobExperience2Company,
-    jobExperience2YearStarted,
-    jobExperience2YearEnded,
-    jobExperience3Title,
-    jobExperience3Company,
-    jobExperience3YearStarted,
-    jobExperience3YearEnded,
+    jobExperienceTitle1,
+    jobExperienceCompany1,
+    jobExperienceYearStarted1,
+    jobExperienceYearEnded1,
+    jobExperienceTitle2,
+    jobExperienceCompany2,
+    jobExperienceYearStarted2,
+    jobExperienceYearEnded2,
+    jobExperienceTitle3,
+    jobExperienceCompany3,
+    jobExperienceYearStarted3,
+    jobExperienceYearEnded3,
     jobExperience4Title,
-    jobExperience4Company,
+    jobExperienceCompany4,
     jobExperience4YearStarted,
-    jobExperience4YearEnded,
+    jobExperienceYearEnded4,
     jobExperience5Title,
-    jobExperience5Company,
-    jobExperience5YearStarted,
-    jobExperience5YearEnded,
+    jobExperienceCompany5,
+    jobExperienceYearStarted5,
+    jobExperienceYearEnded5,
     certification1Title,
     certification2Title,
     certification3Title,
@@ -410,59 +411,59 @@ class Applicant {
     accomplishment3Title,
     accomplishment4Title,
     accomplishment5Title,
-    reference1Name,
-    reference1Title,
-    reference1ContactInfo,
-    reference2Name,
-    reference2Title,
-    reference2ContactInfo,
-    reference3Name,
-    reference3Title,
-    reference3ContactInfo,
+    referenceName1,
+    referenceTitle1,
+    referenceContactInfo1,
+    referenceName2,
+    referenceTitle2,
+    referenceContactInfo2,
+    referenceName3,
+    referenceTitle3,
+    referenceContactInfo3,
     raw_text
   ) {
     this.name = name;
     this.highestEducation = highestEducation;
-    this.education1FullTitle = education1FullTitle;
-    this.education1SchoolName = education1SchoolName;
-    this.education1YearEnded = education1YearEnded;
-    this.education2FullTitle = education2FullTitle;
-    this.education2SchoolName = education2SchoolName;
-    this.education2YearEnded = education2YearEnded;
-    this.education3FullTitle = education3FullTitle;
-    this.education3SchoolName = education3SchoolName;
-    this.education3YearEnded = education3YearEnded;
-    this.mostNotableSkill1 = mostNotableSkill1;
-    this.mostNotableSkill2 = mostNotableSkill2;
-    this.mostNotableSkill3 = mostNotableSkill3;
-    this.mostNotableSkill4 = mostNotableSkill4;
-    this.mostNotableSkill5 = mostNotableSkill5;
-    this.programmingLanguage1 = programmingLanguage1;
-    this.programmingLanguage2 = programmingLanguage2;
-    this.programmingLanguage3 = programmingLanguage3;
-    this.programmingLanguage4 = programmingLanguage4;
-    this.programmingLanguage5 = programmingLanguage5;
+    this.educationFullTitle1 = educationFullTitle1;
+    this.educationSchoolName1 = educationSchoolName1;
+    this.educationYearEnded1 = educationYearEnded1;
+    this.educationFullTitle2 = educationFullTitle2;
+    this.educationSchoolName2 = educationSchoolName2;
+    this.educationYearEnded2 = educationYearEnded2;
+    this.educationFullTitle3 = educationFullTitle3;
+    this.educationSchoolName3 = educationSchoolName3;
+    this.educationYearEnded3 = educationYearEnded3;
+    this.skill1 = skill1;
+    this.skill2 = skill2;
+    this.skill3 = skill3;
+    this.skill4 = skill4;
+    this.skill5 = skill5;
+    this.skill6 = skill6;
+    this.skill7 = skill7;
+    this.skill8 = skill8;
+    this.skill9 = skill9;
+    this.skill10 = skill10;
     this.otherSkills = otherSkills;
-    this.jobExperience1Title = jobExperience1Title;
-    this.jobExperience1Company = jobExperience1Company;
-    this.jobExperience1YearStarted = jobExperience1YearStarted;
-    this.jobExperience1YearEnded = jobExperience1YearEnded;
-    this.jobExperience2Title = jobExperience2Title;
-    this.jobExperience2Company = jobExperience2Company;
-    this.jobExperience2YearStarted = jobExperience2YearStarted;
-    this.jobExperience2YearEnded = jobExperience2YearEnded;
-    this.jobExperience3Title = jobExperience3Title;
-    this.jobExperience3Company = jobExperience3Company;
-    this.jobExperience3YearStarted = jobExperience3YearStarted;
-    this.jobExperience3YearEnded = jobExperience3YearEnded;
+    this.jobExperienceTitle1 = jobExperienceTitle1;
+    this.jobExperienceCompany1 = jobExperienceCompany1;
+    this.jobExperienceYearStarted1 = jobExperienceYearStarted1;
+    this.jobExperienceYearEnded1 = jobExperienceYearEnded1;
+    this.jobExperienceTitle2 = jobExperienceTitle2;
+    this.jobExperienceCompany2 = jobExperienceCompany2;
+    this.jobExperienceYearStarted2 = jobExperienceYearStarted2;
+    this.jobExperienceYearEnded2 = jobExperienceYearEnded2;
+    this.jobExperienceTitle3 = jobExperienceTitle3;
+    this.jobExperienceCompany3 = jobExperienceCompany3;
+    this.jobExperienceYearStarted3 = jobExperienceYearStarted3;
+    this.jobExperienceYearEnded3 = jobExperienceYearEnded3;
     this.jobExperience4Title = jobExperience4Title;
-    this.jobExperience4Company = jobExperience4Company;
+    this.jobExperienceCompany4 = jobExperienceCompany4;
     this.jobExperience4YearStarted = jobExperience4YearStarted;
-    this.jobExperience4YearEnded = jobExperience4YearEnded;
+    this.jobExperienceYearEnded4 = jobExperienceYearEnded4;
     this.jobExperience5Title = jobExperience5Title;
-    this.jobExperience5Company = jobExperience5Company;
-    this.jobExperience5YearStarted = jobExperience5YearStarted;
-    this.jobExperience5YearEnded = jobExperience5YearEnded;
+    this.jobExperienceCompany5 = jobExperienceCompany5;
+    this.jobExperienceYearStarted5 = jobExperienceYearStarted5;
+    this.jobExperienceYearEnded5 = jobExperienceYearEnded5;
     this.certification1Title = certification1Title;
     this.certification2Title = certification2Title;
     this.certification3Title = certification3Title;
@@ -473,15 +474,15 @@ class Applicant {
     this.accomplishment3Title = accomplishment3Title;
     this.accomplishment4Title = accomplishment4Title;
     this.accomplishment5Title = accomplishment5Title;
-    this.reference1Name = reference1Name;
-    this.reference1Title = reference1Title;
-    this.reference1ContactInfo = reference1ContactInfo;
-    this.reference2Name = reference2Name;
-    this.reference2Title = reference2Title;
-    this.reference2ContactInfo = reference2ContactInfo;
-    this.reference3Name = reference3Name;
-    this.reference3Title = reference3Title;
-    this.reference3ContactInfo = reference3ContactInfo;
+    this.referenceName1 = referenceName1;
+    this.referenceTitle1 = referenceTitle1;
+    this.referenceContactInfo1 = referenceContactInfo1;
+    this.referenceName2 = referenceName2;
+    this.referenceTitle2 = referenceTitle2;
+    this.referenceContactInfo2 = referenceContactInfo2;
+    this.referenceName3 = referenceName3;
+    this.referenceTitle3 = referenceTitle3;
+    this.referenceContactInfo3 = referenceContactInfo3;
     this.raw_text = raw_text;
   }
 }
