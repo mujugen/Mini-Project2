@@ -1,4 +1,5 @@
 const { CVSummarize } = require("./modules/CVSummarizer.js");
+const { askRank } = require("./modules/askRanking.js");
 const { redFlagRemover } = require("./modules/redFlagRemover.js");
 const express = require("express");
 const multer = require("multer");
@@ -478,6 +479,18 @@ app.post("/cvsummarize", async (req, res) => {
   } catch (error) {
     console.error("Error processing CV:", error);
     res.status(500).send("Failed to process CV.");
+  }
+});
+
+// Handle requests for askRank
+app.post("/askrank", async (req, res) => {
+  const { prompt } = req.body;
+  try {
+    const response = await askRank(prompt, openai);
+    res.json(response);
+  } catch (error) {
+    console.error("Error processing Rank:", error);
+    res.status(500).send("Failed to process Rank.");
   }
 });
 

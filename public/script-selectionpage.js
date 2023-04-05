@@ -233,3 +233,64 @@ function addCardApplicant(container_id, user) {
     accomplishments_content
   );
 }
+
+async function askRanking() {
+  let textArray = [];
+  let containerIDArray = [];
+  $("#userContainers .cell-text-container").each(function () {
+    let currentText = $(this).text();
+    containerIDArray.push($(this).attr("id"));
+    textArray.push(currentText);
+  });
+  /* prompt = ``;
+  for (let i = 0; i < textArray.length; i++) {
+    prompt += `Applicant ${i + 1}:\n`;
+    prompt += textArray[i];
+    prompt += `\n`;
+  }
+  prompt += `rank these applicants by how impressive their traits are(don't include any other text except the expected ouput),\n`;
+  prompt += `expected output:
+Applicant 1 Ranking: NUMBER
+Applicant 2 Ranking: NUMBER
+Applicant 3 Ranking: NUMBER
+...`;
+  if (prompt.length < 10000) {
+    response = await fetchAskRank(prompt);
+  }
+  const lines = response.split("\n");
+  const rankings = [];
+  lines.forEach((line) => {
+    // Split the line by spaces and extract the ranking value
+    const words = line.split(" ");
+    const ranking = parseInt(words[words.length - 1]);
+
+    // Get the applicant index (subtracting 1 to make it zero-based)
+    const applicantIndex = parseInt(words[1]) - 1;
+
+    // Store the ranking at the corresponding index in the array
+    rankings[applicantIndex] = ranking;
+  }); */
+  let rankings = [3, 1, 2];
+
+  console.log(rankings);
+  for (var i = 0; i < rankings.length; i++) {
+    // Get the corresponding div element using its ID from array B
+    console.log(containerIDArray[i]);
+    var div = document.querySelector("#" + containerIDArray[i]);
+    // Append the text from array A to the innerHTML of the div
+    div.innerHTML += rankings[i];
+  }
+}
+
+// Call CVSummarize API endpoint
+async function fetchAskRank(prompt) {
+  const response = await fetch("http://localhost:3000/askrank", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ prompt }),
+  });
+  const applicant = await response.json();
+  return applicant;
+}
