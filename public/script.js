@@ -619,18 +619,27 @@ function addCardApplicant(container_id, user) {
 }
 
 function getAvailableSkills(globalUserArray) {
-  const availableSkills = new Set();
+  const skillFrequencyMap = new Map();
 
   globalUserArray.forEach((user) => {
     for (let i = 1; i <= 5; i++) {
       const skillKey = `programmingLanguage${i}`;
       if (skillKey in user) {
-        availableSkills.add(user[skillKey]);
+        const skill = user[skillKey];
+        if (skillFrequencyMap.has(skill)) {
+          skillFrequencyMap.set(skill, skillFrequencyMap.get(skill) + 1);
+        } else {
+          skillFrequencyMap.set(skill, 1);
+        }
       }
     }
   });
 
-  return Array.from(availableSkills);
+  const availableSkills = Array.from(skillFrequencyMap.entries())
+    .sort((a, b) => b[1] - a[1])
+    .map(([key]) => key);
+
+  return availableSkills;
 }
 
 // Function to retrieve filter data
@@ -680,8 +689,10 @@ function addSkillFormGroup(skill) {
   label.className = "form-check-label";
   label.textContent = skill;
   /* Append all created elements */
-  container.append(form_check);
-  form_check.append(input, label);
+  if (label.textContent != "N/A") {
+    container.append(form_check);
+    form_check.append(input, label);
+  }
 }
 
 function updateSkillFilters() {
