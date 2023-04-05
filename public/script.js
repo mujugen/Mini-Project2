@@ -235,6 +235,7 @@ async function fetchredFlagRemover(rawText, filters, name) {
 }
 
 async function runRedFlag() {
+  globalUserArray = await fetchUserDBP();
   filters = getSelectedFilters();
   if (filters.length != 0) {
     for (let i = 0; i < globalUserArray.length; i++) {
@@ -266,7 +267,10 @@ async function runRedFlag() {
       let redFlag_content = document.createElement("p");
       redFlag_title.className = "cell-text-title";
       let container_id =
-        "container_" + globalUserArray[i].name.replace(/ /g, "_");
+        "container_" +
+        globalUserArray[i].name
+          .replace(/ /g, "_")
+          .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
       // Loop through redFlags object and check for values equal to 1
       for (let flag in redFlags) {
         if (redFlags[flag] == 1) {
@@ -305,7 +309,10 @@ async function runRedFlag() {
       // Format the user name into the desired ID format
 
       let cell_text_id =
-        "cell_text_" + globalUserArray[i].name.replace(/ /g, "_");
+        "cell_text_" +
+        globalUserArray[i].name
+          .replace(/ /g, "_")
+          .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
       document.getElementById(cell_text_id).appendChild(redFlag_title);
       // Append the redFlag_content element to the DOM using the formatted ID
       document.getElementById(cell_text_id).appendChild(redFlag_content);
@@ -316,6 +323,7 @@ async function runRedFlag() {
 }
 
 async function runRedFlagRemover() {
+  globalUserArray = await fetchUserDBP();
   for (let i = 0; i < globalUserArray.length; i++) {
     let redFlags = {
       red_flag_1: globalUserArray[i].red_flag_1,
@@ -330,16 +338,19 @@ async function runRedFlagRemover() {
 
     let flagToRemove = false;
     let container_id =
-      "#container_" + globalUserArray[i].name.replace(/ /g, "_");
+      "#container_" +
+      globalUserArray[i].name
+        .replace(/ /g, "_")
+        .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
     for (let flag in redFlags) {
       if (redFlags[flag] == 1) {
-        $(container_id).remove();
         flagToRemove = true;
         break;
       }
     }
 
     if (flagToRemove) {
+      $(container_id).remove();
       globalUserArray.splice(i, 1);
       i--; // Decrement the index to compensate for the removed element
       updateSkillFilters();
@@ -577,10 +588,16 @@ function addCardApplicant(container_id, user) {
   $(accomplishments_content).find("hr:last").remove();
   /* Set unique ID for the container using name_content */
   const containerUniqueId =
-    "container_" + name_content.innerHTML.replace(/\s+/g, "_");
+    "container_" +
+    name_content.innerHTML
+      .replace(/ /g, "_")
+      .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
   cell.id = containerUniqueId;
   const cellTextUniqueId =
-    "cell_text_" + name_content.innerHTML.replace(/\s+/g, "_");
+    "cell_text_" +
+    name_content.innerHTML
+      .replace(/ /g, "_")
+      .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
   cell_text.id = cellTextUniqueId;
   /* Append all created elements */
   container.append(cell);
@@ -706,7 +723,10 @@ function removeUnskilledApplicants() {
   for (let i = 0; i < globalUserArray.length; i++) {
     if (!hasSelectedLanguages(globalUserArray, filters, i)) {
       let container_id =
-        "#container_" + globalUserArray[i].name.replace(/ /g, "_");
+        "#container_" +
+        globalUserArray[i].name
+          .replace(/ /g, "_")
+          .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
       $(container_id).remove();
     }
   }
