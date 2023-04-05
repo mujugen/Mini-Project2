@@ -242,7 +242,7 @@ async function askRanking() {
     containerIDArray.push($(this).attr("id"));
     textArray.push(currentText);
   });
-  /* prompt = ``;
+  prompt = ``;
   for (let i = 0; i < textArray.length; i++) {
     prompt += `Applicant ${i + 1}:\n`;
     prompt += textArray[i];
@@ -256,29 +256,29 @@ Applicant 3 Ranking: NUMBER
 ...`;
   if (prompt.length < 10000) {
     response = await fetchAskRank(prompt);
-  }
-  const lines = response.split("\n");
-  const rankings = [];
-  lines.forEach((line) => {
-    // Split the line by spaces and extract the ranking value
-    const words = line.split(" ");
-    const ranking = parseInt(words[words.length - 1]);
+    const lines = response.split("\n");
+    const rankings = [];
+    lines.forEach((line) => {
+      // Split the line by spaces and extract the ranking value
+      const words = line.split(" ");
+      const ranking = parseInt(words[words.length - 1]);
 
-    // Get the applicant index (subtracting 1 to make it zero-based)
-    const applicantIndex = parseInt(words[1]) - 1;
+      // Get the applicant index (subtracting 1 to make it zero-based)
+      const applicantIndex = parseInt(words[1]) - 1;
 
-    // Store the ranking at the corresponding index in the array
-    rankings[applicantIndex] = ranking;
-  }); */
-  let rankings = [3, 1, 2];
-
-  console.log(rankings);
-  for (var i = 0; i < rankings.length; i++) {
-    // Get the corresponding div element using its ID from array B
-    console.log(containerIDArray[i]);
-    var div = document.querySelector("#" + containerIDArray[i]);
-    // Append the text from array A to the innerHTML of the div
-    div.innerHTML += rankings[i];
+      // Store the ranking at the corresponding index in the array
+      rankings[applicantIndex] = ranking;
+    });
+    console.log(rankings);
+    for (var i = 0; i < rankings.length; i++) {
+      // Get the corresponding div element using its ID from array B
+      console.log(containerIDArray[i]);
+      var div = document.querySelector("#" + containerIDArray[i]);
+      // Append the text from array A to the innerHTML of the div
+      div.innerHTML += rankings[i];
+    }
+  } else {
+    return "Too much to rank!";
   }
 }
 
