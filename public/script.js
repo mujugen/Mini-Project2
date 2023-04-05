@@ -170,6 +170,20 @@ async function convertUploadedFiles() {
           "skillFilterForm",
           skillFilterCallback
         );
+        updateItemFilters(
+          globalUserArray,
+          "educationFullTitle",
+          3,
+          "educationFilterForm",
+          educationFilterCallback
+        );
+        updateItemFilters(
+          globalUserArray,
+          "jobExperienceTitle",
+          5,
+          "experienceFilterForm",
+          experienceFilterCallback
+        );
       } else {
         // If found in the database, use the returned applicant data
         console.log("Applicant found in DB");
@@ -366,6 +380,20 @@ async function runRedFlagRemover() {
         "skillFilterForm",
         skillFilterCallback
       );
+      updateItemFilters(
+        globalUserArray,
+        "educationFullTitle",
+        3,
+        "educationFilterForm",
+        educationFilterCallback
+      );
+      updateItemFilters(
+        globalUserArray,
+        "jobExperienceTitle",
+        5,
+        "experienceFilterForm",
+        experienceFilterCallback
+      );
     }
   }
 }
@@ -421,6 +449,20 @@ const fetchAndAssignUserArray = async () => {
     5,
     "skillFilterForm",
     skillFilterCallback
+  );
+  updateItemFilters(
+    globalUserArray,
+    "educationFullTitle",
+    3,
+    "educationFilterForm",
+    educationFilterCallback
+  );
+  updateItemFilters(
+    globalUserArray,
+    "jobExperienceTitle",
+    5,
+    "experienceFilterForm",
+    experienceFilterCallback
   );
 };
 
@@ -802,12 +844,7 @@ function skillFilterCallback() {
     displayUserSummary();
   }
   getSelectedFilters("skillFilterForm");
-  removeFilteredApplicants(
-    globalUserArray,
-    "skillFilterForm",
-    "skill",
-    5
-  );
+  removeFilteredApplicants(globalUserArray, "skillFilterForm", "skill", 5);
 }
 
 function educationFilterCallback() {
@@ -823,12 +860,34 @@ function educationFilterCallback() {
   } else {
     displayUserSummary();
   }
-  getSelectedFilters("skillFilterForm");
+  getSelectedFilters("educationFilterForm");
   removeFilteredApplicants(
     globalUserArray,
     "educationFilterForm",
-    "educationFullTitle1",
+    "educationFullTitle",
     3
+  );
+}
+
+function experienceFilterCallback() {
+  const parentDiv = document.getElementById("userContainers");
+  let childDiv = parentDiv.querySelector("div");
+  while (childDiv) {
+    parentDiv.removeChild(childDiv);
+    childDiv = parentDiv.querySelector("div");
+  }
+  if (globalUserArray.length == 0) {
+    alert("Nothing to convert");
+    event.preventDefault();
+  } else {
+    displayUserSummary();
+  }
+  getSelectedFilters("experienceFilterForm");
+  removeFilteredApplicants(
+    globalUserArray,
+    "experienceFilterForm",
+    "jobExperienceTitle",
+    5
   );
 }
 
