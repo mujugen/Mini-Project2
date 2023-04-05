@@ -135,6 +135,7 @@ async function convertUploadedFiles() {
   const response = await fetch("http://localhost:3000/list");
   const files = await response.json();
   globalUserArray = await fetchUserDBP();
+  selectedApplicants = retrieveSelectedApplicants();
   for (const file of files) {
     const filePath = `uploads/${file}`;
     const name = file;
@@ -164,6 +165,7 @@ async function convertUploadedFiles() {
         applicant = await fetchCVSummarize(rawText);
         // Update globalUserArray
         globalUserArray = await fetchUserDBP();
+
         updateItemFilters(
           globalUserArray,
           "skill",
@@ -844,6 +846,7 @@ function removeFilteredApplicants(
   for (let i = 0; i < selectedApplicants.length; i++) {
     $("#selectedApplicants").append(selectedApplicants[i].name + "<br>");
   }
+  return selectedApplicants;
 }
 
 function skillFilterCallback() {
@@ -932,4 +935,33 @@ function displaySelectedFilter() {
     selectedFilter === "option2" ? "flex" : "none";
   experienceFilterForm.style.display =
     selectedFilter === "option3" ? "flex" : "none";
+}
+
+function retrieveSelectedApplicants() {
+  let selectedFilter = document.getElementById("myDropdown").value;
+  if (selectedFilter === "option1") {
+    selectedApplicants = removeFilteredApplicants(
+      globalUserArray,
+      "skillFilterForm",
+      "skill",
+      5
+    );
+  }
+  if (selectedFilter === "option2") {
+    selectedApplicants = removeFilteredApplicants(
+      globalUserArray,
+      "educationFilterForm",
+      "educationFullTitle",
+      3
+    );
+  }
+  if (selectedFilter === "option3") {
+    selectedApplicants = removeFilteredApplicants(
+      globalUserArray,
+      "experienceFilterForm",
+      "jobExperienceTitle",
+      5
+    );
+  }
+  return selectedApplicants;
 }
