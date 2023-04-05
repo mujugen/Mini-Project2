@@ -89,9 +89,14 @@ $(document).ready(function () {
       alert("Nothing to finalize");
       event.preventDefault();
     } else {
-      // Send to other page with list of selected applicants
+      localStorage.setItem(
+        "selectedApplicants",
+        JSON.stringify(selectedApplicants)
+      );
+      window.location.href = "selectionpage.html";
     }
   });
+
   displaySelectedFilter();
 });
 
