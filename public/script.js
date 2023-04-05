@@ -333,7 +333,6 @@ async function runRedFlagRemover() {
     for (let flag in redFlags) {
       if (redFlags[flag] == 1) {
         $(container_id).remove();
-        updateSkillFilters();
         flagToRemove = true;
         break;
       }
@@ -342,6 +341,7 @@ async function runRedFlagRemover() {
     if (flagToRemove) {
       globalUserArray.splice(i, 1);
       i--; // Decrement the index to compensate for the removed element
+      updateSkillFilters();
     }
   }
 }
