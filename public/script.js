@@ -646,9 +646,11 @@ function getAvailableSkills(globalUserArray) {
 function getSelectedSkillFilters() {
   let filters = [];
   const filterForm = document.getElementById("skillFilterForm");
-  for (let i = 0; i < filterForm.length; i++) {
-    if (filterForm[i].checked) {
-      filters.push(filterForm[i].value);
+  const checkboxes = filterForm.querySelectorAll("input[type='checkbox']");
+
+  for (let i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      filters.push(checkboxes[i].value);
     }
   }
   return filters;
@@ -675,7 +677,6 @@ function addSkillFormGroup(skill) {
       parentDiv.removeChild(childDiv);
       childDiv = parentDiv.querySelector("div");
     }
-    console.log("Parse button clicked");
     if (globalUserArray.length == 0) {
       alert("Nothing to to convert");
       event.preventDefault();
@@ -692,6 +693,21 @@ function addSkillFormGroup(skill) {
   if (label.textContent != "N/A") {
     container.append(form_check);
     form_check.append(input, label);
+  }
+}
+
+function filterSkills() {
+  const searchInput = document.getElementById("skillSearch");
+  const searchQuery = searchInput.value.toLowerCase();
+  const skillFilterForm = document.getElementById("skillFilterForm");
+  const labels = skillFilterForm.querySelectorAll("label");
+
+  for (let label of labels) {
+    if (label.textContent.toLowerCase().includes(searchQuery)) {
+      label.parentElement.style.display = "block";
+    } else {
+      label.parentElement.style.display = "none";
+    }
   }
 }
 
