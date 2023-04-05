@@ -816,18 +816,33 @@ function removeFilteredApplicants(
   itemKeyPrefix,
   itemCount
 ) {
+  let selectedApplicants = globalUserArray.slice();
+
   filters = getSelectedCategoryFilters(filterFormId);
-  for (let i = 0; i < globalUserArray.length; i++) {
+  for (let i = 0; i < selectedApplicants.length; i++) {
     if (
-      !hasSelectedItems(globalUserArray, filters, i, itemKeyPrefix, itemCount)
+      !hasSelectedItems(
+        selectedApplicants,
+        filters,
+        i,
+        itemKeyPrefix,
+        itemCount
+      )
     ) {
       let container_id =
         "#container_" +
-        globalUserArray[i].name
+        selectedApplicants[i].name
           .replace(/ /g, "_")
           .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
       $(container_id).remove();
+      selectedApplicants.splice(i, 1);
+      i--;
     }
+  }
+  console.log(selectedApplicants);
+  $("#selectedApplicants").html("");
+  for (let i = 0; i < selectedApplicants.length; i++) {
+    $("#selectedApplicants").append(selectedApplicants[i].name + "<br>");
   }
 }
 

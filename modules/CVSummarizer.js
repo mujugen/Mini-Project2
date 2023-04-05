@@ -5,14 +5,14 @@ async function CVSummarize(text, openai) {
   const prompt = `${pdfText}\n\n\n\n\n
 can you find only these information and put them in this format,
 Full Name:
-Highest Education (|Highscool Diploma|Bachelor|Masters|Phd):
-Education 1 Course:
+Highest Education Level:
+Education 1 Course and Level (e.g. Bachelor's in Psychology):
 Education 1 School Name:
 Education 1 Year Ended:
-Education 2 Course:
+Education 2 Course and Level (e.g. Master's in Business Administration):
 Education 2 School Name:
 Education 2 Year Ended:
-Education 3 Course:
+Education 3 Course and Level (e.g. PhD in Computer Science):
 Education 3 School Name:
 Education 3 Year Ended:
 Technical Skill 1:
@@ -70,8 +70,14 @@ Reference 3 Contact information:
 
   const response = await askPrompt(prompt, openai);
   const name = featureRetrieval("Full Name:", response);
-  const highestEducation = featureRetrieval("Highest Education:", response);
-  const educationFullTitle1 = featureRetrieval("Education 1 Course:", response);
+  const highestEducation = featureRetrieval(
+    "Highest Education Level:",
+    response
+  );
+  const educationFullTitle1 = featureRetrieval(
+    "Education 1 Course and Level:",
+    response
+  );
   const educationSchoolName1 = featureRetrieval(
     "Education 1 School Name:",
     response
@@ -80,7 +86,10 @@ Reference 3 Contact information:
     "Education 1 Year Ended:",
     response
   );
-  const educationFullTitle2 = featureRetrieval("Education 2 Course:", response);
+  const educationFullTitle2 = featureRetrieval(
+    "Education 2 Course and Level:",
+    response
+  );
   const educationSchoolName2 = featureRetrieval(
     "Education 2 School Name:",
     response
@@ -89,7 +98,10 @@ Reference 3 Contact information:
     "Education 2 Year Ended:",
     response
   );
-  const educationFullTitle3 = featureRetrieval("Education 3 Course:", response);
+  const educationFullTitle3 = featureRetrieval(
+    "Education 3 Course and Level:",
+    response
+  );
   const educationSchoolName3 = featureRetrieval(
     "Education 3 School Name:",
     response
@@ -98,7 +110,7 @@ Reference 3 Contact information:
     "Education 3 Year Ended:",
     response
   );
-  
+
   const skill1 = featureRetrieval("Technical Skill 1:", response);
   const skill2 = featureRetrieval("Technical Skill 2:", response);
   const skill3 = featureRetrieval("Technical Skill 3:", response);
