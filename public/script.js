@@ -82,6 +82,7 @@ $(document).ready(function () {
     $("#pdfContainers").remove();
   });
   /* convertUploadedFiles(); */
+  displaySelectedFilter();
 });
 
 var rawTexts = [];
@@ -893,3 +894,27 @@ function experienceFilterCallback() {
 
 // End of skill filter functions
 // End of skill filter functions
+
+function displaySelectedFilter() {
+  // Get the selected filter value
+  let selectedFilter = document.getElementById("myDropdown").value;
+
+  // Get the form elements
+  let skillFilterForm =
+    document.getElementById("skillFilterForm").parentNode.parentNode.parentNode;
+  let educationFilterForm = document.getElementById("educationFilterForm")
+    .parentNode.parentNode.parentNode;
+  let experienceFilterForm = document.getElementById("experienceFilterForm")
+    .parentNode.parentNode.parentNode;
+  $("#skillFilterForm input[type='checkbox']").prop("checked", false);
+  $("#educationFilterForm input[type='checkbox']").prop("checked", false);
+  $("#experienceFilterForm input[type='checkbox']").prop("checked", false);
+
+  // Set the display style of the form elements based on the selected filter
+  skillFilterForm.style.display =
+    selectedFilter === "option1" ? "flex" : "none";
+  educationFilterForm.style.display =
+    selectedFilter === "option2" ? "flex" : "none";
+  experienceFilterForm.style.display =
+    selectedFilter === "option3" ? "flex" : "none";
+}

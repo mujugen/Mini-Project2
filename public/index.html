@@ -245,61 +245,74 @@
         <div class="container">
           <div class="row justify-content-center">
             <section class="w-50 shadow">
-              <h3 class="text-center mb-4">Skill Filter</h3>
-              <div class="skill-filter-form">
-                <input
-                  type="text"
-                  id="skillSearch"
-                  class="form-control"
-                  placeholder="Search for a skill"
-                  onkeyup="filterSkills()"
-                />
-                <div
-                  id="skillFilterForm"
-                  class="skill-filter-container scrollbar scrollbar-near-moon"
-                ></div>
+              <h3 class="text-center mb-4">Select Filter Type</h3>
+              <select
+                id="myDropdown"
+                class="form-control"
+                onchange="displaySelectedFilter()"
+              >
+                <option value="option1">Skills</option>
+                <option value="option2">Education</option>
+                <option value="option3">Experience</option>
+              </select>
+              <div class="container" style="margin-top: 30px">
+                <div class="row justify-content-center">
+                  <section class="w-50" style="margin: 0px; padding: 0px">
+                    <div class="skill-filter-form">
+                      <input
+                        type="text"
+                        id="skillSearch"
+                        class="form-control"
+                        placeholder="Search for a skill"
+                        onkeyup="filterSkills()"
+                      />
+                      <div
+                        id="skillFilterForm"
+                        class="skill-filter-container scrollbar scrollbar-near-moon"
+                      ></div>
+                    </div>
+                  </section>
+                </div>
               </div>
-            </section>
-          </div>
-        </div>
-        <!-- Education filter form -->
-        <div class="container">
-          <div class="row justify-content-center">
-            <section class="w-50 shadow">
-              <h3 class="text-center mb-4">Education Filter</h3>
-              <div class="skill-filter-form">
-                <input
-                  type="text"
-                  id="skillSearch"
-                  class="form-control"
-                  placeholder="Search for education"
-                  onkeyup="filterSkills()"
-                />
-                <div
-                  id="educationFilterForm"
-                  class="skill-filter-container scrollbar scrollbar-near-moon"
-                ></div>
+              <!-- Education filter form -->
+              <div class="container" style="margin-top: 30px">
+                <div class="row justify-content-center">
+                  <section class="w-50" style="margin: 0px; padding: 0px">
+                    <div class="skill-filter-form">
+                      <input
+                        type="text"
+                        id="skillSearch"
+                        class="form-control"
+                        placeholder="Search for education"
+                        onkeyup="filterSkills()"
+                      />
+                      <div
+                        id="educationFilterForm"
+                        class="skill-filter-container scrollbar scrollbar-near-moon"
+                      ></div>
+                    </div>
+                  </section>
+                </div>
               </div>
-            </section>
-          </div>
-        </div>
-        <!-- Experience filter form -->
-        <div class="container">
-          <div class="row justify-content-center">
-            <section class="w-50 shadow">
-              <h3 class="text-center mb-4">Experience Filter</h3>
-              <div class="skill-filter-form">
-                <input
-                  type="text"
-                  id="skillSearch"
-                  class="form-control"
-                  placeholder="Search for experience"
-                  onkeyup="filterSkills()"
-                />
-                <div
-                  id="experienceFilterForm"
-                  class="skill-filter-container scrollbar scrollbar-near-moon"
-                ></div>
+              <!-- Experience filter form -->
+              <div class="container" style="margin-top: 30px">
+                <div class="row justify-content-center">
+                  <section class="w-50" style="margin: 0px; padding: 0px">
+                    <div class="skill-filter-form">
+                      <input
+                        type="text"
+                        id="skillSearch"
+                        class="form-control"
+                        placeholder="Search for experience"
+                        onkeyup="filterSkills()"
+                      />
+                      <div
+                        id="experienceFilterForm"
+                        class="skill-filter-container scrollbar scrollbar-near-moon"
+                      ></div>
+                    </div>
+                  </section>
+                </div>
               </div>
             </section>
           </div>
