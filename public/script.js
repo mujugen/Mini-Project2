@@ -151,7 +151,7 @@ async function convertUploadedFiles() {
       console.log("PDF converted to Raw Text");
       // Shortens text if longer than 10000 characters
       if (rawText.length > 10000) {
-        rawTexts = rawText.substring(0, 9000) + "...";
+        rawText = rawText.substring(0, 8000) + "...";
       }
       // Check if rawText already exists in the database
       const response = await fetchApplicantByRawText(rawText);
@@ -436,15 +436,15 @@ function addCardApplicant(container_id, user) {
   certification.className = "cell-text-title";
   accomplishments.className = "cell-text-title";
   /* Text Title */
-  name.innerHTML = "Name";
-  education.innerHTML = "Education";
-  experience.innerHTML = "Experience";
-  skills.innerHTML = "Skills";
-  certification.innerHTML = "Certifications";
-  accomplishments.innerHTML = "Accomplishments";
+  name.innerHTML = `Name`;
+  education.innerHTML = `<hr style="height:2px;border-width:0;color:gray;background-color:gray">Education`;
+  experience.innerHTML = `<hr style="height:2px;border-width:0;color:gray;background-color:gray">Experience`;
+  skills.innerHTML = `<hr style="height:2px;border-width:0;color:gray;background-color:gray">Skills`;
+  certification.innerHTML = `<hr style="height:2px;border-width:0;color:gray;background-color:gray">Certifications`;
+  accomplishments.innerHTML = `<hr style="height:2px;border-width:0;color:gray;background-color:gray">Accomplishments`;
   // Text Content
   name_content.innerHTML = user.name;
-  if (user.education1FullTitle != "N/A") {
+  if (user.education1FullTitle != "N/A" && user.education1FullTitle != "") {
     education_content.innerHTML = user.education1FullTitle;
     education_content.innerHTML += "<br>";
     education_content.innerHTML += user.education1SchoolName;
@@ -452,7 +452,7 @@ function addCardApplicant(container_id, user) {
     education_content.innerHTML += user.education1YearEnded;
     education_content.innerHTML += "<br><hr>";
   }
-  if (user.education2FullTitle != "N/A") {
+  if (user.education2FullTitle != "N/A" && user.education2FullTitle != "") {
     education_content.innerHTML += user.education2FullTitle;
     education_content.innerHTML += "<br>";
     education_content.innerHTML += user.education2SchoolName;
@@ -460,7 +460,7 @@ function addCardApplicant(container_id, user) {
     education_content.innerHTML += user.education2YearEnded;
     education_content.innerHTML += "<br><hr>";
   }
-  if (user.education3FullTitle != "N/A") {
+  if (user.education3FullTitle != "N/A" && user.education3FullTitle != "") {
     education_content.innerHTML += user.education3FullTitle;
     education_content.innerHTML += "<br>";
     education_content.innerHTML += user.education3SchoolName;
@@ -468,7 +468,7 @@ function addCardApplicant(container_id, user) {
     education_content.innerHTML += user.education3YearEnded;
     education_content.innerHTML += "<br><hr>";
   }
-  if (user.jobExperience1Title != "N/A") {
+  if (user.jobExperience1Title != "N/A" && user.jobExperience1Title != "") {
     experience_content.innerHTML = user.jobExperience1Title;
     experience_content.innerHTML += "<br>";
     experience_content.innerHTML += user.jobExperience1Company;
@@ -476,7 +476,7 @@ function addCardApplicant(container_id, user) {
     experience_content.innerHTML += user.jobExperience1YearEnded;
     experience_content.innerHTML += "<br><hr>";
   }
-  if (user.jobExperience2Title != "N/A") {
+  if (user.jobExperience2Title != "N/A" && user.jobExperience2Title != "") {
     experience_content.innerHTML += user.jobExperience2Title;
     experience_content.innerHTML += "<br>";
     experience_content.innerHTML += user.jobExperience2Company;
@@ -484,7 +484,7 @@ function addCardApplicant(container_id, user) {
     experience_content.innerHTML += user.jobExperience2YearEnded;
     experience_content.innerHTML += "<br><hr>";
   }
-  if (user.jobExperience3Title != "N/A") {
+  if (user.jobExperience3Title != "N/A" && user.jobExperience3Title != "") {
     experience_content.innerHTML += user.jobExperience3Title;
     experience_content.innerHTML += "<br>";
     experience_content.innerHTML += user.jobExperience3Company;
@@ -492,63 +492,63 @@ function addCardApplicant(container_id, user) {
     experience_content.innerHTML += user.jobExperience3YearEnded;
     experience_content.innerHTML += "<br><hr>";
   }
-  if (user.programmingLanguage1 != "N/A") {
+  if (user.programmingLanguage1 != "N/A" && user.programmingLanguage1 != "") {
     skills_content.innerHTML = user.programmingLanguage1;
     skills_content.innerHTML += "<br><hr>";
   }
-  if (user.programmingLanguage2 != "N/A") {
+  if (user.programmingLanguage2 != "N/A" && user.programmingLanguage2 != "") {
     skills_content.innerHTML += user.programmingLanguage2;
     skills_content.innerHTML += "<br><hr>";
   }
-  if (user.programmingLanguage3 != "N/A") {
+  if (user.programmingLanguage3 != "N/A" && user.programmingLanguage3 != "") {
     skills_content.innerHTML += user.programmingLanguage3;
     skills_content.innerHTML += "<br><hr>";
   }
-  if (user.programmingLanguage4 != "N/A") {
+  if (user.programmingLanguage4 != "N/A" && user.programmingLanguage4 != "") {
     skills_content.innerHTML += user.programmingLanguage4;
     skills_content.innerHTML += "<br><hr>";
   }
-  if (user.programmingLanguage5 != "N/A") {
+  if (user.programmingLanguage5 != "N/A" && user.programmingLanguage5 != "") {
     skills_content.innerHTML += user.programmingLanguage5;
     skills_content.innerHTML += "<br><hr>";
   }
-  if (user.certification1Title != "N/A") {
+  if (user.certification1Title != "N/A" && user.certification1Title != "") {
     certification_content.innerHTML = user.certification1Title;
     certification_content.innerHTML += "<br><hr>";
   }
-  if (user.certification2Title != "N/A") {
+  if (user.certification2Title != "N/A" && user.certification2Title != "") {
     certification_content.innerHTML += user.certification2Title;
     certification_content.innerHTML += "<br><hr>";
   }
-  if (user.certification3Title != "N/A") {
+  if (user.certification3Title != "N/A" && user.certification3Title != "") {
     certification_content.innerHTML += user.certification3Title;
     certification_content.innerHTML += "<br><hr>";
   }
-  if (user.certification4Title != "N/A") {
+  if (user.certification4Title != "N/A" && user.certification4Title != "") {
     certification_content.innerHTML += user.certification4Title;
     certification_content.innerHTML += "<br><hr>";
   }
-  if (user.certification5Title != "N/A") {
+  if (user.certification5Title != "N/A" && user.certification5Title != "") {
     certification_content.innerHTML += user.certification5Title;
     certification_content.innerHTML += "<br><hr>";
   }
-  if (user.accomplishment1Title != "N/A") {
+  if (user.accomplishment1Title != "N/A" && user.accomplishment1Title != "") {
     accomplishments_content.innerHTML = user.accomplishment1Title;
     accomplishments_content.innerHTML += "<br><hr>";
   }
-  if (user.accomplishment2Title != "N/A") {
+  if (user.accomplishment2Title != "N/A" && user.accomplishment2Title != "") {
     accomplishments_content.innerHTML += user.accomplishment2Title;
     accomplishments_content.innerHTML += "<br><hr>";
   }
-  if (user.accomplishment3Title != "N/A") {
+  if (user.accomplishment3Title != "N/A" && user.accomplishment3Title != "") {
     accomplishments_content.innerHTML += user.accomplishment3Title;
     accomplishments_content.innerHTML += "<br><hr>";
   }
-  if (user.accomplishment4Title != "N/A") {
+  if (user.accomplishment4Title != "N/A" && user.accomplishment4Title != "") {
     accomplishments_content.innerHTML += user.accomplishment4Title;
     accomplishments_content.innerHTML += "<br><hr>";
   }
-  if (user.accomplishment5Title != "N/A") {
+  if (user.accomplishment5Title != "N/A" && user.accomplishment5Title != "") {
     accomplishments_content.innerHTML += user.accomplishment5Title;
     accomplishments_content.innerHTML += "<br><hr>";
   }
@@ -570,6 +570,11 @@ function addCardApplicant(container_id, user) {
   if (!name_content.textContent.trim()) {
     name_content.innerHTML = "N/A";
   }
+  $(skills_content).find("hr:last").remove();
+  $(experience_content).find("hr:last").remove();
+  $(education_content).find("hr:last").remove();
+  $(certification_content).find("hr:last").remove();
+  $(accomplishments_content).find("hr:last").remove();
   /* Set unique ID for the container using name_content */
   const containerUniqueId =
     "container_" + name_content.innerHTML.replace(/\s+/g, "_");
