@@ -79,6 +79,7 @@ $(document).ready(function () {
     } else {
       displayUserSummary();
     }
+    $("#pdfContainers").remove();
   });
   /* convertUploadedFiles(); */
 });
