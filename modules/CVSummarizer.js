@@ -3,7 +3,7 @@
 async function CVSummarize(text, openai) {
   const pdfText = text;
   const prompt = `${pdfText}\n\n\n\n\n
-can you find only these information and put them in this format,
+can you find only these information and put them in this format (make sure to find the root word eg. Python (Expert) => Python, MSc.CS Computer Science => Master of Science in Computer Science, HTML5=>HTML, Programming: Java => Java),
 Full Name:
 Highest Education Level:
 Education 1 Course and Level (e.g. Bachelor's in Psychology):
