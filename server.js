@@ -1,5 +1,6 @@
 const { CVSummarize } = require("./modules/CVSummarizer.js");
 const { askRank } = require("./modules/askRanking.js");
+const { getContactInfo } = require("./modules/getContactInfo.js");
 const { redFlagRemover } = require("./modules/redFlagRemover.js");
 const express = require("express");
 const multer = require("multer");
@@ -526,6 +527,18 @@ app.post("/askrank", async (req, res) => {
   } catch (error) {
     console.error("Error processing Rank:", error);
     res.status(500).send("Failed to process Rank.");
+  }
+});
+
+// Handle requests for getContactInfo
+app.post("/getContactInfo", async (req, res) => {
+  const { orgArray } = req.body;
+  try {
+    const response = await getContactInfo(orgArray);
+    res.json(response);
+  } catch (error) {
+    console.error("Error getting info:", error);
+    res.status(500).send("Failed to process info.");
   }
 });
 

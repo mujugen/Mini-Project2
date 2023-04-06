@@ -130,3 +130,49 @@ function makeEmailTemplate() {
   $("#emailTemplate").html(prompt);
 }
 makeEmailTemplate();
+
+// Verification
+(function createVerificationContent() {
+  $("#education1school-verification").text(
+    globalUserArray.educationSchoolName1
+  );
+  $("#education2school-verification").text(
+    globalUserArray.educationSchoolName2
+  );
+  $("#education3school-verification").text(
+    globalUserArray.educationSchoolName3
+  );
+  $("#experience1company-verification").text(
+    globalUserArray.jobExperienceCompany1
+  );
+  $("#experience2company-verification").text(
+    globalUserArray.jobExperienceCompany2
+  );
+  $("#experience3company-verification").text(
+    globalUserArray.jobExperienceCompany3
+  );
+  $("#experience4company-verification").text(
+    globalUserArray.jobExperienceCompany4
+  );
+  $("#experience5company-verification").text(
+    globalUserArray.jobExperienceCompany5
+  );
+})();
+
+async function fetchGetContactInfo(orgArray) {
+  const response = await fetch("http://localhost:3000/getContactInfo", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ orgArray }),
+  });
+  const prompt = await response.json();
+  return prompt;
+}
+
+(async function getContactInfo() {
+  myArray = ["A", "B", "C"];
+  prompt = await fetchGetContactInfo(myArray);
+  console.log(prompt);
+})();
