@@ -45,7 +45,9 @@ $("#accomplishment2").text(globalUserArray.accomplishment2Title);
 $("#accomplishment3").text(globalUserArray.accomplishment3Title);
 $("#accomplishment4").text(globalUserArray.accomplishment4Title);
 $("#accomplishment5").text(globalUserArray.accomplishment5Title);
-
+$("#phoneNumber").text(globalUserArray.phoneNumber);
+$("#emailAddress").text(globalUserArray.emailAddress);
+$("#homeAddress").text(globalUserArray.homeAddress);
 function hideEmptyElements(selector, valuesToHide) {
   $(selector).each(function () {
     if (valuesToHide.includes($(this).text())) {

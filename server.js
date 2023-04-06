@@ -84,6 +84,9 @@ db.run(
     referenceName3 TEXT, \
     referenceTitle3 TEXT, \
     referenceContactInfo3 TEXT, \
+    phoneNumber TEXT, \
+    emailAddress TEXT, \
+    homeAddress TEXT, \
     raw_text TEXT, \
     red_flag_1 BOOLEAN, \
     red_flag_2 BOOLEAN, \
@@ -159,6 +162,9 @@ function insertUser(userData) {
     referenceName3,
     referenceTitle3,
     referenceContactInfo3,
+    phoneNumber,
+    emailAddress,
+    homeAddress,
     raw_text,
   } = userData;
   if (name == "") {
@@ -236,8 +242,11 @@ function insertUser(userData) {
           referenceName3,
           referenceTitle3,
           referenceContactInfo3,
+          phoneNumber,
+          emailAddress,
+          homeAddress,
           raw_text
-        ) VALUES (COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'))`,
+        ) VALUES (COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'), COALESCE(NULLIF(?, ''), 'N/A'))`,
         [
           name,
           highestEducation,
@@ -300,6 +309,9 @@ function insertUser(userData) {
           referenceName3,
           referenceTitle3,
           referenceContactInfo3,
+          phoneNumber,
+          emailAddress,
+          homeAddress,
           raw_text,
         ],
         function (err) {
@@ -568,7 +580,6 @@ app.post("/getContactSummary", async (req, res) => {
     res.status(500).send("Error");
   }
 });
-
 
 // Start the server on port 3000
 const PORT = process.env.PORT || 3000;

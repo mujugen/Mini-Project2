@@ -257,7 +257,7 @@ Applicant 1 Ranking: NUMBER
 Applicant 2 Ranking: NUMBER
 Applicant 3 Ranking: NUMBER
 ...`;
-  /* if (prompt.length < 10000) {
+  if (prompt.length < 10000) {
     response = await fetchAskRank(prompt);
     const lines = response.split("\n");
     const rankings = [];
@@ -273,17 +273,15 @@ Applicant 3 Ranking: NUMBER
       rankings[applicantIndex] = ranking;
     });
     console.log(rankings);
-    
+    for (var i = 0; i < rankings.length; i++) {
+      var div = document.querySelector("#" + containertextIDArray[i]);
+      // Append the text from array A to the innerHTML of the div
+      div.innerHTML += rankings[i];
     }
   } else {
     return "Too much to rank!";
-  } */
-  rankings = [3, 2, 1, 4, 5, 6, 7];
-  for (var i = 0; i < rankings.length; i++) {
-    var div = document.querySelector("#" + containertextIDArray[i]);
-    // Append the text from array A to the innerHTML of the div
-    div.innerHTML += rankings[i];
   }
+  /* rankings = [3, 2, 1, 4, 5, 6, 7]; */
 
   const parentDivID = "userContainers";
   let containerIDArray = [];

@@ -65,7 +65,9 @@ Reference 2 Contact information:
 Reference 3 Name:
 Reference 3 Title:
 Reference 3 Contact information:
-
+Phone Number:
+Email Address:
+Home Address:
 `;
 
   const response = await askPrompt(prompt, openai);
@@ -260,6 +262,9 @@ Reference 3 Contact information:
     "Reference 3 Contact Info:",
     response
   );
+  const phoneNumber = featureRetrieval("Phone Number:", response);
+  const emailAddress = featureRetrieval("Email Address:", response);
+  const homeAddress = featureRetrieval("Home Address:", response);
   const raw_text = text;
 
   const applicant = new Applicant(
@@ -324,6 +329,9 @@ Reference 3 Contact information:
     referenceName3,
     referenceTitle3,
     referenceContactInfo3,
+    phoneNumber,
+    emailAddress,
+    homeAddress,
     raw_text
   );
   console.log("CVSummarize finished");
@@ -432,6 +440,9 @@ class Applicant {
     referenceName3,
     referenceTitle3,
     referenceContactInfo3,
+    phoneNumber,
+    emailAddress,
+    homeAddress,
     raw_text
   ) {
     this.name = name;
@@ -495,6 +506,9 @@ class Applicant {
     this.referenceName3 = referenceName3;
     this.referenceTitle3 = referenceTitle3;
     this.referenceContactInfo3 = referenceContactInfo3;
+    this.phoneNumber = phoneNumber;
+    this.emailAddress = emailAddress;
+    this.homeAddress = homeAddress;
     this.raw_text = raw_text;
   }
 }
