@@ -1,0 +1,71 @@
+const globalUserArray = JSON.parse(localStorage.getItem("finalApplicant"));
+
+$("#user_name").text(globalUserArray.name);
+$("#education1").text(globalUserArray.educationFullTitle1);
+$("#education1school").text(globalUserArray.educationSchoolName1);
+$("#education1year").text(globalUserArray.educationYearEnded1);
+$("#education2").text(globalUserArray.educationFullTitle2);
+$("#education2school").text(globalUserArray.educationSchoolName2);
+$("#education2year").text(globalUserArray.educationYearEnded2);
+$("#education3").text(globalUserArray.educationFullTitle3);
+$("#education3school").text(globalUserArray.educationSchoolName3);
+$("#education3year").text(globalUserArray.educationYearEnded3);
+$("#experience1").text(globalUserArray.jobExperienceTitle1);
+$("#experience1company").text(globalUserArray.jobExperienceCompany1);
+$("#experience1year").text(globalUserArray.jobExperienceYearEnded1);
+$("#experience2").text(globalUserArray.jobExperienceTitle2);
+$("#experience2company").text(globalUserArray.jobExperienceCompany2);
+$("#experience2year").text(globalUserArray.jobExperienceYearEnded2);
+$("#experience3").text(globalUserArray.jobExperienceTitle3);
+$("#experience3company").text(globalUserArray.jobExperienceCompany3);
+$("#experience3year").text(globalUserArray.jobExperienceYearEnded3);
+$("#experience4").text(globalUserArray.jobExperience4Title);
+$("#experience4company").text(globalUserArray.jobExperienceCompany4);
+$("#experience4year").text(globalUserArray.jobExperienceYearEnded4);
+$("#experience5").text(globalUserArray.jobExperience5Title);
+$("#experience5company").text(globalUserArray.jobExperienceCompany5);
+$("#experience5year").text(globalUserArray.jobExperienceYearEnded5);
+$("#skill1").text(globalUserArray.skill1);
+$("#skill2").text(globalUserArray.skill2);
+$("#skill3").text(globalUserArray.skill3);
+$("#skill4").text(globalUserArray.skill4);
+$("#skill5").text(globalUserArray.skill5);
+$("#skill6").text(globalUserArray.skill6);
+$("#skill7").text(globalUserArray.skill7);
+$("#skill8").text(globalUserArray.skill8);
+$("#skill9").text(globalUserArray.skill9);
+$("#skill10").text(globalUserArray.skill10);
+$("#certification1").text(globalUserArray.certification1Title);
+$("#certification2").text(globalUserArray.certification2Title);
+$("#certification3").text(globalUserArray.certification3Title);
+$("#certification4").text(globalUserArray.certification4Title);
+$("#certification5").text(globalUserArray.certification5Title);
+$("#accomplishment1").text(globalUserArray.accomplishment1Title);
+$("#accomplishment2").text(globalUserArray.accomplishment2Title);
+$("#accomplishment3").text(globalUserArray.accomplishment3Title);
+$("#accomplishment4").text(globalUserArray.accomplishment4Title);
+$("#accomplishment5").text(globalUserArray.accomplishment5Title);
+
+function hideEmptyElements(selector, valuesToHide) {
+  $(selector).each(function () {
+    if (valuesToHide.includes($(this).text())) {
+      $(this).hide();
+    }
+  });
+}
+
+let valuesToHide = ["N/A", "None", ""];
+const container = document.getElementById("user_text_container");
+const childrenIds = [];
+
+for (let i = 0; i < container.children.length; i++) {
+  const child = container.children[i];
+  if (child.id) {
+    // Only push child ID if it exists
+    childrenIds.push("#" + child.id);
+  }
+}
+
+const selector = childrenIds.join(",");
+
+hideEmptyElements(selector, valuesToHide);

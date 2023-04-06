@@ -482,17 +482,6 @@ app.post("/cvsummarize", async (req, res) => {
   }
 });
 
-// Handle requests for askRank
-app.post("/askrank", async (req, res) => {
-  const { prompt } = req.body;
-  try {
-    const response = await askRank(prompt, openai);
-    res.json(response);
-  } catch (error) {
-    console.error("Error processing Rank:", error);
-    res.status(500).send("Failed to process Rank.");
-  }
-});
 
 // Set the public folder as a static folder
 app.use(express.static("public"));
@@ -527,6 +516,18 @@ app.get("/list", (req, res) => {
     }
     res.json(files);
   });
+});
+
+// Handle requests for askRank
+app.post("/askrank", async (req, res) => {
+  const { prompt } = req.body;
+  try {
+    const response = await askRank(prompt, openai);
+    res.json(response);
+  } catch (error) {
+    console.error("Error processing Rank:", error);
+    res.status(500).send("Failed to process Rank.");
+  }
 });
 
 // Start the server on port 3000

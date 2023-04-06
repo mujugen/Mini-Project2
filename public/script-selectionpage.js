@@ -11,6 +11,11 @@ $("#rankBtn").on("click", function () {
   }
 });
 
+function selectApplicant(user) {
+  localStorage.setItem("finalApplicant", JSON.stringify(user));
+  window.location.href = "finalreview.html";
+}
+
 // Displays all selected applicants
 displayUserSummary();
 // Retrieves users array from DB
@@ -30,6 +35,7 @@ function addCardApplicant(container_id, user) {
   /* Create elements */
   const cell = document.createElement("div");
   const cell_text = document.createElement("div");
+  const selectBtn = document.createElement("button");
   const name = document.createElement("p");
   const education = document.createElement("p");
   const experience = document.createElement("p");
@@ -45,6 +51,9 @@ function addCardApplicant(container_id, user) {
   const img = document.createElement("img");
   var img_filename = "profile-placeholder.jpg";
   /* Set class names */
+  selectBtn.innerHTML = "Select";
+  selectBtn.className = "btn btn-primary btn-block mt-2";
+  selectBtn.onclick = () => selectApplicant(user);
   cell.className = "p-2 cell";
   img.src = img_filename;
   img.className = "cell-img";
@@ -210,7 +219,7 @@ function addCardApplicant(container_id, user) {
   cell_text.id = cellTextUniqueId;
   /* Append all created elements */
   container.append(cell);
-  cell.append(img, cell_text);
+  cell.append(img, cell_text, selectBtn);
   cell_text.append(
     name,
     name_content,
