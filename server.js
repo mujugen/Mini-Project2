@@ -1,6 +1,7 @@
 const { CVSummarize } = require("./modules/CVSummarizer.js");
 const { askRank } = require("./modules/askRanking.js");
 const { getContactInfo } = require("./modules/getContactInfo.js");
+const { getContactSummary } = require("./modules/getContactSummary.js");
 const { redFlagRemover } = require("./modules/redFlagRemover.js");
 const express = require("express");
 const multer = require("multer");
@@ -532,10 +533,11 @@ app.post("/askrank", async (req, res) => {
 
 // Handle requests for getContactInfo
 app.post("/getContactInfo", async (req, res) => {
-  const { orgArray } = req.body;
+  const { query } = req.body;
   try {
-    const response = await getContactInfo(orgArray);
-    res.json(response);
+    console.log("Request received");
+    const response = await getContactInfo(query);
+    res.json({ data: response });
   } catch (error) {
     console.error("Error getting info:", error);
     res.status(500).send("Failed to process info.");
@@ -553,6 +555,20 @@ app.post("/renameFile", async (req, res) => {
     res.send("File renamed successfully.");
   });
 });
+
+// Handle requests for CV summarization
+app.post("/getContactSummary", async (req, res) => {
+  const { prompt } = req.body;
+  try {
+    const response = await getContactSummary(prompt, openai);
+    console.log(response);
+    res.json(response);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Error");
+  }
+});
+
 
 // Start the server on port 3000
 const PORT = process.env.PORT || 3000;

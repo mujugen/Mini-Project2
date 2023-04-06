@@ -131,48 +131,81 @@ function makeEmailTemplate() {
 }
 makeEmailTemplate();
 
-// Verification
-(function createVerificationContent() {
-  $("#education1school-verification").text(
-    globalUserArray.educationSchoolName1
-  );
-  $("#education2school-verification").text(
-    globalUserArray.educationSchoolName2
-  );
-  $("#education3school-verification").text(
-    globalUserArray.educationSchoolName3
-  );
-  $("#experience1company-verification").text(
-    globalUserArray.jobExperienceCompany1
-  );
-  $("#experience2company-verification").text(
-    globalUserArray.jobExperienceCompany2
-  );
-  $("#experience3company-verification").text(
-    globalUserArray.jobExperienceCompany3
-  );
-  $("#experience4company-verification").text(
-    globalUserArray.jobExperienceCompany4
-  );
-  $("#experience5company-verification").text(
-    globalUserArray.jobExperienceCompany5
-  );
-})();
-
-async function fetchGetContactInfo(orgArray) {
+async function fetchGetContactInfo(query) {
   const response = await fetch("http://localhost:3000/getContactInfo", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ orgArray }),
+    body: JSON.stringify({ query }),
   });
-  const prompt = await response.json();
-  return prompt;
+  console.log("trying to send request to contact info");
+  if (response.ok) {
+    const prompt = await response.json();
+    return prompt;
+  } else {
+    console.error("Failed to fetch contact info");
+    return null;
+  }
 }
 
-(async function getContactInfo() {
-  myArray = ["A", "B", "C"];
-  prompt = await fetchGetContactInfo(myArray);
-  console.log(prompt);
-})();
+async function getContactInfo(query) {
+  query = "De La Salle University Dasmarinas Contact Information";
+  response = await fetchGetContactInfo(query);
+  console.log(response);
+  if (response.length > 8000) {
+    response = response.substring(0, 7000) + "...";
+  }
+  return response;
+}
+
+async function fetchGetContactSummary(prompt) {
+  const response = await fetch("http://localhost:3000/getContactSummary", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ prompt }),
+  });
+  if (response.ok) {
+    const result = await response.json();
+    return result;
+  } else {
+    return null;
+  }
+}
+
+async function summarizeRawContactInfo(orgName) {
+  query = orgName;
+  query += " Contact information (phone number/telephone number/email/address)";
+  rawContactInfo = await getContactInfo(query);
+  prompt = `can you find ${query} from the text below?(Keep your response short):\n`;
+  prompt += rawContactInfo;
+  response = await fetchGetContactSummary(prompt);
+  console.log(response);
+  return response;
+}
+
+var userJobSchoolArray = Array.from(
+  new Set([
+    globalUserArray.educationSchoolName1,
+    globalUserArray.educationSchoolName2,
+    globalUserArray.educationSchoolName3,
+    globalUserArray.jobExperienceCompany1,
+    globalUserArray.jobExperienceCompany2,
+    globalUserArray.jobExperienceCompany3,
+    globalUserArray.jobExperienceCompany4,
+    globalUserArray.jobExperienceCompany5,
+  ])
+);
+// Verification
+// This is where the contact information is created with Google + GPT
+async function createVerificationContent() {
+  var container = $("#contact-container");
+
+  for (const item of userJobSchoolArray) {
+    container.append("<p>" + item + "</p>");
+    contactInfo = await summarizeRawContactInfo(item);
+    container.append("<p>" + contactInfo + "</p>");
+  }
+}
