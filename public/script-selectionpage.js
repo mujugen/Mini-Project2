@@ -1,24 +1,17 @@
 const globalUserArray = JSON.parse(localStorage.getItem("selectedApplicants"));
 
-// Use the selected applicants array on the page
-console.log(globalUserArray);
-
-// Displays all selected applicants
-$("#parseBtn").on("click", function () {
-  const parentDiv = document.getElementById("userContainers");
-  let childDiv = parentDiv.querySelector("div");
-  while (childDiv) {
-    parentDiv.removeChild(childDiv);
-    childDiv = parentDiv.querySelector("div");
-  }
-  console.log("Parse button clicked");
+// Ranks all selected applicants
+$("#rankBtn").on("click", function () {
+  console.log("Rank button clicked");
   if (globalUserArray.length == 0) {
-    alert("Nothing to to convert");
+    alert("Nothing to to rank");
     event.preventDefault();
   } else {
-    displayUserSummary();
+    askRank();
   }
 });
+
+// Displays all selected applicants
 displayUserSummary();
 // Retrieves users array from DB
 async function displayUserSummary() {
@@ -234,14 +227,15 @@ function addCardApplicant(container_id, user) {
   );
 }
 
-async function askRanking() {
+async function askRank() {
   let textArray = [];
-  let containerIDArray = [];
+  let containertextIDArray = [];
   $("#userContainers .cell-text-container").each(function () {
     let currentText = $(this).text();
-    containerIDArray.push($(this).attr("id"));
+    containertextIDArray.push($(this).attr("id"));
     textArray.push(currentText);
   });
+
   prompt = ``;
   for (let i = 0; i < textArray.length; i++) {
     prompt += `Applicant ${i + 1}:\n`;
@@ -254,7 +248,7 @@ Applicant 1 Ranking: NUMBER
 Applicant 2 Ranking: NUMBER
 Applicant 3 Ranking: NUMBER
 ...`;
-  if (prompt.length < 10000) {
+  /* if (prompt.length < 10000) {
     response = await fetchAskRank(prompt);
     const lines = response.split("\n");
     const rankings = [];
@@ -270,18 +264,45 @@ Applicant 3 Ranking: NUMBER
       rankings[applicantIndex] = ranking;
     });
     console.log(rankings);
-    for (var i = 0; i < rankings.length; i++) {
-      // Get the corresponding div element using its ID from array B
-      console.log(containerIDArray[i]);
-      var div = document.querySelector("#" + containerIDArray[i]);
-      // Append the text from array A to the innerHTML of the div
-      div.innerHTML += rankings[i];
+    
     }
   } else {
     return "Too much to rank!";
+  } */
+  rankings = [3, 2, 1, 4, 5, 6, 7];
+  for (var i = 0; i < rankings.length; i++) {
+    var div = document.querySelector("#" + containertextIDArray[i]);
+    // Append the text from array A to the innerHTML of the div
+    div.innerHTML += rankings[i];
   }
+
+  const parentDivID = "userContainers";
+  let containerIDArray = [];
+  $("#userContainers")
+    .children()
+    .each(function () {
+      containerIDArray.push($(this).attr("id"));
+    });
+
+  rearrangeChildren(parentDivID, rankings, containerIDArray);
 }
 
+function rearrangeChildren(parentDivID, rankings, containerIDArray) {
+  const parentDiv = document.getElementById(parentDivID);
+  const reorderedChildren = new Array(containerIDArray.length);
+  for (let i = 0; i < rankings.length; i++) {
+    const newIndex = rankings[i] - 1;
+    const containerID = containerIDArray[newIndex];
+    const container = document.getElementById(containerID);
+    reorderedChildren[i] = container;
+  }
+  while (parentDiv.firstChild) {
+    parentDiv.removeChild(parentDiv.firstChild);
+  }
+  for (let child of reorderedChildren) {
+    parentDiv.appendChild(child);
+  }
+}
 // Call CVSummarize API endpoint
 async function fetchAskRank(prompt) {
   const response = await fetch("http://localhost:3000/askrank", {
