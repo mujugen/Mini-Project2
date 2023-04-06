@@ -180,6 +180,20 @@ async function convertUploadedFiles() {
         applicant = await fetchCVSummarize(rawText);
         // Update globalUserArray
         globalUserArray = await fetchUserDBP();
+        // After the applicant object is retrieved, extract the name and create the new file path
+        const newName = `${applicant.name
+          .replace(/ /g, "_")
+          .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "")}.pdf`;
+        const newPath = `uploads/${newName}`;
+
+        // Call the new API endpoint to rename the file
+        await fetch("/renameFile", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ oldPath: filePath, newPath }),
+        });
 
         updateItemFilters(
           globalUserArray,
@@ -207,6 +221,19 @@ async function convertUploadedFiles() {
         console.log("Applicant found in DB");
         applicant = await response.json();
         /* console.log(applicant); */
+        const newName = `${applicant.name
+          .replace(/ /g, "_")
+          .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "")}.pdf`;
+        const newPath = `uploads/${newName}`;
+
+        // Call the new API endpoint to rename the file
+        await fetch("/renameFile", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ oldPath: filePath, newPath }),
+        });
       }
       let name = applicant.name;
       if (rawText.length > 50) {

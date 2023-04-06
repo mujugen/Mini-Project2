@@ -482,7 +482,6 @@ app.post("/cvsummarize", async (req, res) => {
   }
 });
 
-
 // Set the public folder as a static folder
 app.use(express.static("public"));
 app.use("/uploads", express.static("uploads"));
@@ -528,6 +527,18 @@ app.post("/askrank", async (req, res) => {
     console.error("Error processing Rank:", error);
     res.status(500).send("Failed to process Rank.");
   }
+});
+
+// New API endpoint to handle file renaming
+app.post("/renameFile", async (req, res) => {
+  const { oldPath, newPath } = req.body;
+  fs.rename(oldPath, newPath, (err) => {
+    if (err) {
+      console.error("Error renaming file:", err);
+      return res.status(500).send("Failed to rename file.");
+    }
+    res.send("File renamed successfully.");
+  });
 });
 
 // Start the server on port 3000
