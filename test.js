@@ -1,5 +1,4 @@
 const puppeteer = require("puppeteer");
-const url = `https://www.dlsud.edu.ph/feedback.htm`;
 const { JSDOM } = require("jsdom");
 
 class URLFetcher {
@@ -14,7 +13,7 @@ class URLFetcher {
   }
 
   static async createInstance(url, loadIframes = false) {
-    const responseSource = await fetchSearchGoogle(url);
+    const responseSource = await fetchsearchUrl(url);
     return new URLFetcher(url, responseSource, loadIframes);
   }
 
@@ -91,7 +90,7 @@ class URLFetcher {
 // const fetcher = new URLFetcher("https://example.com", true);
 // console.log(fetcher.getTextContent());
 
-async function searchGoogle(url) {
+async function searchUrl(url) {
   // launch browser
   const browser = await puppeteer.launch({
     headless: true,
@@ -139,14 +138,59 @@ async function searchGoogle(url) {
   return html;
 }
 
-async function fetchSearchGoogle(url) {
-  response_sourcecode = await searchGoogle(url);
+async function fetchsearchUrl(url) {
+  response_sourcecode = await searchUrl(url);
   return response_sourcecode;
 }
-
+/* const url = `https://www.google.com.ph/search?q=de+la+salle+university+dasmarinas+contact+information&sxsrf=APwXEdd_KGWE5brOhM5B_9AGPbPEUaBaqw%3A1680785179139&source=hp&ei=G78uZN3eBpL8wAPku704&iflsig=AOEireoAAAAAZC7NKz9oqbemAeLiiEIPtKMqIzlj6mEz&oq=de&gs_lcp=Cgdnd3Mtd2l6EAEYADIECCMQJzIECCMQJzIECCMQJzIICC4QigUQkQIyCwguEIoFELEDEIMBMgUIABCABDIUCC4QigUQsQMQgwEQxwEQ0QMQ1AIyCAguEIoFELEDMggIABCABBCxAzIOCC4QgAQQsQMQgwEQ1AI6CwgAEIoFELEDEIMBOgsIABCABBCxAxCDAVAAWLQBYNkGaABwAHgAgAFliAGwAZIBAzEuMZgBAKABAQ&sclient=gws-wiz`;
 // Usage example:
 (async () => {
   // Fetcher = clean text result
   const fetcher = await URLFetcher.createInstance(url, true);
   console.log(fetcher.getTextContent());
-})();
+})(); */
+
+async function searchGoogle(query) {
+  // Launch the browser
+  const browser = await puppeteer.launch({ headless: true });
+  const page = await browser.newPage();
+
+  // Navigate to Google search
+  await page.goto("https://www.google.com");
+  await page.waitForSelector("input[name=q]");
+
+  // Enter the search query and submit
+  await page.type("input[name=q]", query);
+  await page.keyboard.press("Enter");
+
+  // Wait for search results to load
+  await page.waitForSelector("#search a");
+
+  // Extract the main search result links
+  const links = await page.$$eval("#search a", (anchorElements) =>
+    anchorElements.map((anchor) => ({
+      title: anchor.textContent,
+      url: anchor.href,
+    }))
+  );
+
+  // Filter out unnecessary links (like Google's own services)
+  const filteredLinks = links.filter(
+    (link) =>
+      !link.url.includes("google.com") &&
+      !link.url.includes("javascript:void(0)")
+  );
+
+  // Close the browser
+  await browser.close();
+
+  return filteredLinks;
+}
+
+searchGoogle("microsoft contact information")
+  .then((results) => {
+    console.log(results);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
