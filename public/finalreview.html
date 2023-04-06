@@ -83,7 +83,36 @@
     <div
       class="right-side scrollbar scrollbar-near-moon"
       style="width: 50%; overflow-x: hidden"
-    ></div>
+    >
+      <div class="container mt-5">
+        <h1>Contact</h1>
+        <h2>Phone</h2>
+        <h3 id="phoneNumber"></h3>
+        <h2>Email</h2>
+        <h3 id="emailAddress"></h3>
+        <h2>Address</h2>
+        <h3 id="homeAddress"></h3>
+      </div>
+      <div class="container mt-5 bg-secondary p-0">
+        <div>
+          <h2 class="text-center p-2">Message for Interview</h2>
+          <p id="emailTemplate" class="bg-dark p-5"></p>
+        </div>
+      </div>
+      <h2>Curriculum Vitae</h2>
+      <div
+        class="container mt-5"
+        style="width: 80%; height: 80%; background-color: white"
+        id="pdf-container-parent"
+      >
+        <div
+          id="pdf-container"
+          style="width: 100%; height: 100%; overflow: auto"
+          class="scrollbar scrollbar-near-moon"
+        ></div>
+      </div>
+    </div>
     <script src="script-finalreview.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
   </body>
 </html>

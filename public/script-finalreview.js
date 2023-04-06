@@ -55,11 +55,11 @@ function hideEmptyElements(selector, valuesToHide) {
 }
 
 let valuesToHide = ["N/A", "None", ""];
-const container = document.getElementById("user_text_container");
+const parent_container = document.getElementById("user_text_container");
 const childrenIds = [];
 
-for (let i = 0; i < container.children.length; i++) {
-  const child = container.children[i];
+for (let i = 0; i < parent_container.children.length; i++) {
+  const child = parent_container.children[i];
   if (child.id) {
     // Only push child ID if it exists
     childrenIds.push("#" + child.id);
@@ -69,3 +69,64 @@ for (let i = 0; i < container.children.length; i++) {
 const selector = childrenIds.join(",");
 
 hideEmptyElements(selector, valuesToHide);
+
+async function displayPDF(fileName) {
+  const response = await fetch(`/uploads/${fileName}`);
+  if (!response.ok) {
+    console.error("Failed to fetch the PDF file");
+    return;
+  }
+
+  const arrayBuffer = await response.arrayBuffer();
+  const pdfData = new Uint8Array(arrayBuffer);
+
+  // Load and display the PDF
+  const pdf = await pdfjsLib.getDocument({ data: pdfData }).promise;
+  const container = document.getElementById("pdf-container");
+  const containerWidth = container.clientWidth;
+  const numPages = pdf.numPages;
+
+  for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+    // Render each page of the PDF
+    const page = await pdf.getPage(pageNum);
+    const scale = containerWidth / page.getViewport({ scale: 1 }).width;
+    const viewport = page.getViewport({ scale });
+
+    const canvas = document.createElement("canvas");
+    canvas.width = viewport.width * 0.9;
+    canvas.height = viewport.height * 0.9;
+    container.appendChild(canvas);
+
+    const context = canvas.getContext("2d");
+    const renderContext = {
+      canvasContext: context,
+      viewport: viewport,
+    };
+
+    await page.render(renderContext).promise;
+  }
+}
+
+displayPDF("Miguel_Sicart.pdf");
+
+////////////////
+
+// function to make email template
+function makeEmailTemplate() {
+  const prompt = `Dear ${globalUserArray.name},<br><br>
+    I hope this message finds you well. I am writing to offer you an interview for the position you applied for at our company. We were impressed by your qualifications and experience, and we believe that you could be a valuable addition to our team.<br><br>
+    
+    To schedule your interview, please let us know your availability within the next week. We are looking to conduct interviews as soon as possible and we want to ensure we can accommodate your schedule.<br><br>
+    
+    If there is a particular date or time that works best for you, please let us know and we will do our best to accommodate your schedule. Additionally, if there are any specific accommodations or requirements you need during the interview process, please don't hesitate to inform us so we can make appropriate arrangements.<br><br>
+    
+    Please let us know your availability at your earliest convenience. We look forward to hearing back from you soon and hopefully having the opportunity to meet you in person.<br><br>
+    
+    Best regards,<br><br>
+    
+    John Watson<br>
+    ABC Company`;
+
+  $("#emailTemplate").html(prompt);
+}
+makeEmailTemplate();
