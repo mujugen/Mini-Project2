@@ -9,6 +9,14 @@ function displayUserSummary() {
     const user = globalUserArray[i];
 
     const tr = document.createElement("tr");
+    tr.style.cursor = "pointer"; // Make the cursor a pointer when hovering over the row
+
+    // Add a click event listener to the tr element
+    tr.addEventListener("click", () => {
+      const index = retrieveIDfromName(user.name);
+      putApplicantInfoInEAC(index);
+      toggleExpandedApplicantContainer();
+    });
 
     const tdName = document.createElement("td");
     const div = document.createElement("div");
