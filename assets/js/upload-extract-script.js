@@ -1,3 +1,13 @@
+function moveToProcessCompilePage() {
+  if (globalUserArray.length == 0) {
+    alert("Nothing to finalize");
+    event.preventDefault();
+  } else {
+    localStorage.setItem("globalUserArray", JSON.stringify(globalUserArray));
+    window.location.href = "process-compile.html";
+  }
+}
+
 // Fetches user DB and returns array
 async function fetchUserDBP() {
   try {
@@ -40,6 +50,9 @@ async function fetchCVSummarize(pdfText) {
 }
 
 var globalUserArray;
+(async function initializeGlobalUserArray() {
+  globalUserArray = await fetchUserDBP();
+})();
 
 function displayUploadedFiles() {
   // Check if any files are selected
