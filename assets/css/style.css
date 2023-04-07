@@ -6555,3 +6555,10 @@ body {
 .skills-wrapper div h5 {
   display: inline;
 } */
+
+.applicant-card {
+  margin: 35px;
+  max-width: 45%;
+  min-width: 45%;
+  word-wrap: break-word;
+}
