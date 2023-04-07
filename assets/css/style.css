@@ -547,8 +547,9 @@ a.action_label4 svg {
 
 .table-click {
   position: relative;
-  margin: 3px;
-  padding: 2em 2em 1em 2em;
+  margin: auto;
+  font-size: 16px;
+  padding: 1.8em 1.5em 1em 1.8em;
 }
 
 .block {
