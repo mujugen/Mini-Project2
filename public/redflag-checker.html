@@ -148,13 +148,13 @@
                   ><span> Upload and Extract</span></a
                 >
               </li>
-              <li class="active">
+              <li>
                 <a href="process-compile.html"
                   ><i class="fa-regular fa-rectangle-list fa-2xl"></i
                   ><span>Process and Compile</span></a
                 >
               </li>
-              <li>
+              <li class="active">
                 <a href="redflag-checker.html"
                   ><i class="fa-solid fa-flag fa-2xl"></i
                   ><span>Red Flag Checker </span></a
@@ -237,13 +237,13 @@
                 ><span> Upload and Extract</span></a
               >
             </li>
-            <li class="active">
+            <li>
               <a href="process-compile.html"
                 ><i class="fa-regular fa-rectangle-list fa-2xl"></i
                 ><span>Process and Compile</span></a
               >
             </li>
-            <li>
+            <li class="active">
               <a href="redflag-checker.html"
                 ><i class="fa-solid fa-flag fa-2xl"></i
                 ><span>Red Flag Checker </span></a
@@ -490,7 +490,9 @@
               </div>
               <div class="card-header">
                 <h2 class="card-titles">Remove Red Flags</h2>
-                <button id="rfRemoveBtn" class="btn btn-head">Remove</button>
+                <button onclick="runRedFlagRemover()" class="btn btn-head">
+                  Remove
+                </button>
               </div>
               <div class="card-header">
                 <h2 class="card-titles">
@@ -505,102 +507,11 @@
         <!-- Applicant Info RedFlag -->
         <div class="col-xl-12 col-sm-12 col-12">
           <div class="row">
-            <div class="col-xl-4 col-sm-12 col-12 d-flex">
-              <div class="card card-lists flex-fill">
-                <div class="card-header red">
-                  <img
-                    src="../assets\img\profiles\4.png"
-                    alt="Applicant Image"
-                    class="rounded-image"
-                    width="100"
-                  />
-
-                  <!-- Link to Expand Card, Same Design as Process and Compile Expanded Card -->
-                  <h2 class="card-titles"><a href="#">Barbara Hawkins</a></h2>
-                </div>
-                <div class="card-body red">
-                  <div class="member-info">
-                    <ul>
-                      <li>
-                        <label>Education </label>
-                        <span>Lorem ipsum dolor sit amet.</span>
-                      </li>
-                      <li>
-                        <label>Experience</label>
-                        <span>Lorem ipsum dolor sit amet.</span>
-                      </li>
-                      <li>
-                        <label>Experience </label>
-                        <span>Lorem ipsum dolor sit amet.</span>
-                      </li>
-                      <li>
-                        <label>Skills </label>
-                        <span>Lorem ipsum dolor sit amet.</span>
-                      </li>
-                      <li>
-                        <label>Certifications</label>
-                        <span>Lorem ipsum dolor sit amet.</span>
-                      </li>
-                      <li>
-                        <label>Accomplishments </label>
-                        <span>Lorem ipsum dolor sit amet.</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Applicant Info RedFlag -->
-            <div class="col-xl-12 col-sm-12 col-12" id="applicantCardContainer">
-              <div class="row">
-                <div class="col-xl-4 col-sm-12 col-12 d-flex">
-                  <div class="card card-lists flex-fill">
-                    <div class="card-header">
-                      <img
-                        src="../assets\img\profiles\4.png"
-                        alt="Applicant Image"
-                        class="rounded-image"
-                        width="100"
-                      />
-
-                      <!-- Link to Expand Card, Same Design as Process and Compile Expanded Card -->
-                      <h2 class="card-titles">
-                        <a href="#">Barbara Hawkins</a>
-                      </h2>
-                    </div>
-                    <div class="card-body">
-                      <div class="member-info">
-                        <ul>
-                          <li>
-                            <label>Education </label>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                          </li>
-                          <li>
-                            <label>Experience</label>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                          </li>
-                          <li>
-                            <label>Experience </label>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                          </li>
-                          <li>
-                            <label>Skills </label>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                          </li>
-                          <li>
-                            <label>Certifications</label>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                          </li>
-                          <li>
-                            <label>Accomplishments </label>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="container" style="margin: 0%; min-width: 100%">
+              <div
+                class="d-flex flex-wrap justify-content-center flexbox-container"
+                id="userContainers"
+              ></div>
             </div>
           </div>
           <script src="../assets/js/jquery-3.6.0.min.js"></script>

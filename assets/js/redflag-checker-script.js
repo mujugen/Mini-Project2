@@ -15,6 +15,7 @@ function getSelectedFilters() {
 
 // Sends raw text and selected filter to receive red flag analysis in text form
 async function fetchredFlagRemover(rawText, filters, name) {
+  console.log("Running fetchredFlagRemover");
   const response = await fetch("http://localhost:3000/redFlagRemover", {
     method: "POST",
     headers: {
@@ -32,6 +33,7 @@ async function fetchredFlagRemover(rawText, filters, name) {
   return redFlags;
 }
 
+// Identifies which cards has a red flag and marks them red
 async function runRedFlag() {
   filters = getSelectedFilters();
   if (filters.length != 0) {
@@ -64,14 +66,21 @@ async function runRedFlag() {
       let redFlag_content = document.createElement("p");
       redFlag_title.className = "cell-text-title";
       let container_id =
-        "container_" +
+        "#container_" +
         globalUserArray[i].name
           .replace(/ /g, "_")
           .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
+      hasRedFlags = false;
       // Loop through redFlags object and check for values equal to 1
       for (let flag in redFlags) {
         if (redFlags[flag] == 1) {
-          document.getElementById(container_id).style.backgroundColor = "red";
+          const cardDiv = document.querySelector(container_id);
+          const children = cardDiv.children;
+          hasRedFlags = true;
+          for (let i = 0; i < 2; i++) {
+            children[i].classList.add("red");
+          }
+          hasRedFlags = true;
           switch (flag) {
             case "red_flag_1":
               redFlag_content.innerHTML += `Sloppy Formatting<br>`;
@@ -102,17 +111,25 @@ async function runRedFlag() {
           }
         }
       }
+      // Makes the card red and adds the text if it has red flags
+      if (hasRedFlags) {
+        const container = document.querySelector(container_id + " ul");
+        const newListItem = document.createElement("li");
+        const newListItemLabel = document.createElement("label");
+        newListItemLabel.innerHTML = "RED FLAGS:";
 
-      // Format the user name into the desired ID format
+        const newListSpan = document.createElement("span");
+        newListSpan.innerHTML = redFlag_content.textContent;
 
-      let cell_text_id =
-        "cell_text_" +
-        globalUserArray[i].name
-          .replace(/ /g, "_")
-          .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
-      document.getElementById(cell_text_id).appendChild(redFlag_title);
-      // Append the redFlag_content element to the DOM using the formatted ID
-      document.getElementById(cell_text_id).appendChild(redFlag_content);
+        newListItem.appendChild(newListItemLabel);
+        newListItem.appendChild(newListSpan);
+        container.appendChild(newListItem);
+        const parent_container = $("#userContainers");
+        const divToMove = $(container_id);
+        if (divToMove.length && parent_container.has(divToMove).length) {
+          divToMove.prependTo(parent_container);
+        }
+      }
     }
   } else {
     alert("No filters selected");
@@ -152,4 +169,94 @@ async function runRedFlagRemover() {
       i--; // Decrement the index to compensate for the removed element
     }
   }
+}
+
+for (let i = 0; i < globalUserArray.length; i++) {
+  createUserCard(i);
+}
+
+function createUserCard(i) {
+  const user = globalUserArray[i];
+
+  // Create a unique id for the container
+  const containerUniqueId =
+    "container_" +
+    user.name
+      .replace(/ /g, "_")
+      .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
+
+  // Create the card elements
+  const card = document.createElement("div");
+  card.classList.add("card", "card-lists", "flex-fill", "applicant-card");
+  card.id = containerUniqueId;
+
+  const cardHeader = document.createElement("div");
+  cardHeader.classList.add("card-header");
+
+  const img = document.createElement("img");
+  img.src = "../assets/img/profiles/4.png";
+  img.alt = "Applicant Image";
+  img.classList.add("rounded-image");
+  img.width = "100";
+
+  const h2 = document.createElement("h2");
+  h2.classList.add("card-titles");
+  const nameLink = document.createElement("a");
+  nameLink.id = "name";
+  nameLink.innerText = user.name;
+  h2.appendChild(nameLink);
+
+  const cardBody = document.createElement("div");
+  cardBody.classList.add("card-body");
+
+  const memberInfo = document.createElement("div");
+  memberInfo.classList.add("member-info");
+
+  const listItems = [
+    ["Education", "educationFullTitle1"],
+    ["Experience", "jobExperienceTitle1"],
+    ["Experience", "jobExperienceTitle2"],
+    ["Skills", "skill1", "skill2", "skill3"],
+    ["Certifications", "certification1Title"],
+    ["Accomplishments", "accomplishment1Title"],
+  ];
+
+  const ul = document.createElement("ul");
+
+  listItems.forEach((item) => {
+    const li = document.createElement("li");
+    const label = document.createElement("label");
+    label.style.marginRight = "20%";
+    label.innerText = item[0];
+    li.appendChild(label);
+    if (item[0] === "Skills") {
+      const skills = document.createElement("span");
+      skills.id = "skills";
+      skills.innerText = `${user[item[1]]}, ${user[item[2]]}, ${user[item[3]]}`;
+      li.appendChild(skills);
+    } else {
+      item.slice(1).forEach((key) => {
+        const span = document.createElement("span");
+        span.id = key;
+        span.innerHTML = user[key] || "";
+        span.style.display = "inline-block";
+        span.style.verticalAlign = "top";
+        span.style.textAlign = "right";
+        li.appendChild(span);
+      });
+    }
+
+    ul.appendChild(li);
+  });
+
+  memberInfo.appendChild(ul);
+  cardBody.appendChild(memberInfo);
+  cardHeader.appendChild(img);
+  cardHeader.appendChild(h2);
+  card.appendChild(cardHeader);
+  card.appendChild(cardBody);
+
+  // Append the card to the userContainers div
+  const userContainers = document.querySelector("#userContainers");
+  userContainers.appendChild(card);
 }
