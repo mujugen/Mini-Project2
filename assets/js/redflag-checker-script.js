@@ -260,3 +260,16 @@ function createUserCard(i) {
   const userContainers = document.querySelector("#userContainers");
   userContainers.appendChild(card);
 }
+
+function moveToFilterAndFinalizePage() {
+  if (globalUserArray.length == 0) {
+    alert("Nothing to pass");
+    event.preventDefault();
+  } else {
+    localStorage.setItem(
+      "globalUserArrayPostRedFlag",
+      JSON.stringify(globalUserArray)
+    );
+    window.location.href = "filter-finalize.html";
+  }
+}

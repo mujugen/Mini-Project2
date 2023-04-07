@@ -6562,3 +6562,34 @@ body {
   min-width: 45%;
   word-wrap: break-word;
 }
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-side {
+  width: 50%;
+  margin: 5%;
+}
+.right-side {
+  width: 50%;
+  margin: 5%;
+}
+
+.skill-filter-container {
+  height: 200px; /* Set the height to your desired value */
+  overflow-y: scroll;
+  margin-top: 20px;
+}
+
+.skill-filter-form {
+  position: relative;
+}
+
+.form-check-label {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
