@@ -175,7 +175,7 @@
                               <div class="card card-lists">
                                   <div class="card-header">
                                       <h2 class="card-titles">Summarize and Display Applicant Information</h2>
-                                      <button id="parseBtn" class="btn btn-head" type="submit">PROCESS</button>
+                                      <button class="btn btn-head" type="button" onclick="displayUserSummary()">PROCESS</button>
                                   </div>
                               </div>
                           </div>
@@ -210,76 +210,7 @@
                               <th>Accomplishments</th>
                             </tr>
                           </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <div class="table-img">
-                                  <a href="profile.html">
-                                    <img
-                                      src="../assets\img\profiles\4.png"
-                                      alt="profile"
-                                      class="img-table"
-                                    />
-                                  </a>
-                                  <label> <a href="#" class="name-link">Barbara J. Hawkins</a> </label>
-                                </div>
-                              </td>
-                              <td><label>BS Computer Science</label></td>
-                              <td><label>Embedded Systems Engineer</label></td>
-                              <td><label>Artificial Intelligence </label></td>
-                              <td><label>Certified Master of Electrical...</label></td>
-                              <td>
-                                <label
-                                  >Located 5 incompatibility issues over..</label
-                                >
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="table-img">
-                                  <a href="profile.html">
-                                    <img
-                                      src="../assets\img\profiles\4.png"
-                                      alt="profile"
-                                      class="img-table"
-                                    />
-                                  </a>
-                                  <label><a href="#" class="name-link">Barbara J. Hawkins</a> </label>
-                                </div>
-                              </td>
-                              <td><label>BS Computer Science</label></td>
-                              <td><label>Embedded Systems Engineer</label></td>
-                              <td><label>Artificial Intelligence </label></td>
-                              <td><label>Certified Master of Electrical...</label></td>
-                              <td>
-                                <label
-                                  >Located 5 incompatibility issues over..</label
-                                >
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="table-img">
-                                  <a href="profile.html">
-                                    <img
-                                      src="../assets\img\profiles\4.png"
-                                      alt="profile"
-                                      class="img-table"
-                                    />
-                                  </a>
-                                  <label> <a href="#" class="name-link">Barbara J. Hawkins</a> </label>
-                                </div>
-                              </td>
-                              <td><label>BS Computer Science</label></td>
-                              <td><label>Embedded Systems Engineer</label></td>
-                              <td><label>Artificial Intelligence </label></td>
-                              <td><label>Certified Master of Electrical...</label></td>
-                              <td>
-                                <label
-                                  >Located 5 incompatibility issues over..</label
-                                >
-                              </td>
-                            </tr>
+                          <tbody id="applicantSummaryContainer">
                           </tbody>
                         </table>
                       </div>
