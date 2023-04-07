@@ -5574,7 +5574,7 @@ label.logo-upload {
 .form-group-checkbox .form-check .form-check-label span {
   position: relative;
   display: inline-block;
-  background: #e8a0bf;
+  background: #fff;
   color: #000;
   padding: 15px 30px;
   font-size: 15px;
@@ -5599,7 +5599,7 @@ label.logo-upload {
   .form-check-label
   input[type="checkbox"]:checked
   ~ span {
-  background: #fff;
+  background: #e8a0bf;
 }
 
 /*---------------------------------- Media Queries------------------------------ */
