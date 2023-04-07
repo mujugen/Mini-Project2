@@ -6441,3 +6441,8 @@ label.logo-upload {
   overflow-wrap: break-word;
   white-space: normal;
 }
+
+#expandedApplicantContainer {
+  display: none;
+  max-width: 60vw;
+}

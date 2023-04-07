@@ -62,3 +62,39 @@ function displayUserSummary() {
     applicantSummaryContainer.appendChild(tr);
   }
 }
+
+function toggleApplicantContainer() {
+  const container = document.getElementById("expandedApplicantContainer");
+  const overlay = document.getElementById("overlay");
+
+  // If the overlay doesn't exist, create it
+  if (!overlay) {
+    const newOverlay = document.createElement("div");
+    newOverlay.id = "overlay";
+    newOverlay.style.position = "fixed";
+    newOverlay.style.top = "0";
+    newOverlay.style.left = "0";
+    newOverlay.style.width = "100%";
+    newOverlay.style.height = "100%";
+    newOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    newOverlay.style.display = "none";
+    newOverlay.style.zIndex = "1000";
+    newOverlay.addEventListener("click", toggleApplicantContainer);
+    document.body.appendChild(newOverlay);
+  }
+
+  if (container.style.display === "none" || !container.style.display) {
+    container.style.display = "block";
+    container.style.position = "fixed";
+    container.style.top = "50%";
+    container.style.left = "50%";
+    container.style.transform = "translate(-50%, -50%)";
+    container.style.zIndex = "1001";
+    document.getElementById("overlay").style.display = "block";
+    document.body.style.overflow = "hidden";
+  } else {
+    container.style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+}
