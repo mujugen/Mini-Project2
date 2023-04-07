@@ -24,6 +24,7 @@ updateItemFilters(
   "experienceFilterForm",
   experienceFilterCallback
 );
+retrieveSelectedApplicants();
 
 for (let i = 0; i < globalUserArray.length; i++) {
   createUserCard(i);
@@ -113,19 +114,6 @@ function createUserCard(i) {
   // Append the card to the userContainers div
   const userContainers = document.querySelector("#userContainers");
   userContainers.appendChild(card);
-}
-
-function moveToFilterAndFinalizePage() {
-  if (globalUserArray.length == 0) {
-    alert("Nothing to pass");
-    event.preventDefault();
-  } else {
-    localStorage.setItem(
-      "globalUserArrayPostRedFlag",
-      JSON.stringify(globalUserArray)
-    );
-    window.location.href = "filter-finalize.html";
-  }
 }
 
 // Start of skill filter functions
@@ -419,4 +407,18 @@ function retrieveSelectedApplicants() {
     );
   }
   return selectedApplicants;
+}
+
+function moveToFilterAndFinalizePage() {
+  selectedApplicants = retrieveSelectedApplicants();
+  if (selectedApplicants.length == 0) {
+    alert("Nothing to finalize");
+    event.preventDefault();
+  } else {
+    localStorage.setItem(
+      "selectedApplicants",
+      JSON.stringify(selectedApplicants)
+    );
+    window.location.href = "applicant-ranking.html";
+  }
 }
