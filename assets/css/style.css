@@ -6470,6 +6470,10 @@ label.logo-upload {
   ); /* Adjust the 30px value if the card header has a different height */
   overflow-y: auto;
 }
+#expandedApplicantContainer h5 {
+  white-space: normal;
+  width: 100%;
+}
 
 .scrollbar {
   overflow-y: scroll;
@@ -6538,3 +6542,15 @@ body::-webkit-scrollbar-thumb {
 body {
   scrollbar-color: #b490ca #f5f5f5;
 }
+
+/* .skills-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ctm-text-sm {
+  display: inline;
+  margin-right: 5px;
+}
+.skills-wrapper div h5 {
+  display: inline;
+} */

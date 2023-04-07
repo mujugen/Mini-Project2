@@ -102,4 +102,69 @@ function toggleExpandedApplicantContainer() {
   }
 }
 
-function putApplicantInfoInEAC() {}
+function retrieveIDfromName(name) {
+  for (let i = 0; i < globalUserArray.length; i++) {
+    if (globalUserArray[i].name == name) {
+      return i;
+    }
+  }
+  return "Failed to find";
+}
+
+function putApplicantInfoInEAC(i) {
+  $("#EACName").html(globalUserArray[i].name);
+  $("#EACEducationTitle1").html(globalUserArray[i].educationFullTitle1);
+  $("#EACEducationSchool1").html(globalUserArray[i].educationSchoolName1);
+  $("#EACEducationYear1").html(globalUserArray[i].educationYearEnded1);
+  $("#EACEducationTitle2").html(globalUserArray[i].educationFullTitle2);
+  $("#EACEducationSchool2").html(globalUserArray[i].educationSchoolName2);
+  $("#EACEducationYear2").html(globalUserArray[i].educationYearEnded2);
+  $("#EACEducationTitle3").html(globalUserArray[i].educationFullTitle3);
+  $("#EACEducationSchool3").html(globalUserArray[i].educationSchoolName3);
+  $("#EACEducationYear3").html(globalUserArray[i].educationYearEnded3);
+  $("#EACJobTitle1").html(globalUserArray[i].jobExperienceTitle1);
+  $("#EACJobCompany1").html(globalUserArray[i].jobExperienceCompany1);
+  $("#EACJobYear1").html(globalUserArray[i].jobExperienceYearEnded1);
+  $("#EACJobTitle2").html(globalUserArray[i].jobExperienceTitle2);
+  $("#EACJobCompany2").html(globalUserArray[i].jobExperienceCompany2);
+  $("#EACJobYear2").html(globalUserArray[i].jobExperienceYearEnded2);
+  $("#EACJobTitle3").html(globalUserArray[i].jobExperienceTitle3);
+  $("#EACJobCompany3").html(globalUserArray[i].jobExperienceCompany3);
+  $("#EACJobYear3").html(globalUserArray[i].jobExperienceYearEnded3);
+  $("#EACJobTitle4").html(globalUserArray[i].jobExperience4Title);
+  $("#EACJobCompany4").html(globalUserArray[i].jobExperienceCompany4);
+  $("#EACJobYear4").html(globalUserArray[i].jobExperienceYearEnded4);
+  $("#EACJobTitle5").html(globalUserArray[i].jobExperience5Title);
+  $("#EACJobCompany5").html(globalUserArray[i].jobExperienceCompany5);
+  $("#EACJobYear5").html(globalUserArray[i].jobExperienceYearEnded5);
+  $("#EACSkill1").html(globalUserArray[i].skill1);
+  $("#EACSkill2").html(globalUserArray[i].skill2);
+  $("#EACSkill3").html(globalUserArray[i].skill3);
+  $("#EACSkill4").html(globalUserArray[i].skill4);
+  $("#EACSkill5").html(globalUserArray[i].skill5);
+  $("#EACSkill6").html(globalUserArray[i].skill6);
+  $("#EACSkill7").html(globalUserArray[i].skill7);
+  $("#EACSkill8").html(globalUserArray[i].skill8);
+  $("#EACSkill9").html(globalUserArray[i].skill9);
+  $("#EACSkill10").html(globalUserArray[i].skill10);
+  $("#EACSkill1").parent().css("display", "inline");
+  $("#EACSkill2").parent().css("display", "inline");
+  $("#EACSkill3").parent().css("display", "inline");
+  $("#EACSkill4").parent().css("display", "inline");
+  $("#EACSkill5").parent().css("display", "inline");
+  $("#EACSkill6").parent().css("display", "inline");
+  $("#EACSkill7").parent().css("display", "inline");
+  $("#EACSkill8").parent().css("display", "inline");
+  $("#EACSkill9").parent().css("display", "inline");
+  $("#EACSkill10").parent().css("display", "inline");
+  $("#EACCertification1").html(globalUserArray[i].certification1Title);
+  $("#EACCertification2").html(globalUserArray[i].certification2Title);
+  $("#EACCertification3").html(globalUserArray[i].certification3Title);
+  $("#EACCertification4").html(globalUserArray[i].certification4Title);
+  $("#EACCertification5").html(globalUserArray[i].certification5Title);
+  $("#EACAccomplishment1").html(globalUserArray[i].accomplishment1Title);
+  $("#EACAccomplishment2").html(globalUserArray[i].accomplishment2Title);
+  $("#EACAccomplishment3").html(globalUserArray[i].accomplishment3Title);
+  $("#EACAccomplishment4").html(globalUserArray[i].accomplishment4Title);
+  $("#EACAccomplishment5").html(globalUserArray[i].accomplishment5Title);
+}
