@@ -147,46 +147,58 @@ function putApplicantInfoInEAC(i) {
   $("#EACSkill8").html(globalUserArray[i].skill8);
   $("#EACSkill9").html(globalUserArray[i].skill9);
   $("#EACSkill10").html(globalUserArray[i].skill10);
-  $("#EACSkill1").parent().css({
-    display: "inline",
-    "font-size": "16px",
+  $("#EACSkill1").parent().css("display", "inline");
+  $("#EACSkill2").parent().css("display", "inline");
+  $("#EACSkill3").parent().css("display", "inline");
+  $("#EACSkill4").parent().css("display", "inline");
+  $("#EACSkill5").parent().css("display", "inline");
+  $("#EACSkill6").parent().css("display", "inline");
+  $("#EACSkill7").parent().css("display", "inline");
+  $("#EACSkill8").parent().css("display", "inline");
+  $("#EACSkill9").parent().css("display", "inline");
+  $("#EACSkill10").parent().css("display", "inline");
+
+  $("#EACSkill1").css({
+    "font-size": "20px",
+    margin: "4px",
   });
-  $("#EACSkill2").parent().css({
-    display: "inline",
-    "font-size": "16px",
+  $("#EACSkill2").css({
+    "font-size": "20px",
+    margin: "4px",
   });
-  $("#EACSkill3").parent().css({
-    display: "inline",
-    "font-size": "16px",
+  $("#EACSkill3").css({
+    "font-size": "20px",
+    margin: "4px",
   });
-  $("#EACSkill4").parent().css({
-    display: "inline",
-    "font-size": "16px",
+  $("#EACSkill4").css({
+    "font-size": "20px",
+    margin: "4px",
   });
-  $("#EACSkill5").parent().css({
-    display: "inline",
-    "font-size": "16px",
+  $("#EACSkill5").css({
+    "font-size": "20px",
+    margin: "4px",
   });
-  $("#EACSkill6").parent().css({
-    display: "inline",
-    "font-size": "16px",
+  $("#EACSkill6").css({
+    "font-size": "20px",
+    margin: "4px",
   });
-  $("#EACSkill7").parent().css({
-    display: "inline",
-    "font-size": "16px",
+  $("#EACSkill7").css({
+    "font-size": "20px",
+    margin: "4px",
   });
-  $("#EACSkill8").parent().css({
-    display: "inline",
-    "font-size": "16px",
+  $("#EACSkill8").css({
+    "font-size": "20px",
+    margin: "4px",
   });
-  $("#EACSkill9").parent().css({
-    display: "inline",
-    "font-size": "16px",
+  $("#EACSkill9").css({
+    "font-size": "20px",
+    margin: "4px",
   });
-  $("#EACSkill10").parent().css({
-    display: "inline",
-    "font-size": "16px",
+  $("#EACSkill10").css({
+    "font-size": "20px",
+    margin: "4px",
   });
+
   $("#EACCertification1").html(globalUserArray[i].certification1Title);
   $("#EACCertification2").html(globalUserArray[i].certification2Title);
   $("#EACCertification3").html(globalUserArray[i].certification3Title);
