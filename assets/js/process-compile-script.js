@@ -90,6 +90,9 @@ function toggleExpandedApplicantContainer() {
     container.style.left = "50%";
     container.style.transform = "translate(-50%, -50%)";
     container.style.zIndex = "1001";
+    container.style.maxHeight = "80vh";
+    container.style.overflowY = "auto";
+    container.style.boxSizing = "border-box";
     document.getElementById("overlay").style.display = "block";
     document.body.style.overflow = "hidden";
   } else {
@@ -99,6 +102,4 @@ function toggleExpandedApplicantContainer() {
   }
 }
 
-function putApplicantInfoInEAC(){
-    
-}
+function putApplicantInfoInEAC() {}
