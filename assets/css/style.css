@@ -6410,3 +6410,34 @@ label.logo-upload {
     font-size: 12px;
   }
 }
+
+/* Kalki custom css */
+/* CSS */
+
+.custom-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+  overflow-wrap: break-word;
+  vertical-align: top;
+  width: 16.67%; /* Distribute the width equally for each column */
+}
+
+.custom-table th {
+  white-space: nowrap;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.custom-table td label {
+  display: block;
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: normal;
+}

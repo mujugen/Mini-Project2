@@ -13,23 +13,19 @@ function displayUserSummary() {
     const tdName = document.createElement("td");
     const div = document.createElement("div");
     div.className = "table-img";
+    div.style.display = "flex"; // Add this line
     const a = document.createElement("a");
-    a.href = "profile.html";
     const img = document.createElement("img");
     img.src = "../assets/img/profiles/4.png";
     img.alt = "profile";
     img.className = "img-table";
-    a.appendChild(img);
-    div.appendChild(a);
 
     const nameLabel = document.createElement("label");
-    const nameLink = document.createElement("a");
-    nameLink.href = "#";
-    nameLink.classList.add("name-link");
-    nameLink.textContent = user.name;
-    nameLabel.appendChild(nameLink);
-    div.appendChild(nameLabel);
-    tdName.appendChild(div);
+    nameLabel.textContent = user.name;
+
+    div.appendChild(img); // Change this line
+    div.appendChild(nameLabel); // Change this line
+    tdName.appendChild(div); // Change this line
 
     const tdEducation = document.createElement("td");
     const educationLabel = document.createElement("label");
@@ -53,7 +49,7 @@ function displayUserSummary() {
 
     const tdAccomplishment = document.createElement("td");
     const accomplishmentLabel = document.createElement("label");
-    accomplishmentLabel.textContent = user.accomplishmentTitle1;
+    accomplishmentLabel.textContent = user.accomplishment1Title;
     tdAccomplishment.appendChild(accomplishmentLabel);
 
     tr.appendChild(tdName);
