@@ -539,6 +539,16 @@ a.action_label4 svg {
   border: 1px solid #dc3545;
 }
 
+.name-link {
+  color: #3a1078;
+}
+
+.table-click {
+  position: relative;
+  margin: 3px;
+  padding: 2em 2em 1em 2em;
+}
+
 /* ----------------------- Helpers------------------- */
 /* ----------------------- Helpers------------------- */
 /* ----------------------- Helpers------------------- */
