@@ -198,20 +198,8 @@
                                                 <th>Size</th>
                                             </tr>
                                         </thead>
+                                        <!-- Where the uploaded files will be displayed -->
                                         <tbody id="rawPDFContainer">
-                                            
-                                            <tr>
-                                                <td>
-                                                    <div class="table-img">
-                                                        <i class="fa-solid fa-file-pdf fa-xl"></i>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <label>Applicant Resume</label>
-                                                </td>
-                                                <td><label> DD/MM/YY </label></td>
-                                                <td><label>20 MB</label></td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -228,7 +216,7 @@
                                 <div class="card card-lists">
                                     <div class="card-header">
                                         <h2 class="card-titles">Extract Raw Text</h2>
-                                        <button id="convertBtn" class="btn btn-head" type="submit">EXTRACT</button>
+                                        <button id="convertBtn" class="btn btn-head" type="button" onclick="extractRawText()">EXTRACT</button>
                                     </div>
                                 </div>
                             </div>

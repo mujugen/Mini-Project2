@@ -1,5 +1,5 @@
-const { CVSummarize } = require("./modules/CVSummarizer.js");
-const { askRank } = require("./modules/askRanking.js");
+const { CVSummarize } = require("./assets/js/CVSummarizer.js");
+const { askRank } = require("./assets/js/askRanking.js");
 const { getContactInfo } = require("./modules/getContactInfo.js");
 const { getContactSummary } = require("./modules/getContactSummary.js");
 const { redFlagRemover } = require("./modules/redFlagRemover.js");
