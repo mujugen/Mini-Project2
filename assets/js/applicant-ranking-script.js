@@ -1,180 +1,26 @@
-const globalUserArray = JSON.parse(localStorage.getItem("globalUserArray"));
+const globalUserArray = JSON.parse(localStorage.getItem("selectedApplicants"));
 
-// Function to retrieve filter data
-function getSelectedFilters() {
-  var filters = [];
-  const filterForm = document.getElementById("filterForm");
-  for (let i = 0; i < filterForm.length; i++) {
-    if (filterForm[i].checked) {
-      filters.push(filterForm[i].value);
-    }
-  }
-  return filters;
-  /* console.log(filters); */
-}
-
-// Sends raw text and selected filter to receive red flag analysis in text form
-async function fetchredFlagRemover(rawText, filters, name) {
-  console.log("Running fetchredFlagRemover");
-  const response = await fetch("http://localhost:3000/redFlagRemover", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ rawText, filters, name }),
-  });
-  console.log("Response received");
-  const redFlags = await response.json();
-  if (response.status !== 200) {
-    console.error(`Error: ${redFlags.error}`);
-    return;
-  }
-
-  return redFlags;
-}
-
-// Identifies which cards has a red flag and marks them red
-async function runRedFlag() {
-  filters = getSelectedFilters();
-  if (filters.length != 0) {
-    for (let i = 0; i < globalUserArray.length; i++) {
-      let redFlags;
-      if (globalUserArray[i].red_flag_1 == null) {
-        console.log(
-          `User ${globalUserArray[i].name} doesn't have red flags in DB`
-        );
-        redFlags = await fetchredFlagRemover(
-          globalUserArray[i].raw_text,
-          filters,
-          globalUserArray[i].name
-        );
-      } else {
-        console.log(`User ${globalUserArray[i].name} has red flags in DB`);
-        redFlags = {
-          red_flag_1: globalUserArray[i].red_flag_1,
-          red_flag_2: globalUserArray[i].red_flag_2,
-          red_flag_3: globalUserArray[i].red_flag_3,
-          red_flag_4: globalUserArray[i].red_flag_4,
-          red_flag_5: globalUserArray[i].red_flag_5,
-          red_flag_6: globalUserArray[i].red_flag_6,
-          red_flag_7: globalUserArray[i].red_flag_7,
-          red_flag_8: globalUserArray[i].red_flag_8,
-        };
-      }
-
-      let redFlag_title = document.createElement("p");
-      let redFlag_content = document.createElement("p");
-      redFlag_title.className = "cell-text-title";
-      let container_id =
-        "#container_" +
-        globalUserArray[i].name
-          .replace(/ /g, "_")
-          .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
-      hasRedFlags = false;
-      // Loop through redFlags object and check for values equal to 1
-      for (let flag in redFlags) {
-        if (redFlags[flag] == 1) {
-          const cardDiv = document.querySelector(container_id);
-          const children = cardDiv.children;
-          hasRedFlags = true;
-          for (let i = 0; i < 2; i++) {
-            children[i].classList.add("red");
-          }
-          hasRedFlags = true;
-          switch (flag) {
-            case "red_flag_1":
-              redFlag_content.innerHTML += `Sloppy Formatting<br>`;
-              break;
-            case "red_flag_2":
-              redFlag_content.innerHTML += `Lack of achievements<br>`;
-              break;
-            case "red_flag_3":
-              redFlag_content.innerHTML += `Unexplained gaps in employment<br>`;
-              break;
-            case "red_flag_4":
-              redFlag_content.innerHTML += `Job hopping<br>`;
-              break;
-            case "red_flag_5":
-              redFlag_content.innerHTML += `Excessive grammar, spelling, and punctuation mistakes<br>`;
-              break;
-            case "red_flag_6":
-              redFlag_content.innerHTML += `Usage of swear words<br>`;
-              break;
-            case "red_flag_7":
-              redFlag_content.innerHTML += `Stagnant career<br>`;
-              break;
-            case "red_flag_8":
-              redFlag_content.innerHTML += `Multiple career changes<br>`;
-              break;
-            default:
-              break;
-          }
-        }
-      }
-      // Makes the card red and adds the text if it has red flags
-      if (hasRedFlags) {
-        const container = document.querySelector(container_id + " ul");
-        const newListItem = document.createElement("li");
-        const newListItemLabel = document.createElement("label");
-        newListItemLabel.innerHTML = "RED FLAGS:";
-
-        const newListSpan = document.createElement("span");
-        newListSpan.innerHTML = redFlag_content.textContent;
-
-        newListItem.appendChild(newListItemLabel);
-        newListItem.appendChild(newListSpan);
-        container.appendChild(newListItem);
-        const parent_container = $("#userContainers");
-        const divToMove = $(container_id);
-        if (divToMove.length && parent_container.has(divToMove).length) {
-          divToMove.prependTo(parent_container);
-        }
-      }
-    }
+// Ranks all selected applicants
+$("#rankBtn").on("click", function () {
+  console.log("Rank button clicked");
+  if (globalUserArray.length == 0) {
+    alert("Nothing to to rank");
+    event.preventDefault();
   } else {
-    alert("No filters selected");
+    askRank();
   }
-}
+});
 
-// Connected to Remove Red Flags section button
-async function runRedFlagRemover() {
-  for (let i = 0; i < globalUserArray.length; i++) {
-    let redFlags = {
-      red_flag_1: globalUserArray[i].red_flag_1,
-      red_flag_2: globalUserArray[i].red_flag_2,
-      red_flag_3: globalUserArray[i].red_flag_3,
-      red_flag_4: globalUserArray[i].red_flag_4,
-      red_flag_5: globalUserArray[i].red_flag_5,
-      red_flag_6: globalUserArray[i].red_flag_6,
-      red_flag_7: globalUserArray[i].red_flag_7,
-      red_flag_8: globalUserArray[i].red_flag_8,
-    };
-
-    let flagToRemove = false;
-    let container_id =
-      "#container_" +
-      globalUserArray[i].name
-        .replace(/ /g, "_")
-        .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
-    for (let flag in redFlags) {
-      if (redFlags[flag] == 1) {
-        flagToRemove = true;
-        break;
-      }
-    }
-
-    if (flagToRemove) {
-      $(container_id).remove();
-      globalUserArray.splice(i, 1);
-      i--; // Decrement the index to compensate for the removed element
-    }
-  }
+function selectApplicant() {
+  localStorage.setItem("finalApplicant", JSON.stringify(currentViewedUser));
+  window.location.href = "final-applicant.html";
 }
 
 for (let i = 0; i < globalUserArray.length; i++) {
   createUserCard(i);
 }
 
+var currentViewedUser;
 function createUserCard(i) {
   const user = globalUserArray[i];
 
@@ -200,6 +46,7 @@ function createUserCard(i) {
     const index = retrieveIDfromName(user.name);
     putApplicantInfoInEAC(index);
     toggleExpandedApplicantContainer();
+    currentViewedUser = user;
   });
 
   const cardHeader = document.createElement("div");
@@ -271,6 +118,93 @@ function createUserCard(i) {
   // Append the card to the userContainers div
   const userContainers = document.querySelector("#userContainers");
   userContainers.appendChild(card);
+}
+
+async function askRank() {
+  /* let textArray = [];
+  let containertextIDArray = [];
+  $("#userContainers .cell-text-container").each(function () {
+    let currentText = $(this).text();
+    containertextIDArray.push($(this).attr("id"));
+    textArray.push(currentText);
+  });
+
+  prompt = ``;
+  for (let i = 0; i < textArray.length; i++) {
+    prompt += `Applicant ${i + 1}:\n`;
+    prompt += textArray[i];
+    prompt += `\n`;
+  }
+  prompt += `rank these applicants by how impressive their traits are(don't include any other text except the expected ouput),\n`;
+  prompt += `expected output:
+Applicant 1 Ranking: NUMBER
+Applicant 2 Ranking: NUMBER
+Applicant 3 Ranking: NUMBER
+...`;
+  if (prompt.length < 10000) {
+    response = await fetchAskRank(prompt);
+    const lines = response.split("\n");
+    const rankings = [];
+    lines.forEach((line) => {
+      // Split the line by spaces and extract the ranking value
+      const words = line.split(" ");
+      const ranking = parseInt(words[words.length - 1]);
+
+      // Get the applicant index (subtracting 1 to make it zero-based)
+      const applicantIndex = parseInt(words[1]) - 1;
+
+      // Store the ranking at the corresponding index in the array
+      rankings[applicantIndex] = ranking;
+    });
+    console.log(rankings);
+    for (var i = 0; i < rankings.length; i++) {
+      var div = document.querySelector("#" + containertextIDArray[i]);
+      // Append the text from array A to the innerHTML of the div
+      div.innerHTML += rankings[i];
+    }
+  } else {
+    return "Too much to rank!";
+  } */
+  rankings = [3, 2, 1, 4];
+
+  const parentDivID = "userContainers";
+  let containerIDArray = [];
+  $("#userContainers")
+    .children()
+    .each(function () {
+      containerIDArray.push($(this).attr("id"));
+    });
+
+  rearrangeChildren(parentDivID, rankings, containerIDArray);
+}
+
+function rearrangeChildren(parentDivID, rankings, containerIDArray) {
+  const parentDiv = document.getElementById(parentDivID);
+  const reorderedChildren = new Array(containerIDArray.length);
+  for (let i = 0; i < rankings.length; i++) {
+    const newIndex = rankings[i] - 1;
+    const containerID = containerIDArray[newIndex];
+    const container = document.getElementById(containerID);
+    reorderedChildren[i] = container;
+  }
+  while (parentDiv.firstChild) {
+    parentDiv.removeChild(parentDiv.firstChild);
+  }
+  for (let child of reorderedChildren) {
+    parentDiv.appendChild(child);
+  }
+}
+// Call CVSummarize API endpoint
+async function fetchAskRank(prompt) {
+  const response = await fetch("http://localhost:3000/askrank", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ prompt }),
+  });
+  const applicant = await response.json();
+  return applicant;
 }
 
 function toggleExpandedApplicantContainer() {
@@ -483,18 +417,4 @@ function putApplicantInfoInEAC(i) {
   $("#EACAccomplishment5").html(
     checkValue(globalUserArray[i].accomplishment5Title)
   );
-}
-
-
-function moveToFilterAndFinalizePage() {
-  if (globalUserArray.length == 0) {
-    alert("Nothing to pass");
-    event.preventDefault();
-  } else {
-    localStorage.setItem(
-      "globalUserArrayPostRedFlag",
-      JSON.stringify(globalUserArray)
-    );
-    window.location.href = "filter-finalize.html";
-  }
 }
