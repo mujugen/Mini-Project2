@@ -1,8 +1,8 @@
 const { CVSummarize } = require("./assets/js/CVSummarizer.js");
 const { askRank } = require("./assets/js/askRanking.js");
-const { getContactInfo } = require("./modules/getContactInfo.js");
-const { getContactSummary } = require("./modules/getContactSummary.js");
-const { redFlagRemover } = require("./modules/redFlagRemover.js");
+const { getContactInfo } = require("./assets/js/getContactInfo.js");
+const { getContactSummary } = require("./assets/js/getContactSummary.js");
+const { redFlagRemover } = require("./assets/js/redFlagRemover.js");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
