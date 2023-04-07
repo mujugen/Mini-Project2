@@ -63,7 +63,7 @@ function displayUserSummary() {
   }
 }
 
-function toggleApplicantContainer() {
+function toggleExpandedApplicantContainer() {
   const container = document.getElementById("expandedApplicantContainer");
   const overlay = document.getElementById("overlay");
 
@@ -79,7 +79,7 @@ function toggleApplicantContainer() {
     newOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
     newOverlay.style.display = "none";
     newOverlay.style.zIndex = "1000";
-    newOverlay.addEventListener("click", toggleApplicantContainer);
+    newOverlay.addEventListener("click", toggleExpandedApplicantContainer);
     document.body.appendChild(newOverlay);
   }
 
@@ -97,4 +97,8 @@ function toggleApplicantContainer() {
     document.getElementById("overlay").style.display = "none";
     document.body.style.overflow = "auto";
   }
+}
+
+function putApplicantInfoInEAC(){
+    
 }
