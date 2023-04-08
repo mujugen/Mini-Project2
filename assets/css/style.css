@@ -2464,7 +2464,7 @@ html.menu-opened body {
 /*//////////////////////////  Sidebar /////////////////////////*/
 /* LARGE SIDEBAR */
 .sidebar {
-  background: rgba(253, 246, 255, 0.7);
+  background: rgba(253, 246, 255, 0.9);
   box-shadow: 0 8px 32px 0 rgb(0 0 0 / 40%);
   backdrop-filter: (6px);
   border: solid rgba(255, 255, 255, 0.18);
@@ -3540,8 +3540,6 @@ a.delete {
 .team-content a {
   color: #2c1b61;
 }
-
-
 
 .card-set {
   width: 100%;
