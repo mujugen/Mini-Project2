@@ -1,4 +1,6 @@
-const globalUserArray = JSON.parse(localStorage.getItem("finalApplicant"));
+const globalUserArray = JSON.parse(
+  localStorage.getItem("globalUserArrayPostRedFlag")
+);
 
 displaySelectedFilter();
 updateItemFilters(
