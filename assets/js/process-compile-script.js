@@ -343,3 +343,40 @@ function toggleDarkOverlay(elementId) {
 }
 
 toggleDarkOverlay("proceedCard");
+toggleGlowOverlay("displayDiv");
+
+function toggleGlowOverlay(elementId) {
+  const element = document.getElementById(elementId);
+
+  if (!element) {
+    console.error(`Element with ID "${elementId}" not found.`);
+    return;
+  }
+
+  const existingOverlay = element.querySelector(".glow-overlay");
+
+  if (existingOverlay) {
+    element.removeChild(existingOverlay);
+    return;
+  }
+
+  const overlay = document.createElement("div");
+  overlay.classList.add("glow-overlay");
+  overlay.style.position = "absolute";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.zIndex = "-1";
+
+  overlay.style.boxShadow =
+    "0 0 5px rgba(113, 73, 198, 0.2), 0 0 10px rgba(113, 73, 198, 0.2), 0 0 15px rgba(113, 73, 198, 0.2), 0 0 20px rgba(113, 73, 198, 0.2), 0 0 35px rgba(113, 73, 198, 0.2), 0 0 40px rgba(113, 73, 198, 0.2), 0 0 50px rgba(113, 73, 198, 0.2)";
+
+  const borderRadius = window.getComputedStyle(element).borderRadius;
+  if (borderRadius) {
+    overlay.style.borderRadius = borderRadius;
+  }
+
+  element.style.position = "relative";
+  element.appendChild(overlay);
+}
