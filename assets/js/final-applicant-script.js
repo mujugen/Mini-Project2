@@ -167,3 +167,16 @@ function putApplicantInfoInEAC(i) {
 }
 
 putApplicantInfoInEAC(0);
+
+function removeEmptyBr() {
+  const container = document.querySelector("#expandedApplicantContainer");
+  const brs = container.querySelectorAll("br");
+  for (let i = 0; i < brs.length; i++) {
+    const prevElement = brs[i].previousElementSibling;
+    if (prevElement && prevElement.textContent.trim() === "") {
+      brs[i].parentNode.removeChild(brs[i]);
+    }
+  }
+}
+
+removeEmptyBr();

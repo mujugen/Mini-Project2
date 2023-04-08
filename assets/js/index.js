@@ -1,3 +1,4 @@
+const globalUserArray = JSON.parse(localStorage.getItem("globalUserArray"));
 function hidePopup() {
   $("#popup_card").remove();
   $("#popup_overlay").remove();
@@ -18,4 +19,9 @@ function onlineButtonClicked() {
   localStorage.setItem("browsingMethod", JSON.stringify(browsingMethod));
   sessionStorage.setItem("apiKeyValue", JSON.stringify(apiKeyValue));
   hidePopup();
+}
+
+function searchApplicant() {
+  const searchInput = document.getElementById("skillSearch");
+  const searchQuery = searchInput.value.toLowerCase();
 }
