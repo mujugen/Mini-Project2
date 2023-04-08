@@ -1,5 +1,6 @@
 const globalUserArray = JSON.parse(localStorage.getItem("selectedApplicants"));
-
+var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
+var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
 // Ranks all selected applicants
 $("#rankBtn").on("click", function () {
   console.log("Rank button clicked");
@@ -135,7 +136,8 @@ function createUserCard(i) {
 }
 
 async function askRank() {
-  /* let textArray = [];
+  if (browsingMethod == "Online") {
+    /* let textArray = [];
   let containertextIDArray = [];
   $("#userContainers .cell-text-container").each(function () {
     let currentText = $(this).text();
@@ -179,7 +181,24 @@ Applicant 3 Ranking: NUMBER
   } else {
     return "Too much to rank!";
   } */
-  rankings = [3, 2, 1, 4];
+  } else {
+    function generateRandomIntegers(length) {
+      const min = 1; // lowest number
+      const max = length; // highest number
+      const randomIntegers = [];
+
+      while (randomIntegers.length < length) {
+        const randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+        if (!randomIntegers.includes(randomNumber)) {
+          randomIntegers.push(randomNumber);
+        }
+      }
+
+      return randomIntegers;
+    }
+
+    rankings = generateRandomIntegers(globalUserArray.length);
+  }
 
   const parentDivID = "userContainers";
   let containerIDArray = [];
