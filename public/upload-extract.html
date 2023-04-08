@@ -336,7 +336,7 @@
                     <button
                       class="btn btn-head"
                       type="button"
-                      onclick="(()=>{displayUploadedFiles();this.removeAttribute('onclick');})()"
+                      onclick="(()=>{displayUploadedFiles();toggleDarkOverlay('extractCard');this.removeAttribute('onclick');})()"
                     >
                       UPLOAD
                     </button>
@@ -368,7 +368,7 @@
           <div class="content container-fluid">
             <div class="row">
               <div class="col-xl-12 col-sm-12 col-12">
-                <div class="card card-lists">
+                <div class="card card-lists" id="extractCard">
                   <div class="card-header">
                     <h2 class="card-titles">Extract Raw Text</h2>
                     <button

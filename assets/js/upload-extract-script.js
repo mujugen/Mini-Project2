@@ -225,6 +225,8 @@ var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
 // Makes the upload button unusable when offline
 if (browsingMethod == "Offline") {
   toggleDarkOverlay("uploadDiv");
+}else{
+  toggleDarkOverlay("extractCard");
 }
 function toggleDarkOverlay(elementId) {
   const element = document.getElementById(elementId);

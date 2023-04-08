@@ -318,7 +318,10 @@
   <body>
     <div class="page-wrapper">
       <!--WELCOME CARD-->
-      <div id="popup_card" class="d-flex justify-content-center align-items-center">
+      <div
+        id="popup_card"
+        class="d-flex justify-content-center align-items-center"
+      >
         <div
           style="
             width: 30vw;
@@ -330,23 +333,35 @@
           <h3>This is a Demo Version</h3>
           <h6>
             <br />
-            The usage of AI tools are not free, so you can choose to use your
-            own OpenAI API key for testing purposes, or you can try the app in
-            offline mode so that you can still try the full functionality of the
-            app without needing an API key.
+            You can choose to use your own OpenAI API key for testing purposes,
+            or you can try the app in offline mode so that you can still try the
+            full functionality of the app without needing an API key.
           </h6>
           <div class="d-flex flex-column align-items-center">
             <h3 class="mt-5">Use API Key</h3>
             <div class="input-group m-3" style="max-width: 70%">
-              <input id="APIKeyTextBox" type="text" class="form-control" placeholder="API KEY" />
+              <input
+                id="APIKeyTextBox"
+                type="text"
+                class="form-control"
+                placeholder="API KEY"
+              />
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button"  onclick="onlineButtonClicked()">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  onclick="onlineButtonClicked()"
+                >
                   Submit
                 </button>
               </div>
             </div>
             <h3 class="mt-4">Go Offline</h3>
-            <button class="btn btn-outline-primary mt-3" type="button" onclick="offlineButtonClicked()">
+            <button
+              class="btn btn-outline-primary mt-3"
+              type="button"
+              onclick="offlineButtonClicked()"
+            >
               Go Offline
             </button>
           </div>
@@ -608,15 +623,12 @@
 
     <script src="/assets/js/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
     <script src="/assets/js/popper.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/feather.min.js"></script>
     <script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="/assets/plugins/apexchart/apexcharts.min.js"></script>
     <script src="/assets/plugins/apexchart/chart-data.js"></script>
-
-    <!-- <script src="script.js"></script> -->
     <script src="/assets/js/index.js"></script>
     <script src="/assets/js/script-2.js"></script>
   </body>

@@ -15,6 +15,7 @@ function offlineButtonClicked() {
 function onlineButtonClicked() {
   apiKeyValue = $("#APIKeyTextBox").val();
   browsingMethod = "Online";
+  localStorage.setItem("browsingMethod", JSON.stringify(browsingMethod));
   sessionStorage.setItem("apiKeyValue", JSON.stringify(apiKeyValue));
   hidePopup();
 }
