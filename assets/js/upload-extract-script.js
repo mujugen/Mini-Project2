@@ -223,12 +223,12 @@ async function convertUploadedFiles() {
 var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
 var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
 // Makes the upload button unusable when offline
-if (browsingMethod == "Offline") {
-  toggleDarkOverlay("uploadDiv");
-  toggleGlowOverlay("extractCard");
-} else {
+if (browsingMethod == "Online") {
   toggleDarkOverlay("extractCard");
   toggleGlowOverlay("uploadDiv");
+} else {
+  toggleDarkOverlay("uploadDiv");
+  toggleGlowOverlay("extractCard");
 }
 function toggleDarkOverlay(elementId) {
   const element = document.getElementById(elementId);
