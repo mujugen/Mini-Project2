@@ -206,27 +206,40 @@ Applicant 3 Ranking: NUMBER
   let containerIDArray = [];
   const userContainers = document.getElementById(parentDivID);
   Array.from(userContainers.children).forEach(function (child) {
+    console.log(`container id found: ${child.id}`);
     containerIDArray.push(child.id);
   });
+  console.log(`Container ID Array: ${containerIDArray}`);
   console.log(`Rankings: ${rankings}`);
-  rearrangeChildren(parentDivID, rankings, containerIDArray);
+  rearrangeContainers(containerIDArray, rankings);
+  const maxRank = Math.max(...rankings);
+  for (let i = 0; i < containerIDArray.length; i++) {
+    const container = document.getElementById(containerIDArray[i]);
+    setOverlayOpacity(container.id, rankings[i], maxRank);
+  }
 }
+function rearrangeContainers(containerIDArray, rankings) {
+  const containers = []; // temporary array to store the container elements
+  const userContainers = document.querySelector("#userContainers");
 
-function rearrangeChildren(parentDivID, rankings, containerIDArray) {
-  const parentDiv = document.getElementById(parentDivID);
-  const reorderedChildren = new Array(containerIDArray.length);
-  for (let i = 0; i < rankings.length; i++) {
-    const newIndex = rankings[i] - 1;
-    const containerID = containerIDArray[newIndex];
-    const container = document.getElementById(containerID);
-    reorderedChildren[i] = container;
+  // push the container elements into the temporary array in their current order
+  for (let i = 0; i < containerIDArray.length; i++) {
+    const container = document.querySelector(`#${containerIDArray[i]}`);
+    containers.push(container);
   }
-  while (parentDiv.firstChild) {
-    parentDiv.removeChild(parentDiv.firstChild);
-  }
-  for (let child of reorderedChildren) {
-    parentDiv.appendChild(child);
-  }
+
+  // sort the temporary array based on the rankings
+  containers.sort(
+    (a, b) =>
+      rankings[containerIDArray.indexOf(a.id)] -
+      rankings[containerIDArray.indexOf(b.id)]
+  );
+
+  // remove the container elements from the userContainers element and re-append them in the new order
+  containers.forEach((container) => {
+    userContainers.removeChild(container);
+    userContainers.appendChild(container);
+  });
 }
 
 function setOverlayOpacity(elementId, rank, maxRank) {
@@ -249,12 +262,23 @@ function setOverlayOpacity(elementId, rank, maxRank) {
     overlay.style.height = "100%";
     overlay.style.pointerEvents = "none";
     overlay.style.transition = "opacity 0.3s";
-
+    const borderRadius = window.getComputedStyle(element).borderRadius;
+    if (borderRadius) {
+      overlay.style.borderRadius = borderRadius;
+    }
     element.style.position = "relative";
     element.appendChild(overlay);
   }
 
-  const opacity = (maxRank - rank) / maxRank;
+  let opacity;
+  if (rank === 1) {
+    opacity = 0; // set opacity to 1 for the element with the highest rank
+    overlay.style.boxShadow =
+      "0 0 5px rgba(113, 73, 198, 0.2), 0 0 10px rgba(113, 73, 198, 0.2), 0 0 15px rgba(113, 73, 198, 0.2), 0 0 20px rgba(113, 73, 198, 0.2), 0 0 35px rgba(113, 73, 198, 0.2), 0 0 40px rgba(113, 73, 198, 0.2), 0 0 50px rgba(113, 73, 198, 0.2)";
+  } else {
+    opacity = rank / 2 / maxRank; // calculate opacity for other elements
+  }
+
   overlay.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
 }
 
