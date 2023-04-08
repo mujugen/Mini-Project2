@@ -1,0 +1,20 @@
+function hidePopup() {
+  $("#popup_card").remove();
+  $("#popup_overlay").remove();
+}
+
+var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
+var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
+function offlineButtonClicked() {
+  browsingMethod = "Offline";
+  localStorage.setItem("browsingMethod", JSON.stringify(browsingMethod));
+  apiKeyValue = null;
+  hidePopup();
+}
+
+function onlineButtonClicked() {
+  apiKeyValue = $("#APIKeyTextBox").val();
+  browsingMethod = "Online";
+  sessionStorage.setItem("apiKeyValue", JSON.stringify(apiKeyValue));
+  hidePopup();
+}
