@@ -16,7 +16,7 @@ function getSelectedFilters() {
 // Sends raw text and selected filter to receive red flag analysis in text form
 async function fetchredFlagRemover(rawText, filters, name) {
   console.log("Running fetchredFlagRemover");
-  const response = await fetch("http://localhost:3000/redFlagRemover", {
+  const response = await fetch("/redFlagRemover", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -484,7 +484,6 @@ function putApplicantInfoInEAC(i) {
     checkValue(globalUserArray[i].accomplishment5Title)
   );
 }
-
 
 function moveToFilterAndFinalizePage() {
   if (globalUserArray.length == 0) {

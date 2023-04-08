@@ -38,7 +38,7 @@ async function fetchApplicantByRawText(rawText) {
 
 // Call CVSummarize API endpoint
 async function fetchCVSummarize(pdfText) {
-  const response = await fetch("http://localhost:3000/cvsummarize", {
+  const response = await fetch("/cvsummarize", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -70,7 +70,7 @@ function displayUploadedFiles() {
 
   // Send the uploaded files to the server
   $.ajax({
-    url: "http://localhost:3000/upload",
+    url: "/upload",
     type: "POST",
     data: formData,
     processData: false,
@@ -140,7 +140,7 @@ async function processPdf(blob) {
 }
 async function convertUploadedFiles() {
   // Get the list of uploaded files from the server
-  const response = await fetch("http://localhost:3000/list");
+  const response = await fetch("/list");
   const files = await response.json();
   globalUserArray = await fetchUserDBP();
   for (const file of files) {

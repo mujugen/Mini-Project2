@@ -134,7 +134,7 @@ function makeEmailTemplate() {
 makeEmailTemplate();
 
 async function fetchGetContactInfo(query) {
-  const response = await fetch("http://localhost:3000/getContactInfo", {
+  const response = await fetch("/getContactInfo", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -162,7 +162,7 @@ async function getContactInfo(query) {
 }
 
 async function fetchGetContactSummary(prompt) {
-  const response = await fetch("http://localhost:3000/getContactSummary", {
+  const response = await fetch("/getContactSummary", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
