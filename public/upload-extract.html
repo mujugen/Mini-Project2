@@ -334,7 +334,7 @@
                     <button
                       class="btn btn-head"
                       type="button"
-                      onclick="(()=>{displayUploadedFiles();toggleDarkOverlay('extractCard');this.removeAttribute('onclick');})()"
+                      onclick="(()=>{displayUploadedFiles();toggleDarkOverlay('extractCard');toggleGlowOverlay('uploadDiv');toggleGlowOverlay('extractCard');this.removeAttribute('onclick');})()"
                     >
                       UPLOAD
                     </button>
@@ -373,7 +373,7 @@
                       id="convertBtn"
                       class="btn btn-head"
                       type="button"
-                      onclick="(()=>{convertUploadedFiles();toggleDarkOverlay('proceedCard');this.removeAttribute('onclick');})()"
+                      onclick="(()=>{convertUploadedFiles();toggleDarkOverlay('proceedCard');toggleGlowOverlay('proceedCard');toggleGlowOverlay('extractCard');this.removeAttribute('onclick');})()"
                     >
                       EXTRACT
                     </button>
