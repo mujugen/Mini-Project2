@@ -228,100 +228,115 @@
         <!-- Checkbox section-->
         <div class="content container-fluid">
           <div class="row">
+
+            <!-- Checklist starts here -->
             <div class="col-xl-12 col-sm-12 col-12">
-              <div class="card card-lists">
-                <!-- Checkbox title -->
+              <div class="card">
                 <div class="card-header">
-                  <h2 class="card-titles">Select Red Flag Criteria</h2>
+                  <h2 class="card-titles">
+                    Select Red Flag Type:
+                  </h2>
                 </div>
-                <!-- Checkbox lists -->
+                <section class="flex-container">
+                  <form id="filterForm">
+                    <div class="form-group-checkbox">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="1" onchange="getSelectedFilters()"
+                            checked />
+                          <span>Sloppy Formatting</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group-checkbox">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="2" onchange="getSelectedFilters()"
+                            checked />
+                          <span>Lack of achievements</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group-checkbox">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="3" onchange="getSelectedFilters()"
+                            checked />
+                          <span>Unexplained gaps in employment</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group-checkbox">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="4" onchange="getSelectedFilters()"
+                            checked />
+                          <span>Job Hopping</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group-checkbox">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="5" onchange="getSelectedFilters()"
+                            checked />
+                          <span>Excessive grammar, spelling, and punctuation mistakes</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group-checkbox">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="6" onchange="getSelectedFilters()"
+                            checked />
+                          <span>Usage of swear words</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group-checkbox">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="7" onchange="getSelectedFilters()"
+                            checked />
+                          <span>Stagnant career</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group-checkbox">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="checkbox" value="8" onchange="getSelectedFilters()"
+                            checked />
+                          <span>Multiple career changes</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <!-- <button
+                                  type="button"
+                                  class="btn btn-head btn-primary btn-block"
+                                  onclick="getSelectedFilters()"
+                                  style="margin: 50px auto 0 30px; width: 95%; "
+                                >
+                                  Submit
+                                </button> -->
+                  </form>
+                  <div id="selectedFilters"></div>
+                </section>
+
               </div>
+
             </div>
           </div>
         </div>
-        <form id="filterForm">
-          <div class="form-group-checkbox">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="1" onchange="getSelectedFilters()" checked />
-                <span>Sloppy Formatting</span>
-              </label>
-            </div>
-          </div>
 
-          <div class="form-group-checkbox">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="2" onchange="getSelectedFilters()" checked />
-                <span>Lack of achievements</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group-checkbox">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="3" onchange="getSelectedFilters()" checked />
-                <span>Unexplained gaps in employment</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group-checkbox">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="4" onchange="getSelectedFilters()" checked />
-                <span>Job Hopping</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group-checkbox">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="5" onchange="getSelectedFilters()" checked />
-                <span>Excessive grammar, spelling, and punctuation mistakes</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group-checkbox">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="6" onchange="getSelectedFilters()" checked />
-                <span>Usage of swear words</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group-checkbox">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="7" onchange="getSelectedFilters()" checked />
-                <span>Stagnant career</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group-checkbox">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="8" onchange="getSelectedFilters()" checked />
-                <span>Multiple career changes</span>
-              </label>
-            </div>
-          </div>
-
-          <!-- <button
-                        type="button"
-                        class="btn btn-head btn-primary btn-block"
-                        onclick="getSelectedFilters()"
-                        style="margin: 50px auto 0 30px; width: 95%; "
-                      >
-                        Submit
-                      </button> -->
-        </form>
-        <div id="selectedFilters"></div>
       </div>
     </div>
 
