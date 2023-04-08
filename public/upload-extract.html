@@ -143,7 +143,7 @@
                 >
               </li>
 
-              <li  class="active">
+              <li class="active">
                 <a href="upload-extract.html"
                   ><i class="fa-solid fa-file-import fa-2xl"></i
                   ><span> Upload and Extract</span></a
@@ -232,7 +232,7 @@
               >
             </li>
 
-            <li  class="active">
+            <li class="active">
               <a href="upload-extract.html"
                 ><i class="fa-solid fa-file-import fa-2xl"></i
                 ><span> Upload and Extract</span></a
@@ -309,104 +309,120 @@
     </div>
   </div>
 
-        <!-- BODY OF SECTIONS -->
-
-        <div class="page-wrapper">
-            <!-- START OF UPLOAD CV SECTION -->
-            <div class="content container-fluid">
-                <div class="row">
-                    <!-- upload cv files card -->
-                    <div class="col-xl-12 col-sm-12 col-12">
-                        <div class="breadcrumb-path mb-4">
-                            <h3>Upload CV Files and Extract Raw Text</h3>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-sm-12 col-12">
-                        <div class="card card-lists">
-                            <div class="card-header">
-                                <h2 class="card-titles">Add PDF Files</h2>
-                                <form id="filter-finalize">
-                                    <div class="form-group" id="upload-style">
-                                        <input type="file" class="form-control-file" id="fileInput" multiple />
-                                        <button class="btn btn-head" type="button" onclick="displayUploadedFiles()">UPLOAD</button>
-                                    </div>
-
-                                </form>
-                            </div>
-
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table custom-table no-footer">
-                                        <thead>
-                                            <tr>
-                                                <th>Type</th>
-                                                <th>Name</th>
-                                                <th>Date</th>
-                                                <th>Size</th>
-                                            </tr>
-                                        </thead>
-                                        <!-- Where the uploaded files will be displayed -->
-                                        <tbody id="rawPDFContainer">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END OF UPLOAD CV FILES CARD -->
-
-
-                    <!-- EXTRACT RAW TEXT FROM UPLOADED FILES -->
-                    <div class="content container-fluid">
-                        <div class="row">
-                            <div class="col-xl-12 col-sm-12 col-12">
-                                <div class="card card-lists">
-                                    <div class="card-header">
-                                        <h2 class="card-titles">Extract Raw Text</h2>
-                                        <button id="convertBtn" class="btn btn-head" type="button" onclick="convertUploadedFiles()">EXTRACT</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Section that tells the user to proceed to the next step -->
-                    <div class="content container-fluid">
-                        <div class="row">
-                            <div class="col-xl-12 col-sm-12 col-12">
-                                <div class="card card-lists">
-                                    <div class="card-header">
-                                        <h2 class="card-titles">Process Raw Text and View Applicant Information Here</h2>
-                                        <a class="btn btn-head" onclick="moveToProcessCompilePage()">PROCEED</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Extracted Text Section -->
-                    <div class="content container-fluid">
-                      <div class="row">
-                          <div class="col-xl-12 col-sm-12 col-12">
-                              <div class="card card-lists">
-                                  <div class="card-header">
-                                      <h2 class="card-titles">Extracted Raw Text</h2>
-                                  </div>
-                                  <ul class="list-group list-group-flush" id="rawTextContainer">
-
-                                  </ul>
-                                  
-                                </div>
-                                  
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
+  <!-- BODY OF SECTIONS -->
+  <body>
+    <div class="page-wrapper">
+      <!-- START OF UPLOAD CV SECTION -->
+      <div class="content container-fluid">
+        <div class="row">
+          <!-- upload cv files card -->
+          <div class="col-xl-12 col-sm-12 col-12">
+            <div class="breadcrumb-path mb-4">
+              <h3>Upload CV Files and Extract Raw Text</h3>
             </div>
+          </div>
+          <div class="col-xl-12 col-sm-12 col-12">
+            <div class="card card-lists" id="uploadDiv">
+              <div class="card-header">
+                <h2 class="card-titles">Add PDF Files</h2>
+                <form id="filter-finalize">
+                  <div class="form-group" id="upload-style">
+                    <input
+                      type="file"
+                      class="form-control-file"
+                      id="fileInput"
+                      multiple
+                    />
+                    <button
+                      class="btn btn-head"
+                      type="button"
+                      onclick="(()=>{displayUploadedFiles();this.removeAttribute('onclick');})()"
+                    >
+                      UPLOAD
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table custom-table no-footer">
+                    <thead>
+                      <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Size</th>
+                      </tr>
+                    </thead>
+                    <!-- Where the uploaded files will be displayed -->
+                    <tbody id="rawPDFContainer"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END OF UPLOAD CV FILES CARD -->
+
+          <!-- EXTRACT RAW TEXT FROM UPLOADED FILES -->
+          <div class="content container-fluid">
+            <div class="row">
+              <div class="col-xl-12 col-sm-12 col-12">
+                <div class="card card-lists">
+                  <div class="card-header">
+                    <h2 class="card-titles">Extract Raw Text</h2>
+                    <button
+                      id="convertBtn"
+                      class="btn btn-head"
+                      type="button"
+                      onclick="(()=>{convertUploadedFiles();toggleDarkOverlay('proceedCard');this.removeAttribute('onclick');})()"
+                    >
+                      EXTRACT
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section that tells the user to proceed to the next step -->
+          <div class="content container-fluid">
+            <div class="row">
+              <div class="col-xl-12 col-sm-12 col-12">
+                <div class="card card-lists" id="proceedCard">
+                  <div class="card-header">
+                    <h2 class="card-titles">
+                      Process Raw Text and View Applicant Information Here
+                    </h2>
+                    <a class="btn btn-head" onclick="moveToProcessCompilePage()"
+                      >PROCEED</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extracted Text Section -->
+          <div class="content container-fluid">
+            <div class="row">
+              <div class="col-xl-12 col-sm-12 col-12">
+                <div class="card card-lists">
+                  <div class="card-header">
+                    <h2 class="card-titles">Extracted Raw Text</h2>
+                  </div>
+                  <ul
+                    class="list-group list-group-flush"
+                    id="rawTextContainer"
+                  ></ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    
+
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../assets/js/popper.min.js"></script>
@@ -415,11 +431,8 @@
     <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="../assets/plugins/apexchart/apexcharts.min.js"></script>
     <script src="../assets/plugins/apexchart/chart-data.js"></script>
-    
 
     <script src="../assets\js\script-2.js"></script>
     <script src="../assets\js\upload-extract-script.js"></script>
-    
-</body>
-
+  </body>
 </html>

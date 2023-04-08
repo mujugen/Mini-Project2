@@ -282,3 +282,51 @@ function putApplicantInfoInEAC(i) {
     checkValue(globalUserArray[i].accomplishment5Title)
   );
 }
+
+function toggleDarkOverlay(elementId) {
+  const element = document.getElementById(elementId);
+
+  if (!element) {
+    console.error(`Element with ID "${elementId}" not found.`);
+    return;
+  }
+
+  const existingOverlay = element.querySelector('.dark-overlay');
+
+  if (existingOverlay) {
+    existingOverlay.style.opacity = '0';
+    setTimeout(() => {
+      element.removeChild(existingOverlay);
+      element.style.pointerEvents = 'auto';
+    }, 300);
+    return;
+  }
+
+  const overlay = document.createElement('div');
+  overlay.classList.add('dark-overlay');
+  overlay.style.position = 'absolute';
+  overlay.style.top = '0';
+  overlay.style.left = '0';
+  overlay.style.width = '100%';
+  overlay.style.height = '100%';
+  overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+  overlay.style.pointerEvents = 'none';
+  overlay.style.opacity = '0';
+  overlay.style.transition = 'opacity 0.3s';
+
+  const borderRadius = window.getComputedStyle(element).borderRadius;
+  if (borderRadius) {
+    overlay.style.borderRadius = borderRadius;
+  }
+
+  element.style.position = 'relative';
+  element.style.pointerEvents = 'none';
+  element.appendChild(overlay);
+
+  setTimeout(() => {
+    overlay.style.opacity = '1';
+  }, 10);
+}
+
+
+toggleDarkOverlay("proceedCard");
