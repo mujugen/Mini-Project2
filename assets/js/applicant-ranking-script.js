@@ -137,51 +137,53 @@ function createUserCard(i) {
 
 async function askRank() {
   if (browsingMethod == "Online") {
-    /* let textArray = [];
-  let containertextIDArray = [];
-  $("#userContainers .cell-text-container").each(function () {
-    let currentText = $(this).text();
-    containertextIDArray.push($(this).attr("id"));
-    textArray.push(currentText);
-  });
+    let textArray = [];
+    let containertextIDArray = [];
+    $("#userContainers .cell-text-container").each(function () {
+      let currentText = $(this).text();
+      containertextIDArray.push($(this).attr("id"));
+      textArray.push(currentText);
+    });
 
-  prompt = ``;
-  for (let i = 0; i < textArray.length; i++) {
-    prompt += `Applicant ${i + 1}:\n`;
-    prompt += textArray[i];
-    prompt += `\n`;
-  }
-  prompt += `rank these applicants by how impressive their traits are(don't include any other text except the expected ouput),\n`;
-  prompt += `expected output:
+    prompt = ``;
+    for (let i = 0; i < textArray.length; i++) {
+      prompt += `Applicant ${i + 1}:\n`;
+      prompt += textArray[i];
+      prompt += `\n`;
+    }
+    prompt += `rank these applicants by how impressive their traits are(don't include any other text except the expected ouput),\n`;
+    prompt += `expected output:
 Applicant 1 Ranking: NUMBER
 Applicant 2 Ranking: NUMBER
 Applicant 3 Ranking: NUMBER
 ...`;
-  if (prompt.length < 10000) {
-    response = await fetchAskRank(prompt);
-    const lines = response.split("\n");
-    const rankings = [];
-    lines.forEach((line) => {
-      // Split the line by spaces and extract the ranking value
-      const words = line.split(" ");
-      const ranking = parseInt(words[words.length - 1]);
+    if (prompt.length < 10000) {
+      response = await fetchAskRank(prompt);
+      const lines = response.split("\n");
+      const rankings = [];
+      lines.forEach((line) => {
+        // Split the line by spaces and extract the ranking value
+        const words = line.split(" ");
+        const ranking = parseInt(words[words.length - 1]);
 
-      // Get the applicant index (subtracting 1 to make it zero-based)
-      const applicantIndex = parseInt(words[1]) - 1;
+        // Get the applicant index (subtracting 1 to make it zero-based)
+        const applicantIndex = parseInt(words[1]) - 1;
 
-      // Store the ranking at the corresponding index in the array
-      rankings[applicantIndex] = ranking;
-    });
-    console.log(rankings);
-    for (var i = 0; i < rankings.length; i++) {
-      var div = document.querySelector("#" + containertextIDArray[i]);
-      // Append the text from array A to the innerHTML of the div
-      div.innerHTML += rankings[i];
+        // Store the ranking at the corresponding index in the array
+        rankings[applicantIndex] = ranking;
+      });
+      console.log(rankings);
+      for (var i = 0; i < rankings.length; i++) {
+        var div = document.querySelector("#" + containertextIDArray[i]);
+        // Append the text from array A to the innerHTML of the div
+        div.innerHTML += rankings[i];
+      }
+    } else {
+      return "Too much to rank!";
     }
-  } else {
-    return "Too much to rank!";
-  } */
-  } else {
+  }
+  // Doesn't fetchAskRank if offline
+  else {
     function generateRandomIntegers(length) {
       const min = 1; // lowest number
       const max = length; // highest number
@@ -202,12 +204,11 @@ Applicant 3 Ranking: NUMBER
 
   const parentDivID = "userContainers";
   let containerIDArray = [];
-  $("#userContainers")
-    .children()
-    .each(function () {
-      containerIDArray.push($(this).attr("id"));
-    });
-
+  const userContainers = document.getElementById(parentDivID);
+  Array.from(userContainers.children).forEach(function (child) {
+    containerIDArray.push(child.id);
+  });
+  console.log(`Rankings: ${rankings}`);
   rearrangeChildren(parentDivID, rankings, containerIDArray);
 }
 
@@ -227,6 +228,36 @@ function rearrangeChildren(parentDivID, rankings, containerIDArray) {
     parentDiv.appendChild(child);
   }
 }
+
+function setOverlayOpacity(elementId, rank, maxRank) {
+  const element = document.getElementById(elementId);
+
+  if (!element) {
+    console.error(`Element with ID "${elementId}" not found.`);
+    return;
+  }
+
+  let overlay = element.querySelector(".dark-overlay"); // Declare the 'overlay' variable here
+
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.classList.add("dark-overlay");
+    overlay.style.position = "absolute";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.pointerEvents = "none";
+    overlay.style.transition = "opacity 0.3s";
+
+    element.style.position = "relative";
+    element.appendChild(overlay);
+  }
+
+  const opacity = (maxRank - rank) / maxRank;
+  overlay.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+}
+
 // Call CVSummarize API endpoint
 async function fetchAskRank(prompt) {
   const response = await fetch("/askrank", {
