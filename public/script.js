@@ -19,7 +19,7 @@ $(document).ready(function () {
 
     // Send the uploaded files to the server
     $.ajax({
-      url: "http://localhost:3000/upload",
+      url: "/upload",
       type: "POST",
       data: formData,
       contentType: false,
@@ -133,7 +133,7 @@ async function processPdf(blob) {
 
 // Call CVSummarize API endpoint
 async function fetchCVSummarize(pdfText) {
-  const response = await fetch("http://localhost:3000/cvsummarize", {
+  const response = await fetch("/cvsummarize", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -147,7 +147,7 @@ async function fetchCVSummarize(pdfText) {
 // Function for Convert to Text Button
 async function convertUploadedFiles() {
   // Get the list of uploaded files from the server
-  const response = await fetch("http://localhost:3000/list");
+  const response = await fetch("/list");
   const files = await response.json();
   globalUserArray = await fetchUserDBP();
   selectedApplicants = retrieveSelectedApplicants();
@@ -282,7 +282,7 @@ function getSelectedFilters() {
 }
 // Sends raw text and selected filter to receive red flag analysis in text form
 async function fetchredFlagRemover(rawText, filters, name) {
-  const response = await fetch("http://localhost:3000/redFlagRemover", {
+  const response = await fetch("/redFlagRemover", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

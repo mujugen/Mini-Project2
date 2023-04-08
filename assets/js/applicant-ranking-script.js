@@ -196,7 +196,7 @@ function rearrangeChildren(parentDivID, rankings, containerIDArray) {
 }
 // Call CVSummarize API endpoint
 async function fetchAskRank(prompt) {
-  const response = await fetch("http://localhost:3000/askrank", {
+  const response = await fetch("/askrank", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
