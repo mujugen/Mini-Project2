@@ -5,13 +5,19 @@ html {
 }
 
 body {
-  background-color: #f7f8f9;
   color: #455560;
   font-family: "Montserrat", sans-serif;
   font-size: 0.9375rem;
   height: 100%;
   line-height: 1.5;
   overflow-x: hidden;
+}
+
+.logo {
+  color: #000;
+  font-size: 30px;
+  font-weight: 700;
+  margin-left: 30px;
 }
 
 .container {
@@ -51,7 +57,7 @@ input:-webkit-autofill:focus {
 }
 
 .form-control {
-  border: 1px solid #dee2e6;
+  border: 1px;
   box-shadow: none;
   color: #333;
   padding: 0.54688rem 0.875rem;
@@ -206,9 +212,9 @@ p:last-child {
 /*---------------- Cards -----------------------*/
 /*---------------- Cards -----------------------*/
 
-.card-glass {
-  background-color: rgb(55, 48, 107, 0.15);
-  backdrop-filter: blur(5px);
+.card-glass1 {
+  background-color: rgba(249, 215, 255, 0.15);
+  backdrop-filter: blur(6px);
 }
 
 .red {
@@ -619,7 +625,7 @@ a.action_label4 svg {
 table .badge {
   border-radius: 3px;
   display: inline-block;
-  font-size: 13px;
+  font-size: 12px;
   min-width: 75px;
   padding: 4px 12px;
   text-align: center;
@@ -2131,9 +2137,17 @@ button.bg-danger:hover {
 /* --------------------------- NAVBAR STYLING ----------------------------- */
 /* --------------------------- NAVBAR STYLING ----------------------------- */
 
+/* main navbar */
 .header {
-  background: #f2eeff;
-  box-shadow: 0 4px 10px 0 rgb(137 137 137 / 40%);
+  background-image: linear-gradient(
+    30deg,
+    rgba(255, 223, 254, 0.9),
+    rgba(229, 249, 255, 0.9)
+  );
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 30%);
+
+  backdrop-filter: (6px);
+  border: solid rgba(255, 255, 255, 0.18);
   left: 0;
   position: fixed;
   right: 0;
@@ -2448,8 +2462,12 @@ html.menu-opened body {
 /*//////////////////////////  Sidebar /////////////////////////*/
 /*//////////////////////////  Sidebar /////////////////////////*/
 /*//////////////////////////  Sidebar /////////////////////////*/
-
+/* LARGE SIDEBAR */
 .sidebar {
+  background: rgba(253, 246, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 40%);
+  backdrop-filter: (6px);
+  border: solid rgba(255, 255, 255, 0.18);
   bottom: 0;
   left: 0;
   margin-top: 0;
@@ -2457,10 +2475,8 @@ html.menu-opened body {
   top: 70px;
   transition: all 0.2s ease-in-out 0s;
   width: 350px;
-  z-index: 9;
+  z-index: 1;
   overflow-y: hidden;
-  background: #fff;
-  box-shadow: 0 4px 10px 0 rgb(137 137 137 / 25%);
 }
 
 .sidebar.opened {
@@ -2976,7 +2992,10 @@ html.menu-opened body {
   min-height: 100vh;
 }
 
+/* main content wrapper */
 .page-wrapper {
+  background-image: linear-gradient(-30deg, #fbdffa, #e0f7fe, #fae8ff, #ebf8ff);
+  backdrop-filter: blur(50px);
   margin-left: 350px;
   padding-top: 70px;
   position: relative;
@@ -3252,13 +3271,6 @@ html.menu-opened body {
   border-radius: 50%;
 }
 
-.employee_status img {
-  width: 70px;
-  border-radius: 50%;
-  border: 1px solid #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
 a.manage-link {
   font-size: 12px;
   text-decoration: underline;
@@ -3271,6 +3283,7 @@ a.manage-link {
   color: #000000;
 }
 
+/* breadcrumb color */
 .breadcrumb-path {
   display: flex;
   display: -webkit-box;
@@ -3279,7 +3292,10 @@ a.manage-link {
   display: -webkit-flex;
   align-items: center;
   justify-content: space-between;
-  background: #7149c6;
+  background: rgba(113, 73, 198, 0.2);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 32px 32px 0 rgb(0 0 0 / 20%);
+
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 10px 0 rgba(137, 137, 137, 0.25);
@@ -3320,7 +3336,7 @@ a.manage-link {
 .breadcrumb-path h3 {
   font-size: 20px;
   font-weight: 600;
-  color: rgb(251, 244, 255);
+  color: rgb(27, 0, 42);
 }
 
 .dashbord-link ul {
@@ -3524,6 +3540,8 @@ a.delete {
 .team-content a {
   color: #2c1b61;
 }
+
+
 
 .card-set {
   width: 100%;
@@ -4223,13 +4241,6 @@ a.btn-addmembers:hover {
 .employee-contents li label {
   margin: 0;
   font-weight: 600;
-}
-
-.card-body .employee-team .employee-contents a {
-  border: 1px solid #ebecf1;
-  padding: 5px;
-  border-radius: 5px;
-  color: #2f47ba;
 }
 
 .profile-cover-avatar {
