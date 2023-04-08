@@ -5358,6 +5358,27 @@ a.btn.btn-visit {
   opacity: 0.3;
 }
 
+/* get started button */
+.get-started {
+  padding: 8px 20px 8px 20px;
+  border: 1px solid #fff;
+  background-color: #ff6000;
+  color: white;
+  font-size: 12;
+  font-weight: 400;
+  margin: 20px;
+  margin-left: 50px;
+  margin-bottom: 0;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.get-started:hover {
+  background-color: #fe6244;
+  color: white;
+}
+
 /*---------------------------------- Media Queries------------------------------ */
 /*---------------------------------- Media Queries------------------------------ */
 /*---------------------------------- Media Queries------------------------------ */

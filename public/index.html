@@ -1,633 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=0"
-    />
-    <title>CVSort</title>
 
-    <link rel="shortcut icon" href="../assets\img\favicon.ico" />
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="../assets/plugins/fontawesome/css/fontawesome.min.css"
-    />
-    <script
-      src="https://kit.fontawesome.com/3d6f97d6cd.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="../assets/plugins/fontawesome/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../assets/css/style.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+  <title>CVSort</title>
 
-  <div class="header">
-    <!-- CVsort logo -->
-    <div class="header-left">
-      <a href="index.html" class="logo"> CVSort </a>
-      <!--CVSort Small Logo-->
-      <a href="index.html" class="logo logo-small">
-        <img
-          src="../assets/img/logo-small.png"
-          alt="Logo"
-          width="30"
-          height="30"
-        />
-      </a>
-      <!-- Navbar icon -->
-      <a href="javascript:void(0);" id="toggle_btn">
-        <span class="bar-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </a>
-    </div>
+  <link rel="shortcut icon" href="../assets\img\favicon.ico" />
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/plugins/fontawesome/css/fontawesome.min.css" />
+  <script src="https://kit.fontawesome.com/3d6f97d6cd.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
 
-    <a class="mobile_btn" id="mobile_btn">
-      <i class="fas fa-bars"></i>
+<div class="header">
+  <!-- CVsort logo -->
+  <div class="header-left">
+    <a href="index.html" class="logo"> CVSort </a>
+    <!--CVSort Small Logo-->
+    <a href="index.html" class="logo logo-small">
+      <img src="../assets/img/logo-small.png" alt="Logo" width="30" height="30" />
     </a>
-
-    <!--NOTIFICATION ICON AND TOGGLE-->
-    <ul class="nav user-menu">
-      <li class="nav-item dropdown">
-        <a
-          href="#"
-          class="dropdown-toggle nav-link pr-0"
-          data-toggle="dropdown"
-        >
-          <i data-feather="bell"></i> <span class="badge-pill"></span>
-        </a>
-        <div class="dropdown-menu notifications">
-          <div class="topnav-dropdown-header">
-            <span class="notification-title">Notifications</span>
-            <a href="javascript:void(0)" class="clear-noti"> Clear All</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown has-arrow main-drop">
-        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-          <span class="user-img">
-            <span class="status online"></span>
-          </span>
-          <span>HR Admin</span>
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#"
-            ><i data-feather="settings" class="mr-1"></i> Settings</a
-          >
-        </div>
-      </li>
-    </ul>
-    <div class="dropdown mobile-user-menu show">
-      <a
-        href="#"
-        class="nav-link dropdown-toggle"
-        data-toggle="dropdown"
-        aria-expanded="false"
-        ><i class="fa fa-ellipsis-v"></i
-      ></a>
-      <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#">Settings</a>
-      </div>
-    </div>
+    <!-- Navbar icon -->
+    <a href="javascript:void(0);" id="toggle_btn">
+      <span class="bar-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </a>
   </div>
 
-  <!--MOBILE SIDE BAR WITH LOGO-->
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-inner slimscroll">
-      <div class="sidebar-contents">
-        <div id="sidebar-menu" class="sidebar-menu">
-          <div class="mobile-show">
-            <div class="offcanvas-menu">
-              <div class="user-info align-center bg-theme text-center">
-                <span class="lnr lnr-cross text-white" id="mobile_btn_close"
-                  >X</span
-                >
-                <a
-                  href="javascript:void(0)"
-                  class="d-block menu-style text-white"
-                >
-                  <div class="user-avatar d-inline-block mr-3">
-                    <img
-                      src="../assets\img\android-chrome-512x512.png"
-                      alt="CV-Sort logo"
-                      class="rounded-circle"
-                      width="50"
-                    />
-                  </div>
-                </a>
-              </div>
+  <a class="mobile_btn" id="mobile_btn">
+    <i class="fas fa-bars"></i>
+  </a>
+
+  <!--NOTIFICATION ICON AND TOGGLE-->
+  <ul class="nav user-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="dropdown-toggle nav-link pr-0" data-toggle="dropdown">
+        <i data-feather="bell"></i> <span class="badge-pill"></span>
+      </a>
+      <div class="dropdown-menu notifications">
+        <div class="topnav-dropdown-header">
+          <span class="notification-title">Notifications</span>
+          <a href="javascript:void(0)" class="clear-noti"> Clear All</a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item dropdown has-arrow main-drop">
+      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+        <span class="user-img">
+          <span class="status online"></span>
+        </span>
+        <span>HR Admin</span>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#"><i data-feather="settings" class="mr-1"></i> Settings</a>
+      </div>
+    </li>
+  </ul>
+  <div class="dropdown mobile-user-menu show">
+    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+        class="fa fa-ellipsis-v"></i></a>
+    <div class="dropdown-menu dropdown-menu-right">
+      <a class="dropdown-item" href="#">Settings</a>
+    </div>
+  </div>
+</div>
+
+<!--MOBILE SIDE BAR WITH LOGO-->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-inner slimscroll">
+    <div class="sidebar-contents">
+      <div id="sidebar-menu" class="sidebar-menu">
+        <div class="mobile-show">
+          <div class="offcanvas-menu">
+            <div class="user-info align-center bg-theme text-center">
+              <span class="lnr lnr-cross text-white" id="mobile_btn_close">X</span>
+              <a href="javascript:void(0)" class="d-block menu-style text-white">
+                <div class="user-avatar d-inline-block mr-3">
+                  <img src="../assets\img\android-chrome-512x512.png" alt="CV-Sort logo" class="rounded-circle"
+                    width="50" />
+                </div>
+              </a>
             </div>
-
-            <!--SIDEBAR CONTENTS-->
-            <ul>
-              <li class="active">
-                <a href="index.html"
-                  ><i class="fa-solid fa-splotch fa-2xl"></i
-                  ><span>Overview</span></a
-                >
-              </li>
-
-              <li>
-                <a class="sidebar-title" href="#"
-                  ><span> PROCESSING AND REMOVAL</span></a
-                >
-              </li>
-
-              <li>
-                <a href="upload-extract.html"
-                  ><i class="fa-solid fa-file-import fa-2xl"></i
-                  ><span> Upload and Extract</span></a
-                >
-              </li>
-              <li>
-                <a href="process-compile.html"
-                  ><i class="fa-regular fa-rectangle-list fa-2xl"></i
-                  ><span>Process and Compile</span></a
-                >
-              </li>
-              <li>
-                <a href="redflag-checker.html"
-                  ><i class="fa-solid fa-flag fa-2xl"></i
-                  ><span>Red Flag Checker </span></a
-                >
-              </li>
-              <li>
-                <a href="filter-finalize.html"
-                  ><i class="fa-solid fa-filter fa-2xl"></i
-                  ><span>Filter and Finalize</span></a
-                >
-              </li>
-
-              <li>
-                <a class="sidebar-title" href="#"
-                  ><span>Ranking and Shortlisting</span></a
-                >
-              </li>
-
-              <li>
-                <a href="applicant-ranking.html"
-                  ><i class="fa-solid fa-ranking-star fa-2xl"></i
-                  ><span>Applicant Ranking</span></a
-                >
-              </li>
-              <li>
-                <a href="final-applicant.html"
-                  ><i class="fa-solid fa-medal fa-2xl"></i
-                  ><span>Final Applicant</span></a
-                >
-              </li>
-
-              <li>
-                <a class="sidebar-title" href="#"><span>TOOLS</span></a>
-              </li>
-              <li>
-                <a href="interview-scheduler.html"
-                  ><i class="fa-solid fa-user-tie fa-2xl"></i
-                  ><span>Interview Scheduler</span></a
-                >
-              </li>
-              <li>
-                <a href="calendar.html"
-                  ><i class="fa-solid fa-calendar fa-2xl"></i
-                  ><span>Calendar</span></a
-                >
-              </li>
-              <li>
-                <a href="shortlisted.html"
-                  ><i class="fa-solid fa-medal fa-2xl"></i
-                  ><span>Shortlisted Applicants</span></a
-                >
-              </li>
-              <li>
-                <a href="waitlisted.html"
-                  ><i class="fa-solid fa-user-xmark fa-2xl"></i
-                  ><span>Waitlisted Applicants</span></a
-                >
-              </li>
-            </ul>
           </div>
 
           <!--SIDEBAR CONTENTS-->
           <ul>
             <li class="active">
-              <a href="index.html"
-                ><i class="fa-solid fa-splotch fa-2xl"></i
-                ><span>Overview</span></a
-              >
+              <a href="index.html"><i class="fa-solid fa-splotch fa-2xl"></i><span>Overview</span></a>
             </li>
 
             <li>
-              <a class="sidebar-title" href="#"
-                ><span> PROCESSING AND REMOVAL</span></a
-              >
+              <a class="sidebar-title" href="#"><span> PROCESSING AND REMOVAL</span></a>
             </li>
 
             <li>
-              <a href="upload-extract.html"
-                ><i class="fa-solid fa-file-import fa-2xl"></i
-                ><span> Upload and Extract</span></a
-              >
+              <a href="upload-extract.html"><i class="fa-solid fa-file-import fa-2xl"></i><span> Upload and
+                  Extract</span></a>
             </li>
             <li>
-              <a href="process-compile.html"
-                ><i class="fa-regular fa-rectangle-list fa-2xl"></i
-                ><span>Process and Compile</span></a
-              >
+              <a href="process-compile.html"><i class="fa-regular fa-rectangle-list fa-2xl"></i><span>Process and
+                  Compile</span></a>
             </li>
             <li>
-              <a href="redflag-checker.html"
-                ><i class="fa-solid fa-flag fa-2xl"></i
-                ><span>Red Flag Checker </span></a
-              >
+              <a href="redflag-checker.html"><i class="fa-solid fa-flag fa-2xl"></i><span>Red Flag Checker </span></a>
             </li>
             <li>
-              <a href="filter-finalize.html"
-                ><i class="fa-solid fa-filter fa-2xl"></i
-                ><span>Filter and Finalize</span></a
-              >
+              <a href="filter-finalize.html"><i class="fa-solid fa-filter fa-2xl"></i><span>Filter and
+                  Finalize</span></a>
             </li>
 
             <li>
-              <a class="sidebar-title" href="#"
-                ><span>Ranking and Selection</span></a
-              >
+              <a class="sidebar-title" href="#"><span>Ranking and Shortlisting</span></a>
             </li>
 
             <li>
-              <a href="applicant-ranking.html"
-                ><i class="fa-solid fa-ranking-star fa-2xl"></i
-                ><span>Applicant Ranking</span></a
-              >
+              <a href="applicant-ranking.html"><i class="fa-solid fa-ranking-star fa-2xl"></i><span>Applicant
+                  Ranking</span></a>
             </li>
             <li>
-              <a href="final-applicant.html"
-                ><i class="fa-solid fa-medal fa-2xl"></i
-                ><span>Final Applicant</span></a
-              >
+              <a href="final-applicant.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Final Applicant</span></a>
             </li>
 
             <li>
               <a class="sidebar-title" href="#"><span>TOOLS</span></a>
             </li>
             <li>
-              <a href="interview-scheduler.html"
-                ><i class="fa-solid fa-user-tie fa-2xl"></i
-                ><span>Interview Scheduler</span></a
-              >
+              <a href="interview-scheduler.html"><i class="fa-solid fa-user-tie fa-2xl"></i><span>Interview
+                  Scheduler</span></a>
             </li>
             <li>
-              <a href="calendar.html"
-                ><i class="fa-solid fa-calendar fa-2xl"></i
-                ><span>Calendar</span></a
-              >
+              <a href="calendar.html"><i class="fa-solid fa-calendar fa-2xl"></i><span>Calendar</span></a>
             </li>
             <li>
-              <a href="shortlisted.html"
-                ><i class="fa-solid fa-medal fa-2xl"></i
-                ><span>Shortlisted Applicants</span></a
-              >
+              <a href="shortlisted.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Shortlisted Applicants</span></a>
             </li>
             <li>
-              <a href="waitlisted.html"
-                ><i class="fa-solid fa-user-xmark fa-2xl"></i
-                ><span>Waitlisted Applicants</span></a
-              >
+              <a href="waitlisted.html"><i class="fa-solid fa-user-xmark fa-2xl"></i><span>Waitlisted
+                  Applicants</span></a>
             </li>
           </ul>
+        </div>
+
+        <!--SIDEBAR CONTENTS-->
+        <ul>
+          <li class="active">
+            <a href="index.html"><i class="fa-solid fa-splotch fa-2xl"></i><span>Overview</span></a>
+          </li>
+
+          <li>
+            <a class="sidebar-title" href="#"><span> PROCESSING AND REMOVAL</span></a>
+          </li>
+
+          <li>
+            <a href="upload-extract.html"><i class="fa-solid fa-file-import fa-2xl"></i><span> Upload and
+                Extract</span></a>
+          </li>
+          <li>
+            <a href="process-compile.html"><i class="fa-regular fa-rectangle-list fa-2xl"></i><span>Process and
+                Compile</span></a>
+          </li>
+          <li>
+            <a href="redflag-checker.html"><i class="fa-solid fa-flag fa-2xl"></i><span>Red Flag Checker </span></a>
+          </li>
+          <li>
+            <a href="filter-finalize.html"><i class="fa-solid fa-filter fa-2xl"></i><span>Filter and Finalize</span></a>
+          </li>
+
+          <li>
+            <a class="sidebar-title" href="#"><span>Ranking and Selection</span></a>
+          </li>
+
+          <li>
+            <a href="applicant-ranking.html"><i class="fa-solid fa-ranking-star fa-2xl"></i><span>Applicant
+                Ranking</span></a>
+          </li>
+          <li>
+            <a href="final-applicant.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Final Applicant</span></a>
+          </li>
+
+          <li>
+            <a class="sidebar-title" href="#"><span>TOOLS</span></a>
+          </li>
+          <li>
+            <a href="interview-scheduler.html"><i class="fa-solid fa-user-tie fa-2xl"></i><span>Interview
+                Scheduler</span></a>
+          </li>
+          <li>
+            <a href="calendar.html"><i class="fa-solid fa-calendar fa-2xl"></i><span>Calendar</span></a>
+          </li>
+          <li>
+            <a href="shortlisted.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Shortlisted Applicants</span></a>
+          </li>
+          <li>
+            <a href="waitlisted.html"><i class="fa-solid fa-user-xmark fa-2xl"></i><span>Waitlisted
+                Applicants</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY OF SECTIONS -->
+<!-- BODY OF SECTIONS -->
+<!-- BODY OF SECTIONS -->
+<!-- BODY OF SECTIONS -->
+<!-- BODY OF SECTIONS -->
+<!-- BODY OF SECTIONS -->
+
+<body>
+  <div class="page-wrapper">
+    <!--WELCOME CARD-->
+    <div id="popup_card" class="d-flex justify-content-center align-items-center">
+      <div style="
+            width: 30vw;
+            height: 40vh;
+            background-color: white;
+            padding: 3%;
+          ">
+        <h3>This is a Demo Version</h3>
+        <h6>
+          <br />
+          You can choose to use your own OpenAI API key for testing purposes,
+          or you can try the app in offline mode so that you can still try the
+          full functionality of the app without needing an API key.
+        </h6>
+        <div class="d-flex flex-column align-items-center">
+          <h3 class="mt-5">Use API Key</h3>
+          <div class="input-group m-3" style="max-width: 70%">
+            <input id="APIKeyTextBox" type="text" class="form-control" placeholder="API KEY" />
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" onclick="onlineButtonClicked()">
+                Submit
+              </button>
+            </div>
+          </div>
+          <h3 class="mt-4">Go Offline</h3>
+          <button class="btn btn-outline-primary mt-3" type="button" onclick="offlineButtonClicked()">
+            Go Offline
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup_overlay"></div>
+    <div class="content container-fluid">
+      <div class="row mb-4">
+        <div class="col-xl-12 col-sm-12 col-12" style="margin-top: 25px">
+          <div class="breadcrumb-path">
+            <h3>CVSort Features</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-xl-3 col-sm-6 col-12" style="margin-top: 25px">
+          <div class="card h-100 board1 fill1 my-auto">
+            <!--Step 1-->
+            <div class="card-body">
+              <div class="card_widget_header">
+                <label>
+                  <h4>1</h4>
+                  Raw Text Extraction tool
+                </label>
+                <ol>
+                  <li>
+                    In, the Upload and Extract tab, Upload CVs in PDF Format
+                  </li>
+                  <li>
+                    Use the Extract Raw Text Tool to Extract Raw Text from
+                    Uploaded Files
+                  </li>
+                  <li>
+                    Our AI Tool will extract text from each document that will
+                    reduce biases and time spent
+                  </li>
+                  <li style="list-style-type: none;"><a href="upload-extract.html" class="get-started">Get Started</a>
+                  </li>
+                </ol>
+              </div>
+              <i class="fa-solid fa-file-pdf fa-2xl"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="col-xl-3 col-sm-6 col-12" style="margin-top: 25px">
+          <div class="card h-100 board1 fill2 my-auto">
+            <div class="card-body">
+              <div class="card_widget_header">
+                <h4>2</h4>
+                <label>Processing and Compiling of Extracted Raw Text</label>
+                <ol>
+                  <li>
+                    Convert the Extracted Raw Text into a Processed and
+                    Compiled Version in the Process and Compile Tab
+                  </li>
+                  <li>
+                    Highlight important qualifications and considerations
+                  </li>
+                </ol>
+              </div>
+              <i class="fa-solid fa-check-to-slot fa-2xl"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="col-xl-3 col-sm-6 col-12" style="margin-top: 25px">
+          <div class="card h-100 board1 fill3 my-auto">
+            <div class="card-body">
+              <div class="card_widget_header">
+                <h4>3</h4>
+                <label>Red Flag Checker</label>
+                <ol>
+                  <li>
+                    Select Red Flags to find and display them through the
+                    Display button
+                  </li>
+                  <li>
+                    Automatically remove and filter out found Red Flags by
+                    clicking the remove button in just a matter of seconds
+                  </li>
+                </ol>
+              </div>
+              <i class="fa-solid fa-flag fa-2xl"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Step 4-->
+        <div class="col-xl-3 col-sm-6 col-12" style="margin-top: 25px">
+          <div class="card h-100 board1 fill4 my-auto">
+            <div class="card-body">
+              <div class="card_widget_header">
+                <h4>4</h4>
+                <label>Easily Filter and Finalize Applicants</label>
+                <ol>
+                  <li>
+                    Proceed to the Filter and Finalize tab and Choose desired
+                    Qualifications and click Finalize to shortlist desired
+                    candidates
+                  </li>
+                </ol>
+                <br /><br />
+              </div>
+              <i class="fa-solid fa-medal fa-2xl"></i>
+            </div>
+          </div>
+        </div>
+        <br />
+        <!-- Step 5 -->
+        <div class="col-xl-6 col-sm-6 col-12" style="margin: 25px auto 25px auto">
+          <div class="card h-100 board1 fill5 my-auto">
+            <div class="card-body">
+              <div class="card_widget_header">
+                <h4>5</h4>
+                <label>Applicant Ranking</label>
+                <ol>
+                  <li>
+                    Choose the best candidate for the Job by ranking the
+                    Shortlisted Applicants further with our Automatic
+                    Applicant Ranking System.
+                  </li>
+                  <li>
+                    Get unbiased recommendations and analysis with data
+                    analysis and Artificial Intelligence
+                  </li>
+                </ol>
+                <br />
+              </div>
+              <i class="fa-sharp fa-solid fa-bars-progress fa-2xl"></i>
+            </div>
+          </div>
+        </div>
+        <!-- Step 6 -->
+        <div class="col-xl-6 col-sm-6 col-12" style="margin: 25px auto 25px auto">
+          <div class="card h-100 board1 fill6 my-auto">
+            <div class="card-body">
+              <div class="card_widget_header">
+                <h4>6</h4>
+                <label>Interview Scheduler and CV Fact Verification tool</label>
+                <ol>
+                  <li>
+                    Automatically generate Interview Invites in the Interview
+                    Scheduling tab
+                  </li>
+                  <li>
+                    Our CV Fact Checker tool automatically finds multiple
+                    Applicant Verification sources to Fact Check Submitted CVS
+                  </li>
+                </ol>
+              </div>
+              <i class="fa-solid fa-envelopes-bulk fa-2xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search for Applicants -->
+        <div class="col-xl-6 d-flex">
+          <div class="card flex-fill">
+            <div class="card-header">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title">Search for Applicant</h5>
+              </div>
+              <div class="sidebar-input">
+                <div class="applicant-search">
+                  <form>
+                    <input type="text" class="form-control" placeholder="Search here" />
+                    <button class="btn" type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Applicant Search List -->
+            <div class="card-body">
+              <div class="team-list">
+                <div class="team-view">
+                  <div class="team-img">
+                    <img src="../assets\img\profiles\male-1.png" alt="avatar" />
+                  </div>
+                  <div class="team-content">
+                    <a href="#">Gary Graham</a>
+                    <span>Information Technology</span>
+                  </div>
+                </div>
+              </div>
+              <div class="team-list">
+                <div class="team-view">
+                  <div class="team-img">
+                    <img src="../assets\img\profiles\male-2.png" alt="avatar" />
+                  </div>
+                  <div class="team-content">
+                    <a href="#">Moses Matovu</a>
+                    <span>Computer Science</span>
+                  </div>
+                </div>
+              </div>
+              <div class="team-list">
+                <div class="team-view">
+                  <div class="team-img">
+                    <img src="../assets\img\profiles\5.png" alt="avatar" />
+                  </div>
+                  <div class="team-content">
+                    <a href="#">Lucy Cunningway</a>
+                    <span>Hardware System Design</span>
+                  </div>
+                </div>
+              </div>
+              <div class="team-list">
+                <div class="team-view">
+                  <div class="team-img">
+                    <img src="../assets\img\profiles\4.png" alt="avatar" />
+                  </div>
+                  <div class="team-content">
+                    <a href="#">Jessica Clifford</a>
+                    <span>Mobile Development</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Uploaded Vs Filtered Card -->
+        <div class="col-xl-6 d-flex">
+          <div class="card flex-fill">
+            <div class="card-header">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title">Hiring History</h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <div id="initial-final"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- BODY OF SECTIONS -->
-  <!-- BODY OF SECTIONS -->
-  <!-- BODY OF SECTIONS -->
-  <!-- BODY OF SECTIONS -->
-  <!-- BODY OF SECTIONS -->
-  <!-- BODY OF SECTIONS -->
+  <script src="/assets/js/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="/assets/js/popper.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/feather.min.js"></script>
+  <script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="/assets/plugins/apexchart/apexcharts.min.js"></script>
+  <script src="/assets/plugins/apexchart/chart-data.js"></script>
+  <script src="/assets/js/index.js"></script>
+  <script src="/assets/js/script-2.js"></script>
+</body>
 
-  <body>
-    <div class="page-wrapper">
-      <!--WELCOME CARD-->
-      <div
-        id="popup_card"
-        class="d-flex justify-content-center align-items-center"
-      >
-        <div
-          style="
-            width: 30vw;
-            height: 40vh;
-            background-color: white;
-            padding: 3%;
-          "
-        >
-          <h3>This is a Demo Version</h3>
-          <h6>
-            <br />
-            You can choose to use your own OpenAI API key for testing purposes,
-            or you can try the app in offline mode so that you can still try the
-            full functionality of the app without needing an API key.
-          </h6>
-          <div class="d-flex flex-column align-items-center">
-            <h3 class="mt-5">Use API Key</h3>
-            <div class="input-group m-3" style="max-width: 70%">
-              <input
-                id="APIKeyTextBox"
-                type="text"
-                class="form-control"
-                placeholder="API KEY"
-              />
-              <div class="input-group-append">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  onclick="onlineButtonClicked()"
-                >
-                  Submit
-                </button>
-              </div>
-            </div>
-            <h3 class="mt-4">Go Offline</h3>
-            <button
-              class="btn btn-outline-primary mt-3"
-              type="button"
-              onclick="offlineButtonClicked()"
-            >
-              Go Offline
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div id="popup_overlay"></div>
-      <div class="content container-fluid">
-        <div class="row mb-4">
-          <div class="col-xl-12 col-sm-12 col-12" style="margin-top: 25px">
-            <div class="breadcrumb-path">
-              <h3>CVSort Features</h3>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-4">
-          <div class="col-xl-3 col-sm-6 col-12" style="margin-top: 25px">
-            <div class="card h-100 board1 fill1 my-auto">
-              <!--Step 1-->
-              <div class="card-body">
-                <div class="card_widget_header">
-                  <label>
-                    <h4>1</h4>
-                    Raw Text Extraction tool
-                  </label>
-                  <ol>
-                    <li>
-                      In, the Upload and Extract tab, Upload CVs in PDF Format
-                    </li>
-                    <li>
-                      Use the Extract Raw Text Tool to Extract Raw Text from
-                      Uploaded Files
-                    </li>
-                    <li>
-                      Our AI Tool will extract text from each document that will
-                      reduce biases and time spent
-                    </li>
-                  </ol>
-                </div>
-                <i class="fa-solid fa-file-pdf fa-2xl"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Step 2 -->
-          <div class="col-xl-3 col-sm-6 col-12" style="margin-top: 25px">
-            <div class="card h-100 board1 fill2 my-auto">
-              <div class="card-body">
-                <div class="card_widget_header">
-                  <h4>2</h4>
-                  <label>Processing and Compiling of Extracted Raw Text</label>
-                  <ol>
-                    <li>
-                      Convert the Extracted Raw Text into a Processed and
-                      Compiled Version in the Process and Compile Tab
-                    </li>
-                    <li>
-                      Highlight important qualifications and considerations
-                    </li>
-                  </ol>
-                </div>
-                <i class="fa-solid fa-check-to-slot fa-2xl"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Step 3 -->
-          <div class="col-xl-3 col-sm-6 col-12" style="margin-top: 25px">
-            <div class="card h-100 board1 fill3 my-auto">
-              <div class="card-body">
-                <div class="card_widget_header">
-                  <h4>3</h4>
-                  <label>Red Flag Checker</label>
-                  <ol>
-                    <li>
-                      Select Red Flags to find and display them through the
-                      Display button
-                    </li>
-                    <li>
-                      Automatically remove and filter out found Red Flags by
-                      clicking the remove button in just a matter of seconds
-                    </li>
-                  </ol>
-                </div>
-                <i class="fa-solid fa-flag fa-2xl"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Step 4-->
-          <div class="col-xl-3 col-sm-6 col-12" style="margin-top: 25px">
-            <div class="card h-100 board1 fill4 my-auto">
-              <div class="card-body">
-                <div class="card_widget_header">
-                  <h4>4</h4>
-                  <label>Easily Filter and Finalize Applicants</label>
-                  <ol>
-                    <li>
-                      Proceed to the Filter and Finalize tab and Choose desired
-                      Qualifications and click Finalize to shortlist desired
-                      candidates
-                    </li>
-                  </ol>
-                  <br /><br />
-                </div>
-                <i class="fa-solid fa-medal fa-2xl"></i>
-              </div>
-            </div>
-          </div>
-          <br />
-          <!-- Step 5 -->
-          <div
-            class="col-xl-6 col-sm-6 col-12"
-            style="margin: 25px auto 25px auto"
-          >
-            <div class="card h-100 board1 fill5 my-auto">
-              <div class="card-body">
-                <div class="card_widget_header">
-                  <h4>5</h4>
-                  <label>Applicant Ranking</label>
-                  <ol>
-                    <li>
-                      Choose the best candidate for the Job by ranking the
-                      Shortlisted Applicants further with our Automatic
-                      Applicant Ranking System.
-                    </li>
-                    <li>
-                      Get unbiased recommendations and analysis with data
-                      analysis and Artificial Intelligence
-                    </li>
-                  </ol>
-                  <br />
-                </div>
-                <i class="fa-sharp fa-solid fa-bars-progress fa-2xl"></i>
-              </div>
-            </div>
-          </div>
-          <!-- Step 6 -->
-          <div
-            class="col-xl-6 col-sm-6 col-12"
-            style="margin: 25px auto 25px auto"
-          >
-            <div class="card h-100 board1 fill6 my-auto">
-              <div class="card-body">
-                <div class="card_widget_header">
-                  <h4>6</h4>
-                  <label
-                    >Interview Scheduler and CV Fact Verification tool</label
-                  >
-                  <ol>
-                    <li>
-                      Automatically generate Interview Invites in the Interview
-                      Scheduling tab
-                    </li>
-                    <li>
-                      Our CV Fact Checker tool automatically finds multiple
-                      Applicant Verification sources to Fact Check Submitted CVS
-                    </li>
-                  </ol>
-                </div>
-                <i class="fa-solid fa-envelopes-bulk fa-2xl"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <!-- Search for Applicants -->
-          <div class="col-xl-6 d-flex">
-            <div class="card flex-fill">
-              <div class="card-header">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h5 class="card-title">Search for Applicant</h5>
-                </div>
-                <div class="sidebar-input">
-                  <div class="applicant-search">
-                    <form>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Search here"
-                      />
-                      <button class="btn" type="submit">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <!-- Applicant Search List -->
-              <div class="card-body">
-                <div class="team-list">
-                  <div class="team-view">
-                    <div class="team-img">
-                      <img
-                        src="../assets\img\profiles\male-1.png"
-                        alt="avatar"
-                      />
-                    </div>
-                    <div class="team-content">
-                      <a href="#">Gary Graham</a>
-                      <span>Information Technology</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="team-list">
-                  <div class="team-view">
-                    <div class="team-img">
-                      <img
-                        src="../assets\img\profiles\male-2.png"
-                        alt="avatar"
-                      />
-                    </div>
-                    <div class="team-content">
-                      <a href="#">Moses Matovu</a>
-                      <span>Computer Science</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="team-list">
-                  <div class="team-view">
-                    <div class="team-img">
-                      <img src="../assets\img\profiles\5.png" alt="avatar" />
-                    </div>
-                    <div class="team-content">
-                      <a href="#">Lucy Cunningway</a>
-                      <span>Hardware System Design</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="team-list">
-                  <div class="team-view">
-                    <div class="team-img">
-                      <img src="../assets\img\profiles\4.png" alt="avatar" />
-                    </div>
-                    <div class="team-content">
-                      <a href="#">Jessica Clifford</a>
-                      <span>Mobile Development</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Uploaded Vs Filtered Card -->
-          <div class="col-xl-6 d-flex">
-            <div class="card flex-fill">
-              <div class="card-header">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h5 class="card-title">Hiring History</h5>
-                </div>
-              </div>
-              <div class="card-body">
-                <div id="initial-final"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="/assets/js/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="/assets/js/popper.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/feather.min.js"></script>
-    <script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="/assets/plugins/apexchart/apexcharts.min.js"></script>
-    <script src="/assets/plugins/apexchart/chart-data.js"></script>
-    <script src="/assets/js/index.js"></script>
-    <script src="/assets/js/script-2.js"></script>
-  </body>
 </html>
