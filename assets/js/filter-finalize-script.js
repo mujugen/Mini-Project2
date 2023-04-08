@@ -61,7 +61,21 @@ function createUserCard(i) {
   cardHeader.classList.add("card-header");
 
   const img = document.createElement("img");
-  img.src = "../assets/img/profiles/4.png";
+  function getRandomImage() {
+    const images = [
+      "4.png",
+      "5.png",
+      "admin-img.png",
+      "male-1.png",
+      "male-2.png",
+    ];
+
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return "../assets/img/profiles/" + images[randomIndex];
+  }
+
+  img.src = getRandomImage();
+
   img.alt = "Applicant Image";
   img.classList.add("rounded-image");
   img.width = "100";

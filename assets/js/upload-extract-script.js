@@ -220,3 +220,48 @@ async function convertUploadedFiles() {
   }
   console.log("Convert Uploaded Files Finished");
 }
+var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
+var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
+// Makes the upload button unusable when offline
+if (browsingMethod == "Offline") {
+  toggleDarkOverlay("uploadDiv");
+}else{
+  toggleDarkOverlay("extractCard");
+}
+function toggleDarkOverlay(elementId) {
+  const element = document.getElementById(elementId);
+
+  if (!element) {
+    console.error(`Element with ID "${elementId}" not found.`);
+    return;
+  }
+
+  const existingOverlay = element.querySelector(".dark-overlay");
+
+  if (existingOverlay) {
+    element.removeChild(existingOverlay);
+    element.style.pointerEvents = "auto";
+    return;
+  }
+
+  const overlay = document.createElement("div");
+  overlay.classList.add("dark-overlay");
+  overlay.style.position = "absolute";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+  overlay.style.pointerEvents = "none";
+
+  const borderRadius = window.getComputedStyle(element).borderRadius;
+  if (borderRadius) {
+    overlay.style.borderRadius = borderRadius;
+  }
+
+  element.style.position = "relative";
+  element.style.pointerEvents = "none";
+  element.appendChild(overlay);
+}
+
+toggleDarkOverlay("proceedCard");

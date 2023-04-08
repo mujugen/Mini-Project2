@@ -24,7 +24,21 @@ function displayUserSummary() {
     div.style.display = "flex"; // Add this line
     const a = document.createElement("a");
     const img = document.createElement("img");
-    img.src = "../assets/img/profiles/4.png";
+    function getRandomImage() {
+      const images = [
+        "4.png",
+        "5.png",
+        "admin-img.png",
+        "male-1.png",
+        "male-2.png",
+      ];
+
+      const randomIndex = Math.floor(Math.random() * images.length);
+      return "../assets/img/profiles/" + images[randomIndex];
+    }
+
+    img.src = getRandomImage();
+
     img.alt = "profile";
     img.className = "img-table";
 
@@ -282,3 +296,50 @@ function putApplicantInfoInEAC(i) {
     checkValue(globalUserArray[i].accomplishment5Title)
   );
 }
+
+function toggleDarkOverlay(elementId) {
+  const element = document.getElementById(elementId);
+
+  if (!element) {
+    console.error(`Element with ID "${elementId}" not found.`);
+    return;
+  }
+
+  const existingOverlay = element.querySelector(".dark-overlay");
+
+  if (existingOverlay) {
+    existingOverlay.style.opacity = "0";
+    setTimeout(() => {
+      element.removeChild(existingOverlay);
+      element.style.pointerEvents = "auto";
+    }, 300);
+    return;
+  }
+
+  const overlay = document.createElement("div");
+  overlay.classList.add("dark-overlay");
+  overlay.style.position = "absolute";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+  overlay.style.pointerEvents = "none";
+  overlay.style.opacity = "0";
+  overlay.style.transition = "opacity 0.3s";
+
+  const borderRadius = window.getComputedStyle(element).borderRadius;
+  if (borderRadius) {
+    overlay.style.borderRadius = borderRadius;
+  }
+
+  element.style.position = "relative";
+  element.style.pointerEvents = "none";
+  element.appendChild(overlay);
+
+  setTimeout(() => {
+    overlay.style.opacity = "1";
+  }, 10);
+}
+
+toggleDarkOverlay("proceedCard");

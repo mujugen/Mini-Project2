@@ -32,7 +32,8 @@ async function fetchredFlagRemover(rawText, filters, name) {
 
   return redFlags;
 }
-
+var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
+var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
 // Identifies which cards has a red flag and marks them red
 async function runRedFlag() {
   filters = getSelectedFilters();
@@ -43,11 +44,25 @@ async function runRedFlag() {
         console.log(
           `User ${globalUserArray[i].name} doesn't have red flags in DB`
         );
-        redFlags = await fetchredFlagRemover(
-          globalUserArray[i].raw_text,
-          filters,
-          globalUserArray[i].name
-        );
+        if (browsingMethod == "Online") {
+          redFlags = await fetchredFlagRemover(
+            globalUserArray[i].raw_text,
+            filters,
+            globalUserArray[i].name
+          );
+        } else {
+          console.log("Browsing in offline mode, making fake red flags");
+          redFlags = {
+            red_flag_1: 0,
+            red_flag_2: 0,
+            red_flag_3: 0,
+            red_flag_4: 0,
+            red_flag_5: 0,
+            red_flag_6: 0,
+            red_flag_7: 0,
+            red_flag_8: 0,
+          };
+        }
       } else {
         console.log(`User ${globalUserArray[i].name} has red flags in DB`);
         redFlags = {
@@ -206,7 +221,21 @@ function createUserCard(i) {
   cardHeader.classList.add("card-header");
 
   const img = document.createElement("img");
-  img.src = "../assets/img/profiles/4.png";
+  function getRandomImage() {
+    const images = [
+      "4.png",
+      "5.png",
+      "admin-img.png",
+      "male-1.png",
+      "male-2.png",
+    ];
+
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return "../assets/img/profiles/" + images[randomIndex];
+  }
+
+  img.src = getRandomImage();
+
   img.alt = "Applicant Image";
   img.classList.add("rounded-image");
   img.width = "100";
@@ -497,3 +526,46 @@ function moveToFilterAndFinalizePage() {
     window.location.href = "filter-finalize.html";
   }
 }
+
+function toggleDarkOverlay(elementId) {
+  const element = document.getElementById(elementId);
+
+  if (!element) {
+    console.error(`Element with ID "${elementId}" not found.`);
+    return;
+  }
+
+  const existingOverlay = element.querySelector(".dark-overlay");
+
+  if (existingOverlay) {
+    existingOverlay.style.opacity = "0";
+    setTimeout(() => {
+      element.removeChild(existingOverlay);
+      element.style.pointerEvents = "auto";
+    }, 300);
+    return;
+  }
+
+  const overlay = document.createElement("div");
+  overlay.classList.add("dark-overlay");
+  overlay.style.position = "absolute";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "102%";
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+  overlay.style.pointerEvents = "none";
+  overlay.style.opacity = "0";
+  overlay.style.transition = "opacity 0.3s";
+
+  element.style.position = "relative";
+  element.style.pointerEvents = "none";
+  element.appendChild(overlay);
+
+  setTimeout(() => {
+    overlay.style.opacity = "1";
+  }, 10);
+}
+
+toggleDarkOverlay("removeCard");
+toggleDarkOverlay("proceedCard");

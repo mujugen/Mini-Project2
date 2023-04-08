@@ -330,19 +330,22 @@
       <div class="row">
         <div class="col-xl-12 col-sm-12 col-12">
           <div class="card card-lists">
-            <div class="card-header">
+            <div class="card-header" id="displayCard">
               <h2 class="card-titles">Display CVs With Red Flags</h2>
-              <button class="btn btn-head" type="submit" onclick="runRedFlag()">
+              <button class="btn btn-head" type="submit"
+                onclick="(()=>{runRedFlag();toggleDarkOverlay('removeCard');this.removeAttribute('onclick');})();">
                 Display
               </button>
             </div>
-            <div class="card-header">
+            <div class="card-header" id="removeCard">
               <h2 class="card-titles">Remove Red Flags</h2>
-              <button onclick="runRedFlagRemover()" class="btn btn-head">
+              <button
+                onclick="(()=>{runRedFlagRemover();toggleDarkOverlay('proceedCard');this.removeAttribute('onclick');})();"
+                class="btn btn-head">
                 Remove
               </button>
             </div>
-            <div class="card-header">
+            <div class="card-header" id="proceedCard">
               <h2 class="card-titles">
                 Proceed to Select Applicants by Required Qualifications /
                 Skills Here

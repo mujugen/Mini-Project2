@@ -231,7 +231,8 @@
                   <h2 class="card-titles">
                     Summarize and Display Applicant Information
                   </h2>
-                  <button class="btn btn-head" type="button" onclick="displayUserSummary()">
+                  <button class="btn btn-head" type="button"
+                    onclick="(() => { displayUserSummary(); toggleDarkOverlay('proceedCard');this.removeAttribute('onclick'); })()">
                     PROCESS
                   </button>
                 </div>
@@ -243,7 +244,7 @@
         <div class="content container-fluid">
           <div class="row">
             <div class="col-xl-12 col-sm-12 col-12">
-              <div class="card card-lists">
+              <div class="card card-lists" id="proceedCard">
                 <div class="card-header">
                   <h2 class="card-titles">
                     Find and Remove CVs with Red Flags Here
