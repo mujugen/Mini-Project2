@@ -6299,8 +6299,8 @@ a.btn.btn-visit {
   transform: translate(-50%, -50%);
   max-width: 50vw;
   max-height: 80vh;
-  z-index: 1001;
   box-sizing: border-box;
+  z-index: -1;
 }
 
 .content-wrapper {
