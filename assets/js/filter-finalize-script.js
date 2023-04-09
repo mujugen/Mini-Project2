@@ -649,6 +649,7 @@ function putApplicantInfoInEAC(i) {
 
 function moveToFilterAndFinalizePage() {
   selectedApplicants = retrieveSelectedApplicants();
+  unselectedApplicants = retrieveUnselectedApplicants();
   if (selectedApplicants.length == 0) {
     alert("Nothing to finalize");
     event.preventDefault();
@@ -656,6 +657,10 @@ function moveToFilterAndFinalizePage() {
     localStorage.setItem(
       "selectedApplicants",
       JSON.stringify(selectedApplicants)
+    );
+    localStorage.setItem(
+      "unselectedApplicants",
+      JSON.stringify(unselectedApplicants)
     );
     window.location.href = "applicant-ranking.html";
   }
@@ -696,4 +701,17 @@ function toggleGlowOverlay(elementId) {
 
   element.style.position = "relative";
   element.appendChild(overlay);
+}
+
+function retrieveUnselectedApplicants() {
+  const selectedApplicants = retrieveSelectedApplicants();
+  let unselectedApplicants = [];
+
+  globalUserArray.forEach((applicant) => {
+    if (!selectedApplicants.includes(applicant)) {
+      unselectedApplicants.push(applicant);
+    }
+  });
+
+  return unselectedApplicants;
 }

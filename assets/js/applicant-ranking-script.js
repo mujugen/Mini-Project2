@@ -1,6 +1,7 @@
 const globalUserArray = JSON.parse(localStorage.getItem("selectedApplicants"));
 var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
 var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
+var unviewedUsers = [...globalUserArray];
 // Ranks all selected applicants
 $("#rankBtn").on("click", function () {
   console.log("Rank button clicked");
@@ -14,6 +15,7 @@ $("#rankBtn").on("click", function () {
 
 function selectApplicant() {
   localStorage.setItem("finalApplicant", JSON.stringify(currentViewedUser));
+  localStorage.setItem("shortListedApplicants", JSON.stringify(unviewedUsers));
   window.location.href = "final-applicant.html";
 }
 
@@ -48,6 +50,7 @@ function createUserCard(i) {
     putApplicantInfoInEAC(index);
     toggleExpandedApplicantContainer();
     currentViewedUser = user;
+    removeUserFromUnviewed(user);
   });
 
   const cardHeader = document.createElement("div");
@@ -135,6 +138,12 @@ function createUserCard(i) {
   userContainers.appendChild(card);
 }
 
+function removeUserFromUnviewed(user) {
+  const index = unviewedUsers.findIndex((u) => u.name === user.name);
+  if (index !== -1) {
+    unviewedUsers.splice(index, 1);
+  }
+}
 async function askRank() {
   toggleSpinner();
   var rankings = [];
