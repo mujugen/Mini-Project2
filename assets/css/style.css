@@ -4727,7 +4727,7 @@ label.employee_count {
 
 .form-btn a.s:hover {
   background: transparent;
-  border: 1px solid #00882e;
+  border: 1px solid #3a1078;
   color: #00882e;
 }
 
@@ -5356,6 +5356,27 @@ a.btn.btn-visit {
 .removeCard .proceedCard {
   color: grey !important;
   opacity: 0.3;
+}
+
+/* get started button */
+.get-started {
+  padding: 8px 20px 8px 20px;
+  border: 1px solid #fff;
+  background-color: #ff6000;
+  color: white;
+  font-size: 12;
+  font-weight: 400;
+  margin: 20px;
+  margin-left: 50px;
+  margin-bottom: 0;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.get-started:hover {
+  background-color: #fe6244;
+  color: white;
 }
 
 /*---------------------------------- Media Queries------------------------------ */
@@ -6373,16 +6394,15 @@ body {
 }
 
 #popup_card {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -80%);
   z-index: 9999;
   background-color: white;
-  padding: 35px;
+  object-fit: contain;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  display: block;
 }
 
 #popup_overlay {
