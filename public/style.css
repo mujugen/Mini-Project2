@@ -145,3 +145,7 @@ section {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.disable-pointer-events {
+  pointer-events: none;
+}

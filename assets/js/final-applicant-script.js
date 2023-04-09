@@ -1,7 +1,8 @@
 const globalUserArray = Array.from([
   JSON.parse(localStorage.getItem("finalApplicant")),
 ]);
-
+var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
+var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
 function putApplicantInfoInEAC(i) {
   function checkValue(value) {
     if (value === "N/A" || value === "None") {

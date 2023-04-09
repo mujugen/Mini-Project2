@@ -137,6 +137,12 @@ function createUserCard(i) {
 
 async function askRank() {
   if (browsingMethod == "Online") {
+    if (globalUserArray.length <= 1) {
+      let childId = $("#userContainers").children().first().attr("id");
+      console.log("Only one applicant. No need to rank.");
+      setOverlayOpacity(childId, 1, 1);
+      return;
+    }
     let textArray = [];
     let containertextIDArray = [];
     $("#userContainers .cell-text-container").each(function () {
@@ -144,6 +150,7 @@ async function askRank() {
       containertextIDArray.push($(this).attr("id"));
       textArray.push(currentText);
     });
+    console.log(containertextIDArray);
 
     prompt = ``;
     for (let i = 0; i < textArray.length; i++) {
@@ -185,6 +192,9 @@ Applicant 3 Ranking: NUMBER
   // Doesn't fetchAskRank if offline
   else {
     function generateRandomIntegers(length) {
+      if (length === 1) {
+        return [1];
+      }
       const min = 1; // lowest number
       const max = length; // highest number
       const randomIntegers = [];

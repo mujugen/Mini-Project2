@@ -461,11 +461,11 @@ function getApplicantByRawText(rawText, callback) {
     }
   });
 }
-
+var configuration;
 // Initialization of openai API variable
-var configuration = new Configuration({
+/* var configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
-});
+}); */
 const openai = new OpenAIApi(configuration);
 // End of open AI initialization
 

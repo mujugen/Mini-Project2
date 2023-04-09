@@ -65,7 +65,12 @@ function displayUploadedFiles() {
   let files = $("#fileInput")[0].files;
 
   for (let i = 0; i < files.length; i++) {
-    formData.append("files", files[i]);
+    // Check if the file is a .pdf file
+    if (files[i].name.toLowerCase().endsWith(".pdf")) {
+      formData.append("files", files[i]);
+    } else {
+      alert("Only PDF files are allowed. Skipping non-PDF file.");
+    }
   }
 
   // Send the uploaded files to the server
@@ -139,6 +144,7 @@ async function processPdf(blob) {
   });
 }
 async function convertUploadedFiles() {
+  toggleSpinner();
   // Get the list of uploaded files from the server
   const response = await fetch("/list");
   const files = await response.json();
@@ -164,6 +170,10 @@ async function convertUploadedFiles() {
         // If not found in the database, call fetchCVSummarize and logs user in db
         console.log("Applicant not found in DB");
         applicant = await fetchCVSummarize(rawText);
+        // If there's an error
+        if (applicant.status === error) {
+          console.log("Error");
+        }
         // Update globalUserArray
         globalUserArray = await fetchUserDBP();
         // After the applicant object is retrieved, extract the name and create the new file path
@@ -219,6 +229,10 @@ async function convertUploadedFiles() {
     }
   }
   console.log("Convert Uploaded Files Finished");
+  toggleDarkOverlay("proceedCard");
+  toggleGlowOverlay("proceedCard");
+  toggleGlowOverlay("extractCard");
+  toggleSpinner();
 }
 var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
 var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
@@ -302,4 +316,30 @@ function toggleGlowOverlay(elementId) {
 
   element.style.position = "relative";
   element.appendChild(overlay);
+}
+
+let spinnerVisible = false;
+let overlayVisible = false;
+function toggleSpinner() {
+  const spinner = document.getElementById("spinner");
+  const body = document.getElementsByTagName("html")[0];
+
+  if (!spinnerVisible) {
+    spinner.style.display = "inline-block";
+    body.classList.add("disable-pointer-events");
+    spinner.style.float = "left";
+    spinnerVisible = true;
+  } else {
+    spinner.style.display = "none";
+    body.classList.remove("disable-pointer-events");
+    spinnerVisible = false;
+  }
+  const overlay = document.getElementById("overlay");
+  overlayVisible = !overlayVisible;
+
+  if (overlayVisible) {
+    overlay.style.display = "block";
+  } else {
+    overlay.style.display = "none";
+  }
 }
