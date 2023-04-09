@@ -6397,3 +6397,8 @@ body {
   -webkit-backdrop-filter: blur(3px);
   display: flex;
 }
+.wrapped-text {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
