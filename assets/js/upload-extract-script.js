@@ -38,15 +38,25 @@ async function fetchApplicantByRawText(rawText) {
 
 // Call CVSummarize API endpoint
 async function fetchCVSummarize(pdfText) {
-  const response = await fetch("/cvsummarize", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ pdfText }),
-  });
-  const applicant = await response.json();
-  return applicant;
+  try {
+    const response = await fetch("/cvsummarize", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ pdfText }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}`);
+    }
+
+    const applicant = await response.json();
+    return { applicant, status: "success" };
+  } catch (error) {
+    console.error("Error fetching CV summary:", error);
+    return { status: "error", message: error.message };
+  }
 }
 
 var globalUserArray;
@@ -171,9 +181,10 @@ async function convertUploadedFiles() {
         console.log("Applicant not found in DB");
         applicant = await fetchCVSummarize(rawText);
         // If there's an error
-        if (applicant.status === error) {
-          console.log("Error");
+        if (applicant.status === "error") {
+          alert("Error");
         }
+
         // Update globalUserArray
         globalUserArray = await fetchUserDBP();
         // After the applicant object is retrieved, extract the name and create the new file path

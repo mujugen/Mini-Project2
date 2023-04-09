@@ -36,6 +36,7 @@ var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
 var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
 // Identifies which cards has a red flag and marks them red
 async function runRedFlag() {
+  toggleSpinner();
   filters = getSelectedFilters();
   if (filters.length != 0) {
     for (let i = 0; i < globalUserArray.length; i++) {
@@ -146,8 +147,16 @@ async function runRedFlag() {
         }
       }
     }
+    toggleSpinner();
+    toggleDarkOverlay("removeCard");
+    toggleGlowOverlay("removeCard");
+    toggleGlowOverlay("displayCard");
   } else {
     alert("No filters selected");
+    toggleSpinner();
+    toggleDarkOverlay("removeCard");
+    toggleGlowOverlay("removeCard");
+    toggleGlowOverlay("displayCard");
   }
 }
 
@@ -605,4 +614,30 @@ function toggleGlowOverlay(elementId) {
 
   element.style.position = "relative";
   element.appendChild(overlay);
+}
+
+let spinnerVisible = false;
+let overlayVisible = false;
+function toggleSpinner() {
+  const spinner = document.getElementById("spinner");
+  const body = document.getElementsByTagName("html")[0];
+
+  if (!spinnerVisible) {
+    spinner.style.display = "inline-block";
+    body.classList.add("disable-pointer-events");
+    spinner.style.float = "left";
+    spinnerVisible = true;
+  } else {
+    spinner.style.display = "none";
+    body.classList.remove("disable-pointer-events");
+    spinnerVisible = false;
+  }
+  const overlay = document.getElementById("overlay");
+  overlayVisible = !overlayVisible;
+
+  if (overlayVisible) {
+    overlay.style.display = "block";
+  } else {
+    overlay.style.display = "none";
+  }
 }
