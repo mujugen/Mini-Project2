@@ -204,3 +204,106 @@ async function initializeApiKey(apiKey) {
 }
 
 initializeApiKey(apiKeyValue);
+
+async function fetchGetContactInfo(query) {
+  const response = await fetch("http://localhost:3000/getContactInfo", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query }),
+  });
+  console.log("trying to send request to contact info");
+  if (response.ok) {
+    const prompt = await response.json();
+    return prompt;
+  } else {
+    console.error("Failed to fetch contact info");
+    return null;
+  }
+}
+
+async function getContactInfo(query) {
+  query = "De La Salle University Dasmarinas Contact Information";
+  response = await fetchGetContactInfo(query);
+  console.log(response);
+  if (response.length > 8000) {
+    response = response.substring(0, 7000) + "...";
+  }
+  return response;
+}
+
+async function fetchGetContactSummary(prompt) {
+  const response = await fetch("http://localhost:3000/getContactSummary", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ prompt }),
+  });
+  if (response.ok) {
+    const result = await response.json();
+    return result;
+  } else {
+    return null;
+  }
+}
+
+async function summarizeRawContactInfo(orgName) {
+  query = orgName;
+  query += " Contact information (phone number/telephone number/email/address)";
+  rawContactInfo = await getContactInfo(query);
+  prompt = `can you find ${query} from the text below?(Keep your response short):\n`;
+  prompt += rawContactInfo;
+  response = await fetchGetContactSummary(prompt);
+  console.log(response);
+  return response;
+}
+
+var userJobSchoolArray = Array.from(
+  new Set([
+    globalUserArray[0].educationSchoolName1,
+    globalUserArray[0].educationSchoolName2,
+    globalUserArray[0].educationSchoolName3,
+    globalUserArray[0].jobExperienceCompany1,
+    globalUserArray[0].jobExperienceCompany2,
+    globalUserArray[0].jobExperienceCompany3,
+    globalUserArray[0].jobExperienceCompany4,
+    globalUserArray[0].jobExperienceCompany5,
+  ])
+);
+// Verification
+// This is where the contact information is created with Google + GPT
+async function createVerificationContent() {
+  if (browsingMethod == "Online") {
+    toggleSpinner();
+    var container = $("#contact-container");
+
+    for (const item of userJobSchoolArray) {
+      container.append("<h4>" + item + "</h4>");
+      contactInfo = await summarizeRawContactInfo(item);
+      container.append("<h6>" + contactInfo + "</h6></br>");
+    }
+    toggleSpinner();
+  } else {
+    var container = $("#contact-container");
+    container.append("<p> Must be in online mode</p>");
+  }
+}
+
+let spinnerVisible = false;
+function toggleSpinner() {
+  const spinner = document.getElementById("spinner");
+  const body = document.getElementsByTagName("html")[0];
+
+  if (!spinnerVisible) {
+    spinner.style.display = "inline-block";
+    body.classList.add("disable-pointer-events");
+    spinner.style.float = "left";
+    spinnerVisible = true;
+  } else {
+    spinner.style.display = "none";
+    body.classList.remove("disable-pointer-events");
+    spinnerVisible = false;
+  }
+}

@@ -694,11 +694,110 @@
               <div class="container card m-0" style="width: 100%; height: 50%">
                 <h2>calendar</h2>
               </div>
-              <div class="container card mt-6" style="width: 100%; height: 30%">
-                <h2>interview scheduler/email template</h2>
-              </div>
               <div class="container card mt-6" style="width: 100%; height: 50%">
-                <h2>contact verification information</h2>
+                <div class="card-header">
+                  <h2 class="card-titles">
+                    Schedule Interview for Selected Applicant
+                  </h2>
+                </div>
+                <div class="form-creation">
+                  <div class="row">
+                    <div class="col-xl-6 col-sm-12 col-12">
+                      <div class="form-group">
+                        <label>Recipient:</label>
+                        <input
+                          type="text"
+                          class="full-width-input"
+                          placeholder="Applicant's Name"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-sm-12 col-12">
+                      <div class="form-group">
+                        <label>Sender:</label>
+                        <input
+                          type="text"
+                          class="full-width-input"
+                          placeholder="XYZ Company"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-12 col-sm-12 col-12">
+                      <div class="form-group">
+                        <label>Message</label>
+                        <textarea
+                          rows="4"
+                          cols="50"
+                          class="scrollbar-near-moon"
+                        >
+                          I hope this message finds you well. I am writing to offer you an interview for the position you applied for at our company. We were impressed by your qualifications and experience, and we believe that you could be a valuable addition to our team.
+    
+                          To schedule your interview, please let us know your availability within the next week. We are looking to conduct interviews as soon as possible and we want to ensure we can accommodate your schedule.
+                          
+                          If there is a particular date or time that works best for you, please let us know and we will do our best to accommodate your schedule. Additionally, if there are any specific accommodations or requirements you need during the interview process, please don't hesitate to inform us so we can make appropriate arrangements.
+                          
+                          Please let us know your availability at your earliest convenience. We look forward to hearing back from you soon and hopefully having the opportunity to meet you in person.
+                          
+                          Best regards,
+                          
+                          John Watson</textarea
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-12 col-sm-12 col-12">
+                      <div class="form-btn">
+                        <a class="btn btn-submit">Send</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="container card mt-6"
+                style="width: 100%; box-sizing: border-box"
+              >
+                <div class="card-header">
+                  <h2 class="card-titles">School and Work Verification</h2>
+                </div>
+                <div
+                  class="card-body d-flex flex-column align-items-center"
+                  style="max-height: 10%"
+                >
+                  <button
+                    class="btn btn-outline-primary"
+                    style="max-width: 60%"
+                    onclick="createVerificationContent()"
+                  >
+                    Find Verification Contact
+                  </button>
+                </div>
+                <div
+                  class="card-body d-flex flex-column"
+                  style="display: flex; flex-direction: column"
+                >
+                  <div id="contact-container"></div>
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      margin-right: auto;
+                      margin-top: 5%;
+                    "
+                  >
+                    <div
+                      id="spinner"
+                      class="spinner-border text-primary ml-3"
+                      style="display: none"
+                      role="status"
+                    >
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
