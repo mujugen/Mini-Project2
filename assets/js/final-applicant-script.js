@@ -181,3 +181,26 @@ function removeEmptyBr() {
 }
 
 removeEmptyBr();
+
+async function initializeApiKey(apiKey) {
+  try {
+    const response = await fetch("/initialize-api-key", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ apiKey }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log("API key initialized successfully:", data);
+  } catch (error) {
+    console.error("Error initializing API key:", error);
+  }
+}
+
+initializeApiKey(apiKeyValue);

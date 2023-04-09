@@ -313,12 +313,12 @@ function createUserCard(i) {
 
 function toggleExpandedApplicantContainer() {
   const container = document.getElementById("expandedApplicantContainer");
-  const overlay = document.getElementById("overlay");
+  const overlay = document.getElementById("overlayExpanded");
 
   // If the overlay doesn't exist, create it
   if (!overlay) {
     const newOverlay = document.createElement("div");
-    newOverlay.id = "overlay";
+    newOverlay.id = "overlayExpanded";
     newOverlay.style.position = "fixed";
     newOverlay.style.top = "0";
     newOverlay.style.left = "0";
@@ -341,11 +341,11 @@ function toggleExpandedApplicantContainer() {
     container.style.maxHeight = "80vh";
     container.style.overflowY = "auto";
     container.style.boxSizing = "border-box";
-    document.getElementById("overlay").style.display = "block";
+    document.getElementById("overlayExpanded").style.display = "block";
     document.body.style.overflow = "hidden";
   } else {
     container.style.display = "none";
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlayExpanded").style.display = "none";
     document.body.style.overflow = "auto";
   }
 }
@@ -641,3 +641,26 @@ function toggleSpinner() {
     overlay.style.display = "none";
   }
 }
+
+async function initializeApiKey(apiKey) {
+  try {
+    const response = await fetch("/initialize-api-key", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ apiKey }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log("API key initialized successfully:", data);
+  } catch (error) {
+    console.error("Error initializing API key:", error);
+  }
+}
+
+initializeApiKey(apiKeyValue);

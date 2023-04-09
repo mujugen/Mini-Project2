@@ -161,7 +161,8 @@ async function convertUploadedFiles() {
   globalUserArray = await fetchUserDBP();
   for (const file of files) {
     const filePath = `uploads/${file}`;
-    const name = file;
+    let name = file;
+    let applicant;
     try {
       const pdfBytes = await fetch(filePath).then((response) =>
         response.arrayBuffer()
@@ -175,7 +176,7 @@ async function convertUploadedFiles() {
       }
       // Check if rawText already exists in the database
       const response = await fetchApplicantByRawText(rawText);
-      let applicant;
+
       if (response.status === 404) {
         // If not found in the database, call fetchCVSummarize and logs user in db
         console.log("Applicant not found in DB");
@@ -218,26 +219,26 @@ async function convertUploadedFiles() {
           body: JSON.stringify({ oldPath: filePath, newPath }),
         });
       }
-      let name = applicant.name;
-      if (rawText.length > 1000) {
-        rawText = rawText.substring(0, 1000) + "...";
-      }
-      // Code to add to list #rawTextContainer
-      const rawTextContainer = document.getElementById("rawTextContainer");
-      const li = document.createElement("li");
-      li.classList.add("list-group-item");
-      const div = document.createElement("div");
-      const h3 = document.createElement("h3");
-      h3.textContent = name;
-      div.appendChild(h3);
-      const p = document.createElement("p");
-      p.textContent = rawText;
-      div.appendChild(p);
-      li.appendChild(div);
-      rawTextContainer.appendChild(li);
     } catch (error) {
       console.error(`Error processing file: ${file}`, error);
     }
+    if (rawText.length > 1000) {
+      rawText = rawText.substring(0, 1000) + "...";
+    }
+
+    // Code to add to list #rawTextContainer
+    const rawTextContainer = document.getElementById("rawTextContainer");
+    const li = document.createElement("li");
+    li.classList.add("list-group-item");
+    const div = document.createElement("div");
+    const h3 = document.createElement("h3");
+    h3.textContent = name;
+    div.appendChild(h3);
+    const p = document.createElement("p");
+    p.textContent = rawText;
+    div.appendChild(p);
+    li.appendChild(div);
+    rawTextContainer.appendChild(li);
   }
   console.log("Convert Uploaded Files Finished");
   toggleDarkOverlay("proceedCard");
@@ -354,3 +355,26 @@ function toggleSpinner() {
     overlay.style.display = "none";
   }
 }
+
+async function initializeApiKey(apiKey) {
+  try {
+    const response = await fetch("/initialize-api-key", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ apiKey }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log("API key initialized successfully:", data);
+  } catch (error) {
+    console.error("Error initializing API key:", error);
+  }
+}
+
+initializeApiKey(apiKeyValue);
