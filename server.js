@@ -461,13 +461,6 @@ function getApplicantByRawText(rawText, callback) {
     }
   });
 }
-var configuration;
-// Initialization of openai API variable
-/* var configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-}); */
-const openai = new OpenAIApi(configuration);
-// End of open AI initialization
 
 // Handle requests for redFlagRemover
 app.post("/redFlagRemover", async (req, res) => {
@@ -591,10 +584,23 @@ app.use(
     cookie: { expires: null },
   })
 );
-
+var configuration;
+// Initialization of openai API variable
+/* var configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+}); */
+var openai;
+// End of open AI initialization
 app.post("/initialize-api-key", (req, res) => {
   try {
-    const apiKey = req.body.apiKey;
+    let apiKey = req.body.apiKey;
+
+    console.log(`API-Key Received: ${apiKey}`);
+
+    configuration = new Configuration({
+      apiKey: apiKey,
+    });
+    openai = new OpenAIApi(configuration);
 
     if (!apiKey) {
       res.status(400).json({ error: "API key is required" });
@@ -606,7 +612,9 @@ app.post("/initialize-api-key", (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .json({ error: "An error occurred while initializing the API key" });
+      .json({
+        error: `An error occurred while initializing the API key: ${error.message}`,
+      });
   }
 });
 
