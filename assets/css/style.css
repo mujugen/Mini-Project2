@@ -58,7 +58,7 @@ input:-webkit-autofill:focus {
 }
 
 .form-control {
-  border: 1px;
+  border: 1px solid;
   box-shadow: none;
   color: #333;
   padding: 0.54688rem 0.875rem;
@@ -3823,6 +3823,10 @@ a.delete {
 .team-view span {
   color: #606060;
   font-size: 12px;
+}
+
+.board1.fill0 {
+  background: #fffafe;
 }
 
 .board1.fill1 {
