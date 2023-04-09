@@ -341,7 +341,11 @@
                           <span class="sr-only">Loading...</span>
                         </div>
                       </div>
-                      <a class="btn btn-head" onclick="askRank()">Rank</a>
+                      <a
+                        class="btn btn-head"
+                        onclick="(()=>{askRank();this.removeAttribute('onclick');})();"
+                        >Rank</a
+                      >
                     </div>
                   </div>
                 </div>

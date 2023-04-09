@@ -250,8 +250,9 @@ var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
 var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
 // Makes the upload button unusable when offline
 if (browsingMethod == "Online") {
-  toggleDarkOverlay("extractCard");
-  toggleGlowOverlay("uploadDiv");
+  /* toggleDarkOverlay("extractCard"); */
+  /* toggleGlowOverlay("uploadDiv"); */
+  toggleDarkOverlay("uploadDiv");
 } else {
   toggleDarkOverlay("uploadDiv");
   toggleGlowOverlay("extractCard");
