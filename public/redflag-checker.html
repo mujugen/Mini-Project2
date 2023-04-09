@@ -309,8 +309,9 @@
   <!-- BODY OF SECTIONS -->
 
   <body>
+    <div class="overlay" id="overlay"></div>
     <div class="page-wrapper">
-      <div class="content container-fluid" style="padding-bottom: 5px;">
+      <div class="content container-fluid" style="padding-bottom: 5px">
         <div class="row">
           <!-- Displays section title -->
           <div class="col-xl-12 col-sm-12 col-12">
@@ -475,16 +476,28 @@
       </div>
 
       <!-- Display Red Flags Card -->
-      <div class="content container-fluid" style="padding: 0 27px;">
+      <div class="content container-fluid" style="padding: 0 27px">
         <div class="row">
           <div class="col-xl-12 col-sm-12 col-12">
             <div class="card card-lists">
               <div class="card-header" id="displayCard">
                 <h2 class="card-titles">Display CVs With Red Flags</h2>
+                <div
+                  style="display: flex; align-items: center; margin-right: auto"
+                >
+                  <div
+                    id="spinner"
+                    class="spinner-border text-primary ml-3"
+                    style="display: none"
+                    role="status"
+                  >
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>
                 <button
                   class="btn btn-head"
                   type="submit"
-                  onclick="(()=>{runRedFlag();toggleDarkOverlay('removeCard');toggleGlowOverlay('removeCard');toggleGlowOverlay('displayCard');this.removeAttribute('onclick');})();"
+                  onclick="(()=>{runRedFlag();this.removeAttribute('onclick');})();"
                 >
                   Display
                 </button>

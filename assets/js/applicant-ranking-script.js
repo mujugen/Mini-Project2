@@ -136,14 +136,110 @@ function createUserCard(i) {
 }
 
 async function askRank() {
+  toggleSpinner();
+  var rankings = [];
   if (browsingMethod == "Online") {
+    if (globalUserArray.length <= 1) {
+      let childId = $("#userContainers").children().first().attr("id");
+      console.log("Only one applicant. No need to rank.");
+      setOverlayOpacity(childId, 1, 1);
+      return;
+    }
     let textArray = [];
     let containertextIDArray = [];
-    $("#userContainers .cell-text-container").each(function () {
-      let currentText = $(this).text();
-      containertextIDArray.push($(this).attr("id"));
+    for (let i = 0; i < globalUserArray.length; i++) {
+      let container_id =
+        "#container_" +
+        globalUserArray[i].name
+          .replace(/ /g, "_")
+          .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
+      let currentText = "";
+      currentText += checkValueRemoveNA(globalUserArray[i].name);
+      currentText += checkValueRemoveNA(globalUserArray[i].educationFullTitle1);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].educationSchoolName1
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].educationYearEnded1);
+      currentText += checkValueRemoveNA(globalUserArray[i].educationFullTitle2);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].educationSchoolName2
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].educationYearEnded2);
+      currentText += checkValueRemoveNA(globalUserArray[i].educationFullTitle3);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].educationSchoolName3
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].educationYearEnded3);
+      currentText += checkValueRemoveNA(globalUserArray[i].jobExperienceTitle1);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceCompany1
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceYearEnded1
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].jobExperienceTitle2);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceCompany2
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceYearEnded2
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].jobExperienceTitle3);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceCompany3
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceYearEnded3
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].jobExperience4Title);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceCompany4
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceYearEnded4
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].jobExperience5Title);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceCompany5
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceYearEnded5
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].skill1);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill2);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill3);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill4);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill5);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill6);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill7);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill8);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill9);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill10);
+      currentText += checkValueRemoveNA(globalUserArray[i].certification1Title);
+      currentText += checkValueRemoveNA(globalUserArray[i].certification2Title);
+      currentText += checkValueRemoveNA(globalUserArray[i].certification3Title);
+      currentText += checkValueRemoveNA(globalUserArray[i].certification4Title);
+      currentText += checkValueRemoveNA(globalUserArray[i].certification5Title);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].accomplishment1Title
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].accomplishment2Title
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].accomplishment3Title
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].accomplishment4Title
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].accomplishment5Title
+      );
+      containertextIDArray.push(container_id);
       textArray.push(currentText);
-    });
+    }
+
+    console.log(containertextIDArray);
 
     prompt = ``;
     for (let i = 0; i < textArray.length; i++) {
@@ -155,12 +251,12 @@ async function askRank() {
     prompt += `expected output:
 Applicant 1 Ranking: NUMBER
 Applicant 2 Ranking: NUMBER
-Applicant 3 Ranking: NUMBER
 ...`;
     if (prompt.length < 10000) {
+      console.log(prompt);
       response = await fetchAskRank(prompt);
       const lines = response.split("\n");
-      const rankings = [];
+
       lines.forEach((line) => {
         // Split the line by spaces and extract the ranking value
         const words = line.split(" ");
@@ -173,11 +269,11 @@ Applicant 3 Ranking: NUMBER
         rankings[applicantIndex] = ranking;
       });
       console.log(rankings);
-      for (var i = 0; i < rankings.length; i++) {
+      /* for (var i = 0; i < rankings.length; i++) {
         var div = document.querySelector("#" + containertextIDArray[i]);
         // Append the text from array A to the innerHTML of the div
         div.innerHTML += rankings[i];
-      }
+      } */
     } else {
       return "Too much to rank!";
     }
@@ -185,6 +281,9 @@ Applicant 3 Ranking: NUMBER
   // Doesn't fetchAskRank if offline
   else {
     function generateRandomIntegers(length) {
+      if (length === 1) {
+        return [1];
+      }
       const min = 1; // lowest number
       const max = length; // highest number
       const randomIntegers = [];
@@ -217,6 +316,7 @@ Applicant 3 Ranking: NUMBER
     const container = document.getElementById(containerIDArray[i]);
     setOverlayOpacity(container.id, rankings[i], maxRank);
   }
+  toggleSpinner();
 }
 function rearrangeContainers(containerIDArray, rankings) {
   const containers = []; // temporary array to store the container elements
@@ -297,12 +397,12 @@ async function fetchAskRank(prompt) {
 
 function toggleExpandedApplicantContainer() {
   const container = document.getElementById("expandedApplicantContainer");
-  const overlay = document.getElementById("overlay");
+  const overlay = document.getElementById("overlayExpanded");
 
   // If the overlay doesn't exist, create it
   if (!overlay) {
     const newOverlay = document.createElement("div");
-    newOverlay.id = "overlay";
+    newOverlay.id = "overlayExpanded";
     newOverlay.style.position = "fixed";
     newOverlay.style.top = "0";
     newOverlay.style.left = "0";
@@ -325,11 +425,11 @@ function toggleExpandedApplicantContainer() {
     container.style.maxHeight = "80vh";
     container.style.overflowY = "auto";
     container.style.boxSizing = "border-box";
-    document.getElementById("overlay").style.display = "block";
+    document.getElementById("overlayExpanded").style.display = "block";
     document.body.style.overflow = "hidden";
   } else {
     container.style.display = "none";
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlayExpanded").style.display = "none";
     document.body.style.overflow = "auto";
   }
 }
@@ -344,12 +444,6 @@ function retrieveIDfromName(name) {
 }
 
 function putApplicantInfoInEAC(i) {
-  function checkValue(value) {
-    if (value === "N/A" || value === "None") {
-      return "";
-    }
-    return value + "</br>";
-  }
   $("#EACName").html(checkValue(globalUserArray[i].name));
   $("#EACEducationTitle1").html(
     checkValue(globalUserArray[i].educationFullTitle1)
@@ -507,6 +601,19 @@ function putApplicantInfoInEAC(i) {
   );
 }
 
+function checkValue(value) {
+  if (value === "N/A" || value === "None") {
+    return "";
+  }
+  return value + "</br>";
+}
+function checkValueRemoveNA(value) {
+  if (value === "N/A" || value === "None") {
+    return "";
+  }
+  return value + " ";
+}
+
 toggleGlowOverlay("rankDiv");
 
 function toggleGlowOverlay(elementId) {
@@ -543,4 +650,53 @@ function toggleGlowOverlay(elementId) {
 
   element.style.position = "relative";
   element.appendChild(overlay);
+}
+
+async function initializeApiKey(apiKey) {
+  try {
+    const response = await fetch("/initialize-api-key", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ apiKey }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log("API key initialized successfully:", data);
+  } catch (error) {
+    console.error("Error initializing API key:", error);
+  }
+}
+
+initializeApiKey(apiKeyValue);
+
+let spinnerVisible = false;
+let overlayVisible = false;
+function toggleSpinner() {
+  const spinner = document.getElementById("spinner");
+  const body = document.getElementsByTagName("html")[0];
+
+  if (!spinnerVisible) {
+    spinner.style.display = "inline-block";
+    body.classList.add("disable-pointer-events");
+    spinner.style.float = "left";
+    spinnerVisible = true;
+  } else {
+    spinner.style.display = "none";
+    body.classList.remove("disable-pointer-events");
+    spinnerVisible = false;
+  }
+  const overlay = document.getElementById("overlay");
+  overlayVisible = !overlayVisible;
+
+  if (overlayVisible) {
+    overlay.style.display = "block";
+  } else {
+    overlay.style.display = "none";
+  }
 }

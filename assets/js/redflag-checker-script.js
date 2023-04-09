@@ -36,6 +36,7 @@ var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
 var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
 // Identifies which cards has a red flag and marks them red
 async function runRedFlag() {
+  toggleSpinner();
   filters = getSelectedFilters();
   if (filters.length != 0) {
     for (let i = 0; i < globalUserArray.length; i++) {
@@ -146,8 +147,16 @@ async function runRedFlag() {
         }
       }
     }
+    toggleSpinner();
+    toggleDarkOverlay("removeCard");
+    toggleGlowOverlay("removeCard");
+    toggleGlowOverlay("displayCard");
   } else {
     alert("No filters selected");
+    toggleSpinner();
+    toggleDarkOverlay("removeCard");
+    toggleGlowOverlay("removeCard");
+    toggleGlowOverlay("displayCard");
   }
 }
 
@@ -304,12 +313,12 @@ function createUserCard(i) {
 
 function toggleExpandedApplicantContainer() {
   const container = document.getElementById("expandedApplicantContainer");
-  const overlay = document.getElementById("overlay");
+  const overlay = document.getElementById("overlayExpanded");
 
   // If the overlay doesn't exist, create it
   if (!overlay) {
     const newOverlay = document.createElement("div");
-    newOverlay.id = "overlay";
+    newOverlay.id = "overlayExpanded";
     newOverlay.style.position = "fixed";
     newOverlay.style.top = "0";
     newOverlay.style.left = "0";
@@ -332,11 +341,11 @@ function toggleExpandedApplicantContainer() {
     container.style.maxHeight = "80vh";
     container.style.overflowY = "auto";
     container.style.boxSizing = "border-box";
-    document.getElementById("overlay").style.display = "block";
+    document.getElementById("overlayExpanded").style.display = "block";
     document.body.style.overflow = "hidden";
   } else {
     container.style.display = "none";
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlayExpanded").style.display = "none";
     document.body.style.overflow = "auto";
   }
 }
@@ -606,3 +615,52 @@ function toggleGlowOverlay(elementId) {
   element.style.position = "relative";
   element.appendChild(overlay);
 }
+
+let spinnerVisible = false;
+let overlayVisible = false;
+function toggleSpinner() {
+  const spinner = document.getElementById("spinner");
+  const body = document.getElementsByTagName("html")[0];
+
+  if (!spinnerVisible) {
+    spinner.style.display = "inline-block";
+    body.classList.add("disable-pointer-events");
+    spinner.style.float = "left";
+    spinnerVisible = true;
+  } else {
+    spinner.style.display = "none";
+    body.classList.remove("disable-pointer-events");
+    spinnerVisible = false;
+  }
+  const overlay = document.getElementById("overlay");
+  overlayVisible = !overlayVisible;
+
+  if (overlayVisible) {
+    overlay.style.display = "block";
+  } else {
+    overlay.style.display = "none";
+  }
+}
+
+async function initializeApiKey(apiKey) {
+  try {
+    const response = await fetch("/initialize-api-key", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ apiKey }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log("API key initialized successfully:", data);
+  } catch (error) {
+    console.error("Error initializing API key:", error);
+  }
+}
+
+initializeApiKey(apiKeyValue);

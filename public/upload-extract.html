@@ -309,6 +309,7 @@
 
   <!-- BODY OF SECTIONS -->
   <body>
+    <div class="overlay" id="overlay"></div>
     <div class="page-wrapper">
       <!-- START OF UPLOAD CV SECTION -->
       <div class="content container-fluid">
@@ -367,13 +368,36 @@
             <div class="row">
               <div class="col-xl-12 col-sm-12 col-12">
                 <div class="card card-lists" id="extractCard">
-                  <div class="card-header">
+                  <div
+                    class="card-header"
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                    "
+                  >
                     <h2 class="card-titles">Extract Raw Text</h2>
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        margin-right: auto;
+                      "
+                    >
+                      <div
+                        id="spinner"
+                        class="spinner-border text-primary ml-3"
+                        style="display: none"
+                        role="status"
+                      >
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
                     <button
                       id="convertBtn"
                       class="btn btn-head"
                       type="button"
-                      onclick="(()=>{convertUploadedFiles();toggleDarkOverlay('proceedCard');toggleGlowOverlay('proceedCard');toggleGlowOverlay('extractCard');this.removeAttribute('onclick');})()"
+                      onclick="(()=>{convertUploadedFiles();this.removeAttribute('onclick');})()"
                     >
                       EXTRACT
                     </button>
