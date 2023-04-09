@@ -6,6 +6,7 @@ const { redFlagRemover } = require("./assets/js/redFlagRemover.js");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
+const session = require("express-session");
 const fs = require("fs");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -462,7 +463,7 @@ function getApplicantByRawText(rawText, callback) {
 }
 
 // Initialization of openai API variable
-const configuration = new Configuration({
+var configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
@@ -579,6 +580,61 @@ app.post("/getContactSummary", async (req, res) => {
   } catch (error) {
     console.error("Error:", error);
     res.status(500).send("Error");
+  }
+});
+
+app.use(
+  session({
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { expires: null },
+  })
+);
+
+app.post("/initialize-api-key", (req, res) => {
+  try {
+    const apiKey = req.body.apiKey;
+
+    if (!apiKey) {
+      res.status(400).json({ error: "API key is required" });
+      return;
+    }
+
+    req.session.apiKey = apiKey;
+    res.status(200).json({ message: "API key initialized successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while initializing the API key" });
+  }
+});
+
+app.get("/get-current-api-key", (req, res) => {
+  try {
+    const apiKey = req.session.apiKey;
+
+    if (!apiKey) {
+      res.status(404).json({ error: "API key not found" });
+      return;
+    }
+
+    res.status(200).json({ apiKey: apiKey });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while retrieving the API key" });
+  }
+});
+
+app.post("/clear-api-key", (req, res) => {
+  try {
+    req.session.apiKey = null;
+    res.status(200).json({ message: "API key cleared successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while clearing the API key" });
   }
 });
 
