@@ -262,27 +262,33 @@ Applicant 1 Ranking: NUMBER
 Applicant 2 Ranking: NUMBER
 ...`;
     if (prompt.length < 10000) {
-      console.log(prompt);
-      response = await fetchAskRank(prompt);
-      const lines = response.split("\n");
+      try {
+        console.log(prompt);
+        response = await fetchAskRank(prompt);
+        const lines = response.split("\n");
 
-      lines.forEach((line) => {
-        // Split the line by spaces and extract the ranking value
-        const words = line.split(" ");
-        const ranking = parseInt(words[words.length - 1]);
+        lines.forEach((line) => {
+          // Split the line by spaces and extract the ranking value
+          const words = line.split(" ");
+          const ranking = parseInt(words[words.length - 1]);
 
-        // Get the applicant index (subtracting 1 to make it zero-based)
-        const applicantIndex = parseInt(words[1]) - 1;
+          // Get the applicant index (subtracting 1 to make it zero-based)
+          const applicantIndex = parseInt(words[1]) - 1;
 
-        // Store the ranking at the corresponding index in the array
-        rankings[applicantIndex] = ranking;
-      });
-      console.log(rankings);
-      /* for (var i = 0; i < rankings.length; i++) {
-        var div = document.querySelector("#" + containertextIDArray[i]);
-        // Append the text from array A to the innerHTML of the div
-        div.innerHTML += rankings[i];
-      } */
+          // Store the ranking at the corresponding index in the array
+          rankings[applicantIndex] = ranking;
+        });
+
+        console.log(rankings);
+        /* for (var i = 0; i < rankings.length; i++) {
+      var div = document.querySelector("#" + containertextIDArray[i]);
+      // Append the text from array A to the innerHTML of the div
+      div.innerHTML += rankings[i];
+    } */
+      } catch (error) {
+        // An error occurred in fetchAskRank, and throwErrorPopup() has already been called
+        console.error("Error occurred:", error);
+      }
     } else {
       return "Too much to rank!";
     }
@@ -393,15 +399,25 @@ function setOverlayOpacity(elementId, rank, maxRank) {
 
 // Call CVSummarize API endpoint
 async function fetchAskRank(prompt) {
-  const response = await fetch("/askrank", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ prompt }),
-  });
-  const applicant = await response.json();
-  return applicant;
+  try {
+    const response = await fetch("/askrank", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}`);
+    }
+
+    const applicant = await response.json();
+    return applicant;
+  } catch (error) {
+    throwErrorPopup();
+    throw error;
+  }
 }
 
 function toggleExpandedApplicantContainer() {
@@ -708,4 +724,18 @@ function toggleSpinner() {
   } else {
     overlay.style.display = "none";
   }
+}
+
+initializeApiKey(apiKeyValue);
+
+function throwErrorPopup() {
+  document.getElementById("popup_overlay").style.display = "flex";
+}
+
+document.getElementById("close_popup").addEventListener("click", function () {
+  moveToHome();
+});
+
+function moveToHome() {
+  window.location.href = "index.html";
 }

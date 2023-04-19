@@ -64,6 +64,8 @@ var globalUserArray;
   globalUserArray = await fetchUserDBP();
 })();
 
+let newUploadedFiles = [];
+
 function displayUploadedFiles() {
   // Check if any files are selected
   if ($("#fileInput").val() === "") {
@@ -94,12 +96,17 @@ function displayUploadedFiles() {
       for (let i = 0; i < files.length; i++) {
         // Add a new row for each uploaded file
         addUploadedFile(files[i].name, files[i].size);
+        newUploadedFiles.push(files[i].name);
       }
     },
     error: function () {
       alert("Failed to upload files.");
     },
   });
+  toggleDarkOverlay("extractCard");
+  toggleGlowOverlay("uploadDiv");
+  toggleGlowOverlay("extractCard");
+  this.removeAttribute("onclick");
 }
 
 function addUploadedFile(fileName, fileSize) {
@@ -159,6 +166,7 @@ async function convertUploadedFiles() {
   const response = await fetch("/list");
   const files = await response.json();
   globalUserArray = await fetchUserDBP();
+  let functionSuccess = true;
   for (const file of files) {
     const filePath = `uploads/${file}`;
     let name = file;
@@ -180,10 +188,16 @@ async function convertUploadedFiles() {
       if (response.status === 404) {
         // If not found in the database, call fetchCVSummarize and logs user in db
         console.log("Applicant not found in DB");
+        if (browsingMethod == "Offline") {
+          console.log("Can't process applicant because you're in offline mode");
+          continue;
+        }
         applicant = await fetchCVSummarize(rawText);
         // If there's an error
         if (applicant.status === "error") {
-          alert("Error");
+          throwErrorPopup();
+          functionSuccess = false;
+          break;
         }
 
         // Update globalUserArray
@@ -240,19 +254,23 @@ async function convertUploadedFiles() {
     li.appendChild(div);
     rawTextContainer.appendChild(li);
   }
-  console.log("Convert Uploaded Files Finished");
-  toggleDarkOverlay("proceedCard");
-  toggleGlowOverlay("proceedCard");
-  toggleGlowOverlay("extractCard");
-  toggleSpinner();
+  if (functionSuccess) {
+    console.log("Convert Uploaded Files Finished");
+    toggleDarkOverlay("proceedCard");
+    toggleGlowOverlay("proceedCard");
+    toggleGlowOverlay("extractCard");
+    toggleSpinner();
+  } else {
+    toggleSpinner();
+  }
 }
 var browsingMethod = JSON.parse(localStorage.getItem("browsingMethod"));
 var apiKeyValue = JSON.parse(sessionStorage.getItem("apiKeyValue"));
 // Makes the upload button unusable when offline
 if (browsingMethod == "Online") {
-  /* toggleDarkOverlay("extractCard"); */
-  /* toggleGlowOverlay("uploadDiv"); */
-  toggleDarkOverlay("uploadDiv");
+  toggleDarkOverlay("extractCard");
+  toggleGlowOverlay("uploadDiv");
+  /* toggleDarkOverlay("uploadDiv"); */
 } else {
   toggleDarkOverlay("uploadDiv");
   toggleGlowOverlay("extractCard");
@@ -379,3 +397,40 @@ async function initializeApiKey(apiKey) {
 }
 
 initializeApiKey(apiKeyValue);
+
+function throwErrorPopup() {
+  for (const fileName of newUploadedFiles) {
+    deleteFile(`uploads/${fileName}`);
+  }
+  // Reset the newUploadedFiles array
+  newUploadedFiles = [];
+  document.getElementById("popup_overlay").style.display = "flex";
+}
+
+document.getElementById("close_popup").addEventListener("click", function () {
+  moveToHome();
+});
+
+function moveToHome() {
+  window.location.href = "index.html";
+}
+
+async function deleteFile(filePath) {
+  try {
+    const response = await fetch("/deleteFile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ filePath }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+
+    console.log("File deleted successfully:", filePath);
+  } catch (error) {
+    console.error("Error deleting file:", error);
+  }
+}

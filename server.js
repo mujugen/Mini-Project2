@@ -490,6 +490,20 @@ app.post("/cvsummarize", async (req, res) => {
   }
 });
 
+app.post("/deleteFile", (req, res) => {
+  const filePath = req.body.filePath;
+
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      console.error(`Error deleting file: ${filePath}`, err);
+      res.status(500).send("Failed to delete file.");
+    } else {
+      console.log(`File deleted successfully: ${filePath}`);
+      res.status(200).send("File deleted successfully.");
+    }
+  });
+});
+
 // Set the public folder as a static folder
 app.use(express.static("public"));
 app.use("/uploads", express.static("uploads"));
@@ -610,11 +624,9 @@ app.post("/initialize-api-key", (req, res) => {
     req.session.apiKey = apiKey;
     res.status(200).json({ message: "API key initialized successfully" });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        error: `An error occurred while initializing the API key: ${error.message}`,
-      });
+    res.status(500).json({
+      error: `An error occurred while initializing the API key: ${error.message}`,
+    });
   }
 });
 
