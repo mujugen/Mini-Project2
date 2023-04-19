@@ -224,7 +224,7 @@ async function fetchGetContactInfo(query) {
 }
 
 async function getContactInfo(query) {
-  query = "De La Salle University Dasmarinas Contact Information";
+  /* query = "De La Salle University Dasmarinas Contact Information"; */
   response = await fetchGetContactInfo(query);
   console.log(response);
   if (response.length > 8000) {
@@ -271,10 +271,12 @@ var userJobSchoolArray = Array.from(
     globalUserArray[0].jobExperienceCompany4,
     globalUserArray[0].jobExperienceCompany5,
   ])
-);
+).filter((item) => item !== "N/A" && item !== "" && item !== "None");
+
 // Verification
 // This is where the contact information is created with Google + GPT
 async function createVerificationContent() {
+  $("#verificationButton").remove();
   if (browsingMethod == "Online") {
     toggleSpinner();
     var container = $("#contact-container");
