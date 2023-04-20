@@ -4595,7 +4595,7 @@ span.mandatory {
 }
 
 a.btn.btn-submit:hover {
-  border: 1px solid #00882e;
+  border: 1px solid #4e31aa;
 }
 
 .btn-secondary {
@@ -4752,11 +4752,11 @@ label.employee_count {
 
 .btn-submit {
   background: #3a1078;
-  padding: 2px 5px;
-  font-size: 12px;
+  padding: 10px 1px !important;
+  font-size: 16px !important;
   border-radius: 5px;
   color: #fff;
-  border: 1px solid #00882e;
+  border: 1px solid #4e31aa;
   box-shadow: 0 4px 10px 0 rgb(137 137 137 / 25%);
   font-weight: 600;
   margin-right: 18px;
@@ -4768,7 +4768,7 @@ a .btn .btn-submit {
   font-size: 12px;
   border-radius: 5px;
   color: #fff;
-  border: 1px solid #00882e;
+  border: 1px solid #4e31aa;
   box-shadow: 0 4px 10px 0 rgb(137 137 137 / 25%);
   font-weight: 600;
   margin-right: 18px;
@@ -5910,7 +5910,7 @@ a.btn.btn-visit {
 
   .btn-submit {
     padding: 10px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .btn-save {
@@ -6182,7 +6182,7 @@ a.btn.btn-visit {
 
   .btn-submit {
     padding: 10px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .user-menu {
