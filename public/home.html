@@ -2219,8 +2219,53 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       .active.fade-bottom {
         animation: fade-bottom 1s ease-in;
       }
+      .opacity-transition {
+        transition: opacity 0.5s;
+      }
     </style>
     <script defer>
+      let prevCell = null;
+
+      function changeFlex(clickedElement) {
+        // Find the parent cell
+        let clickedCell = clickedElement.parentElement;
+        while (!clickedCell.classList.contains("cell")) {
+          clickedCell = clickedCell.parentElement;
+        }
+        // Get all cells
+        const cells = document.querySelectorAll(".cell");
+
+        // Loop through cells
+        cells.forEach((cell) => {
+          const h3Element = cell.querySelector("h3");
+          if (cell === clickedCell) {
+            // Add "flex: 3.5" to the clicked cell's style, increase z-index of h3, remove rotation, and set opacity to 1
+            cell.style.flex = "3.5";
+            h3Element.style.zIndex = "1";
+            h3Element.classList.remove("lg:rotate-[-90deg]");
+            h3Element.style.opacity = "1";
+            h3Element.classList.remove("opacity-transition");
+          } else {
+            // Remove "flex: 3.5" from other cells, reset z-index of h3, and add rotation
+            cell.style.flex = "";
+            h3Element.style.zIndex = "0";
+            h3Element.classList.add("lg:rotate-[-90deg]");
+
+            // If it's the previous cell, apply the opacity transition
+            if (prevCell === cell) {
+              h3Element.style.opacity = "0";
+              setTimeout(() => {
+                h3Element.classList.add("opacity-transition");
+                h3Element.style.opacity = "1";
+              }, 500);
+            }
+          }
+        });
+
+        // Update the previous cell
+        prevCell = clickedCell;
+      }
+
       function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
@@ -2503,12 +2548,15 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 CV sorting made smart - CVSort's AI technology is your best tool
                 for hiring the perfect talent.
               </h2>
+              <!-- Start of expandable cells -->
               <div
                 class="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5"
               >
+                <!-- Cell 1 -->
                 <div
-                  class="relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
-                  style="opacity: 1; transform: none"
+                  class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                  onclick="changeFlex(event.target)"
+                  style="opacity: 1; transform: none; flex: 3.5 1 0%"
                 >
                   <img
                     src="../assets/img/home/2.png"
@@ -2516,13 +2564,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                     class="absolute w-full h-full object-cover rounded-[24px]"
                   />
                   <h3
-                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:bottom-20 lg:rotate-[-90deg] lg:origin-[0,0]"
+                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:origin-[0,0]"
+                    style="text-shadow: 2px 2px grey; bottom: 100"
                   >
                     Red Flag Analysis and Removal
                   </h3>
                 </div>
+                <!-- Cell 2 -->
                 <div
-                  class="relative lg:flex-[3.5] flex-[10] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                  class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                  onclick="changeFlex(event.target)"
                   style="opacity: 1; transform: none"
                 >
                   <img
@@ -2530,23 +2581,18 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                     alt="planet-04"
                     class="absolute w-full h-full object-cover rounded-[24px]"
                   />
-                  <div
-                    class="absolute bottom-0 p-8 flex justify-start w-full flex-col bg-[rgba(0,0,0,0.5)] rounded-b-[24px]"
+
+                  <h3
+                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
+                    style="text-shadow: 2px 2px grey; bottom: 100"
                   >
-                    <p
-                      class="font-normal text-[16px] leading-[20.16px] text-white uppercase"
-                    >
-                      Why CVSort is the Best
-                    </p>
-                    <h2
-                      class="mt-[24px] font-semibold sm:text-[32px] text-[24px] text-white"
-                    >
-                      Automated Applicant Info Summary
-                    </h2>
-                  </div>
+                    Automated Applicant Info Summary
+                  </h3>
                 </div>
+                <!-- Cell 3 -->
                 <div
-                  class="relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                  class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                  onclick="changeFlex(event.target)"
                   style="opacity: 1; transform: none"
                 >
                   <img
@@ -2555,13 +2601,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                     class="absolute w-full h-full object-cover rounded-[24px]"
                   />
                   <h3
-                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:bottom-20 lg:rotate-[-90deg] lg:origin-[0,0]"
+                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
+                    style="text-shadow: 2px 2px grey; bottom: 100"
                   >
                     CV Fact Checker
                   </h3>
                 </div>
+                <!-- Cell 5 -->
                 <div
-                  class="relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                  class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                  onclick="changeFlex(event.target)"
                   style="opacity: 1; transform: none"
                 >
                   <img
@@ -2570,13 +2619,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                     class="absolute w-full h-full object-cover rounded-[24px]"
                   />
                   <h3
-                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:bottom-20 lg:rotate-[-90deg] lg:origin-[0,0]"
+                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
+                    style="text-shadow: 2px 2px grey; bottom: 100"
                   >
                     AI Powered Candidate Ranking Tool
                   </h3>
                 </div>
+                <!-- Cell 5 -->
                 <div
-                  class="relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                  class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                  onclick="changeFlex(event.target)"
                   style="opacity: 1; transform: none"
                 >
                   <img
@@ -2585,7 +2637,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                     class="absolute w-full h-full object-cover rounded-[24px]"
                   />
                   <h3
-                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:bottom-20 lg:rotate-[-90deg] lg:origin-[0,0]"
+                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
+                    style="text-shadow: 2px 2px grey; bottom: 100"
                   >
                     Interview Scheduler and Mailing System
                   </h3>
