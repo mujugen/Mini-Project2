@@ -505,7 +505,7 @@ app.post("/deleteFile", (req, res) => {
 });
 
 // Set the public folder as a static folder
-app.use(express.static("public"));
+app.use(express.static("public", { index: "home.html" }));
 app.use("/uploads", express.static("uploads"));
 app.use("/assets", express.static("assets"));
 
