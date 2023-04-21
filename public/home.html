@@ -1,50 +1,49 @@
 <html class="wvbaldn idc0_343">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>CVSort</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="http://localhost:3000/favicon.ico" />
-    <link rel="preconnect" href="https://stijndv.com/" />
-    <link rel="stylesheet" href="../assets/img/home/Eudoxus-Sans.css" />
-    <meta name="next-head-count" content="6" />
-    <noscript data-n-css=""></noscript>
-    <script
-      defer=""
-      nomodule=""
-      src="../assets/img/home/polyfills.js.download"
-    ></script>
-    <script src="../assets/img/home/webpack.js.download" defer=""></script>
-    <script src="../assets/img/home/main.js.download" defer=""></script>
-    <script src="../assets/img/home/_app.js.download" defer=""></script>
-    <script src="../assets/img/home/index.js.download" defer=""></script>
-    <script
-      src="../assets/img/home/_buildManifest.js.download"
-      defer=""
-    ></script>
-    <script src="../assets/img/home/_ssgManifest.js.download" defer=""></script>
-    <style>
-      /*
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CVSort</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="http://localhost:3000/favicon.ico" />
+  <link rel="preconnect" href="https://stijndv.com/" />
+  <link rel="stylesheet" href="../assets/img/home/Eudoxus-Sans.css" />
+  <meta name="next-head-count" content="6" />
+  <noscript data-n-css=""></noscript>
+  <script defer="" nomodule="" src="../assets/img/home/polyfills.js.download"></script>
+  <script src="../assets/img/home/webpack.js.download" defer=""></script>
+  <script src="../assets/img/home/main.js.download" defer=""></script>
+  <script src="../assets/img/home/_app.js.download" defer=""></script>
+  <script src="../assets/img/home/index.js.download" defer=""></script>
+  <script src="../assets/img/home/_buildManifest.js.download" defer=""></script>
+  <script src="../assets/img/home/_ssgManifest.js.download" defer=""></script>
+  <style>
+    /*
 ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
-*/ /*
+*/
+    /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
-      *,
-      ::before,
-      ::after {
-        box-sizing: border-box; /* 1 */
-        border-width: 0; /* 2 */
-        border-style: solid; /* 2 */
-        border-color: #e5e7eb; /* 2 */
-      }
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+      /* 1 */
+      border-width: 0;
+      /* 2 */
+      border-style: solid;
+      /* 2 */
+      border-color: #e5e7eb;
+      /* 2 */
+    }
 
-      ::before,
-      ::after {
-        --tw-content: "";
-      }
+    ::before,
+    ::after {
+      --tw-content: "";
+    }
 
-      /*
+    /*
 1. Use a consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
 3. Use a more readable tab size.
@@ -52,1090 +51,1230 @@
 5. Use the user's configured `sans` font-feature-settings by default.
 */
 
-      html {
-        line-height: 1.5; /* 1 */
-        -webkit-text-size-adjust: 100%; /* 2 */
-        -moz-tab-size: 4; /* 3 */
-        -o-tab-size: 4;
-        tab-size: 4; /* 3 */
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-          "Noto Color Emoji"; /* 4 */
-        font-feature-settings: normal; /* 5 */
-      }
+    html {
+      line-height: 1.5;
+      /* 1 */
+      -webkit-text-size-adjust: 100%;
+      /* 2 */
+      -moz-tab-size: 4;
+      /* 3 */
+      -o-tab-size: 4;
+      tab-size: 4;
+      /* 3 */
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+      /* 4 */
+      font-feature-settings: normal;
+      /* 5 */
+    }
 
-      /*
+    /*
 1. Remove the margin in all browsers.
 2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
 */
 
-      body {
-        margin: 0; /* 1 */
-        line-height: inherit; /* 2 */
-      }
+    body {
+      margin: 0;
+      /* 1 */
+      line-height: inherit;
+      /* 2 */
+    }
 
-      /*
+    /*
 1. Add the correct height in Firefox.
 2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
 3. Ensure horizontal rules are visible by default.
 */
 
-      hr {
-        height: 0; /* 1 */
-        color: inherit; /* 2 */
-        border-top-width: 1px; /* 3 */
-      }
+    hr {
+      height: 0;
+      /* 1 */
+      color: inherit;
+      /* 2 */
+      border-top-width: 1px;
+      /* 3 */
+    }
 
-      /*
+    /*
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
-      abbr:where([title]) {
-        -webkit-text-decoration: underline dotted;
-        text-decoration: underline dotted;
-      }
+    abbr:where([title]) {
+      -webkit-text-decoration: underline dotted;
+      text-decoration: underline dotted;
+    }
 
-      /*
+    /*
 Remove the default font size and weight for headings.
 */
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-size: inherit;
-        font-weight: inherit;
-      }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: inherit;
+      font-weight: inherit;
+    }
 
-      /*
+    /*
 Reset links to optimize for opt-in styling instead of opt-out.
 */
 
-      a {
-        color: inherit;
-        text-decoration: inherit;
-      }
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
 
-      /*
+    /*
 Add the correct font weight in Edge and Safari.
 */
 
-      b,
-      strong {
-        font-weight: bolder;
-      }
+    b,
+    strong {
+      font-weight: bolder;
+    }
 
-      /*
+    /*
 1. Use the user's configured `mono` font family by default.
 2. Correct the odd `em` font sizing in all browsers.
 */
 
-      code,
-      kbd,
-      samp,
-      pre {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-          "Liberation Mono", "Courier New", monospace; /* 1 */
-        font-size: 1em; /* 2 */
-      }
+    code,
+    kbd,
+    samp,
+    pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      /* 1 */
+      font-size: 1em;
+      /* 2 */
+    }
 
-      /*
+    /*
 Add the correct font size in all browsers.
 */
 
-      small {
-        font-size: 80%;
-      }
+    small {
+      font-size: 80%;
+    }
 
-      /*
+    /*
 Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 */
 
-      sub,
-      sup {
-        font-size: 75%;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline;
-      }
+    sub,
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+    }
 
-      sub {
-        bottom: -0.25em;
-      }
+    sub {
+      bottom: -0.25em;
+    }
 
-      sup {
-        top: -0.5em;
-      }
+    sup {
+      top: -0.5em;
+    }
 
-      /*
+    /*
 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
 3. Remove gaps between table borders by default.
 */
 
-      table {
-        text-indent: 0; /* 1 */
-        border-color: inherit; /* 2 */
-        border-collapse: collapse; /* 3 */
-      }
+    table {
+      text-indent: 0;
+      /* 1 */
+      border-color: inherit;
+      /* 2 */
+      border-collapse: collapse;
+      /* 3 */
+    }
 
-      /*
+    /*
 1. Change the font styles in all browsers.
 2. Remove the margin in Firefox and Safari.
 3. Remove default padding in all browsers.
 */
 
-      button,
-      input,
-      optgroup,
-      select,
-      textarea {
-        font-family: inherit; /* 1 */
-        font-size: 100%; /* 1 */
-        font-weight: inherit; /* 1 */
-        line-height: inherit; /* 1 */
-        color: inherit; /* 1 */
-        margin: 0; /* 2 */
-        padding: 0; /* 3 */
-      }
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      /* 1 */
+      font-size: 100%;
+      /* 1 */
+      font-weight: inherit;
+      /* 1 */
+      line-height: inherit;
+      /* 1 */
+      color: inherit;
+      /* 1 */
+      margin: 0;
+      /* 2 */
+      padding: 0;
+      /* 3 */
+    }
 
-      /*
+    /*
 Remove the inheritance of text transform in Edge and Firefox.
 */
 
-      button,
-      select {
-        text-transform: none;
-      }
+    button,
+    select {
+      text-transform: none;
+    }
 
-      /*
+    /*
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Remove default button styles.
 */
 
-      button,
-      [type="button"],
-      [type="reset"],
-      [type="submit"] {
-        -webkit-appearance: button; /* 1 */
-        appearance: button;
-        background-color: transparent; /* 2 */
-        background-image: none; /* 2 */
-      }
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+      /* 1 */
+      appearance: button;
+      background-color: transparent;
+      /* 2 */
+      background-image: none;
+      /* 2 */
+    }
 
-      /*
+    /*
 Use the modern Firefox focus style for all focusable elements.
 */
 
-      :-moz-focusring {
-        outline: auto;
-      }
+    :-moz-focusring {
+      outline: auto;
+    }
 
-      /*
+    /*
 Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
 */
 
-      :-moz-ui-invalid {
-        box-shadow: none;
-      }
+    :-moz-ui-invalid {
+      box-shadow: none;
+    }
 
-      /*
+    /*
 Add the correct vertical alignment in Chrome and Firefox.
 */
 
-      progress {
-        vertical-align: baseline;
-      }
+    progress {
+      vertical-align: baseline;
+    }
 
-      /*
+    /*
 Correct the cursor style of increment and decrement buttons in Safari.
 */
 
-      ::-webkit-inner-spin-button,
-      ::-webkit-outer-spin-button {
-        height: auto;
-      }
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+      height: auto;
+    }
 
-      /*
+    /*
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
 */
 
-      [type="search"] {
-        -webkit-appearance: textfield; /* 1 */
-        appearance: textfield;
-        outline-offset: -2px; /* 2 */
-      }
+    [type="search"] {
+      -webkit-appearance: textfield;
+      /* 1 */
+      appearance: textfield;
+      outline-offset: -2px;
+      /* 2 */
+    }
 
-      /*
+    /*
 Remove the inner padding in Chrome and Safari on macOS.
 */
 
-      ::-webkit-search-decoration {
-        -webkit-appearance: none;
-      }
+    ::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
 
-      /*
+    /*
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Change font properties to `inherit` in Safari.
 */
 
-      ::-webkit-file-upload-button {
-        -webkit-appearance: button; /* 1 */
-        font: inherit; /* 2 */
-      }
+    ::-webkit-file-upload-button {
+      -webkit-appearance: button;
+      /* 1 */
+      font: inherit;
+      /* 2 */
+    }
 
-      /*
+    /*
 Add the correct display in Chrome and Safari.
 */
 
-      summary {
-        display: list-item;
-      }
+    summary {
+      display: list-item;
+    }
 
-      /*
+    /*
 Removes the default spacing and border for appropriate elements.
 */
 
-      blockquote,
-      dl,
-      dd,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      hr,
-      figure,
-      p,
-      pre {
-        margin: 0;
-      }
+    blockquote,
+    dl,
+    dd,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    figure,
+    p,
+    pre {
+      margin: 0;
+    }
 
-      fieldset {
-        margin: 0;
-        padding: 0;
-      }
+    fieldset {
+      margin: 0;
+      padding: 0;
+    }
 
-      legend {
-        padding: 0;
-      }
+    legend {
+      padding: 0;
+    }
 
-      ol,
-      ul,
-      menu {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
+    ol,
+    ul,
+    menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-      /*
+    /*
 Prevent resizing textareas horizontally by default.
 */
 
-      textarea {
-        resize: vertical;
-      }
+    textarea {
+      resize: vertical;
+    }
 
-      /*
+    /*
 1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-      input::-moz-placeholder,
-      textarea::-moz-placeholder {
-        opacity: 1; /* 1 */
-        color: #9ca3af; /* 2 */
-      }
+    input::-moz-placeholder,
+    textarea::-moz-placeholder {
+      opacity: 1;
+      /* 1 */
+      color: #9ca3af;
+      /* 2 */
+    }
 
-      input::placeholder,
-      textarea::placeholder {
-        opacity: 1; /* 1 */
-        color: #9ca3af; /* 2 */
-      }
+    input::placeholder,
+    textarea::placeholder {
+      opacity: 1;
+      /* 1 */
+      color: #9ca3af;
+      /* 2 */
+    }
 
-      /*
+    /*
 Set the default cursor for buttons.
 */
 
-      button,
-      [role="button"] {
-        cursor: pointer;
-      }
+    button,
+    [role="button"] {
+      cursor: pointer;
+    }
 
-      /*
+    /*
 Make sure disabled buttons don't get the pointer cursor.
 */
-      :disabled {
-        cursor: default;
-      }
+    :disabled {
+      cursor: default;
+    }
 
-      /*
+    /*
 1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
 2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
    This can trigger a poorly considered lint error in some tools but is included by design.
 */
 
-      img,
-      svg,
-      video,
-      canvas,
-      audio,
-      iframe,
-      embed,
-      object {
-        display: inline-block; /* 1 */
-        vertical-align: middle; /* 2 */
-      }
+    img,
+    svg,
+    video,
+    canvas,
+    audio,
+    iframe,
+    embed,
+    object {
+      display: inline-block;
+      /* 1 */
+      vertical-align: middle;
+      /* 2 */
+    }
 
-      /*
+    /*
 Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
 */
 
-      img,
-      video {
-        max-width: 100%;
-        height: auto;
-      }
+    img,
+    video {
+      max-width: 100%;
+      height: auto;
+    }
 
-      /* Make elements with the HTML hidden attribute stay hidden by default */
-      [hidden] {
-        display: none;
-      }
+    /* Make elements with the HTML hidden attribute stay hidden by default */
+    [hidden] {
+      display: none;
+    }
 
-      *,
-      ::before,
-      ::after {
-        --tw-border-spacing-x: 0;
-        --tw-border-spacing-y: 0;
-        --tw-translate-x: 0;
-        --tw-translate-y: 0;
-        --tw-rotate: 0;
-        --tw-skew-x: 0;
-        --tw-skew-y: 0;
-        --tw-scale-x: 1;
-        --tw-scale-y: 1;
-        --tw-pan-x: ;
-        --tw-pan-y: ;
-        --tw-pinch-zoom: ;
-        --tw-scroll-snap-strictness: proximity;
-        --tw-ordinal: ;
-        --tw-slashed-zero: ;
-        --tw-numeric-figure: ;
-        --tw-numeric-spacing: ;
-        --tw-numeric-fraction: ;
-        --tw-ring-inset: ;
-        --tw-ring-offset-width: 0px;
-        --tw-ring-offset-color: #fff;
-        --tw-ring-color: rgb(59 130 246 / 0.5);
-        --tw-ring-offset-shadow: 0 0 #0000;
-        --tw-ring-shadow: 0 0 #0000;
-        --tw-shadow: 0 0 #0000;
-        --tw-shadow-colored: 0 0 #0000;
-        --tw-blur: ;
-        --tw-brightness: ;
-        --tw-contrast: ;
-        --tw-grayscale: ;
-        --tw-hue-rotate: ;
-        --tw-invert: ;
-        --tw-saturate: ;
-        --tw-sepia: ;
-        --tw-drop-shadow: ;
-        --tw-backdrop-blur: ;
-        --tw-backdrop-brightness: ;
-        --tw-backdrop-contrast: ;
-        --tw-backdrop-grayscale: ;
-        --tw-backdrop-hue-rotate: ;
-        --tw-backdrop-invert: ;
-        --tw-backdrop-opacity: ;
-        --tw-backdrop-saturate: ;
-        --tw-backdrop-sepia: ;
-      }
+    *,
+    ::before,
+    ::after {
+      --tw-border-spacing-x: 0;
+      --tw-border-spacing-y: 0;
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-rotate: 0;
+      --tw-skew-x: 0;
+      --tw-skew-y: 0;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-pan-x: ;
+      --tw-pan-y: ;
+      --tw-pinch-zoom: ;
+      --tw-scroll-snap-strictness: proximity;
+      --tw-ordinal: ;
+      --tw-slashed-zero: ;
+      --tw-numeric-figure: ;
+      --tw-numeric-spacing: ;
+      --tw-numeric-fraction: ;
+      --tw-ring-inset: ;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-color: rgb(59 130 246 / 0.5);
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-colored: 0 0 #0000;
+      --tw-blur: ;
+      --tw-brightness: ;
+      --tw-contrast: ;
+      --tw-grayscale: ;
+      --tw-hue-rotate: ;
+      --tw-invert: ;
+      --tw-saturate: ;
+      --tw-sepia: ;
+      --tw-drop-shadow: ;
+      --tw-backdrop-blur: ;
+      --tw-backdrop-brightness: ;
+      --tw-backdrop-contrast: ;
+      --tw-backdrop-grayscale: ;
+      --tw-backdrop-hue-rotate: ;
+      --tw-backdrop-invert: ;
+      --tw-backdrop-opacity: ;
+      --tw-backdrop-saturate: ;
+      --tw-backdrop-sepia: ;
+    }
 
-      ::backdrop {
-        --tw-border-spacing-x: 0;
-        --tw-border-spacing-y: 0;
-        --tw-translate-x: 0;
-        --tw-translate-y: 0;
-        --tw-rotate: 0;
-        --tw-skew-x: 0;
-        --tw-skew-y: 0;
-        --tw-scale-x: 1;
-        --tw-scale-y: 1;
-        --tw-pan-x: ;
-        --tw-pan-y: ;
-        --tw-pinch-zoom: ;
-        --tw-scroll-snap-strictness: proximity;
-        --tw-ordinal: ;
-        --tw-slashed-zero: ;
-        --tw-numeric-figure: ;
-        --tw-numeric-spacing: ;
-        --tw-numeric-fraction: ;
-        --tw-ring-inset: ;
-        --tw-ring-offset-width: 0px;
-        --tw-ring-offset-color: #fff;
-        --tw-ring-color: rgb(59 130 246 / 0.5);
-        --tw-ring-offset-shadow: 0 0 #0000;
-        --tw-ring-shadow: 0 0 #0000;
-        --tw-shadow: 0 0 #0000;
-        --tw-shadow-colored: 0 0 #0000;
-        --tw-blur: ;
-        --tw-brightness: ;
-        --tw-contrast: ;
-        --tw-grayscale: ;
-        --tw-hue-rotate: ;
-        --tw-invert: ;
-        --tw-saturate: ;
-        --tw-sepia: ;
-        --tw-drop-shadow: ;
-        --tw-backdrop-blur: ;
-        --tw-backdrop-brightness: ;
-        --tw-backdrop-contrast: ;
-        --tw-backdrop-grayscale: ;
-        --tw-backdrop-hue-rotate: ;
-        --tw-backdrop-invert: ;
-        --tw-backdrop-opacity: ;
-        --tw-backdrop-saturate: ;
-        --tw-backdrop-sepia: ;
-      }
-      .absolute {
-        position: absolute;
-      }
-      .relative {
-        position: relative;
-      }
-      .inset-0 {
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-      }
-      .bottom-0 {
-        bottom: 0px;
-      }
-      .-left-\[10\%\] {
-        left: -10%;
-      }
-      .top-\[3\%\] {
-        top: 3%;
-      }
-      .z-0 {
-        z-index: 0;
-      }
-      .z-10 {
-        z-index: 10;
-      }
-      .mx-auto {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .mt-\[8px\] {
-        margin-top: 8px;
-      }
-      .mt-\[24px\] {
-        margin-top: 24px;
-      }
-      .mb-\[50px\] {
-        margin-bottom: 50px;
-      }
-      .mt-\[28px\] {
-        margin-top: 28px;
-      }
-      .mt-\[50px\] {
-        margin-top: 50px;
-      }
-      .-mt-\[12px\] {
-        margin-top: -12px;
-      }
-      .mt-\[68px\] {
-        margin-top: 68px;
-      }
-      .flex {
-        display: flex;
-      }
-      .hidden {
-        display: none;
-      }
-      .h-\[700px\] {
-        height: 700px;
-      }
-      .h-full {
-        height: 100%;
-      }
-      .h-fit {
-        height: -moz-fit-content;
-        height: fit-content;
-      }
-      .h-\[2px\] {
-        height: 2px;
-      }
-      .h-\[24px\] {
-        height: 24px;
-      }
-      .h-\[28px\] {
-        height: 28px;
-      }
-      .h-auto {
-        height: auto;
-      }
-      .h-\[550px\] {
-        height: 550px;
-      }
-      .min-h-\[70vh\] {
-        min-height: 70vh;
-      }
-      .min-h-\[210px\] {
-        min-height: 210px;
-      }
-      .w-full {
-        width: 100%;
-      }
-      .w-\[24px\] {
-        width: 24px;
-      }
-      .w-\[50\%\] {
-        width: 50%;
-      }
-      .w-\[18px\] {
-        width: 18px;
-      }
-      .w-\[100\%\] {
-        width: 100%;
-      }
-      .min-w-\[170px\] {
-        min-width: 170px;
-      }
-      .flex-\[10\] {
-        flex: 10;
-      }
-      .flex-\[2\] {
-        flex: 2;
-      }
-      .flex-\[0\.5\] {
-        flex: 0.5;
-      }
-      .flex-1 {
-        flex: 1 1 0%;
-      }
-      .cursor-pointer {
-        cursor: pointer;
-      }
-      .flex-row {
-        flex-direction: row;
-      }
-      .flex-col {
-        flex-direction: column;
-      }
-      .flex-wrap {
-        flex-wrap: wrap;
-      }
-      .items-start {
-        align-items: flex-start;
-      }
-      .items-center {
-        align-items: center;
-      }
-      .justify-start {
-        justify-content: flex-start;
-      }
-      .justify-end {
-        justify-content: flex-end;
-      }
-      .justify-center {
-        justify-content: center;
-      }
-      .justify-between {
-        justify-content: space-between;
-      }
-      .gap-8 {
-        gap: 2rem;
-      }
-      .gap-5 {
-        gap: 1.25rem;
-      }
-      .gap-\[12px\] {
-        gap: 12px;
-      }
-      .gap-4 {
-        gap: 1rem;
-      }
-      .gap-6 {
-        gap: 1.5rem;
-      }
-      .overflow-hidden {
-        overflow: hidden;
-      }
-      .rounded-\[24px\] {
-        border-radius: 24px;
-      }
-      .rounded-\[40px\] {
-        border-radius: 40px;
-      }
-      .rounded-\[32px\] {
-        border-radius: 32px;
-      }
-      .rounded-b-\[24px\] {
-        border-bottom-right-radius: 24px;
-        border-bottom-left-radius: 24px;
-      }
-      .border-\[1px\] {
-        border-width: 1px;
-      }
-      .border-\[\#6A6A6A\] {
-        --tw-border-opacity: 1;
-        border-color: rgb(106 106 106 / var(--tw-border-opacity));
-      }
-      .bg-primary-violet {
-        --tw-bg-opacity: 1;
-        background-color: rgb(61 23 102 / var(--tw-bg-opacity));
-      }
-      .bg-\[rgba\(0\2c 0\2c 0\2c 0\.5\)\] {
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-      .bg-\[\#F56EB3\] {
-        --tw-bg-opacity: 1;
-        background-color: rgb(245 110 179 / var(--tw-bg-opacity));
-      }
-      .bg-white {
-        --tw-bg-opacity: 1;
-        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-      }
-      .object-contain {
-        -o-object-fit: contain;
-        object-fit: contain;
-      }
-      .object-cover {
-        -o-object-fit: cover;
-        object-fit: cover;
-      }
-      .p-8 {
-        padding: 2rem;
-      }
-      .p-4 {
-        padding: 1rem;
-      }
-      .py-8 {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-      }
-      .py-4 {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-      }
-      .px-6 {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-      .px-12 {
-        padding-left: 3rem;
-        padding-right: 3rem;
-      }
-      .py-12 {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-      .pl-6 {
-        padding-left: 1.5rem;
-      }
-      .pt-12 {
-        padding-top: 3rem;
-      }
-      .pb-12 {
-        padding-bottom: 3rem;
-      }
-      .pt-\[98px\] {
-        padding-top: 98px;
-      }
-      .text-center {
-        text-align: center;
-      }
-      .text-\[14px\] {
-        font-size: 14px;
-      }
-      .text-\[40px\] {
-        font-size: 40px;
-      }
-      .text-\[18px\] {
-        font-size: 18px;
-      }
-      .text-\[16px\] {
-        font-size: 16px;
-      }
-      .text-\[24px\] {
-        font-size: 24px;
-      }
-      .text-\[44px\] {
-        font-size: 44px;
-      }
-      .text-2xl {
-        font-size: 1.5rem;
-        line-height: 2rem;
-      }
-      .text-\[20px\] {
-        font-size: 20px;
-      }
-      .text-\[26px\] {
-        font-size: 26px;
-      }
-      .text-\[12px\] {
-        font-size: 12px;
-      }
-      .text-\[30px\] {
-        font-size: 30px;
-      }
-      .text-\[11px\] {
-        font-size: 11px;
-      }
-      .font-normal {
-        font-weight: 400;
-      }
-      .font-bold {
-        font-weight: 700;
-      }
-      .font-semibold {
-        font-weight: 600;
-      }
-      .font-extrabold {
-        font-weight: 800;
-      }
-      .uppercase {
-        text-transform: uppercase;
-      }
-      .leading-\[20\.16px\] {
-        line-height: 20.16px;
-      }
-      .leading-\[30\.24px\] {
-        line-height: 30.24px;
-      }
-      .leading-\[36\.32px\] {
-        line-height: 36.32px;
-      }
-      .leading-\[16\.68px\] {
-        line-height: 16.68px;
-      }
-      .leading-\[39\.6px\] {
-        line-height: 39.6px;
-      }
-      .leading-\[64\.4px\] {
-        line-height: 64.4px;
-      }
-      .text-secondary-white {
-        --tw-text-opacity: 1;
-        color: rgb(199 199 199 / var(--tw-text-opacity));
-      }
-      .text-white {
-        --tw-text-opacity: 1;
-        color: rgb(255 255 255 / var(--tw-text-opacity));
-      }
-      .opacity-10 {
-        opacity: 0.1;
-      }
-      .opacity-50 {
-        opacity: 0.5;
-      }
-      .transition-\[flex\] {
-        transition-property: flex;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 150ms;
-      }
-      .duration-\[0\.7s\] {
-        transition-duration: 0.7s;
-      }
-      .ease-out-flex {
-        transition-timing-function: cubic-bezier(0.05, 0.6, 0.4, 0.9);
-      }
+    ::backdrop {
+      --tw-border-spacing-x: 0;
+      --tw-border-spacing-y: 0;
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-rotate: 0;
+      --tw-skew-x: 0;
+      --tw-skew-y: 0;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-pan-x: ;
+      --tw-pan-y: ;
+      --tw-pinch-zoom: ;
+      --tw-scroll-snap-strictness: proximity;
+      --tw-ordinal: ;
+      --tw-slashed-zero: ;
+      --tw-numeric-figure: ;
+      --tw-numeric-spacing: ;
+      --tw-numeric-fraction: ;
+      --tw-ring-inset: ;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-color: rgb(59 130 246 / 0.5);
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-colored: 0 0 #0000;
+      --tw-blur: ;
+      --tw-brightness: ;
+      --tw-contrast: ;
+      --tw-grayscale: ;
+      --tw-hue-rotate: ;
+      --tw-invert: ;
+      --tw-saturate: ;
+      --tw-sepia: ;
+      --tw-drop-shadow: ;
+      --tw-backdrop-blur: ;
+      --tw-backdrop-brightness: ;
+      --tw-backdrop-contrast: ;
+      --tw-backdrop-grayscale: ;
+      --tw-backdrop-hue-rotate: ;
+      --tw-backdrop-invert: ;
+      --tw-backdrop-opacity: ;
+      --tw-backdrop-saturate: ;
+      --tw-backdrop-sepia: ;
+    }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Eudoxus Sans", sans-serif;
-        scroll-behavior: smooth;
-      }
+    .absolute {
+      position: absolute;
+    }
 
-      .gradient-01 {
-        background-image: linear-gradient(
-          270deg,
+    .relative {
+      position: relative;
+    }
+
+    .inset-0 {
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+    }
+
+    .bottom-0 {
+      bottom: 0px;
+    }
+
+    .-left-\[10\%\] {
+      left: -10%;
+    }
+
+    .top-\[3\%\] {
+      top: 3%;
+    }
+
+    .z-0 {
+      z-index: 0;
+    }
+
+    .z-10 {
+      z-index: 10;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mt-\[8px\] {
+      margin-top: 8px;
+    }
+
+    .mt-\[24px\] {
+      margin-top: 24px;
+    }
+
+    .mb-\[50px\] {
+      margin-bottom: 50px;
+    }
+
+    .mt-\[28px\] {
+      margin-top: 28px;
+    }
+
+    .mt-\[50px\] {
+      margin-top: 50px;
+    }
+
+    .-mt-\[12px\] {
+      margin-top: -12px;
+    }
+
+    .mt-\[68px\] {
+      margin-top: 68px;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .h-\[700px\] {
+      height: 700px;
+    }
+
+    .h-full {
+      height: 100%;
+    }
+
+    .h-fit {
+      height: -moz-fit-content;
+      height: fit-content;
+    }
+
+    .h-\[2px\] {
+      height: 2px;
+    }
+
+    .h-\[24px\] {
+      height: 24px;
+    }
+
+    .h-\[28px\] {
+      height: 28px;
+    }
+
+    .h-auto {
+      height: auto;
+    }
+
+    .h-\[550px\] {
+      height: 550px;
+    }
+
+    .min-h-\[70vh\] {
+      min-height: 70vh;
+    }
+
+    .min-h-\[210px\] {
+      min-height: 210px;
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    .w-\[24px\] {
+      width: 24px;
+    }
+
+    .w-\[50\%\] {
+      width: 50%;
+    }
+
+    .w-\[18px\] {
+      width: 18px;
+    }
+
+    .w-\[100\%\] {
+      width: 100%;
+    }
+
+    .min-w-\[170px\] {
+      min-width: 170px;
+    }
+
+    .flex-\[10\] {
+      flex: 10;
+    }
+
+    .flex-\[2\] {
+      flex: 2;
+    }
+
+    .flex-\[0\.5\] {
+      flex: 0.5;
+    }
+
+    .flex-1 {
+      flex: 1 1 0%;
+    }
+
+    .cursor-pointer {
+      cursor: pointer;
+    }
+
+    .flex-row {
+      flex-direction: row;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .items-start {
+      align-items: flex-start;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-start {
+      justify-content: flex-start;
+    }
+
+    .justify-end {
+      justify-content: flex-end;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .gap-8 {
+      gap: 2rem;
+    }
+
+    .gap-5 {
+      gap: 1.25rem;
+    }
+
+    .gap-\[12px\] {
+      gap: 12px;
+    }
+
+    .gap-4 {
+      gap: 1rem;
+    }
+
+    .gap-6 {
+      gap: 1.5rem;
+    }
+
+    .overflow-hidden {
+      overflow: hidden;
+    }
+
+    .rounded-\[24px\] {
+      border-radius: 24px;
+    }
+
+    .rounded-\[40px\] {
+      border-radius: 40px;
+    }
+
+    .rounded-\[32px\] {
+      border-radius: 32px;
+    }
+
+    .rounded-b-\[24px\] {
+      border-bottom-right-radius: 24px;
+      border-bottom-left-radius: 24px;
+    }
+
+    .border-\[1px\] {
+      border-width: 1px;
+    }
+
+    .border-\[\#6A6A6A\] {
+      --tw-border-opacity: 1;
+      border-color: rgb(106 106 106 / var(--tw-border-opacity));
+    }
+
+    .bg-primary-violet {
+      --tw-bg-opacity: 1;
+      background-color: rgb(61 23 102 / var(--tw-bg-opacity));
+    }
+
+    .bg-\[rgba\(0\2c 0\2c 0\2c 0\.5\)\] {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .bg-\[\#F56EB3\] {
+      --tw-bg-opacity: 1;
+      background-color: rgb(245 110 179 / var(--tw-bg-opacity));
+    }
+
+    .bg-white {
+      --tw-bg-opacity: 1;
+      background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    }
+
+    .object-contain {
+      -o-object-fit: contain;
+      object-fit: contain;
+    }
+
+    .object-cover {
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+
+    .p-8 {
+      padding: 2rem;
+    }
+
+    .p-4 {
+      padding: 1rem;
+    }
+
+    .py-8 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .py-4 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .px-6 {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .px-12 {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
+    .py-12 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .pl-6 {
+      padding-left: 1.5rem;
+    }
+
+    .pt-12 {
+      padding-top: 3rem;
+    }
+
+    .pb-12 {
+      padding-bottom: 3rem;
+    }
+
+    .pt-\[98px\] {
+      padding-top: 98px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-\[14px\] {
+      font-size: 14px;
+    }
+
+    .text-\[40px\] {
+      font-size: 40px;
+    }
+
+    .text-\[18px\] {
+      font-size: 18px;
+    }
+
+    .text-\[16px\] {
+      font-size: 16px;
+    }
+
+    .text-\[24px\] {
+      font-size: 24px;
+    }
+
+    .text-\[44px\] {
+      font-size: 44px;
+    }
+
+    .text-2xl {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    .text-\[20px\] {
+      font-size: 20px;
+    }
+
+    .text-\[26px\] {
+      font-size: 26px;
+    }
+
+    .text-\[12px\] {
+      font-size: 12px;
+    }
+
+    .text-\[30px\] {
+      font-size: 30px;
+    }
+
+    .text-\[11px\] {
+      font-size: 11px;
+    }
+
+    .font-normal {
+      font-weight: 400;
+    }
+
+    .font-bold {
+      font-weight: 700;
+    }
+
+    .font-semibold {
+      font-weight: 600;
+    }
+
+    .font-extrabold {
+      font-weight: 800;
+    }
+
+    .uppercase {
+      text-transform: uppercase;
+    }
+
+    .leading-\[20\.16px\] {
+      line-height: 20.16px;
+    }
+
+    .leading-\[30\.24px\] {
+      line-height: 30.24px;
+    }
+
+    .leading-\[36\.32px\] {
+      line-height: 36.32px;
+    }
+
+    .leading-\[16\.68px\] {
+      line-height: 16.68px;
+    }
+
+    .leading-\[39\.6px\] {
+      line-height: 39.6px;
+    }
+
+    .leading-\[64\.4px\] {
+      line-height: 64.4px;
+    }
+
+    .text-secondary-white {
+      --tw-text-opacity: 1;
+      color: rgb(199 199 199 / var(--tw-text-opacity));
+    }
+
+    .text-white {
+      --tw-text-opacity: 1;
+      color: rgb(255 255 255 / var(--tw-text-opacity));
+    }
+
+    .opacity-10 {
+      opacity: 0.1;
+    }
+
+    .opacity-50 {
+      opacity: 0.5;
+    }
+
+    .transition-\[flex\] {
+      transition-property: flex;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+    }
+
+    .duration-\[0\.7s\] {
+      transition-duration: 0.7s;
+    }
+
+    .ease-out-flex {
+      transition-timing-function: cubic-bezier(0.05, 0.6, 0.4, 0.9);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Eudoxus Sans", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .gradient-01 {
+      background-image: linear-gradient(270deg,
           hsl(295deg 76% 51%) 0%,
           hsl(284deg 70% 73%) 26%,
           hsl(257deg 70% 86%) 39%,
           hsl(202deg 92% 90%) 50%,
           hsl(215deg 77% 81%) 61%,
           hsl(221deg 73% 70%) 74%,
-          hsl(220deg 76% 51%) 100%
-        );
-        filter: blur(125px);
-      }
+          hsl(220deg 76% 51%) 100%);
+      filter: blur(125px);
+    }
 
-      .hero-gradient {
-        background: linear-gradient(
-          97.86deg,
+    .hero-gradient {
+      background: linear-gradient(97.86deg,
           #a509ff 0%,
           #34acc7 53.65%,
-          #a134c7 100%
-        );
-      }
+          #a134c7 100%);
+    }
 
-      .gradient-02 {
-        position: absolute;
-        width: 200px;
-        height: 438px;
-        top: 0px;
-        right: 0px;
+    .gradient-02 {
+      position: absolute;
+      width: 200px;
+      height: 438px;
+      top: 0px;
+      right: 0px;
 
-        background: #7aebfb;
-        filter: blur(190px);
-      }
+      background: #7aebfb;
+      filter: blur(190px);
+    }
 
-      .glassmorphism {
-        background: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-      }
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
 
-      .gradient-03 {
-        position: absolute;
-        width: 404px;
-        height: 800px;
-        left: 20%;
-        top: 5%;
+    .gradient-03 {
+      position: absolute;
+      width: 404px;
+      height: 800px;
+      left: 20%;
+      top: 5%;
 
-        background: rgba(149, 66, 232, 0.35);
-        filter: blur(175px);
-        transform: rotate(-114.2deg);
-      }
+      background: rgba(149, 66, 232, 0.35);
+      filter: blur(175px);
+      transform: rotate(-114.2deg);
+    }
 
-      .gradient-04 {
-        position: absolute;
-        width: 304px;
-        height: 100vh;
-        left: 30%;
-        top: 10%;
+    .gradient-04 {
+      position: absolute;
+      width: 304px;
+      height: 100vh;
+      left: 30%;
+      top: 10%;
 
-        background: rgba(45, 72, 152, 0.75);
-        filter: blur(200px);
-        transform: rotate(-53.13deg);
-      }
+      background: rgba(45, 72, 152, 0.75);
+      filter: blur(200px);
+      transform: rotate(-53.13deg);
+    }
 
-      .gradient-05 {
-        background: linear-gradient(
-          180deg,
+    .gradient-05 {
+      background: linear-gradient(180deg,
           rgba(255, 255, 255, 0.04) 0%,
-          rgba(255, 255, 255, 0) 100%
-        );
+          rgba(255, 255, 255, 0) 100%);
+    }
+
+    .feedback-gradient {
+      position: absolute;
+      width: 200px;
+      height: 316px;
+      left: 0px;
+      top: 0px;
+
+      background: #8d39a3;
+      filter: blur(175px);
+    }
+
+    .footer-gradient {
+      position: absolute;
+      width: 500px;
+      height: 100px;
+      left: 37%;
+      bottom: 0;
+
+      background: #65c4fa;
+      filter: blur(150px);
+    }
+
+    @media (min-width: 640px) {
+      .sm\:p-8 {
+        padding: 2rem;
       }
 
-      .feedback-gradient {
-        position: absolute;
-        width: 200px;
-        height: 316px;
-        left: 0px;
-        top: 0px;
-
-        background: #8d39a3;
-        filter: blur(175px);
+      .sm\:p-16 {
+        padding: 4rem;
       }
 
-      .footer-gradient {
-        position: absolute;
-        width: 500px;
-        height: 100px;
-        left: 37%;
-        bottom: 0;
-
-        background: #65c4fa;
-        filter: blur(150px);
+      .sm\:py-16 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
       }
 
-      @media (min-width: 640px) {
-        .sm\:p-8 {
-          padding: 2rem;
-        }
-
-        .sm\:p-16 {
-          padding: 4rem;
-        }
-
-        .sm\:py-16 {
-          padding-top: 4rem;
-          padding-bottom: 4rem;
-        }
-
-        .sm\:px-16 {
-          padding-left: 4rem;
-          padding-right: 4rem;
-        }
-
-        .sm\:pl-16 {
-          padding-left: 4rem;
-        }
-
-        .sm\:pt-16 {
-          padding-top: 4rem;
-        }
-
-        .sm\:pb-16 {
-          padding-bottom: 4rem;
-        }
-
-        .sm\:text-\[26px\] {
-          font-size: 26px;
-        }
-
-        .sm\:text-\[32px\] {
-          font-size: 32px;
-        }
-
-        .sm\:text-\[18px\] {
-          font-size: 18px;
-        }
-
-        .sm\:text-\[24px\] {
-          font-size: 24px;
-        }
-
-        .sm\:text-\[60px\] {
-          font-size: 60px;
-        }
-
-        .sm\:text-\[20px\] {
-          font-size: 20px;
-        }
-
-        .sm\:leading-\[40\.32px\] {
-          line-height: 40.32px;
-        }
-
-        .sm\:leading-\[22\.68px\] {
-          line-height: 22.68px;
-        }
-
-        .sm\:leading-\[45\.6px\] {
-          line-height: 45.6px;
-        }
-
-        .sm\:leading-\[74\.4px\] {
-          line-height: 74.4px;
-        }
+      .sm\:px-16 {
+        padding-left: 4rem;
+        padding-right: 4rem;
       }
 
-      @media (min-width: 768px) {
-        .md\:-mt-\[20px\] {
-          margin-top: -20px;
-        }
-
-        .md\:text-\[64px\] {
-          font-size: 64px;
-        }
-
-        .md\:text-\[100px\] {
-          font-size: 100px;
-        }
-
-        .md\:text-\[30px\] {
-          font-size: 30px;
-        }
-
-        .md\:leading-\[114\.4px\] {
-          line-height: 114.4px;
-        }
+      .sm\:pl-16 {
+        padding-left: 4rem;
       }
 
-      @media (min-width: 1024px) {
-        .lg\:bottom-20 {
-          bottom: 5rem;
-        }
-
-        .lg\:block {
-          display: block;
-        }
-
-        .lg\:h-\[610px\] {
-          height: 610px;
-        }
-
-        .lg\:w-\[80\%\] {
-          width: 80%;
-        }
-
-        .lg\:max-w-\[370px\] {
-          max-width: 370px;
-        }
-
-        .lg\:flex-\[3\.5\] {
-          flex: 3.5;
-        }
-
-        .lg\:flex-\[0\.5\] {
-          flex: 0.5;
-        }
-
-        .lg\:origin-\[0\2c 0\] {
-          transform-origin: 0, 0;
-        }
-
-        .lg\:rotate-\[-90deg\] {
-          --tw-rotate: -90deg;
-          transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-            rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
-            skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
-            scaleY(var(--tw-scale-y));
-        }
-
-        .lg\:flex-row {
-          flex-direction: row;
-        }
-
-        .lg\:text-\[200px\] {
-          font-size: 200px;
-        }
-
-        .lg\:text-\[45px\] {
-          font-size: 45px;
-        }
-
-        .lg\:leading-\[158\.4px\] {
-          line-height: 158.4px;
-        }
+      .sm\:pt-16 {
+        padding-top: 4rem;
       }
 
-      @media (min-width: 1536px) {
-        .\32xl\:max-w-\[1280px\] {
-          max-width: 1280px;
-        }
+      .sm\:pb-16 {
+        padding-bottom: 4rem;
       }
 
-      /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zdHlsZXMvZ2xvYmFscy5jc3MiLCI8bm8gc291cmNlPiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Q0FBYyxDQUFkOzs7Q0FBYzs7QUFBZDs7O0VBQUEsc0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxtQkFBYyxFQUFkLE1BQWM7RUFBZCxxQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7RUFBQSxnQkFBYztBQUFBOztBQUFkOzs7Ozs7Q0FBYzs7QUFBZDtFQUFBLGdCQUFjLEVBQWQsTUFBYztFQUFkLDhCQUFjLEVBQWQsTUFBYztFQUFkLGdCQUFjLEVBQWQsTUFBYztFQUFkLGNBQWM7S0FBZCxXQUFjLEVBQWQsTUFBYztFQUFkLDROQUFjLEVBQWQsTUFBYztFQUFkLDZCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDtFQUFBLFNBQWMsRUFBZCxNQUFjO0VBQWQsb0JBQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7Ozs7Q0FBYzs7QUFBZDtFQUFBLFNBQWMsRUFBZCxNQUFjO0VBQWQsY0FBYyxFQUFkLE1BQWM7RUFBZCxxQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDtFQUFBLHlDQUFjO1VBQWQsaUNBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7Ozs7O0VBQUEsa0JBQWM7RUFBZCxvQkFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsY0FBYztFQUFkLHdCQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsbUJBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7Ozs7RUFBQSwrR0FBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsY0FBYztBQUFBOztBQUFkOztDQUFjOztBQUFkOztFQUFBLGNBQWM7RUFBZCxjQUFjO0VBQWQsa0JBQWM7RUFBZCx3QkFBYztBQUFBOztBQUFkO0VBQUEsZUFBYztBQUFBOztBQUFkO0VBQUEsV0FBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7RUFBQSxjQUFjLEVBQWQsTUFBYztFQUFkLHFCQUFjLEVBQWQsTUFBYztFQUFkLHlCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7Ozs7O0VBQUEsb0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztFQUFkLFNBQWMsRUFBZCxNQUFjO0VBQWQsVUFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7RUFBQSxvQkFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDs7OztFQUFBLDBCQUFjLEVBQWQsTUFBYztFQUFkLDZCQUFjLEVBQWQsTUFBYztFQUFkLHNCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsYUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsZ0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDtFQUFBLHdCQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsWUFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDtFQUFBLDZCQUFjLEVBQWQsTUFBYztFQUFkLG9CQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsd0JBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7RUFBQSwwQkFBYyxFQUFkLE1BQWM7RUFBZCxhQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsa0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7Ozs7Ozs7Ozs7OztFQUFBLFNBQWM7QUFBQTs7QUFBZDtFQUFBLFNBQWM7RUFBZCxVQUFjO0FBQUE7O0FBQWQ7RUFBQSxVQUFjO0FBQUE7O0FBQWQ7OztFQUFBLGdCQUFjO0VBQWQsU0FBYztFQUFkLFVBQWM7QUFBQTs7QUFBZDs7Q0FB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bkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUEsZ0NBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSxzQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxrQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLHNCQUFtQjtLQUFuQjtBQUFtQjtBQUFuQjtFQUFBLG9CQUFtQjtLQUFuQjtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSxpQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxpQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxvQkFBbUI7RUFB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QUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBO0NBQUE7O0FEQUE7O0VBQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBLG9CQ0FBO0lEQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7Q0FBQTs7QURBQTs7RUFBQTtJQUFBO0dDQUE7Q0FBQSIsInNvdXJjZXNDb250ZW50IjpbIkB0YWlsd2luZCBiYXNlO1xyXG5AdGFpbHdpbmQgY29tcG9uZW50cztcclxuQHRhaWx3aW5kIHV0aWxpdGllcztcclxuXHJcbioge1xyXG4gIG1hcmdpbjogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgZm9udC1mYW1pbHk6IFwiRXVkb3h1cyBTYW5zXCIsIHNhbnMtc2VyaWY7XHJcbiAgc2Nyb2xsLWJlaGF2aW9yOiBzbW9vdGg7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wMSB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KFxyXG4gICAgMjcwZGVnLFxyXG4gICAgaHNsKDI5NWRlZyA3NiUgNTElKSAwJSxcclxuICAgIGhzbCgyODRkZWcgNzAlIDczJSkgMjYlLFxyXG4gICAgaHNsKDI1N2RlZyA3MCUgODYlKSAzOSUsXHJcbiAgICBoc2woMjAyZGVnIDkyJSA5MCUpIDUwJSxcclxuICAgIGhzbCgyMTVkZWcgNzclIDgxJSkgNjElLFxyXG4gICAgaHNsKDIyMWRlZyA3MyUgNzAlKSA3NCUsXHJcbiAgICBoc2woMjIwZGVnIDc2JSA1MSUpIDEwMCVcclxuICApO1xyXG4gIGZpbHRlcjogYmx1cigxMjVweCk7XHJcbn1cclxuXHJcbi5oZXJvLWdyYWRpZW50IHtcclxuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoXHJcbiAgICA5Ny44NmRlZyxcclxuICAgICNhNTA5ZmYgMCUsXHJcbiAgICAjMzRhY2M3IDUzLjY1JSxcclxuICAgICNhMTM0YzcgMTAwJVxyXG4gICk7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wMiB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAyMDBweDtcclxuICBoZWlnaHQ6IDQzOHB4O1xyXG4gIHRvcDogMHB4O1xyXG4gIHJpZ2h0OiAwcHg7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM3YWViZmI7XHJcbiAgZmlsdGVyOiBibHVyKDE5MHB4KTtcclxufVxyXG5cclxuLmdsYXNzbW9ycGhpc20ge1xyXG4gIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yNSk7XHJcbiAgYm94LXNoYWRvdzogMCA4cHggMzJweCAwIHJnYmEoMzEsIDM4LCAxMzUsIDAuMzcpO1xyXG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xyXG4gIC13ZWJraXQtYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjE4KTtcclxufVxyXG5cclxuLmdyYWRpZW50LTAzIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6IDQwNHB4O1xyXG4gIGhlaWdodDogODAwcHg7XHJcbiAgbGVmdDogMjAlO1xyXG4gIHRvcDogNSU7XHJcblxyXG4gIGJhY2tncm91bmQ6IHJnYmEoMTQ5LCA2NiwgMjMyLCAwLjM1KTtcclxuICBmaWx0ZXI6IGJsdXIoMTc1cHgpO1xyXG4gIHRyYW5zZm9ybTogcm90YXRlKC0xMTQuMmRlZyk7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wNCB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAzMDRweDtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIGxlZnQ6IDMwJTtcclxuICB0b3A6IDEwJTtcclxuXHJcbiAgYmFja2dyb3VuZDogcmdiYSg0NSwgNzIsIDE1MiwgMC43NSk7XHJcbiAgZmlsdGVyOiBibHVyKDIwMHB4KTtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgtNTMuMTNkZWcpO1xyXG59XHJcblxyXG4uZ3JhZGllbnQtMDUge1xyXG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChcclxuICAgIDE4MGRlZyxcclxuICAgIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkgMCUsXHJcbiAgICByZ2JhKDI1NSwgMjU1LCAyNTUsIDApIDEwMCVcclxuICApO1xyXG59XHJcblxyXG4uZmVlZGJhY2stZ3JhZGllbnQge1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiAzMTZweDtcclxuICBsZWZ0OiAwcHg7XHJcbiAgdG9wOiAwcHg7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM4ZDM5YTM7XHJcbiAgZmlsdGVyOiBibHVyKDE3NXB4KTtcclxufVxyXG5cclxuLmZvb3Rlci1ncmFkaWVudCB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiA1MDBweDtcclxuICBoZWlnaHQ6IDEwMHB4O1xyXG4gIGxlZnQ6IDM3JTtcclxuICBib3R0b206IDA7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM2NWM0ZmE7XHJcbiAgZmlsdGVyOiBibHVyKDE1MHB4KTtcclxufVxyXG4iLG51bGxdLCJzb3VyY2VSb290IjoiIn0= */
-    </style>
-    <style>
-      /*
+      .sm\:text-\[26px\] {
+        font-size: 26px;
+      }
+
+      .sm\:text-\[32px\] {
+        font-size: 32px;
+      }
+
+      .sm\:text-\[18px\] {
+        font-size: 18px;
+      }
+
+      .sm\:text-\[24px\] {
+        font-size: 24px;
+      }
+
+      .sm\:text-\[60px\] {
+        font-size: 60px;
+      }
+
+      .sm\:text-\[20px\] {
+        font-size: 20px;
+      }
+
+      .sm\:leading-\[40\.32px\] {
+        line-height: 40.32px;
+      }
+
+      .sm\:leading-\[22\.68px\] {
+        line-height: 22.68px;
+      }
+
+      .sm\:leading-\[45\.6px\] {
+        line-height: 45.6px;
+      }
+
+      .sm\:leading-\[74\.4px\] {
+        line-height: 74.4px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .md\:-mt-\[20px\] {
+        margin-top: -20px;
+      }
+
+      .md\:text-\[64px\] {
+        font-size: 64px;
+      }
+
+      .md\:text-\[100px\] {
+        font-size: 100px;
+      }
+
+      .md\:text-\[30px\] {
+        font-size: 30px;
+      }
+
+      .md\:leading-\[114\.4px\] {
+        line-height: 114.4px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .lg\:bottom-20 {
+        bottom: 5rem;
+      }
+
+      .lg\:block {
+        display: block;
+      }
+
+      .lg\:h-\[610px\] {
+        height: 610px;
+      }
+
+      .lg\:w-\[80\%\] {
+        width: 80%;
+      }
+
+      .lg\:max-w-\[370px\] {
+        max-width: 370px;
+      }
+
+      .lg\:flex-\[3\.5\] {
+        flex: 3.5;
+      }
+
+      .lg\:flex-\[0\.5\] {
+        flex: 0.5;
+      }
+
+      .lg\:origin-\[0\2c 0\] {
+        transform-origin: 0, 0;
+      }
+
+      .lg\:rotate-\[-90deg\] {
+        --tw-rotate: -90deg;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+      }
+
+      .lg\:flex-row {
+        flex-direction: row;
+      }
+
+      .lg\:text-\[200px\] {
+        font-size: 200px;
+      }
+
+      .lg\:text-\[45px\] {
+        font-size: 45px;
+      }
+
+      .lg\:leading-\[158\.4px\] {
+        line-height: 158.4px;
+      }
+    }
+
+    @media (min-width: 1536px) {
+      .\32xl\:max-w-\[1280px\] {
+        max-width: 1280px;
+      }
+    }
+
+    /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zdHlsZXMvZ2xvYmFscy5jc3MiLCI8bm8gc291cmNlPiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Q0FBYyxDQUFkOzs7Q0FBYzs7QUFBZDs7O0VBQUEsc0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxtQkFBYyxFQUFkLE1BQWM7RUFBZCxxQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7RUFBQSxnQkFBYztBQUFBOztBQUFkOzs7Ozs7Q0FBYzs7QUFBZDtFQUFBLGdCQUFjLEVBQWQsTUFBYztFQUFkLDhCQUFjLEVBQWQsTUFBYztFQUFkLGdCQUFjLEVBQWQsTUFBYztFQUFkLGNBQWM7S0FBZCxXQUFjLEVBQWQsTUFBYztFQUFkLDROQUFjLEVBQWQsTUFBYztFQUFkLDZCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDtFQUFBLFNBQWMsRUFBZCxNQUFjO0VBQWQsb0JBQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7Ozs7Q0FBYzs7QUFBZDtFQUFBLFNBQWMsRUFBZCxNQUFjO0VBQWQsY0FBYyxFQUFkLE1BQWM7RUFBZCxxQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDtFQUFBLHlDQUFjO1VBQWQsaUNBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7Ozs7O0VBQUEsa0JBQWM7RUFBZCxvQkFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsY0FBYztFQUFkLHdCQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsbUJBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7Ozs7RUFBQSwrR0FBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsY0FBYztBQUFBOztBQUFkOztDQUFjOztBQUFkOztFQUFBLGNBQWM7RUFBZCxjQUFjO0VBQWQsa0JBQWM7RUFBZCx3QkFBYztBQUFBOztBQUFkO0VBQUEsZUFBYztBQUFBOztBQUFkO0VBQUEsV0FBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7RUFBQSxjQUFjLEVBQWQsTUFBYztFQUFkLHFCQUFjLEVBQWQsTUFBYztFQUFkLHlCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7Ozs7O0VBQUEsb0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztFQUFkLFNBQWMsRUFBZCxNQUFjO0VBQWQsVUFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7RUFBQSxvQkFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDs7OztFQUFBLDBCQUFjLEVBQWQsTUFBYztFQUFkLDZCQUFjLEVBQWQsTUFBYztFQUFkLHNCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsYUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsZ0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDtFQUFBLHdCQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsWUFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDtFQUFBLDZCQUFjLEVBQWQsTUFBYztFQUFkLG9CQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsd0JBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7RUFBQSwwQkFBYyxFQUFkLE1BQWM7RUFBZCxhQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsa0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7Ozs7Ozs7Ozs7OztFQUFBLFNBQWM7QUFBQTs7QUFBZDtFQUFBLFNBQWM7RUFBZCxVQUFjO0FBQUE7O0FBQWQ7RUFBQSxVQUFjO0FBQUE7O0FBQWQ7OztFQUFBLGdCQUFjO0VBQWQsU0FBYztFQUFkLFVBQWM7QUFBQTs7QUFBZDs7Q0FB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bkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUEsZ0NBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSxzQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxrQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLHNCQUFtQjtLQUFuQjtBQUFtQjtBQUFuQjtFQUFBLG9CQUFtQjtLQUFuQjtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSxpQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxpQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxvQkFBbUI7RUFB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QUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBO0NBQUE7O0FEQUE7O0VBQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBLG9CQ0FBO0lEQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7Q0FBQTs7QURBQTs7RUFBQTtJQUFBO0dDQUE7Q0FBQSIsInNvdXJjZXNDb250ZW50IjpbIkB0YWlsd2luZCBiYXNlO1xyXG5AdGFpbHdpbmQgY29tcG9uZW50cztcclxuQHRhaWx3aW5kIHV0aWxpdGllcztcclxuXHJcbioge1xyXG4gIG1hcmdpbjogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgZm9udC1mYW1pbHk6IFwiRXVkb3h1cyBTYW5zXCIsIHNhbnMtc2VyaWY7XHJcbiAgc2Nyb2xsLWJlaGF2aW9yOiBzbW9vdGg7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wMSB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KFxyXG4gICAgMjcwZGVnLFxyXG4gICAgaHNsKDI5NWRlZyA3NiUgNTElKSAwJSxcclxuICAgIGhzbCgyODRkZWcgNzAlIDczJSkgMjYlLFxyXG4gICAgaHNsKDI1N2RlZyA3MCUgODYlKSAzOSUsXHJcbiAgICBoc2woMjAyZGVnIDkyJSA5MCUpIDUwJSxcclxuICAgIGhzbCgyMTVkZWcgNzclIDgxJSkgNjElLFxyXG4gICAgaHNsKDIyMWRlZyA3MyUgNzAlKSA3NCUsXHJcbiAgICBoc2woMjIwZGVnIDc2JSA1MSUpIDEwMCVcclxuICApO1xyXG4gIGZpbHRlcjogYmx1cigxMjVweCk7XHJcbn1cclxuXHJcbi5oZXJvLWdyYWRpZW50IHtcclxuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoXHJcbiAgICA5Ny44NmRlZyxcclxuICAgICNhNTA5ZmYgMCUsXHJcbiAgICAjMzRhY2M3IDUzLjY1JSxcclxuICAgICNhMTM0YzcgMTAwJVxyXG4gICk7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wMiB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAyMDBweDtcclxuICBoZWlnaHQ6IDQzOHB4O1xyXG4gIHRvcDogMHB4O1xyXG4gIHJpZ2h0OiAwcHg7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM3YWViZmI7XHJcbiAgZmlsdGVyOiBibHVyKDE5MHB4KTtcclxufVxyXG5cclxuLmdsYXNzbW9ycGhpc20ge1xyXG4gIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yNSk7XHJcbiAgYm94LXNoYWRvdzogMCA4cHggMzJweCAwIHJnYmEoMzEsIDM4LCAxMzUsIDAuMzcpO1xyXG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xyXG4gIC13ZWJraXQtYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjE4KTtcclxufVxyXG5cclxuLmdyYWRpZW50LTAzIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6IDQwNHB4O1xyXG4gIGhlaWdodDogODAwcHg7XHJcbiAgbGVmdDogMjAlO1xyXG4gIHRvcDogNSU7XHJcblxyXG4gIGJhY2tncm91bmQ6IHJnYmEoMTQ5LCA2NiwgMjMyLCAwLjM1KTtcclxuICBmaWx0ZXI6IGJsdXIoMTc1cHgpO1xyXG4gIHRyYW5zZm9ybTogcm90YXRlKC0xMTQuMmRlZyk7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wNCB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAzMDRweDtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIGxlZnQ6IDMwJTtcclxuICB0b3A6IDEwJTtcclxuXHJcbiAgYmFja2dyb3VuZDogcmdiYSg0NSwgNzIsIDE1MiwgMC43NSk7XHJcbiAgZmlsdGVyOiBibHVyKDIwMHB4KTtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgtNTMuMTNkZWcpO1xyXG59XHJcblxyXG4uZ3JhZGllbnQtMDUge1xyXG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChcclxuICAgIDE4MGRlZyxcclxuICAgIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkgMCUsXHJcbiAgICByZ2JhKDI1NSwgMjU1LCAyNTUsIDApIDEwMCVcclxuICApO1xyXG59XHJcblxyXG4uZmVlZGJhY2stZ3JhZGllbnQge1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiAzMTZweDtcclxuICBsZWZ0OiAwcHg7XHJcbiAgdG9wOiAwcHg7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM4ZDM5YTM7XHJcbiAgZmlsdGVyOiBibHVyKDE3NXB4KTtcclxufVxyXG5cclxuLmZvb3Rlci1ncmFkaWVudCB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiA1MDBweDtcclxuICBoZWlnaHQ6IDEwMHB4O1xyXG4gIGxlZnQ6IDM3JTtcclxuICBib3R0b206IDA7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM2NWM0ZmE7XHJcbiAgZmlsdGVyOiBibHVyKDE1MHB4KTtcclxufVxyXG4iLG51bGxdLCJzb3VyY2VSb290IjoiIn0= */
+  </style>
+  <style>
+    /*
 ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
-*/ /*
+*/
+    /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
-      *,
-      ::before,
-      ::after {
-        box-sizing: border-box; /* 1 */
-        border-width: 0; /* 2 */
-        border-style: solid; /* 2 */
-        border-color: #e5e7eb; /* 2 */
-      }
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+      /* 1 */
+      border-width: 0;
+      /* 2 */
+      border-style: solid;
+      /* 2 */
+      border-color: #e5e7eb;
+      /* 2 */
+    }
 
-      ::before,
-      ::after {
-        --tw-content: "";
-      }
+    ::before,
+    ::after {
+      --tw-content: "";
+    }
 
-      /*
+    /*
 1. Use a consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
 3. Use a more readable tab size.
@@ -1143,1724 +1282,1670 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 5. Use the user's configured `sans` font-feature-settings by default.
 */
 
-      html {
-        line-height: 1.5; /* 1 */
-        -webkit-text-size-adjust: 100%; /* 2 */
-        -moz-tab-size: 4; /* 3 */
-        -o-tab-size: 4;
-        tab-size: 4; /* 3 */
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-          "Noto Color Emoji"; /* 4 */
-        font-feature-settings: normal; /* 5 */
-      }
+    html {
+      line-height: 1.5;
+      /* 1 */
+      -webkit-text-size-adjust: 100%;
+      /* 2 */
+      -moz-tab-size: 4;
+      /* 3 */
+      -o-tab-size: 4;
+      tab-size: 4;
+      /* 3 */
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+      /* 4 */
+      font-feature-settings: normal;
+      /* 5 */
+    }
 
-      /*
+    /*
 1. Remove the margin in all browsers.
 2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
 */
 
-      body {
-        margin: 0; /* 1 */
-        line-height: inherit; /* 2 */
-      }
+    body {
+      margin: 0;
+      /* 1 */
+      line-height: inherit;
+      /* 2 */
+    }
 
-      /*
+    /*
 1. Add the correct height in Firefox.
 2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
 3. Ensure horizontal rules are visible by default.
 */
 
-      hr {
-        height: 0; /* 1 */
-        color: inherit; /* 2 */
-        border-top-width: 1px; /* 3 */
-      }
+    hr {
+      height: 0;
+      /* 1 */
+      color: inherit;
+      /* 2 */
+      border-top-width: 1px;
+      /* 3 */
+    }
 
-      /*
+    /*
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
-      abbr:where([title]) {
-        -webkit-text-decoration: underline dotted;
-        text-decoration: underline dotted;
-      }
+    abbr:where([title]) {
+      -webkit-text-decoration: underline dotted;
+      text-decoration: underline dotted;
+    }
 
-      /*
+    /*
 Remove the default font size and weight for headings.
 */
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-size: inherit;
-        font-weight: inherit;
-      }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: inherit;
+      font-weight: inherit;
+    }
 
-      /*
+    /*
 Reset links to optimize for opt-in styling instead of opt-out.
 */
 
-      a {
-        color: inherit;
-        text-decoration: inherit;
-      }
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
 
-      /*
+    /*
 Add the correct font weight in Edge and Safari.
 */
 
-      b,
-      strong {
-        font-weight: bolder;
-      }
+    b,
+    strong {
+      font-weight: bolder;
+    }
 
-      /*
+    /*
 1. Use the user's configured `mono` font family by default.
 2. Correct the odd `em` font sizing in all browsers.
 */
 
-      code,
-      kbd,
-      samp,
-      pre {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-          "Liberation Mono", "Courier New", monospace; /* 1 */
-        font-size: 1em; /* 2 */
-      }
+    code,
+    kbd,
+    samp,
+    pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      /* 1 */
+      font-size: 1em;
+      /* 2 */
+    }
 
-      /*
+    /*
 Add the correct font size in all browsers.
 */
 
-      small {
-        font-size: 80%;
-      }
+    small {
+      font-size: 80%;
+    }
 
-      /*
+    /*
 Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 */
 
-      sub,
-      sup {
-        font-size: 75%;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline;
-      }
+    sub,
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+    }
 
-      sub {
-        bottom: -0.25em;
-      }
+    sub {
+      bottom: -0.25em;
+    }
 
-      sup {
-        top: -0.5em;
-      }
+    sup {
+      top: -0.5em;
+    }
 
-      /*
+    /*
 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
 3. Remove gaps between table borders by default.
 */
 
-      table {
-        text-indent: 0; /* 1 */
-        border-color: inherit; /* 2 */
-        border-collapse: collapse; /* 3 */
-      }
+    table {
+      text-indent: 0;
+      /* 1 */
+      border-color: inherit;
+      /* 2 */
+      border-collapse: collapse;
+      /* 3 */
+    }
 
-      /*
+    /*
 1. Change the font styles in all browsers.
 2. Remove the margin in Firefox and Safari.
 3. Remove default padding in all browsers.
 */
 
-      button,
-      input,
-      optgroup,
-      select,
-      textarea {
-        font-family: inherit; /* 1 */
-        font-size: 100%; /* 1 */
-        font-weight: inherit; /* 1 */
-        line-height: inherit; /* 1 */
-        color: inherit; /* 1 */
-        margin: 0; /* 2 */
-        padding: 0; /* 3 */
-      }
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit;
+      /* 1 */
+      font-size: 100%;
+      /* 1 */
+      font-weight: inherit;
+      /* 1 */
+      line-height: inherit;
+      /* 1 */
+      color: inherit;
+      /* 1 */
+      margin: 0;
+      /* 2 */
+      padding: 0;
+      /* 3 */
+    }
 
-      /*
+    /*
 Remove the inheritance of text transform in Edge and Firefox.
 */
 
-      button,
-      select {
-        text-transform: none;
-      }
+    button,
+    select {
+      text-transform: none;
+    }
 
-      /*
+    /*
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Remove default button styles.
 */
 
-      button,
-      [type="button"],
-      [type="reset"],
-      [type="submit"] {
-        -webkit-appearance: button; /* 1 */
-        appearance: button;
-        background-color: transparent; /* 2 */
-        background-image: none; /* 2 */
-      }
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+      /* 1 */
+      appearance: button;
+      background-color: transparent;
+      /* 2 */
+      background-image: none;
+      /* 2 */
+    }
 
-      /*
+    /*
 Use the modern Firefox focus style for all focusable elements.
 */
 
-      :-moz-focusring {
-        outline: auto;
-      }
+    :-moz-focusring {
+      outline: auto;
+    }
 
-      /*
+    /*
 Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
 */
 
-      :-moz-ui-invalid {
-        box-shadow: none;
-      }
+    :-moz-ui-invalid {
+      box-shadow: none;
+    }
 
-      /*
+    /*
 Add the correct vertical alignment in Chrome and Firefox.
 */
 
-      progress {
-        vertical-align: baseline;
-      }
+    progress {
+      vertical-align: baseline;
+    }
 
-      /*
+    /*
 Correct the cursor style of increment and decrement buttons in Safari.
 */
 
-      ::-webkit-inner-spin-button,
-      ::-webkit-outer-spin-button {
-        height: auto;
-      }
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+      height: auto;
+    }
 
-      /*
+    /*
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
 */
 
-      [type="search"] {
-        -webkit-appearance: textfield; /* 1 */
-        appearance: textfield;
-        outline-offset: -2px; /* 2 */
-      }
+    [type="search"] {
+      -webkit-appearance: textfield;
+      /* 1 */
+      appearance: textfield;
+      outline-offset: -2px;
+      /* 2 */
+    }
 
-      /*
+    /*
 Remove the inner padding in Chrome and Safari on macOS.
 */
 
-      ::-webkit-search-decoration {
-        -webkit-appearance: none;
-      }
+    ::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
 
-      /*
+    /*
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Change font properties to `inherit` in Safari.
 */
 
-      ::-webkit-file-upload-button {
-        -webkit-appearance: button; /* 1 */
-        font: inherit; /* 2 */
-      }
+    ::-webkit-file-upload-button {
+      -webkit-appearance: button;
+      /* 1 */
+      font: inherit;
+      /* 2 */
+    }
 
-      /*
+    /*
 Add the correct display in Chrome and Safari.
 */
 
-      summary {
-        display: list-item;
-      }
+    summary {
+      display: list-item;
+    }
 
-      /*
+    /*
 Removes the default spacing and border for appropriate elements.
 */
 
-      blockquote,
-      dl,
-      dd,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      hr,
-      figure,
-      p,
-      pre {
-        margin: 0;
-      }
+    blockquote,
+    dl,
+    dd,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    figure,
+    p,
+    pre {
+      margin: 0;
+    }
 
-      fieldset {
-        margin: 0;
-        padding: 0;
-      }
+    fieldset {
+      margin: 0;
+      padding: 0;
+    }
 
-      legend {
-        padding: 0;
-      }
+    legend {
+      padding: 0;
+    }
 
-      ol,
-      ul,
-      menu {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
+    ol,
+    ul,
+    menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-      /*
+    /*
 Prevent resizing textareas horizontally by default.
 */
 
-      textarea {
-        resize: vertical;
-      }
+    textarea {
+      resize: vertical;
+    }
 
-      /*
+    /*
 1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-      input::-moz-placeholder,
-      textarea::-moz-placeholder {
-        opacity: 1; /* 1 */
-        color: #9ca3af; /* 2 */
-      }
+    input::-moz-placeholder,
+    textarea::-moz-placeholder {
+      opacity: 1;
+      /* 1 */
+      color: #9ca3af;
+      /* 2 */
+    }
 
-      input::placeholder,
-      textarea::placeholder {
-        opacity: 1; /* 1 */
-        color: #9ca3af; /* 2 */
-      }
+    input::placeholder,
+    textarea::placeholder {
+      opacity: 1;
+      /* 1 */
+      color: #9ca3af;
+      /* 2 */
+    }
 
-      /*
+    /*
 Set the default cursor for buttons.
 */
 
-      button,
-      [role="button"] {
-        cursor: pointer;
-      }
+    button,
+    [role="button"] {
+      cursor: pointer;
+    }
 
-      /*
+    /*
 Make sure disabled buttons don't get the pointer cursor.
 */
-      :disabled {
-        cursor: default;
-      }
+    :disabled {
+      cursor: default;
+    }
 
-      /*
+    /*
 1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
 2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
    This can trigger a poorly considered lint error in some tools but is included by design.
 */
 
-      img,
-      svg,
-      video,
-      canvas,
-      audio,
-      iframe,
-      embed,
-      object {
-        display: inline-block; /* 1 */
-        vertical-align: middle; /* 2 */
-      }
+    img,
+    svg,
+    video,
+    canvas,
+    audio,
+    iframe,
+    embed,
+    object {
+      display: inline-block;
+      /* 1 */
+      vertical-align: middle;
+      /* 2 */
+    }
 
-      /*
+    /*
 Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
 */
 
-      img,
-      video {
-        max-width: 100%;
-        height: auto;
-      }
+    img,
+    video {
+      max-width: 100%;
+      height: auto;
+    }
 
-      /* Make elements with the HTML hidden attribute stay hidden by default */
-      [hidden] {
-        display: none;
-      }
+    /* Make elements with the HTML hidden attribute stay hidden by default */
+    [hidden] {
+      display: none;
+    }
 
-      *,
-      ::before,
-      ::after {
-        --tw-border-spacing-x: 0;
-        --tw-border-spacing-y: 0;
-        --tw-translate-x: 0;
-        --tw-translate-y: 0;
-        --tw-rotate: 0;
-        --tw-skew-x: 0;
-        --tw-skew-y: 0;
-        --tw-scale-x: 1;
-        --tw-scale-y: 1;
-        --tw-pan-x: ;
-        --tw-pan-y: ;
-        --tw-pinch-zoom: ;
-        --tw-scroll-snap-strictness: proximity;
-        --tw-ordinal: ;
-        --tw-slashed-zero: ;
-        --tw-numeric-figure: ;
-        --tw-numeric-spacing: ;
-        --tw-numeric-fraction: ;
-        --tw-ring-inset: ;
-        --tw-ring-offset-width: 0px;
-        --tw-ring-offset-color: #fff;
-        --tw-ring-color: rgb(59 130 246 / 0.5);
-        --tw-ring-offset-shadow: 0 0 #0000;
-        --tw-ring-shadow: 0 0 #0000;
-        --tw-shadow: 0 0 #0000;
-        --tw-shadow-colored: 0 0 #0000;
-        --tw-blur: ;
-        --tw-brightness: ;
-        --tw-contrast: ;
-        --tw-grayscale: ;
-        --tw-hue-rotate: ;
-        --tw-invert: ;
-        --tw-saturate: ;
-        --tw-sepia: ;
-        --tw-drop-shadow: ;
-        --tw-backdrop-blur: ;
-        --tw-backdrop-brightness: ;
-        --tw-backdrop-contrast: ;
-        --tw-backdrop-grayscale: ;
-        --tw-backdrop-hue-rotate: ;
-        --tw-backdrop-invert: ;
-        --tw-backdrop-opacity: ;
-        --tw-backdrop-saturate: ;
-        --tw-backdrop-sepia: ;
-      }
+    *,
+    ::before,
+    ::after {
+      --tw-border-spacing-x: 0;
+      --tw-border-spacing-y: 0;
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-rotate: 0;
+      --tw-skew-x: 0;
+      --tw-skew-y: 0;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-pan-x: ;
+      --tw-pan-y: ;
+      --tw-pinch-zoom: ;
+      --tw-scroll-snap-strictness: proximity;
+      --tw-ordinal: ;
+      --tw-slashed-zero: ;
+      --tw-numeric-figure: ;
+      --tw-numeric-spacing: ;
+      --tw-numeric-fraction: ;
+      --tw-ring-inset: ;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-color: rgb(59 130 246 / 0.5);
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-colored: 0 0 #0000;
+      --tw-blur: ;
+      --tw-brightness: ;
+      --tw-contrast: ;
+      --tw-grayscale: ;
+      --tw-hue-rotate: ;
+      --tw-invert: ;
+      --tw-saturate: ;
+      --tw-sepia: ;
+      --tw-drop-shadow: ;
+      --tw-backdrop-blur: ;
+      --tw-backdrop-brightness: ;
+      --tw-backdrop-contrast: ;
+      --tw-backdrop-grayscale: ;
+      --tw-backdrop-hue-rotate: ;
+      --tw-backdrop-invert: ;
+      --tw-backdrop-opacity: ;
+      --tw-backdrop-saturate: ;
+      --tw-backdrop-sepia: ;
+    }
 
-      ::backdrop {
-        --tw-border-spacing-x: 0;
-        --tw-border-spacing-y: 0;
-        --tw-translate-x: 0;
-        --tw-translate-y: 0;
-        --tw-rotate: 0;
-        --tw-skew-x: 0;
-        --tw-skew-y: 0;
-        --tw-scale-x: 1;
-        --tw-scale-y: 1;
-        --tw-pan-x: ;
-        --tw-pan-y: ;
-        --tw-pinch-zoom: ;
-        --tw-scroll-snap-strictness: proximity;
-        --tw-ordinal: ;
-        --tw-slashed-zero: ;
-        --tw-numeric-figure: ;
-        --tw-numeric-spacing: ;
-        --tw-numeric-fraction: ;
-        --tw-ring-inset: ;
-        --tw-ring-offset-width: 0px;
-        --tw-ring-offset-color: #fff;
-        --tw-ring-color: rgb(59 130 246 / 0.5);
-        --tw-ring-offset-shadow: 0 0 #0000;
-        --tw-ring-shadow: 0 0 #0000;
-        --tw-shadow: 0 0 #0000;
-        --tw-shadow-colored: 0 0 #0000;
-        --tw-blur: ;
-        --tw-brightness: ;
-        --tw-contrast: ;
-        --tw-grayscale: ;
-        --tw-hue-rotate: ;
-        --tw-invert: ;
-        --tw-saturate: ;
-        --tw-sepia: ;
-        --tw-drop-shadow: ;
-        --tw-backdrop-blur: ;
-        --tw-backdrop-brightness: ;
-        --tw-backdrop-contrast: ;
-        --tw-backdrop-grayscale: ;
-        --tw-backdrop-hue-rotate: ;
-        --tw-backdrop-invert: ;
-        --tw-backdrop-opacity: ;
-        --tw-backdrop-saturate: ;
-        --tw-backdrop-sepia: ;
-      }
-      .absolute {
-        position: absolute;
-      }
-      .relative {
-        position: relative;
-      }
-      .inset-0 {
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-      }
-      .bottom-0 {
-        bottom: 0px;
-      }
-      .-left-\[10\%\] {
-        left: -10%;
-      }
-      .top-\[3\%\] {
-        top: 3%;
-      }
-      .z-0 {
-        z-index: 0;
-      }
-      .z-10 {
-        z-index: 10;
-      }
-      .mx-auto {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .mt-\[8px\] {
-        margin-top: 8px;
-      }
-      .mt-\[24px\] {
-        margin-top: 24px;
-      }
-      .mb-\[50px\] {
-        margin-bottom: 50px;
-      }
-      .mt-\[28px\] {
-        margin-top: 28px;
-      }
-      .mt-\[50px\] {
-        margin-top: 50px;
-      }
-      .-mt-\[12px\] {
-        margin-top: -12px;
-      }
-      .mt-\[68px\] {
-        margin-top: 68px;
-      }
-      .flex {
-        display: flex;
-      }
-      .hidden {
-        display: none;
-      }
-      .h-\[700px\] {
-        height: 700px;
-      }
-      .h-full {
-        height: 100%;
-      }
-      .h-fit {
-        height: -moz-fit-content;
-        height: fit-content;
-      }
-      .h-\[2px\] {
-        height: 2px;
-      }
-      .h-\[24px\] {
-        height: 24px;
-      }
-      .h-\[28px\] {
-        height: 28px;
-      }
-      .h-auto {
-        height: auto;
-      }
-      .h-\[550px\] {
-        height: 550px;
-      }
-      .min-h-\[70vh\] {
-        min-height: 70vh;
-      }
-      .min-h-\[210px\] {
-        min-height: 210px;
-      }
-      .w-full {
-        width: 100%;
-      }
-      .w-\[24px\] {
-        width: 24px;
-      }
-      .w-\[50\%\] {
-        width: 50%;
-      }
-      .w-\[18px\] {
-        width: 18px;
-      }
-      .w-\[100\%\] {
-        width: 100%;
-      }
-      .min-w-\[170px\] {
-        min-width: 170px;
-      }
-      .flex-\[10\] {
-        flex: 10;
-      }
-      .flex-\[2\] {
-        flex: 2;
-      }
-      .flex-\[0\.5\] {
-        flex: 0.5;
-      }
-      .flex-1 {
-        flex: 1 1 0%;
-      }
-      .cursor-pointer {
-        cursor: pointer;
-      }
-      .flex-row {
-        flex-direction: row;
-      }
-      .flex-col {
-        flex-direction: column;
-      }
-      .flex-wrap {
-        flex-wrap: wrap;
-      }
-      .items-start {
-        align-items: flex-start;
-      }
-      .items-center {
-        align-items: center;
-      }
-      .justify-start {
-        justify-content: flex-start;
-      }
-      .justify-end {
-        justify-content: flex-end;
-      }
-      .justify-center {
-        justify-content: center;
-      }
-      .justify-between {
-        justify-content: space-between;
-      }
-      .gap-8 {
-        gap: 2rem;
-      }
-      .gap-5 {
-        gap: 1.25rem;
-      }
-      .gap-\[12px\] {
-        gap: 12px;
-      }
-      .gap-4 {
-        gap: 1rem;
-      }
-      .gap-6 {
-        gap: 1.5rem;
-      }
-      .overflow-hidden {
-        overflow: hidden;
-      }
-      .rounded-\[24px\] {
-        border-radius: 24px;
-      }
-      .rounded-\[40px\] {
-        border-radius: 40px;
-      }
-      .rounded-\[32px\] {
-        border-radius: 32px;
-      }
-      .rounded-b-\[24px\] {
-        border-bottom-right-radius: 24px;
-        border-bottom-left-radius: 24px;
-      }
-      .border-\[1px\] {
-        border-width: 1px;
-      }
-      .border-\[\#6A6A6A\] {
-        --tw-border-opacity: 1;
-        border-color: rgb(106 106 106 / var(--tw-border-opacity));
-      }
-      .bg-primary-violet {
-        --tw-bg-opacity: 1;
-        background-color: rgb(61 23 102 / var(--tw-bg-opacity));
-      }
-      .bg-\[rgba\(0\2c 0\2c 0\2c 0\.5\)\] {
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-      .bg-\[\#F56EB3\] {
-        --tw-bg-opacity: 1;
-        background-color: rgb(245 110 179 / var(--tw-bg-opacity));
-      }
-      .bg-white {
-        --tw-bg-opacity: 1;
-        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-      }
-      .object-contain {
-        -o-object-fit: contain;
-        object-fit: contain;
-      }
-      .object-cover {
-        -o-object-fit: cover;
-        object-fit: cover;
-      }
-      .p-8 {
-        padding: 2rem;
-      }
-      .p-4 {
-        padding: 1rem;
-      }
-      .py-8 {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-      }
-      .py-4 {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-      }
-      .px-6 {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-      .px-12 {
-        padding-left: 3rem;
-        padding-right: 3rem;
-      }
-      .py-12 {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-      .pl-6 {
-        padding-left: 1.5rem;
-      }
-      .pt-12 {
-        padding-top: 3rem;
-      }
-      .pb-12 {
-        padding-bottom: 3rem;
-      }
-      .pt-\[98px\] {
-        padding-top: 98px;
-      }
-      .text-center {
-        text-align: center;
-      }
-      .text-\[14px\] {
-        font-size: 14px;
-      }
-      .text-\[40px\] {
-        font-size: 40px;
-      }
-      .text-\[18px\] {
-        font-size: 18px;
-      }
-      .text-\[16px\] {
-        font-size: 16px;
-      }
-      .text-\[24px\] {
-        font-size: 24px;
-      }
-      .text-\[44px\] {
-        font-size: 44px;
-      }
-      .text-2xl {
-        font-size: 1.5rem;
-        line-height: 2rem;
-      }
-      .text-\[20px\] {
-        font-size: 20px;
-      }
-      .text-\[26px\] {
-        font-size: 26px;
-      }
-      .text-\[12px\] {
-        font-size: 12px;
-      }
-      .text-\[30px\] {
-        font-size: 30px;
-      }
-      .text-\[11px\] {
-        font-size: 11px;
-      }
-      .font-normal {
-        font-weight: 400;
-      }
-      .font-bold {
-        font-weight: 700;
-      }
-      .font-semibold {
-        font-weight: 600;
-      }
-      .font-extrabold {
-        font-weight: 800;
-      }
-      .uppercase {
-        text-transform: uppercase;
-      }
-      .leading-\[20\.16px\] {
-        line-height: 20.16px;
-      }
-      .leading-\[30\.24px\] {
-        line-height: 30.24px;
-      }
-      .leading-\[36\.32px\] {
-        line-height: 36.32px;
-      }
-      .leading-\[16\.68px\] {
-        line-height: 16.68px;
-      }
-      .leading-\[39\.6px\] {
-        line-height: 39.6px;
-      }
-      .leading-\[64\.4px\] {
-        line-height: 64.4px;
-      }
-      .text-secondary-white {
-        --tw-text-opacity: 1;
-        color: rgb(199 199 199 / var(--tw-text-opacity));
-      }
-      .text-white {
-        --tw-text-opacity: 1;
-        color: rgb(255 255 255 / var(--tw-text-opacity));
-      }
-      .opacity-10 {
-        opacity: 0.1;
-      }
-      .opacity-50 {
-        opacity: 0.5;
-      }
-      .transition-\[flex\] {
-        transition-property: flex;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 150ms;
-      }
-      .duration-\[0\.7s\] {
-        transition-duration: 0.7s;
-      }
-      .ease-out-flex {
-        transition-timing-function: cubic-bezier(0.05, 0.6, 0.4, 0.9);
-      }
+    ::backdrop {
+      --tw-border-spacing-x: 0;
+      --tw-border-spacing-y: 0;
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-rotate: 0;
+      --tw-skew-x: 0;
+      --tw-skew-y: 0;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-pan-x: ;
+      --tw-pan-y: ;
+      --tw-pinch-zoom: ;
+      --tw-scroll-snap-strictness: proximity;
+      --tw-ordinal: ;
+      --tw-slashed-zero: ;
+      --tw-numeric-figure: ;
+      --tw-numeric-spacing: ;
+      --tw-numeric-fraction: ;
+      --tw-ring-inset: ;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-color: rgb(59 130 246 / 0.5);
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-colored: 0 0 #0000;
+      --tw-blur: ;
+      --tw-brightness: ;
+      --tw-contrast: ;
+      --tw-grayscale: ;
+      --tw-hue-rotate: ;
+      --tw-invert: ;
+      --tw-saturate: ;
+      --tw-sepia: ;
+      --tw-drop-shadow: ;
+      --tw-backdrop-blur: ;
+      --tw-backdrop-brightness: ;
+      --tw-backdrop-contrast: ;
+      --tw-backdrop-grayscale: ;
+      --tw-backdrop-hue-rotate: ;
+      --tw-backdrop-invert: ;
+      --tw-backdrop-opacity: ;
+      --tw-backdrop-saturate: ;
+      --tw-backdrop-sepia: ;
+    }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Eudoxus Sans", sans-serif;
-        scroll-behavior: smooth;
-      }
+    .absolute {
+      position: absolute;
+    }
 
-      .gradient-01 {
-        background-image: linear-gradient(
-          270deg,
+    .relative {
+      position: relative;
+    }
+
+    .inset-0 {
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+    }
+
+    .bottom-0 {
+      bottom: 0px;
+    }
+
+    .-left-\[10\%\] {
+      left: -10%;
+    }
+
+    .top-\[3\%\] {
+      top: 3%;
+    }
+
+    .z-0 {
+      z-index: 0;
+    }
+
+    .z-10 {
+      z-index: 10;
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mt-\[8px\] {
+      margin-top: 8px;
+    }
+
+    .mt-\[24px\] {
+      margin-top: 24px;
+    }
+
+    .mb-\[50px\] {
+      margin-bottom: 50px;
+    }
+
+    .mt-\[28px\] {
+      margin-top: 28px;
+    }
+
+    .mt-\[50px\] {
+      margin-top: 50px;
+    }
+
+    .-mt-\[12px\] {
+      margin-top: -12px;
+    }
+
+    .mt-\[68px\] {
+      margin-top: 68px;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .h-\[700px\] {
+      height: 700px;
+    }
+
+    .h-full {
+      height: 100%;
+    }
+
+    .h-fit {
+      height: -moz-fit-content;
+      height: fit-content;
+    }
+
+    .h-\[2px\] {
+      height: 2px;
+    }
+
+    .h-\[24px\] {
+      height: 24px;
+    }
+
+    .h-\[28px\] {
+      height: 28px;
+    }
+
+    .h-auto {
+      height: auto;
+    }
+
+    .h-\[550px\] {
+      height: 550px;
+    }
+
+    .min-h-\[70vh\] {
+      min-height: 70vh;
+    }
+
+    .min-h-\[210px\] {
+      min-height: 210px;
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    .w-\[24px\] {
+      width: 24px;
+    }
+
+    .w-\[50\%\] {
+      width: 50%;
+    }
+
+    .w-\[18px\] {
+      width: 18px;
+    }
+
+    .w-\[100\%\] {
+      width: 100%;
+    }
+
+    .min-w-\[170px\] {
+      min-width: 170px;
+    }
+
+    .flex-\[10\] {
+      flex: 10;
+    }
+
+    .flex-\[2\] {
+      flex: 2;
+    }
+
+    .flex-\[0\.5\] {
+      flex: 0.5;
+    }
+
+    .flex-1 {
+      flex: 1 1 0%;
+    }
+
+    .cursor-pointer {
+      cursor: pointer;
+    }
+
+    .flex-row {
+      flex-direction: row;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .items-start {
+      align-items: flex-start;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-start {
+      justify-content: flex-start;
+    }
+
+    .justify-end {
+      justify-content: flex-end;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .gap-8 {
+      gap: 2rem;
+    }
+
+    .gap-5 {
+      gap: 1.25rem;
+    }
+
+    .gap-\[12px\] {
+      gap: 12px;
+    }
+
+    .gap-4 {
+      gap: 1rem;
+    }
+
+    .gap-6 {
+      gap: 1.5rem;
+    }
+
+    .overflow-hidden {
+      overflow: hidden;
+    }
+
+    .rounded-\[24px\] {
+      border-radius: 24px;
+    }
+
+    .rounded-\[40px\] {
+      border-radius: 40px;
+    }
+
+    .rounded-\[32px\] {
+      border-radius: 32px;
+    }
+
+    .rounded-b-\[24px\] {
+      border-bottom-right-radius: 24px;
+      border-bottom-left-radius: 24px;
+    }
+
+    .border-\[1px\] {
+      border-width: 1px;
+    }
+
+    .border-\[\#6A6A6A\] {
+      --tw-border-opacity: 1;
+      border-color: rgb(106 106 106 / var(--tw-border-opacity));
+    }
+
+    .bg-primary-violet {
+      --tw-bg-opacity: 1;
+      background-color: rgb(61 23 102 / var(--tw-bg-opacity));
+    }
+
+    .bg-\[rgba\(0\2c 0\2c 0\2c 0\.5\)\] {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .bg-\[\#F56EB3\] {
+      --tw-bg-opacity: 1;
+      background-color: rgb(245 110 179 / var(--tw-bg-opacity));
+    }
+
+    .bg-white {
+      --tw-bg-opacity: 1;
+      background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    }
+
+    .object-contain {
+      -o-object-fit: contain;
+      object-fit: contain;
+    }
+
+    .object-cover {
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+
+    .p-8 {
+      padding: 2rem;
+    }
+
+    .p-4 {
+      padding: 1rem;
+    }
+
+    .py-8 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .py-4 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .px-6 {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .px-12 {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
+    .py-12 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .pl-6 {
+      padding-left: 1.5rem;
+    }
+
+    .pt-12 {
+      padding-top: 3rem;
+    }
+
+    .pb-12 {
+      padding-bottom: 3rem;
+    }
+
+    .pt-\[98px\] {
+      padding-top: 98px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-\[14px\] {
+      font-size: 14px;
+    }
+
+    .text-\[40px\] {
+      font-size: 40px;
+    }
+
+    .text-\[18px\] {
+      font-size: 18px;
+    }
+
+    .text-\[16px\] {
+      font-size: 16px;
+    }
+
+    .text-\[24px\] {
+      font-size: 24px;
+    }
+
+    .text-\[44px\] {
+      font-size: 44px;
+    }
+
+    .text-2xl {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    .text-\[20px\] {
+      font-size: 20px;
+    }
+
+    .text-\[26px\] {
+      font-size: 26px;
+    }
+
+    .text-\[12px\] {
+      font-size: 12px;
+    }
+
+    .text-\[30px\] {
+      font-size: 30px;
+    }
+
+    .text-\[11px\] {
+      font-size: 11px;
+    }
+
+    .font-normal {
+      font-weight: 400;
+    }
+
+    .font-bold {
+      font-weight: 700;
+    }
+
+    .font-semibold {
+      font-weight: 600;
+    }
+
+    .font-extrabold {
+      font-weight: 800;
+    }
+
+    .uppercase {
+      text-transform: uppercase;
+    }
+
+    .leading-\[20\.16px\] {
+      line-height: 20.16px;
+    }
+
+    .leading-\[30\.24px\] {
+      line-height: 30.24px;
+    }
+
+    .leading-\[36\.32px\] {
+      line-height: 36.32px;
+    }
+
+    .leading-\[16\.68px\] {
+      line-height: 16.68px;
+    }
+
+    .leading-\[39\.6px\] {
+      line-height: 39.6px;
+    }
+
+    .leading-\[64\.4px\] {
+      line-height: 64.4px;
+    }
+
+    .text-secondary-white {
+      --tw-text-opacity: 1;
+      color: rgb(199 199 199 / var(--tw-text-opacity));
+    }
+
+    .text-white {
+      --tw-text-opacity: 1;
+      color: rgb(255 255 255 / var(--tw-text-opacity));
+    }
+
+    .opacity-10 {
+      opacity: 0.1;
+    }
+
+    .opacity-50 {
+      opacity: 0.5;
+    }
+
+    .transition-\[flex\] {
+      transition-property: flex;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+    }
+
+    .duration-\[0\.7s\] {
+      transition-duration: 0.7s;
+    }
+
+    .ease-out-flex {
+      transition-timing-function: cubic-bezier(0.05, 0.6, 0.4, 0.9);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Eudoxus Sans", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .gradient-01 {
+      background-image: linear-gradient(270deg,
           hsl(295deg 76% 51%) 0%,
           hsl(284deg 70% 73%) 26%,
           hsl(257deg 70% 86%) 39%,
           hsl(202deg 92% 90%) 50%,
           hsl(215deg 77% 81%) 61%,
           hsl(221deg 73% 70%) 74%,
-          hsl(220deg 76% 51%) 100%
-        );
-        filter: blur(125px);
-      }
+          hsl(220deg 76% 51%) 100%);
+      filter: blur(125px);
+    }
 
-      .hero-gradient {
-        background: linear-gradient(
-          97.86deg,
+    .hero-gradient {
+      background: linear-gradient(97.86deg,
           #a509ff 0%,
           #34acc7 53.65%,
-          #a134c7 100%
-        );
-      }
+          #a134c7 100%);
+    }
 
-      .gradient-02 {
-        position: absolute;
-        width: 200px;
-        height: 438px;
-        top: 0px;
-        right: 0px;
+    .gradient-02 {
+      position: absolute;
+      width: 200px;
+      height: 438px;
+      top: 0px;
+      right: 0px;
 
-        background: #7aebfb;
-        filter: blur(190px);
-      }
+      background: #7aebfb;
+      filter: blur(190px);
+    }
 
-      .glassmorphism {
-        background: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-      }
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
 
-      .gradient-03 {
-        position: absolute;
-        width: 404px;
-        height: 800px;
-        left: 20%;
-        top: 5%;
+    .gradient-03 {
+      position: absolute;
+      width: 404px;
+      height: 800px;
+      left: 20%;
+      top: 5%;
 
-        background: rgba(149, 66, 232, 0.35);
-        filter: blur(175px);
-        transform: rotate(-114.2deg);
-      }
+      background: rgba(149, 66, 232, 0.35);
+      filter: blur(175px);
+      transform: rotate(-114.2deg);
+    }
 
-      .gradient-04 {
-        position: absolute;
-        width: 304px;
-        height: 100vh;
-        left: 30%;
-        top: 10%;
+    .gradient-04 {
+      position: absolute;
+      width: 304px;
+      height: 100vh;
+      left: 30%;
+      top: 10%;
 
-        background: rgba(45, 72, 152, 0.75);
-        filter: blur(200px);
-        transform: rotate(-53.13deg);
-      }
+      background: rgba(45, 72, 152, 0.75);
+      filter: blur(200px);
+      transform: rotate(-53.13deg);
+    }
 
-      .gradient-05 {
-        background: linear-gradient(
-          180deg,
+    .gradient-05 {
+      background: linear-gradient(180deg,
           rgba(255, 255, 255, 0.04) 0%,
-          rgba(255, 255, 255, 0) 100%
-        );
+          rgba(255, 255, 255, 0) 100%);
+    }
+
+    .feedback-gradient {
+      position: absolute;
+      width: 200px;
+      height: 316px;
+      left: 0px;
+      top: 0px;
+
+      background: #8d39a3;
+      filter: blur(175px);
+    }
+
+    .footer-gradient {
+      position: absolute;
+      width: 500px;
+      height: 100px;
+      left: 37%;
+      bottom: 0;
+
+      background: #65c4fa;
+      filter: blur(150px);
+    }
+
+    @media (min-width: 640px) {
+      .sm\:p-8 {
+        padding: 2rem;
       }
 
-      .feedback-gradient {
-        position: absolute;
-        width: 200px;
-        height: 316px;
-        left: 0px;
-        top: 0px;
-
-        background: #8d39a3;
-        filter: blur(175px);
+      .sm\:p-16 {
+        padding: 4rem;
       }
 
-      .footer-gradient {
-        position: absolute;
-        width: 500px;
-        height: 100px;
-        left: 37%;
-        bottom: 0;
-
-        background: #65c4fa;
-        filter: blur(150px);
+      .sm\:py-16 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
       }
 
-      @media (min-width: 640px) {
-        .sm\:p-8 {
-          padding: 2rem;
-        }
-
-        .sm\:p-16 {
-          padding: 4rem;
-        }
-
-        .sm\:py-16 {
-          padding-top: 4rem;
-          padding-bottom: 4rem;
-        }
-
-        .sm\:px-16 {
-          padding-left: 4rem;
-          padding-right: 4rem;
-        }
-
-        .sm\:pl-16 {
-          padding-left: 4rem;
-        }
-
-        .sm\:pt-16 {
-          padding-top: 4rem;
-        }
-
-        .sm\:pb-16 {
-          padding-bottom: 4rem;
-        }
-
-        .sm\:text-\[26px\] {
-          font-size: 26px;
-        }
-
-        .sm\:text-\[32px\] {
-          font-size: 32px;
-        }
-
-        .sm\:text-\[18px\] {
-          font-size: 18px;
-        }
-
-        .sm\:text-\[24px\] {
-          font-size: 24px;
-        }
-
-        .sm\:text-\[60px\] {
-          font-size: 60px;
-        }
-
-        .sm\:text-\[20px\] {
-          font-size: 20px;
-        }
-
-        .sm\:leading-\[40\.32px\] {
-          line-height: 40.32px;
-        }
-
-        .sm\:leading-\[22\.68px\] {
-          line-height: 22.68px;
-        }
-
-        .sm\:leading-\[45\.6px\] {
-          line-height: 45.6px;
-        }
-
-        .sm\:leading-\[74\.4px\] {
-          line-height: 74.4px;
-        }
+      .sm\:px-16 {
+        padding-left: 4rem;
+        padding-right: 4rem;
       }
 
-      @media (min-width: 768px) {
-        .md\:-mt-\[20px\] {
-          margin-top: -20px;
-        }
-
-        .md\:text-\[64px\] {
-          font-size: 64px;
-        }
-
-        .md\:text-\[100px\] {
-          font-size: 100px;
-        }
-
-        .md\:text-\[30px\] {
-          font-size: 30px;
-        }
-
-        .md\:leading-\[114\.4px\] {
-          line-height: 114.4px;
-        }
+      .sm\:pl-16 {
+        padding-left: 4rem;
       }
 
-      @media (min-width: 1024px) {
-        .lg\:bottom-20 {
-          bottom: 5rem;
-        }
-
-        .lg\:block {
-          display: block;
-        }
-
-        .lg\:h-\[610px\] {
-          height: 610px;
-        }
-
-        .lg\:w-\[80\%\] {
-          width: 80%;
-        }
-
-        .lg\:max-w-\[370px\] {
-          max-width: 370px;
-        }
-
-        .lg\:flex-\[3\.5\] {
-          flex: 3.5;
-        }
-
-        .lg\:flex-\[0\.5\] {
-          flex: 0.5;
-        }
-
-        .lg\:origin-\[0\2c 0\] {
-          transform-origin: 0, 0;
-        }
-
-        .lg\:rotate-\[-90deg\] {
-          --tw-rotate: -90deg;
-          transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-            rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
-            skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
-            scaleY(var(--tw-scale-y));
-        }
-
-        .lg\:flex-row {
-          flex-direction: row;
-        }
-
-        .lg\:text-\[200px\] {
-          font-size: 200px;
-        }
-
-        .lg\:text-\[45px\] {
-          font-size: 45px;
-        }
-
-        .lg\:leading-\[158\.4px\] {
-          line-height: 158.4px;
-        }
+      .sm\:pt-16 {
+        padding-top: 4rem;
       }
 
-      @media (min-width: 1536px) {
-        .\32xl\:max-w-\[1280px\] {
-          max-width: 1280px;
-        }
+      .sm\:pb-16 {
+        padding-bottom: 4rem;
       }
 
-      /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zdHlsZXMvZ2xvYmFscy5jc3MiLCI8bm8gc291cmNlPiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Q0FBYyxDQUFkOzs7Q0FBYzs7QUFBZDs7O0VBQUEsc0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxtQkFBYyxFQUFkLE1BQWM7RUFBZCxxQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7RUFBQSxnQkFBYztBQUFBOztBQUFkOzs7Ozs7Q0FBYzs7QUFBZDtFQUFBLGdCQUFjLEVBQWQsTUFBYztFQUFkLDhCQUFjLEVBQWQsTUFBYztFQUFkLGdCQUFjLEVBQWQsTUFBYztFQUFkLGNBQWM7S0FBZCxXQUFjLEVBQWQsTUFBYztFQUFkLDROQUFjLEVBQWQsTUFBYztFQUFkLDZCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDtFQUFBLFNBQWMsRUFBZCxNQUFjO0VBQWQsb0JBQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7Ozs7Q0FBYzs7QUFBZDtFQUFBLFNBQWMsRUFBZCxNQUFjO0VBQWQsY0FBYyxFQUFkLE1BQWM7RUFBZCxxQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDtFQUFBLHlDQUFjO1VBQWQsaUNBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7Ozs7O0VBQUEsa0JBQWM7RUFBZCxvQkFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsY0FBYztFQUFkLHdCQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsbUJBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7Ozs7RUFBQSwrR0FBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsY0FBYztBQUFBOztBQUFkOztDQUFjOztBQUFkOztFQUFBLGNBQWM7RUFBZCxjQUFjO0VBQWQsa0JBQWM7RUFBZCx3QkFBYztBQUFBOztBQUFkO0VBQUEsZUFBYztBQUFBOztBQUFkO0VBQUEsV0FBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7RUFBQSxjQUFjLEVBQWQsTUFBYztFQUFkLHFCQUFjLEVBQWQsTUFBYztFQUFkLHlCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7Ozs7O0VBQUEsb0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztFQUFkLFNBQWMsRUFBZCxNQUFjO0VBQWQsVUFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7RUFBQSxvQkFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDs7OztFQUFBLDBCQUFjLEVBQWQsTUFBYztFQUFkLDZCQUFjLEVBQWQsTUFBYztFQUFkLHNCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsYUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsZ0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDtFQUFBLHdCQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsWUFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDtFQUFBLDZCQUFjLEVBQWQsTUFBYztFQUFkLG9CQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsd0JBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7RUFBQSwwQkFBYyxFQUFkLE1BQWM7RUFBZCxhQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsa0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7Ozs7Ozs7Ozs7OztFQUFBLFNBQWM7QUFBQTs7QUFBZDtFQUFBLFNBQWM7RUFBZCxVQUFjO0FBQUE7O0FBQWQ7RUFBQSxVQUFjO0FBQUE7O0FBQWQ7OztFQUFBLGdCQUFjO0VBQWQsU0FBYztFQUFkLFVBQWM7QUFBQTs7QUFBZDs7Q0FB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bkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUEsZ0NBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSxzQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxrQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLHNCQUFtQjtLQUFuQjtBQUFtQjtBQUFuQjtFQUFBLG9CQUFtQjtLQUFuQjtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSxpQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxpQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxvQkFBbUI7RUFB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QUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBO0NBQUE7O0FEQUE7O0VBQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBLG9CQ0FBO0lEQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7Q0FBQTs7QURBQTs7RUFBQTtJQUFBO0dDQUE7Q0FBQSIsInNvdXJjZXNDb250ZW50IjpbIkB0YWlsd2luZCBiYXNlO1xyXG5AdGFpbHdpbmQgY29tcG9uZW50cztcclxuQHRhaWx3aW5kIHV0aWxpdGllcztcclxuXHJcbioge1xyXG4gIG1hcmdpbjogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgZm9udC1mYW1pbHk6IFwiRXVkb3h1cyBTYW5zXCIsIHNhbnMtc2VyaWY7XHJcbiAgc2Nyb2xsLWJlaGF2aW9yOiBzbW9vdGg7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wMSB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KFxyXG4gICAgMjcwZGVnLFxyXG4gICAgaHNsKDI5NWRlZyA3NiUgNTElKSAwJSxcclxuICAgIGhzbCgyODRkZWcgNzAlIDczJSkgMjYlLFxyXG4gICAgaHNsKDI1N2RlZyA3MCUgODYlKSAzOSUsXHJcbiAgICBoc2woMjAyZGVnIDkyJSA5MCUpIDUwJSxcclxuICAgIGhzbCgyMTVkZWcgNzclIDgxJSkgNjElLFxyXG4gICAgaHNsKDIyMWRlZyA3MyUgNzAlKSA3NCUsXHJcbiAgICBoc2woMjIwZGVnIDc2JSA1MSUpIDEwMCVcclxuICApO1xyXG4gIGZpbHRlcjogYmx1cigxMjVweCk7XHJcbn1cclxuXHJcbi5oZXJvLWdyYWRpZW50IHtcclxuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoXHJcbiAgICA5Ny44NmRlZyxcclxuICAgICNhNTA5ZmYgMCUsXHJcbiAgICAjMzRhY2M3IDUzLjY1JSxcclxuICAgICNhMTM0YzcgMTAwJVxyXG4gICk7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wMiB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAyMDBweDtcclxuICBoZWlnaHQ6IDQzOHB4O1xyXG4gIHRvcDogMHB4O1xyXG4gIHJpZ2h0OiAwcHg7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM3YWViZmI7XHJcbiAgZmlsdGVyOiBibHVyKDE5MHB4KTtcclxufVxyXG5cclxuLmdsYXNzbW9ycGhpc20ge1xyXG4gIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yNSk7XHJcbiAgYm94LXNoYWRvdzogMCA4cHggMzJweCAwIHJnYmEoMzEsIDM4LCAxMzUsIDAuMzcpO1xyXG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xyXG4gIC13ZWJraXQtYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjE4KTtcclxufVxyXG5cclxuLmdyYWRpZW50LTAzIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6IDQwNHB4O1xyXG4gIGhlaWdodDogODAwcHg7XHJcbiAgbGVmdDogMjAlO1xyXG4gIHRvcDogNSU7XHJcblxyXG4gIGJhY2tncm91bmQ6IHJnYmEoMTQ5LCA2NiwgMjMyLCAwLjM1KTtcclxuICBmaWx0ZXI6IGJsdXIoMTc1cHgpO1xyXG4gIHRyYW5zZm9ybTogcm90YXRlKC0xMTQuMmRlZyk7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wNCB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAzMDRweDtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIGxlZnQ6IDMwJTtcclxuICB0b3A6IDEwJTtcclxuXHJcbiAgYmFja2dyb3VuZDogcmdiYSg0NSwgNzIsIDE1MiwgMC43NSk7XHJcbiAgZmlsdGVyOiBibHVyKDIwMHB4KTtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgtNTMuMTNkZWcpO1xyXG59XHJcblxyXG4uZ3JhZGllbnQtMDUge1xyXG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChcclxuICAgIDE4MGRlZyxcclxuICAgIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkgMCUsXHJcbiAgICByZ2JhKDI1NSwgMjU1LCAyNTUsIDApIDEwMCVcclxuICApO1xyXG59XHJcblxyXG4uZmVlZGJhY2stZ3JhZGllbnQge1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiAzMTZweDtcclxuICBsZWZ0OiAwcHg7XHJcbiAgdG9wOiAwcHg7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM4ZDM5YTM7XHJcbiAgZmlsdGVyOiBibHVyKDE3NXB4KTtcclxufVxyXG5cclxuLmZvb3Rlci1ncmFkaWVudCB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiA1MDBweDtcclxuICBoZWlnaHQ6IDEwMHB4O1xyXG4gIGxlZnQ6IDM3JTtcclxuICBib3R0b206IDA7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM2NWM0ZmE7XHJcbiAgZmlsdGVyOiBibHVyKDE1MHB4KTtcclxufVxyXG4iLG51bGxdLCJzb3VyY2VSb290IjoiIn0= */
-    </style>
-    <!-- My style -->
-    <style>
-      .reveal {
-        position: relative;
-        transform: translateY(150px);
-        opacity: 0;
-        transition: 2s all ease;
-      }
-      .reveal.active {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      .active.fade-bottom {
-        animation: fade-bottom 1s ease-in;
-      }
-      .opacity-transition {
-        transition: opacity 0.5s;
-      }
-    </style>
-    <script defer>
-      let prevCell = null;
-
-      function changeFlex(clickedElement) {
-        // Find the parent cell
-        let clickedCell = clickedElement.parentElement;
-        while (!clickedCell.classList.contains("cell")) {
-          clickedCell = clickedCell.parentElement;
-        }
-        // Get all cells
-        const cells = document.querySelectorAll(".cell");
-
-        // Loop through cells
-        cells.forEach((cell) => {
-          const h3Element = cell.querySelector("h3");
-          if (cell === clickedCell) {
-            // Add "flex: 3.5" to the clicked cell's style, increase z-index of h3, remove rotation, and set opacity to 1
-            cell.style.flex = "3.5";
-            h3Element.style.zIndex = "1";
-            h3Element.classList.remove("lg:rotate-[-90deg]");
-            h3Element.style.opacity = "1";
-            h3Element.classList.remove("opacity-transition");
-          } else {
-            // Remove "flex: 3.5" from other cells, reset z-index of h3, and add rotation
-            cell.style.flex = "";
-            h3Element.style.zIndex = "0";
-            h3Element.classList.add("lg:rotate-[-90deg]");
-
-            // If it's the previous cell, apply the opacity transition
-            if (prevCell === cell) {
-              h3Element.style.opacity = "0";
-              setTimeout(() => {
-                h3Element.classList.add("opacity-transition");
-                h3Element.style.opacity = "1";
-              }, 500);
-            }
-          }
-        });
-
-        // Update the previous cell
-        prevCell = clickedCell;
+      .sm\:text-\[26px\] {
+        font-size: 26px;
       }
 
-      function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-          var windowHeight = window.innerHeight;
-          var elementTop = reveals[i].getBoundingClientRect().top;
-          var elementVisible = 150;
-          if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-          } else {
-            reveals[i].classList.remove("active");
+      .sm\:text-\[32px\] {
+        font-size: 32px;
+      }
+
+      .sm\:text-\[18px\] {
+        font-size: 18px;
+      }
+
+      .sm\:text-\[24px\] {
+        font-size: 24px;
+      }
+
+      .sm\:text-\[60px\] {
+        font-size: 60px;
+      }
+
+      .sm\:text-\[20px\] {
+        font-size: 20px;
+      }
+
+      .sm\:leading-\[40\.32px\] {
+        line-height: 40.32px;
+      }
+
+      .sm\:leading-\[22\.68px\] {
+        line-height: 22.68px;
+      }
+
+      .sm\:leading-\[45\.6px\] {
+        line-height: 45.6px;
+      }
+
+      .sm\:leading-\[74\.4px\] {
+        line-height: 74.4px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .md\:-mt-\[20px\] {
+        margin-top: -20px;
+      }
+
+      .md\:text-\[64px\] {
+        font-size: 64px;
+      }
+
+      .md\:text-\[100px\] {
+        font-size: 100px;
+      }
+
+      .md\:text-\[30px\] {
+        font-size: 30px;
+      }
+
+      .md\:leading-\[114\.4px\] {
+        line-height: 114.4px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .lg\:bottom-20 {
+        bottom: 5rem;
+      }
+
+      .lg\:block {
+        display: block;
+      }
+
+      .lg\:h-\[610px\] {
+        height: 610px;
+      }
+
+      .lg\:w-\[80\%\] {
+        width: 80%;
+      }
+
+      .lg\:max-w-\[370px\] {
+        max-width: 370px;
+      }
+
+      .lg\:flex-\[3\.5\] {
+        flex: 3.5;
+      }
+
+      .lg\:flex-\[0\.5\] {
+        flex: 0.5;
+      }
+
+      .lg\:origin-\[0\2c 0\] {
+        transform-origin: 0, 0;
+      }
+
+      .lg\:rotate-\[-90deg\] {
+        --tw-rotate: -90deg;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+      }
+
+      .lg\:flex-row {
+        flex-direction: row;
+      }
+
+      .lg\:text-\[200px\] {
+        font-size: 200px;
+      }
+
+      .lg\:text-\[45px\] {
+        font-size: 45px;
+      }
+
+      .lg\:leading-\[158\.4px\] {
+        line-height: 158.4px;
+      }
+    }
+
+    @media (min-width: 1536px) {
+      .\32xl\:max-w-\[1280px\] {
+        max-width: 1280px;
+      }
+    }
+
+    /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zdHlsZXMvZ2xvYmFscy5jc3MiLCI8bm8gc291cmNlPiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Q0FBYyxDQUFkOzs7Q0FBYzs7QUFBZDs7O0VBQUEsc0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxtQkFBYyxFQUFkLE1BQWM7RUFBZCxxQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7RUFBQSxnQkFBYztBQUFBOztBQUFkOzs7Ozs7Q0FBYzs7QUFBZDtFQUFBLGdCQUFjLEVBQWQsTUFBYztFQUFkLDhCQUFjLEVBQWQsTUFBYztFQUFkLGdCQUFjLEVBQWQsTUFBYztFQUFkLGNBQWM7S0FBZCxXQUFjLEVBQWQsTUFBYztFQUFkLDROQUFjLEVBQWQsTUFBYztFQUFkLDZCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDtFQUFBLFNBQWMsRUFBZCxNQUFjO0VBQWQsb0JBQWMsRUFBZCxNQUFjO0FBQUE7O0FBQWQ7Ozs7Q0FBYzs7QUFBZDtFQUFBLFNBQWMsRUFBZCxNQUFjO0VBQWQsY0FBYyxFQUFkLE1BQWM7RUFBZCxxQkFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDtFQUFBLHlDQUFjO1VBQWQsaUNBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7Ozs7O0VBQUEsa0JBQWM7RUFBZCxvQkFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsY0FBYztFQUFkLHdCQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsbUJBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7Ozs7RUFBQSwrR0FBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsY0FBYztBQUFBOztBQUFkOztDQUFjOztBQUFkOztFQUFBLGNBQWM7RUFBZCxjQUFjO0VBQWQsa0JBQWM7RUFBZCx3QkFBYztBQUFBOztBQUFkO0VBQUEsZUFBYztBQUFBOztBQUFkO0VBQUEsV0FBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7RUFBQSxjQUFjLEVBQWQsTUFBYztFQUFkLHFCQUFjLEVBQWQsTUFBYztFQUFkLHlCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOzs7O0NBQWM7O0FBQWQ7Ozs7O0VBQUEsb0JBQWMsRUFBZCxNQUFjO0VBQWQsZUFBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7RUFBZCxvQkFBYyxFQUFkLE1BQWM7RUFBZCxjQUFjLEVBQWQsTUFBYztFQUFkLFNBQWMsRUFBZCxNQUFjO0VBQWQsVUFBYyxFQUFkLE1BQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7RUFBQSxvQkFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDs7OztFQUFBLDBCQUFjLEVBQWQsTUFBYztFQUFkLDZCQUFjLEVBQWQsTUFBYztFQUFkLHNCQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsYUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsZ0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDtFQUFBLHdCQUFjO0FBQUE7O0FBQWQ7O0NBQWM7O0FBQWQ7O0VBQUEsWUFBYztBQUFBOztBQUFkOzs7Q0FBYzs7QUFBZDtFQUFBLDZCQUFjLEVBQWQsTUFBYztFQUFkLG9CQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsd0JBQWM7QUFBQTs7QUFBZDs7O0NBQWM7O0FBQWQ7RUFBQSwwQkFBYyxFQUFkLE1BQWM7RUFBZCxhQUFjLEVBQWQsTUFBYztBQUFBOztBQUFkOztDQUFjOztBQUFkO0VBQUEsa0JBQWM7QUFBQTs7QUFBZDs7Q0FBYzs7QUFBZDs7Ozs7Ozs7Ozs7OztFQUFBLFNBQWM7QUFBQTs7QUFBZDtFQUFBLFNBQWM7RUFBZCxVQUFjO0FBQUE7O0FBQWQ7RUFBQSxVQUFjO0FBQUE7O0FBQWQ7OztFQUFBLGdCQUFjO0VBQWQsU0FBYztFQUFkLFVBQWM7QUFBQTs7QUFBZDs7Q0FB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bkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUEsZ0NBQW1CO0VBQW5CO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSxzQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxrQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQTtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLGtCQUFtQjtFQUFuQjtBQUFtQjtBQUFuQjtFQUFBLHNCQUFtQjtLQUFuQjtBQUFtQjtBQUFuQjtFQUFBLG9CQUFtQjtLQUFuQjtBQUFtQjtBQUFuQjtFQUFBO0FBQW1CO0FBQW5CO0VBQUE7QUFBbUI7QUFBbkI7RUFBQSxpQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxpQkFBbUI7RUFBbkI7QUFBbUI7QUFBbkI7RUFBQSxvQkFBbUI7RUFB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QUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBO0NBQUE7O0FEQUE7O0VBQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBLG9CQ0FBO0lEQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7O0VEQUE7SUFBQTtHQ0FBOztFREFBO0lBQUE7R0NBQTs7RURBQTtJQUFBO0dDQUE7Q0FBQTs7QURBQTs7RUFBQTtJQUFBO0dDQUE7Q0FBQSIsInNvdXJjZXNDb250ZW50IjpbIkB0YWlsd2luZCBiYXNlO1xyXG5AdGFpbHdpbmQgY29tcG9uZW50cztcclxuQHRhaWx3aW5kIHV0aWxpdGllcztcclxuXHJcbioge1xyXG4gIG1hcmdpbjogMDtcclxuICBwYWRkaW5nOiAwO1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgZm9udC1mYW1pbHk6IFwiRXVkb3h1cyBTYW5zXCIsIHNhbnMtc2VyaWY7XHJcbiAgc2Nyb2xsLWJlaGF2aW9yOiBzbW9vdGg7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wMSB7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KFxyXG4gICAgMjcwZGVnLFxyXG4gICAgaHNsKDI5NWRlZyA3NiUgNTElKSAwJSxcclxuICAgIGhzbCgyODRkZWcgNzAlIDczJSkgMjYlLFxyXG4gICAgaHNsKDI1N2RlZyA3MCUgODYlKSAzOSUsXHJcbiAgICBoc2woMjAyZGVnIDkyJSA5MCUpIDUwJSxcclxuICAgIGhzbCgyMTVkZWcgNzclIDgxJSkgNjElLFxyXG4gICAgaHNsKDIyMWRlZyA3MyUgNzAlKSA3NCUsXHJcbiAgICBoc2woMjIwZGVnIDc2JSA1MSUpIDEwMCVcclxuICApO1xyXG4gIGZpbHRlcjogYmx1cigxMjVweCk7XHJcbn1cclxuXHJcbi5oZXJvLWdyYWRpZW50IHtcclxuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoXHJcbiAgICA5Ny44NmRlZyxcclxuICAgICNhNTA5ZmYgMCUsXHJcbiAgICAjMzRhY2M3IDUzLjY1JSxcclxuICAgICNhMTM0YzcgMTAwJVxyXG4gICk7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wMiB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAyMDBweDtcclxuICBoZWlnaHQ6IDQzOHB4O1xyXG4gIHRvcDogMHB4O1xyXG4gIHJpZ2h0OiAwcHg7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM3YWViZmI7XHJcbiAgZmlsdGVyOiBibHVyKDE5MHB4KTtcclxufVxyXG5cclxuLmdsYXNzbW9ycGhpc20ge1xyXG4gIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4yNSk7XHJcbiAgYm94LXNoYWRvdzogMCA4cHggMzJweCAwIHJnYmEoMzEsIDM4LCAxMzUsIDAuMzcpO1xyXG4gIGJhY2tkcm9wLWZpbHRlcjogYmx1cig0cHgpO1xyXG4gIC13ZWJraXQtYmFja2Ryb3AtZmlsdGVyOiBibHVyKDRweCk7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjE4KTtcclxufVxyXG5cclxuLmdyYWRpZW50LTAzIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6IDQwNHB4O1xyXG4gIGhlaWdodDogODAwcHg7XHJcbiAgbGVmdDogMjAlO1xyXG4gIHRvcDogNSU7XHJcblxyXG4gIGJhY2tncm91bmQ6IHJnYmEoMTQ5LCA2NiwgMjMyLCAwLjM1KTtcclxuICBmaWx0ZXI6IGJsdXIoMTc1cHgpO1xyXG4gIHRyYW5zZm9ybTogcm90YXRlKC0xMTQuMmRlZyk7XHJcbn1cclxuXHJcbi5ncmFkaWVudC0wNCB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiAzMDRweDtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIGxlZnQ6IDMwJTtcclxuICB0b3A6IDEwJTtcclxuXHJcbiAgYmFja2dyb3VuZDogcmdiYSg0NSwgNzIsIDE1MiwgMC43NSk7XHJcbiAgZmlsdGVyOiBibHVyKDIwMHB4KTtcclxuICB0cmFuc2Zvcm06IHJvdGF0ZSgtNTMuMTNkZWcpO1xyXG59XHJcblxyXG4uZ3JhZGllbnQtMDUge1xyXG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChcclxuICAgIDE4MGRlZyxcclxuICAgIHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNCkgMCUsXHJcbiAgICByZ2JhKDI1NSwgMjU1LCAyNTUsIDApIDEwMCVcclxuICApO1xyXG59XHJcblxyXG4uZmVlZGJhY2stZ3JhZGllbnQge1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiAzMTZweDtcclxuICBsZWZ0OiAwcHg7XHJcbiAgdG9wOiAwcHg7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM4ZDM5YTM7XHJcbiAgZmlsdGVyOiBibHVyKDE3NXB4KTtcclxufVxyXG5cclxuLmZvb3Rlci1ncmFkaWVudCB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHdpZHRoOiA1MDBweDtcclxuICBoZWlnaHQ6IDEwMHB4O1xyXG4gIGxlZnQ6IDM3JTtcclxuICBib3R0b206IDA7XHJcblxyXG4gIGJhY2tncm91bmQ6ICM2NWM0ZmE7XHJcbiAgZmlsdGVyOiBibHVyKDE1MHB4KTtcclxufVxyXG4iLG51bGxdLCJzb3VyY2VSb290IjoiIn0= */
+  </style>
+  <!-- My style -->
+  <style>
+    .reveal {
+      position: relative;
+      transform: translateY(150px);
+      opacity: 0;
+      transition: 2s all ease;
+    }
+
+    .reveal.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .active.fade-bottom {
+      animation: fade-bottom 1s ease-in;
+    }
+
+    .opacity-transition {
+      transition: opacity 0.5s;
+    }
+  </style>
+  <script defer>
+    let prevCell = null;
+
+    function changeFlex(clickedElement) {
+      // Find the parent cell
+      let clickedCell = clickedElement.parentElement;
+      while (!clickedCell.classList.contains("cell")) {
+        clickedCell = clickedCell.parentElement;
+      }
+      // Get all cells
+      const cells = document.querySelectorAll(".cell");
+
+      // Loop through cells
+      cells.forEach((cell) => {
+        const h3Element = cell.querySelector("h3");
+        if (cell === clickedCell) {
+          // Add "flex: 3.5" to the clicked cell's style, increase z-index of h3, remove rotation, and set opacity to 1
+          cell.style.flex = "3.5";
+          h3Element.style.zIndex = "1";
+          h3Element.classList.remove("lg:rotate-[-90deg]");
+          h3Element.style.opacity = "1";
+          h3Element.classList.remove("opacity-transition");
+        } else {
+          // Remove "flex: 3.5" from other cells, reset z-index of h3, and add rotation
+          cell.style.flex = "";
+          h3Element.style.zIndex = "0";
+          h3Element.classList.add("lg:rotate-[-90deg]");
+
+          // If it's the previous cell, apply the opacity transition
+          if (prevCell === cell) {
+            h3Element.style.opacity = "0";
+            setTimeout(() => {
+              h3Element.classList.add("opacity-transition");
+              h3Element.style.opacity = "1";
+            }, 500);
           }
         }
-      }
-      window.addEventListener("scroll", reveal);
-
-      function revealById(id) {
-        var element = document.getElementById(id);
-        element.classList.add("active", "fade-bottom");
-      }
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          revealById("1stSection");
-        }, 250);
-        setTimeout(function () {
-          revealById("2ndSection");
-        }, 500);
       });
 
-      reveal();
-    </script>
-    <!-- Required script for robot -->
-    <!-- Required script for robot -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <!-- Required script for robot -->
-    <!-- Required script for robot -->
+      // Update the previous cell
+      prevCell = clickedCell;
+    }
 
-    <noscript id="__next_css__DO_NOT_USE__"></noscript>
-  </head>
-  <body>
-    <!-- Start of robot code -->
-    <!-- Start of robot code -->
-    <!-- Start of robot code -->
-    <!-- Start of robot code -->
-    <!-- Start of robot code -->
-    <!-- Check on required script import on header -->
-    <div
-      id="model-container"
-      style="
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 500px;
-        height: 500px;
-        margin: 0 auto;
-        pointer-events: none;
-        z-index: 100000;
-      "
-    >
-      <a-scene
-        embedded
-        vr-mode-ui="enabled: false"
-        loading-screen="enabled: false"
-      >
-        <a-assets>
-          <a-asset-item id="my-model" src="bb_robot_copy.gltf"></a-asset-item>
-        </a-assets>
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
 
-        <a-entity
-          gltf-model="#my-model"
-          position="0 1.6 -2"
-          scale="0.7 0.7 0.7"
-        ></a-entity>
-      </a-scene>
-    </div>
+    function revealById(id) {
+      var element = document.getElementById(id);
+      element.classList.add("active", "fade-bottom");
+    }
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        revealById("1stSection");
+      }, 250);
+      setTimeout(function () {
+        revealById("2ndSection");
+      }, 500);
+    });
 
-    <script>
-      var modelEntity = document.querySelector('[gltf-model="#my-model"]');
-      var screenCenterX = window.innerWidth / 2;
-      var screenCenterY = window.innerHeight / 2;
-      var offsetX = 700; // Adjusted initial offset here
-      var offsetY = 700; // Adjusted initial offset here
-      document.addEventListener(
-        "mousemove",
-        function (event) {
-          var xAngle = (event.clientX - offsetX - screenCenterX) * 0.025; // Adjusted calculation here
-          var yAngle = (event.clientY - offsetY - screenCenterY) * 0.025; // Adjusted calculation here
-          modelEntity.setAttribute(
-            "rotation",
-            "" + yAngle + " " + xAngle + " 0"
-          );
-        },
-        false
-      );
-    </script>
-    <!-- Check on required script import on header -->
-    <!-- End of robot code -->
-    <!-- End of robot code -->
-    <!-- End of robot code -->
-    <!-- End of robot code -->
-    <!-- End of robot code -->
-    <div id="__next">
-      <div class="bg-primary-violet overflow-hidden">
-        <nav
-          class="sm:px-16 px-6 py-8 relative"
-          style="opacity: 1; transform: none"
-        >
-          <div class="absolute w-[50%] inset-0 gradient-01"></div>
-          <div
-            class="2xl:max-w-[1280px] w-full mx-auto flex justify-between gap-8"
-          >
-            <h2 class="font-extrabold text-[24px] leading-[30.24px] text-white">
+    reveal();
+  </script>
+  <!-- Required script for robot -->
+  <!-- Required script for robot -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <!-- Required script for robot -->
+  <!-- Required script for robot -->
+
+  <noscript id="__next_css__DO_NOT_USE__"></noscript>
+</head>
+
+<body>
+
+  <div id="__next">
+    <div class="bg-primary-violet overflow-hidden">
+      <nav class="sm:px-16 px-6 py-8 relative" style="opacity: 1; transform: none">
+        <div class="absolute w-[50%] inset-0 gradient-01"></div>
+        <div class="2xl:max-w-[1280px] w-full mx-auto flex justify-between gap-8">
+          <h2 class="font-extrabold text-[24px] leading-[30.24px] text-white">
+            CVSort
+          </h2>
+          <button type="button" class="flex items-center h-fit py-4 px-6 bg-[#F56EB3] rounded-[40px] gap-[12px]"
+            onclick="window.location.href = 'index.html'">
+            <span class="font-normal text-[16px] text-white">Go To Dashboard</span>
+          </button>
+        </div>
+      </nav>
+      <section class="sm:py-16 xs:py-8 py-12 sm:pl-16 pl-6 reveal fade-bottom" id="1stSection">
+        <div class="2xl:max-w-[1280px] w-full mx-auto flex flex-col">
+          <div class="flex justify-center items-center flex-col relative z-10">
+            <h1
+              class="font-bold lg:text-[200px] md:text-[100px] sm:text-[60px] text-[44px] lg:leading-[158.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px] uppercase text-white"
+              style="opacity: 1; transform: none">
               CVSort
-            </h2>
-            <button
-              type="button"
-              class="flex items-center h-fit py-4 px-6 bg-[#F56EB3] rounded-[40px] gap-[12px]"
-              onclick="window.location.href = 'index.html'"
-            >
-              <span class="font-normal text-[16px] text-white"
-                >Go To Dashboard</span
-              >
-            </button>
-          </div>
-        </nav>
-        <section
-          class="sm:py-16 xs:py-8 py-12 sm:pl-16 pl-6 reveal fade-bottom"
-          id="1stSection"
-        >
-          <div class="2xl:max-w-[1280px] w-full mx-auto flex flex-col">
-            <div
-              class="flex justify-center items-center flex-col relative z-10"
-            >
+            </h1>
+            <div class="flex flex-row justify-center items-center" style="opacity: 1; transform: none">
               <h1
-                class="font-bold lg:text-[200px] md:text-[100px] sm:text-[60px] text-[44px] lg:leading-[158.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px] uppercase text-white"
-                style="opacity: 1; transform: none"
-              >
-                CVSort
+                class="font-bold lg:text-[45px] md:text-[30px] sm:text-[20px] text-[11px] lg:leading-[158.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px] uppercase text-white">
+                Revolutionize Your Recruitment Process with AI
               </h1>
-              <div
-                class="flex flex-row justify-center items-center"
-                style="opacity: 1; transform: none"
-              >
-                <h1
-                  class="font-bold lg:text-[45px] md:text-[30px] sm:text-[20px] text-[11px] lg:leading-[158.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px] uppercase text-white"
-                >
-                  Revolutionize Your Recruitment Process with AI
-                </h1>
-              </div>
-              <button
-                type="button"
-                class="flex items-center h-fit py-4 px-12 bg-[#F56EB3] rounded-[40px] gap-[12px]"
-                onclick="window.location.href = 'index.html'"
-              >
-                <span class="font-normal text-[30px] text-white"
-                  >GET STARTED</span
-                >
-              </button>
             </div>
-            <div
-              class="relative w-full md:-mt-[20px] -mt-[12px]"
-              style="transform: translateX(0%) translateY(0px) translateZ(0px)"
-            ></div>
+            <button type="button" class="flex items-center h-fit py-4 px-12 bg-[#F56EB3] rounded-[40px] gap-[12px]"
+              onclick="window.location.href = 'index.html'">
+              <span class="font-normal text-[30px] text-white">GET STARTED</span>
+            </button>
+            <!-- Start of robot code -->
+            <!-- Start of code -->
+            <!-- Start of robot code -->
+            <!-- Start of robot code -->
+            <!-- Start of robot code -->
+            <!-- Check on required script import on header -->
+            <div id="model-container" style="
+  position:fixed ;
+  width: 92rem;
+  top:100px;
+  height: 92rem;
+  margin: 0 auto;
+  pointer-events: none;
+  z-index: 100000;
+">
+              <a-scene embedded vr-mode-ui="enabled: false" loading-screen="enabled: false">
+                <a-assets>
+                  <a-asset-item id="my-model" src="bb_robot_copy.gltf"></a-asset-item>
+                </a-assets>
+
+                <a-entity gltf-model="#my-model" position="0 1.6 -2" scale="0.7 0.7 0.7"></a-entity>
+              </a-scene>
+            </div>
+
+            <script>
+              var modelEntity = document.querySelector('[gltf-model="#my-model"]');
+              var screenCenterX = window.innerWidth / 2;
+              var screenCenterY = window.innerHeight / 2;
+              var offsetX = 0; // Adjusted initial offset here
+              var offsetY = 700; // Adjusted initial offset here
+              document.addEventListener(
+                "mousemove",
+                function (event) {
+                  var xAngle = (event.clientX - offsetX - screenCenterX) * 0.025; // Adjusted calculation here
+                  var yAngle = (event.clientY - offsetY - screenCenterY) * 0.025; // Adjusted calculation here
+                  modelEntity.setAttribute(
+                    "rotation",
+                    "" + yAngle + " " + xAngle + " 0"
+                  );
+                },
+                false
+              );
+            </script>
+            <!-- Check on required script import on header -->
+            <!-- End of robot code -->
+            <!-- End of robot code -->
+            <!-- End of robot code -->
+            <!-- End of robot code -->
+            <!-- End of robot code -->
           </div>
-        </section>
-        <!-- 2nd section -->
-        <!-- 2nd section -->
-        <!-- 2nd section -->
-        <!-- 2nd section -->
-        <!-- 2nd section -->
-        <div class="relative">
-          <section
-            class="sm:p-16 xs:p-8 px-6 py-12 relative z-10 reveal fade-bottom"
-            id="2ndSection"
-          >
-            <div class="gradient-02 z-0"></div>
-            <div
-              class="2xl:max-w-[1280px] w-full mx-auto flex justify-center items-center flex-col"
-            >
-              <p
-                class="font-normal text-[14px] text-secondary-white text-center text-2xl font-bold"
-                style="opacity: 1"
-              >
-                <span style="opacity: 1; transform: none">|</span
-                ><span style="opacity: 1; transform: none">&nbsp;</span
-                ><span style="opacity: 1; transform: none">A</span
-                ><span style="opacity: 1; transform: none">b</span
-                ><span style="opacity: 1; transform: none">o</span
-                ><span style="opacity: 1; transform: none">u</span
-                ><span style="opacity: 1; transform: none">t</span
-                ><span style="opacity: 1; transform: none">&nbsp;</span
-                ><span style="opacity: 1; transform: none">C</span
-                ><span style="opacity: 1; transform: none">V</span
-                ><span style="opacity: 1; transform: none">S</span
-                ><span style="opacity: 1; transform: none">o</span
-                ><span style="opacity: 1; transform: none">r</span
-                ><span style="opacity: 1; transform: none">t</span>
-              </p>
-              <p
-                class="mt-[8px] font-normal sm:text-[32px] text-[20px] text-center text-secondary-white"
-                style="opacity: 1; transform: none"
-              >
-                <span class="font-extrabold text-white">CVSort</span> minimizes
-                the need for human operation and will naturally result in
-                cutting the need for resources such as time and costs as well as
-                address biases and false information in<!-- -->
-                <span class="font-extrabold text-white">CV sorting.</span>
-                <!-- -->CVSort addresses system gaps in current existing
-                software.This makes CVSort the most effective, automated, and
-                <!-- -->
-                <span class="font-extrabold text-white">AI-powered tool</span>
-                for CV sorting of today. Check out more of CVSort's Features
-                below<!-- -->
-                <span class="font-extrabold text-white"></span>
-              </p>
-              <img
-                src="../assets/img/home/arrow.svg"
-                alt="arrow down"
-                class="w-[18px] h-[28px] object-contain mt-[28px]"
-                style="
+          <div class="relative w-full md:-mt-[20px] -mt-[12px]"
+            style="transform: translateX(0%) translateY(0px) translateZ(0px)"></div>
+        </div>
+      </section>
+      <!-- 2nd section -->
+      <!-- 2nd section -->
+      <!-- 2nd section -->
+      <!-- 2nd section -->
+      <!-- 2nd section -->
+      <div class="relative">
+        <section class="sm:p-16 xs:p-8 px-6 py-12 relative z-10 reveal fade-bottom" id="2ndSection">
+          <div class="gradient-02 z-0"></div>
+          <div class="2xl:max-w-[1280px] w-full mx-auto flex justify-center items-center flex-col">
+            <p class="font-normal text-[14px] text-secondary-white text-center text-2xl font-bold"
+              style="opacity: 1; margin-top: 45rem; margin-bottom: none;">
+              <span style="opacity: 1; transform: none">|</span><span
+                style="opacity: 1; transform: none">&nbsp;</span><span style="opacity: 1; transform: none">A</span><span
+                style="opacity: 1; transform: none">b</span><span style="opacity: 1; transform: none">o</span><span
+                style="opacity: 1; transform: none">u</span><span style="opacity: 1; transform: none">t</span><span
+                style="opacity: 1; transform: none">&nbsp;</span><span style="opacity: 1; transform: none">C</span><span
+                style="opacity: 1; transform: none">V</span><span style="opacity: 1; transform: none">S</span><span
+                style="opacity: 1; transform: none">o</span><span style="opacity: 1; transform: none">r</span><span
+                style="opacity: 1; transform: none">t</span>
+            </p>
+            <p class="mt-[8px] font-normal sm:text-[32px] text-[20px] text-center text-secondary-white"
+              style="opacity: 1; transform: none">
+              <span class="font-extrabold text-white">CVSort</span> minimizes
+              the need for human operation and will naturally result in
+              cutting the need for resources such as time and costs as well as
+              address biases and false information in<!-- -->
+              <span class="font-extrabold text-white">CV sorting.</span>
+              <!-- -->CVSort addresses system gaps in current existing
+              software.This makes CVSort the most effective, automated, and
+              <!-- -->
+              <span class="font-extrabold text-white">AI-powered tool</span>
+              for CV sorting of today. Check out more of CVSort's Features
+              below<!-- -->
+              <span class="font-extrabold text-white"></span>
+            </p>
+            <img src="../assets/img/home/arrow.svg" alt="arrow down" class="w-[18px] h-[28px] object-contain mt-[28px]"
+              style="
                   opacity: 1;
                   transform: none;
                   transform: rotate(120deg);
                   height: 100px;
-                "
-              />
-            </div>
-          </section>
-          <div class="gradient-03 z-0"></div>
-          <section
-            class="sm:p-16 xs:p-8 px-6 py-12 reveal fade-bottom"
-            id="explore"
-          >
-            <div class="2xl:max-w-[1280px] w-full mx-auto flex flex-col">
-              <p
-                class="font-normal text-[14px] text-secondary-white text-center text-2xl font-bold"
-                style="opacity: 0"
-              >
-                <span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >|</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >&nbsp;</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >C</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >V</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >S</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >o</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >r</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >t</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >&nbsp;</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >F</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >e</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >a</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >t</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >u</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >r</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >e</span
-                ><span
-                  style="
-                    opacity: 0;
-                    transform: translateY(20px) translateZ(0px);
-                  "
-                  >s</span
-                >
-              </p>
-              <h2
-                class="mt-[8px] font-bold md:text-[64px] text-[40px] text-white text-center"
-                style="opacity: 1; transform: none"
-              >
-                CV sorting made smart - CVSort's AI technology is your best tool
-                for hiring the perfect talent.
-              </h2>
-              <!-- Start of expandable cells -->
-              <div
-                class="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5"
-              >
-                <!-- Cell 1 -->
-                <div
-                  class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
-                  onclick="changeFlex(event.target)"
-                  style="opacity: 1; transform: none; flex: 3.5 1 0%"
-                >
-                  <img
-                    src="../assets/img/home/2.png"
-                    alt="planet-04"
-                    class="absolute w-full h-full object-cover rounded-[24px]"
-                  />
-                  <h3
-                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:origin-[0,0]"
-                    style="text-shadow: 2px 2px grey; bottom: 100"
-                  >
-                    Red Flag Analysis and Removal
-                  </h3>
-                </div>
-                <!-- Cell 2 -->
-                <div
-                  class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
-                  onclick="changeFlex(event.target)"
-                  style="opacity: 1; transform: none"
-                >
-                  <img
-                    src="../assets/img/home/3.png"
-                    alt="planet-04"
-                    class="absolute w-full h-full object-cover rounded-[24px]"
-                  />
-
-                  <h3
-                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
-                    style="text-shadow: 2px 2px grey; bottom: 100"
-                  >
-                    Automated Applicant Info Summary
-                  </h3>
-                </div>
-                <!-- Cell 3 -->
-                <div
-                  class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
-                  onclick="changeFlex(event.target)"
-                  style="opacity: 1; transform: none"
-                >
-                  <img
-                    src="../assets/img/home/4.png"
-                    alt="planet-04"
-                    class="absolute w-full h-full object-cover rounded-[24px]"
-                  />
-                  <h3
-                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
-                    style="text-shadow: 2px 2px grey; bottom: 100"
-                  >
-                    CV Fact Checker
-                  </h3>
-                </div>
-                <!-- Cell 5 -->
-                <div
-                  class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
-                  onclick="changeFlex(event.target)"
-                  style="opacity: 1; transform: none"
-                >
-                  <img
-                    src="../assets/img/home/5.png"
-                    alt="planet-04"
-                    class="absolute w-full h-full object-cover rounded-[24px]"
-                  />
-                  <h3
-                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
-                    style="text-shadow: 2px 2px grey; bottom: 100"
-                  >
-                    AI Powered Candidate Ranking Tool
-                  </h3>
-                </div>
-                <!-- Cell 5 -->
-                <div
-                  class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
-                  onclick="changeFlex(event.target)"
-                  style="opacity: 1; transform: none"
-                >
-                  <img
-                    src="../assets/img/home/6.png"
-                    alt="planet-04"
-                    class="absolute w-full h-full object-cover rounded-[24px]"
-                  />
-                  <h3
-                    class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
-                    style="text-shadow: 2px 2px grey; bottom: 100"
-                  >
-                    Interview Scheduler and Mailing System
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <!-- Unknown gradient -->
-        <div class="relative"><div class="gradient-04 z-0"></div></div>
-        <!-- 3rd section -->
-        <!-- 3rd section -->
-        <!-- 3rd section -->
-        <!-- 3rd section -->
-        <!-- 3rd section -->
-        <section
-          class="sm:p-16 xs:p-8 px-6 py-12 relative z-10 reveal fade-bottom"
-        >
+                " />
+          </div>
+        </section>
+        <div class="gradient-03 z-0"></div>
+        <section class="sm:p-16 xs:p-8 px-6 py-12 reveal fade-bottom" id="explore">
           <div class="2xl:max-w-[1280px] w-full mx-auto flex flex-col">
-            <h2
-              class="mt-[8px] font-bold md:text-[64px] text-[40px] text-white text-center"
-              style="opacity: 1; transform: none"
-            >
-              Say goodbye to endless hours sorting CVs and focus more on finding
-              the perfect candidate for your team.
+            <p class="font-normal text-[14px] text-secondary-white text-center text-2xl font-bold" style="opacity: 0">
+              <span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">|</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">&nbsp;</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">C</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">V</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">S</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">o</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">r</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">t</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">&nbsp;</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">F</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">e</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">a</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">t</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">u</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">r</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">e</span><span style="
+                    opacity: 0;
+                    transform: translateY(20px) translateZ(0px);
+                  ">s</span>
+            </p>
+            <h2 class="mt-[8px] font-bold md:text-[64px] text-[40px] text-white text-center"
+              style="opacity: 1; transform: none">
+              CV sorting made smart - CVSort's AI technology is your best tool
+              for hiring the perfect talent.
             </h2>
-            <div
-              class="relative mt-[68px] flex w-full h-[550px]"
-              style="opacity: 1; transform: none"
-            >
-              <img
-                src="../assets/img/home/1.png"
-                alt="map"
-                class="w-full h-full object-cover"
-              />
+            <!-- Start of expandable cells -->
+            <div class="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
+              <!-- Cell 1 -->
+              <div
+                class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                onclick="changeFlex(event.target)" style="opacity: 1; transform: none; flex: 3.5 1 0%">
+                <img src="../assets/img/home/2.png" alt="planet-04"
+                  class="absolute w-full h-full object-cover rounded-[24px]" />
+                <h3 class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:origin-[0,0]"
+                  style="text-shadow: 2px 2px grey; bottom: 100">
+                  Red Flag Analysis and Removal
+                </h3>
+              </div>
+              <!-- Cell 2 -->
+              <div
+                class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                onclick="changeFlex(event.target)" style="opacity: 1; transform: none">
+                <img src="../assets/img/home/3.png" alt="planet-04"
+                  class="absolute w-full h-full object-cover rounded-[24px]" />
+
+                <h3
+                  class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
+                  style="text-shadow: 2px 2px grey; bottom: 100">
+                  Automated Applicant Info Summary
+                </h3>
+              </div>
+              <!-- Cell 3 -->
+              <div
+                class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                onclick="changeFlex(event.target)" style="opacity: 1; transform: none">
+                <img src="../assets/img/home/4.png" alt="planet-04"
+                  class="absolute w-full h-full object-cover rounded-[24px]" />
+                <h3
+                  class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
+                  style="text-shadow: 2px 2px grey; bottom: 100">
+                  CV Fact Checker
+                </h3>
+              </div>
+              <!-- Cell 5 -->
+              <div
+                class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                onclick="changeFlex(event.target)" style="opacity: 1; transform: none">
+                <img src="../assets/img/home/5.png" alt="planet-04"
+                  class="absolute w-full h-full object-cover rounded-[24px]" />
+                <h3
+                  class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
+                  style="text-shadow: 2px 2px grey; bottom: 100">
+                  AI Powered Candidate Ranking Tool
+                </h3>
+              </div>
+              <!-- Cell 5 -->
+              <div
+                class="cell relative lg:flex-[0.5] flex-[2] flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer"
+                onclick="changeFlex(event.target)" style="opacity: 1; transform: none">
+                <img src="../assets/img/home/6.png" alt="planet-04"
+                  class="absolute w-full h-full object-cover rounded-[24px]" />
+                <h3
+                  class="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:rotate-[-90deg] lg:origin-[0,0]"
+                  style="text-shadow: 2px 2px grey; bottom: 100">
+                  Interview Scheduler and Mailing System
+                </h3>
+              </div>
             </div>
           </div>
         </section>
-        <!-- 4th section -->
-        <!-- 4th section -->
-        <!-- 4th section -->
-        <!-- 4th section -->
-        <!-- 4th section -->
-        <div class="relative">
-          <div class="gradient-04 z-0"></div>
-          <section class="sm:p-16 xs:p-8 px-6 py-12 reveal fade-bottom">
-            <div
-              class="2xl:max-w-[1280px] w-full mx-auto flex lg:flex-row flex-col gap-6"
-            >
-              <div
-                class="flex-[0.5] lg:max-w-[370px] flex justify-end flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6A6A6A] relative"
-                style="opacity: 1; transform: none"
-              >
-                <div class="feedback-gradient"></div>
-                <div>
-                  <h4
-                    class="font-bold sm:text-[32px] text-[26px] sm:leading-[40.32px] leading-[36.32px] text-white"
-                  >
-                    Team Runtime Terrors
-                  </h4>
-                  <p
-                    class="mt-[8px] font-normal sm:text-[18px] text-[12px] sm:leading-[22.68px] leading-[16.68px] text-white"
-                  >
-                    Almira Rose Magat and Christian Kalki Lamadrid
-                  </p>
-                </div>
-                <p
-                  class="mt-[24px] font-normal sm:text-[24px] text-[18px] sm:leading-[45.6px] leading-[39.6px] text-white"
-                >
-                  CVSort was developed by Team Runtime Terrors for WPH Digital
-                  2023 Hackathon Event. We extend our utmost gratitude for this
-                  opportunity and we will forever cherish the developmental and
-                  learning process we had in this event.
-                </p>
-              </div>
-              <div
-                class="relative flex-1 flex justify-center items-center"
-                style="opacity: 1; transform: none"
-              >
-                <img
-                  src="../assets/img/home/team.png"
-                  alt="planet-09"
-                  class="w-full lg:h-[610px] h-auto min-h-[210px] object-cover rounded-[40px]"
-                />
-                <div
-                  class="lg:block hidden absolute -left-[10%] top-[3%]"
-                  style="opacity: 1; transform: none"
-                ></div>
-              </div>
-            </div>
-          </section>
+      </div>
+      <!-- Unknown gradient -->
+      <div class="relative">
+        <div class="gradient-04 z-0"></div>
+      </div>
+      <!-- 3rd section -->
+      <!-- 3rd section -->
+      <!-- 3rd section -->
+      <!-- 3rd section -->
+      <!-- 3rd section -->
+      <section class="sm:p-16 xs:p-8 px-6 py-12 relative z-10 reveal fade-bottom">
+        <div class="2xl:max-w-[1280px] w-full mx-auto flex flex-col">
+          <h2 class="mt-[8px] font-bold md:text-[64px] text-[40px] text-white text-center"
+            style="opacity: 1; transform: none">
+            Say goodbye to endless hours sorting CVs and focus more on finding
+            the perfect candidate for your team.
+          </h2>
+          <div class="relative mt-[68px] flex w-full h-[550px]" style="opacity: 1; transform: none">
+            <img src="../assets/img/home/1.png" alt="map" class="w-full h-full object-cover" />
+          </div>
         </div>
-        <!-- 5th section -->
-        <!-- 5th section -->
-        <!-- 5th section -->
-        <!-- 5th section -->
-        <!-- 5th section -->
-        <footer
-          class="sm:px-16 px-6 py-8 relative"
-          style="opacity: 1; transform: none"
-        >
-          <div class="footer-gradient"></div>
-          <div class="2xl:max-w-[1280px] w-full mx-auto flex flex-col gap-8">
-            <div class="flex items-center justify-between flex-wrap gap-5">
-              <h4 class="font-bold md:text-[64px] text-[44px] text-white">
-                Let CVSort Do the Job
-              </h4>
-              <button
-                type="button"
-                class="flex items-center h-fit py-4 px-6 bg-[#F56EB3] rounded-[40px] gap-[12px]"
-                onclick="window.location.href = 'index.html'"
-              >
-                <span class="font-normal text-[16px] text-white"
-                  >Go To Dashboard</span
-                >
-              </button>
-            </div>
-            <div class="flex flex-col">
-              <div class="mb-[50px] h-[2px] bg-white opacity-10"></div>
-              <div class="flex items-center justify-between flex-wrap gap-4">
-                <h4 class="font-extrabold text-[24px] text-white">CVSort</h4>
-                <p class="font-normal text-[14px] text-white opacity-50">
-                  CVSort by Runtime Terrors.
+      </section>
+      <!-- 4th section -->
+      <!-- 4th section -->
+      <!-- 4th section -->
+      <!-- 4th section -->
+      <!-- 4th section -->
+      <div class="relative">
+        <div class="gradient-04 z-0"></div>
+        <section class="sm:p-16 xs:p-8 px-6 py-12 reveal fade-bottom">
+          <div class="2xl:max-w-[1280px] w-full mx-auto flex lg:flex-row flex-col gap-6">
+            <div
+              class="flex-[0.5] lg:max-w-[370px] flex justify-end flex-col gradient-05 sm:p-8 p-4 rounded-[32px] border-[1px] border-[#6A6A6A] relative"
+              style="opacity: 1; transform: none">
+              <div class="feedback-gradient"></div>
+              <div>
+                <h4 class="font-bold sm:text-[32px] text-[26px] sm:leading-[40.32px] leading-[36.32px] text-white">
+                  Team Runtime Terrors
+                </h4>
+                <p
+                  class="mt-[8px] font-normal sm:text-[18px] text-[12px] sm:leading-[22.68px] leading-[16.68px] text-white">
+                  Almira Rose Magat and Christian Kalki Lamadrid
                 </p>
-                <div class="flex gap-4">
-                  <img
-                    src="../assets/img/home/twitter.svg"
-                    alt="twitter"
-                    class="w-[24px] h-[24px] object-contain cursor-pointer"
-                  /><img
-                    src="../assets/img/home/linkedin.svg"
-                    alt="linkedin"
-                    class="w-[24px] h-[24px] object-contain cursor-pointer"
-                  /><img
-                    src="../assets/img/home/instagram.svg"
-                    alt="instagram"
-                    class="w-[24px] h-[24px] object-contain cursor-pointer"
-                  /><img
-                    src="../assets/img/home/facebook.svg"
-                    alt="facebook"
-                    class="w-[24px] h-[24px] object-contain cursor-pointer"
-                  />
-                </div>
+              </div>
+              <p
+                class="mt-[24px] font-normal sm:text-[24px] text-[18px] sm:leading-[45.6px] leading-[39.6px] text-white">
+                CVSort was developed by Team Runtime Terrors for WPH Digital
+                2023 Hackathon Event. We extend our utmost gratitude for this
+                opportunity and we will forever cherish the developmental and
+                learning process we had in this event.
+              </p>
+            </div>
+            <div class="relative flex-1 flex justify-center items-center" style="opacity: 1; transform: none">
+              <img src="../assets/img/home/team.png" alt="planet-09"
+                class="w-full lg:h-[610px] h-auto min-h-[210px] object-cover rounded-[40px]" />
+              <div class="lg:block hidden absolute -left-[10%] top-[3%]" style="opacity: 1; transform: none"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- 5th section -->
+      <!-- 5th section -->
+      <!-- 5th section -->
+      <!-- 5th section -->
+      <!-- 5th section -->
+      <footer class="sm:px-16 px-6 py-8 relative" style="opacity: 1; transform: none">
+        <div class="footer-gradient"></div>
+        <div class="2xl:max-w-[1280px] w-full mx-auto flex flex-col gap-8">
+          <div class="flex items-center justify-between flex-wrap gap-5">
+            <h4 class="font-bold md:text-[64px] text-[44px] text-white">
+              Let CVSort Do the Job
+            </h4>
+            <button type="button" class="flex items-center h-fit py-4 px-6 bg-[#F56EB3] rounded-[40px] gap-[12px]"
+              onclick="window.location.href = 'index.html'">
+              <span class="font-normal text-[16px] text-white">Go To Dashboard</span>
+            </button>
+          </div>
+          <div class="flex flex-col">
+            <div class="mb-[50px] h-[2px] bg-white opacity-10"></div>
+            <div class="flex items-center justify-between flex-wrap gap-4">
+              <h4 class="font-extrabold text-[24px] text-white">CVSort</h4>
+              <p class="font-normal text-[14px] text-white opacity-50">
+                CVSort by Runtime Terrors.
+              </p>
+              <div class="flex gap-4">
+                <img src="../assets/img/home/twitter.svg" alt="twitter"
+                  class="w-[24px] h-[24px] object-contain cursor-pointer" /><img src="../assets/img/home/linkedin.svg"
+                  alt="linkedin" class="w-[24px] h-[24px] object-contain cursor-pointer" /><img
+                  src="../assets/img/home/instagram.svg" alt="instagram"
+                  class="w-[24px] h-[24px] object-contain cursor-pointer" /><img src="../assets/img/home/facebook.svg"
+                  alt="facebook" class="w-[24px] h-[24px] object-contain cursor-pointer" />
               </div>
             </div>
           </div>
-        </footer>
-        <!-- end -->
-        <!-- end -->
-        <!-- end -->
-        <!-- end -->
-        <!-- end -->
-      </div>
+        </div>
+      </footer>
+      <!-- end -->
+      <!-- end -->
+      <!-- end -->
+      <!-- end -->
+      <!-- end -->
     </div>
-    <script src="../assets/img/home/react-refresh.js.download"></script>
-    <script id="__NEXT_DATA__" type="application/json">
+  </div>
+  <script src="../assets/img/home/react-refresh.js.download"></script>
+  <script id="__NEXT_DATA__" type="application/json">
       {
         "props": { "pageProps": {} },
         "page": "/",
@@ -2872,23 +2957,16 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
         "scriptLoader": []
       }
     </script>
-    <div
-      id="__next-build-watcher"
-      style="
+  <div id="__next-build-watcher" style="
         position: fixed;
         bottom: 10px;
         right: 20px;
         width: 0px;
         height: 0px;
         z-index: 99999;
-      "
-    ></div>
-    <next-route-announcer
-      ><p
-        aria-live="assertive"
-        id="__next-route-announcer__"
-        role="alert"
-        style="
+      "></div>
+  <next-route-announcer>
+    <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="
           border: 0px;
           clip: rect(0px, 0px, 0px, 0px);
           height: 1px;
@@ -2899,9 +2977,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           width: 1px;
           white-space: nowrap;
           overflow-wrap: normal;
-        "
-      ></p
-    ></next-route-announcer>
-    <!-- 2 -->
-  </body>
+        "></p>
+  </next-route-announcer>
+  <!-- 2 -->
+</body>
+
 </html>
