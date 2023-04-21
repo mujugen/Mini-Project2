@@ -2933,7 +2933,7 @@ html.menu-opened body {
 #calendar {
   width: 100%;
   margin: auto;
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
 }
 .day {
@@ -2946,7 +2946,6 @@ html.menu-opened body {
   background-color: white;
   margin: 5px;
   box-shadow: 0px 0px 3px #cbd4c2;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -4595,7 +4594,7 @@ span.mandatory {
 }
 
 a.btn.btn-submit:hover {
-  border: 1px solid #00882e;
+  border: 1px solid #4e31aa;
 }
 
 .btn-secondary {
@@ -4752,11 +4751,11 @@ label.employee_count {
 
 .btn-submit {
   background: #3a1078;
-  padding: 2px 5px;
-  font-size: 12px;
+  padding: 10px 1px !important;
+  font-size: 16px !important;
   border-radius: 5px;
   color: #fff;
-  border: 1px solid #00882e;
+  border: 1px solid #4e31aa;
   box-shadow: 0 4px 10px 0 rgb(137 137 137 / 25%);
   font-weight: 600;
   margin-right: 18px;
@@ -4764,11 +4763,11 @@ label.employee_count {
 
 a .btn .btn-submit {
   background: #3a1078;
-  padding: 2px 5px;
-  font-size: 12px;
+  padding: 10px 1px !important;
+  font-size: 16px !important;
   border-radius: 5px;
   color: #fff;
-  border: 1px solid #00882e;
+  border: 1px solid #4e31aa;
   box-shadow: 0 4px 10px 0 rgb(137 137 137 / 25%);
   font-weight: 600;
   margin-right: 18px;
@@ -5910,7 +5909,7 @@ a.btn.btn-visit {
 
   .btn-submit {
     padding: 10px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .btn-save {
@@ -6182,7 +6181,7 @@ a.btn.btn-visit {
 
   .btn-submit {
     padding: 10px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .user-menu {

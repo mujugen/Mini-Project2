@@ -1,729 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=0"
-    />
-    <title>CVSort</title>
 
-    <link rel="shortcut icon" href="../assets\img\favicon.ico" />
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="../assets/plugins/fontawesome/css/fontawesome.min.css"
-    />
-    <script
-      src="https://kit.fontawesome.com/3d6f97d6cd.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="../assets/plugins/fontawesome/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../assets/css/style.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+  <title>CVSort</title>
 
-  <div class="header">
-    <!-- CVsort logo -->
-    <div class="header-left">
-      <a href="index.html" class="logo">CVSort</a>
-      <!--CVSort Small Logo-->
-      <a href="index.html" class="logo logo-small">
-        <img
-          src="../assets/img/logo-small.png"
-          alt="Logo"
-          width="30"
-          height="30"
-        />
-      </a>
-      <!-- Navbar icon -->
-      <a href="javascript:void(0);" id="toggle_btn">
-        <span class="bar-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </a>
-    </div>
+  <link rel="shortcut icon" href="../assets\img\favicon.ico" />
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/plugins/fontawesome/css/fontawesome.min.css" />
+  <script src="https://kit.fontawesome.com/3d6f97d6cd.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
 
-    <a class="mobile_btn" id="mobile_btn">
-      <i class="fas fa-bars"></i>
+<div class="header">
+  <!-- CVsort logo -->
+  <div class="header-left">
+    <a href="index.html" class="logo">CVSort</a>
+    <!--CVSort Small Logo-->
+    <a href="index.html" class="logo logo-small">
+      <img src="../assets/img/logo-small.png" alt="Logo" width="30" height="30" />
     </a>
-
-    <!--NOTIFICATION ICON AND TOGGLE-->
-    <ul class="nav user-menu">
-      <li class="nav-item dropdown">
-        <a
-          href="#"
-          class="dropdown-toggle nav-link pr-0"
-          data-toggle="dropdown"
-        >
-          <i data-feather="bell"></i> <span class="badge-pill"></span>
-        </a>
-        <div class="dropdown-menu notifications">
-          <div class="topnav-dropdown-header">
-            <span class="notification-title">Notifications</span>
-            <a href="javascript:void(0)" class="clear-noti"> Clear All</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown has-arrow main-drop">
-        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-          <span class="user-img">
-            <span class="status online"></span>
-          </span>
-          <span>HR Admin</span>
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#"
-            ><i data-feather="settings" class="mr-1"></i> Settings</a
-          >
-        </div>
-      </li>
-    </ul>
-    <div class="dropdown mobile-user-menu show">
-      <a
-        href="#"
-        class="nav-link dropdown-toggle"
-        data-toggle="dropdown"
-        aria-expanded="false"
-        ><i class="fa fa-ellipsis-v"></i
-      ></a>
-      <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#">Settings</a>
-      </div>
-    </div>
+    <!-- Navbar icon -->
+    <a href="javascript:void(0);" id="toggle_btn">
+      <span class="bar-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </a>
   </div>
 
-  <!--MOBILE SIDE BAR WITH LOGO-->
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-inner slimscroll">
-      <div class="sidebar-contents">
-        <div id="sidebar-menu" class="sidebar-menu">
-          <div class="mobile-show">
-            <div class="offcanvas-menu">
-              <div class="user-info align-center bg-theme text-center">
-                <span class="lnr lnr-cross text-white" id="mobile_btn_close"
-                  >X</span
-                >
-                <a
-                  href="javascript:void(0)"
-                  class="d-block menu-style text-white"
-                >
-                  <div class="user-avatar d-inline-block mr-3">
-                    <img
-                      src="../assets\img\android-chrome-512x512.png"
-                      alt="CV-Sort logo"
-                      class="rounded-circle"
-                      width="50"
-                    />
-                  </div>
-                </a>
-              </div>
+  <a class="mobile_btn" id="mobile_btn">
+    <i class="fas fa-bars"></i>
+  </a>
+
+  <!--NOTIFICATION ICON AND TOGGLE-->
+  <ul class="nav user-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="dropdown-toggle nav-link pr-0" data-toggle="dropdown">
+        <i data-feather="bell"></i> <span class="badge-pill"></span>
+      </a>
+      <div class="dropdown-menu notifications">
+        <div class="topnav-dropdown-header">
+          <span class="notification-title">Notifications</span>
+          <a href="javascript:void(0)" class="clear-noti"> Clear All</a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item dropdown has-arrow main-drop">
+      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+        <span class="user-img">
+          <span class="status online"></span>
+        </span>
+        <span>HR Admin</span>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#"><i data-feather="settings" class="mr-1"></i> Settings</a>
+      </div>
+    </li>
+  </ul>
+  <div class="dropdown mobile-user-menu show">
+    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+        class="fa fa-ellipsis-v"></i></a>
+    <div class="dropdown-menu dropdown-menu-right">
+      <a class="dropdown-item" href="#">Settings</a>
+    </div>
+  </div>
+</div>
+
+<!--MOBILE SIDE BAR WITH LOGO-->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-inner slimscroll">
+    <div class="sidebar-contents">
+      <div id="sidebar-menu" class="sidebar-menu">
+        <div class="mobile-show">
+          <div class="offcanvas-menu">
+            <div class="user-info align-center bg-theme text-center">
+              <span class="lnr lnr-cross text-white" id="mobile_btn_close">X</span>
+              <a href="javascript:void(0)" class="d-block menu-style text-white">
+                <div class="user-avatar d-inline-block mr-3">
+                  <img src="../assets\img\android-chrome-512x512.png" alt="CV-Sort logo" class="rounded-circle"
+                    width="50" />
+                </div>
+              </a>
             </div>
-
-            <!--SIDEBAR CONTENTS-->
-            <ul>
-              <li>
-                <a href="index.html"
-                  ><i class="fa-solid fa-splotch fa-2xl"></i
-                  ><span>Overview</span></a
-                >
-              </li>
-
-              <li>
-                <a class="sidebar-title" href="#"
-                  ><span> PROCESSING AND REMOVAL</span></a
-                >
-              </li>
-
-              <li>
-                <a href="upload-extract.html"
-                  ><i class="fa-solid fa-file-import fa-2xl"></i
-                  ><span> Upload and Extract</span></a
-                >
-              </li>
-              <li>
-                <a href="process-compile.html"
-                  ><i class="fa-regular fa-rectangle-list fa-2xl"></i
-                  ><span>Process and Compile</span></a
-                >
-              </li>
-              <li>
-                <a href="redflag-checker.html"
-                  ><i class="fa-solid fa-flag fa-2xl"></i
-                  ><span>Red Flag Checker </span></a
-                >
-              </li>
-              <li>
-                <a href="filter-finalize.html"
-                  ><i class="fa-solid fa-filter fa-2xl"></i
-                  ><span>Filter and Finalize</span></a
-                >
-              </li>
-
-              <li>
-                <a class="sidebar-title" href="#"
-                  ><span>Ranking and Shortlisting</span></a
-                >
-              </li>
-
-              <li>
-                <a href="applicant-ranking.html"
-                  ><i class="fa-solid fa-ranking-star fa-2xl"></i
-                  ><span>Applicant Ranking</span></a
-                >
-              </li>
-              <li class="active">
-                <a href="final-applicant.html"
-                  ><i class="fa-solid fa-medal fa-2xl"></i
-                  ><span>Final Applicant</span></a
-                >
-              </li>
-
-              <li>
-                <a class="sidebar-title" href="#"><span>TOOLS</span></a>
-              </li>
-              <li>
-                <a href="interview-scheduler.html"
-                  ><i class="fa-solid fa-user-tie fa-2xl"></i
-                  ><span>Interview Scheduler</span></a
-                >
-              </li>
-              <li>
-                <a href="calendar.html"
-                  ><i class="fa-solid fa-calendar fa-2xl"></i
-                  ><span>Calendar</span></a
-                >
-              </li>
-              <li>
-                <a href="shortlisted.html"
-                  ><i class="fa-solid fa-medal fa-2xl"></i
-                  ><span>Shortlisted Applicants</span></a
-                >
-              </li>
-              <li>
-                <a href="waitlisted.html"
-                  ><i class="fa-solid fa-user-xmark fa-2xl"></i
-                  ><span>Waitlisted Applicants</span></a
-                >
-              </li>
-            </ul>
           </div>
 
           <!--SIDEBAR CONTENTS-->
           <ul>
             <li>
-              <a href="index.html"
-                ><i class="fa-solid fa-splotch fa-2xl"></i
-                ><span>Overview</span></a
-              >
+              <a href="index.html"><i class="fa-solid fa-splotch fa-2xl"></i><span>Overview</span></a>
             </li>
 
             <li>
-              <a class="sidebar-title" href="#"
-                ><span> PROCESSING AND REMOVAL</span></a
-              >
+              <a class="sidebar-title" href="#"><span> PROCESSING AND REMOVAL</span></a>
             </li>
 
             <li>
-              <a
-                ><i class="fa-solid fa-file-import fa-2xl"></i
-                ><span> Upload and Extract</span></a
-              >
+              <a href="upload-extract.html"><i class="fa-solid fa-file-import fa-2xl"></i><span> Upload and
+                  Extract</span></a>
             </li>
             <li>
-              <a
-                ><i class="fa-regular fa-rectangle-list fa-2xl"></i
-                ><span>Process and Compile</span></a
-              >
+              <a href="process-compile.html"><i class="fa-regular fa-rectangle-list fa-2xl"></i><span>Process and
+                  Compile</span></a>
             </li>
             <li>
-              <a
-                ><i class="fa-solid fa-flag fa-2xl"></i
-                ><span>Red Flag Checker </span></a
-              >
+              <a href="redflag-checker.html"><i class="fa-solid fa-flag fa-2xl"></i><span>Red Flag Checker </span></a>
             </li>
             <li>
-              <a
-                ><i class="fa-solid fa-filter fa-2xl"></i
-                ><span>Filter and Finalize</span></a
-              >
+              <a href="filter-finalize.html"><i class="fa-solid fa-filter fa-2xl"></i><span>Filter and
+                  Finalize</span></a>
             </li>
 
             <li>
-              <a class="sidebar-title" href="#"
-                ><span>Ranking and Selection</span></a
-              >
+              <a class="sidebar-title" href="#"><span>Ranking and Shortlisting</span></a>
             </li>
 
             <li>
-              <a
-                ><i class="fa-solid fa-ranking-star fa-2xl"></i
-                ><span>Applicant Ranking</span></a
-              >
+              <a href="applicant-ranking.html"><i class="fa-solid fa-ranking-star fa-2xl"></i><span>Applicant
+                  Ranking</span></a>
             </li>
             <li class="active">
-              <a
-                ><i class="fa-solid fa-medal fa-2xl"></i
-                ><span>Final Applicant</span></a
-              >
+              <a href="final-applicant.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Final Applicant</span></a>
             </li>
 
             <li>
               <a class="sidebar-title" href="#"><span>TOOLS</span></a>
             </li>
             <li>
-              <a href="interview-scheduler.html"
-                ><i class="fa-solid fa-user-tie fa-2xl"></i
-                ><span>Interview Scheduler</span></a
-              >
+              <a href="interview-scheduler.html"><i class="fa-solid fa-user-tie fa-2xl"></i><span>Interview
+                  Scheduler</span></a>
             </li>
             <li>
-              <a href="calendar.html"
-                ><i class="fa-solid fa-calendar fa-2xl"></i
-                ><span>Calendar</span></a
-              >
+              <a href="calendar.html"><i class="fa-solid fa-calendar fa-2xl"></i><span>Calendar</span></a>
             </li>
             <li>
-              <a href="shortlisted.html"
-                ><i class="fa-solid fa-medal fa-2xl"></i
-                ><span>Shortlisted Applicants</span></a
-              >
+              <a href="shortlisted.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Shortlisted Applicants</span></a>
             </li>
             <li>
-              <a href="waitlisted.html"
-                ><i class="fa-solid fa-user-xmark fa-2xl"></i
-                ><span>Waitlisted Applicants</span></a
-              >
+              <a href="waitlisted.html"><i class="fa-solid fa-user-xmark fa-2xl"></i><span>Waitlisted
+                  Applicants</span></a>
             </li>
           </ul>
         </div>
+
+        <!--SIDEBAR CONTENTS-->
+        <ul>
+          <li>
+            <a href="index.html"><i class="fa-solid fa-splotch fa-2xl"></i><span>Overview</span></a>
+          </li>
+
+          <li>
+            <a class="sidebar-title" href="#"><span> PROCESSING AND REMOVAL</span></a>
+          </li>
+
+          <li>
+            <a><i class="fa-solid fa-file-import fa-2xl"></i><span> Upload and Extract</span></a>
+          </li>
+          <li>
+            <a><i class="fa-regular fa-rectangle-list fa-2xl"></i><span>Process and Compile</span></a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-flag fa-2xl"></i><span>Red Flag Checker </span></a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-filter fa-2xl"></i><span>Filter and Finalize</span></a>
+          </li>
+
+          <li>
+            <a class="sidebar-title" href="#"><span>Ranking and Selection</span></a>
+          </li>
+
+          <li>
+            <a><i class="fa-solid fa-ranking-star fa-2xl"></i><span>Applicant Ranking</span></a>
+          </li>
+          <li class="active">
+            <a><i class="fa-solid fa-medal fa-2xl"></i><span>Final Applicant</span></a>
+          </li>
+
+          <li>
+            <a class="sidebar-title" href="#"><span>TOOLS</span></a>
+          </li>
+          <li>
+            <a href="interview-scheduler.html"><i class="fa-solid fa-user-tie fa-2xl"></i><span>Interview
+                Scheduler</span></a>
+          </li>
+          <li>
+            <a href="calendar.html"><i class="fa-solid fa-calendar fa-2xl"></i><span>Calendar</span></a>
+          </li>
+          <li>
+            <a href="shortlisted.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Shortlisted Applicants</span></a>
+          </li>
+          <li>
+            <a href="waitlisted.html"><i class="fa-solid fa-user-xmark fa-2xl"></i><span>Waitlisted
+                Applicants</span></a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- BODY OF SECTIONS -->
+<!-- BODY OF SECTIONS -->
 
-  <body>
-    <div class="page-wrapper">
-      <div
-        class="content container-fluid"
-        style="object-fit: contain; margin-bottom: 10px"
-      >
-        <div class="row">
-          <div class="col-xl-12 col-sm-12 col-12">
-            <div class="breadcrumb-path mb-4">
-              <h3>Final Selection</h3>
-            </div>
+<body>
+  <div class="page-wrapper">
+    <div class="content container-fluid" style="object-fit: contain; margin-bottom: 10px">
+      <div class="row">
+        <div class="col-xl-12 col-sm-12 col-12">
+          <div class="breadcrumb-path mb-4">
+            <h3>Final Selection</h3>
           </div>
         </div>
+      </div>
 
-        <div class="col-xl-12 col-sm-12 col-12">
-          <div class="row">
-            <div class="col-md-6">
-              <div
-                class="col-xl-12 col-sm-12 col-12"
-                id="expandedApplicantContainer"
-                style="
+      <div class="col-xl-12 col-sm-12 col-12">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="col-xl-12 col-sm-12 col-12" id="expandedApplicantContainer" style="
                   display: block;
                   position: static;
                   top: auto;
                   left: auto;
                   transform: none;
                   max-width: 40vw;
-                "
-              >
-                <div class="card">
-                  <div class="card-body p-0">
-                    <div
-                      class="table-responsive content-wrapper scrollbar-near-moon"
-                    >
-                      <table class="table custom-table no-footer tablenoheader">
-                        <thead>
-                          <tr>
-                            <th style="text-align: left; width: 50%">
-                              <h2 id="EACName">Barbara Hawkins</h2>
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <!-- Skills -->
-                          <tr style="display: inline">
-                            <td>
-                              <div>
-                                <h6 class="mb-0">Skills:</h6>
-                                <h5 class="ctm-text-sm wrapped-text">
-                                  <span
-                                    class="badge badge-primary"
-                                    id="EACSkill1"
-                                    >Skill1</span
-                                  >
-                                </h5>
-                                <h5 class="ctm-text-sm wrapped-text">
-                                  <span
-                                    class="badge badge-primary"
-                                    id="EACSkill2"
-                                    >Skill2</span
-                                  >
-                                </h5>
-                                <h5 class="ctm-text-sm wrapped-text">
-                                  <span
-                                    class="badge badge-primary"
-                                    id="EACSkill3"
-                                    >Skill3</span
-                                  >
-                                </h5>
-                                <h5 class="ctm-text-sm wrapped-text">
-                                  <span
-                                    class="badge badge-primary"
-                                    id="EACSkill4"
-                                    >Skill4</span
-                                  >
-                                </h5>
-                                <h5 class="ctm-text-sm wrapped-text">
-                                  <span
-                                    class="badge badge-primary"
-                                    id="EACSkill5"
-                                    >Skill5</span
-                                  >
-                                </h5>
-                                <h5 class="ctm-text-sm wrapped-text">
-                                  <span
-                                    class="badge badge-primary"
-                                    id="EACSkill6"
-                                    >Skill6</span
-                                  >
-                                </h5>
-                                <h5 class="ctm-text-sm wrapped-text">
-                                  <span
-                                    class="badge badge-primary"
-                                    id="EACSkill7"
-                                    >Skill7</span
-                                  >
-                                </h5>
-                                <h5 class="ctm-text-sm wrapped-text">
-                                  <span
-                                    class="badge badge-primary"
-                                    id="EACSkill8"
-                                    >Skill8</span
-                                  >
-                                </h5>
-                                <h5 class="ctm-text-sm wrapped-text">
-                                  <span
-                                    class="badge badge-primary"
-                                    id="EACSkill9"
-                                    >Skill9</span
-                                  >
-                                </h5>
-                                <h5 class="ctm-text-sm wrapped-text">
-                                  <span
-                                    class="badge badge-primary"
-                                    id="EACSkill10"
-                                    >Skill10</span
-                                  >
-                                </h5>
-                              </div>
-                            </td>
-                          </tr>
-                          <!-- Education -->
-                          <tr>
-                            <td>
-                              <div>
-                                <h6 class="mb-0">Education:<br /></h6>
-                                <br />
-                                <h4
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACEducationTitle1"
-                                >
-                                  Bachelor of Science in Computer Engineering
-                                  Technology
-                                </h4>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACEducationSchool1"
-                                >
-                                  Old Dominion University
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACEducationYear1"
-                                >
-                                  2014
-                                </h5>
-                                <br />
-                                <h4
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACEducationTitle2"
-                                >
-                                  Bachelor of Science in Computer Engineering
-                                  Technology
-                                </h4>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACEducationSchool2"
-                                >
-                                  Old Dominion University
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACEducationYear2"
-                                >
-                                  2014
-                                </h5>
-                                <br />
-                                <h4
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACEducationTitle3"
-                                >
-                                  Bachelor of Science in Computer Engineering
-                                  Technology
-                                </h4>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACEducationSchool3"
-                                >
-                                  Old Dominion University
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACEducationYear3"
-                                >
-                                  2014
-                                </h5>
-                              </div>
-                            </td>
-                          </tr>
-                          <!-- Experience -->
-                          <tr>
-                            <td>
-                              <div>
-                                <h6 class="mb-0">Experience:<br /></h6>
-                                <br />
-                                <h4
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobTitle1"
-                                >
-                                  Bachelor of Science in Computer Engineering
-                                  Technology
-                                </h4>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobCompany1"
-                                >
-                                  Old Dominion University
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobYear1"
-                                >
-                                  2014
-                                </h5>
-                                <br />
-                                <h4
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobTitle2"
-                                >
-                                  Bachelor of Science in Computer Engineering
-                                  Technology
-                                </h4>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobCompany2"
-                                >
-                                  Old Dominion University
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobYear2"
-                                >
-                                  2014
-                                </h5>
-                                <br />
-                                <h4
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobTitle3"
-                                >
-                                  Bachelor of Science in Computer Engineering
-                                  Technology
-                                </h4>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobCompany3"
-                                >
-                                  Old Dominion University
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobYear3"
-                                >
-                                  2014
-                                </h5>
-                                <br />
-                                <h4
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobTitle4"
-                                >
-                                  Bachelor of Science in Computer Engineering
-                                  Technology
-                                </h4>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobCompany4"
-                                >
-                                  Old Dominion University
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobYear4"
-                                >
-                                  2014
-                                </h5>
-                                <br />
-                                <h4
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobTitle5"
-                                >
-                                  Bachelor of Science in Computer Engineering
-                                  Technology
-                                </h4>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobCompany5"
-                                >
-                                  Old Dominion University
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACJobYear5"
-                                >
-                                  2014
-                                </h5>
-                              </div>
-                            </td>
-                          </tr>
+                ">
+              <div class="card">
+                <div class="card-body p-0">
+                  <div class="table-responsive content-wrapper scrollbar-near-moon">
+                    <table class="table custom-table no-footer tablenoheader">
+                      <thead>
+                        <tr>
+                          <th style="text-align: left; width: 50%">
+                            <h2 id="EACName">Barbara Hawkins</h2>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Skills -->
+                        <tr style="display: inline">
+                          <td>
+                            <div>
+                              <h6 class="mb-0">Skills:</h6>
+                              <h5 class="ctm-text-sm wrapped-text">
+                                <span class="badge badge-primary" id="EACSkill1">Skill1</span>
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text">
+                                <span class="badge badge-primary" id="EACSkill2">Skill2</span>
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text">
+                                <span class="badge badge-primary" id="EACSkill3">Skill3</span>
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text">
+                                <span class="badge badge-primary" id="EACSkill4">Skill4</span>
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text">
+                                <span class="badge badge-primary" id="EACSkill5">Skill5</span>
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text">
+                                <span class="badge badge-primary" id="EACSkill6">Skill6</span>
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text">
+                                <span class="badge badge-primary" id="EACSkill7">Skill7</span>
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text">
+                                <span class="badge badge-primary" id="EACSkill8">Skill8</span>
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text">
+                                <span class="badge badge-primary" id="EACSkill9">Skill9</span>
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text">
+                                <span class="badge badge-primary" id="EACSkill10">Skill10</span>
+                              </h5>
+                            </div>
+                          </td>
+                        </tr>
+                        <!-- Education -->
+                        <tr>
+                          <td>
+                            <div>
+                              <h6 class="mb-0">Education:<br /></h6>
+                              <br />
+                              <h4 class="ctm-text-sm wrapped-text" id="EACEducationTitle1">
+                                Bachelor of Science in Computer Engineering
+                                Technology
+                              </h4>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACEducationSchool1">
+                                Old Dominion University
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACEducationYear1">
+                                2014
+                              </h5>
+                              <br />
+                              <h4 class="ctm-text-sm wrapped-text" id="EACEducationTitle2">
+                                Bachelor of Science in Computer Engineering
+                                Technology
+                              </h4>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACEducationSchool2">
+                                Old Dominion University
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACEducationYear2">
+                                2014
+                              </h5>
+                              <br />
+                              <h4 class="ctm-text-sm wrapped-text" id="EACEducationTitle3">
+                                Bachelor of Science in Computer Engineering
+                                Technology
+                              </h4>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACEducationSchool3">
+                                Old Dominion University
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACEducationYear3">
+                                2014
+                              </h5>
+                            </div>
+                          </td>
+                        </tr>
+                        <!-- Experience -->
+                        <tr>
+                          <td>
+                            <div>
+                              <h6 class="mb-0">Experience:<br /></h6>
+                              <br />
+                              <h4 class="ctm-text-sm wrapped-text" id="EACJobTitle1">
+                                Bachelor of Science in Computer Engineering
+                                Technology
+                              </h4>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACJobCompany1">
+                                Old Dominion University
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACJobYear1">
+                                2014
+                              </h5>
+                              <br />
+                              <h4 class="ctm-text-sm wrapped-text" id="EACJobTitle2">
+                                Bachelor of Science in Computer Engineering
+                                Technology
+                              </h4>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACJobCompany2">
+                                Old Dominion University
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACJobYear2">
+                                2014
+                              </h5>
+                              <br />
+                              <h4 class="ctm-text-sm wrapped-text" id="EACJobTitle3">
+                                Bachelor of Science in Computer Engineering
+                                Technology
+                              </h4>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACJobCompany3">
+                                Old Dominion University
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACJobYear3">
+                                2014
+                              </h5>
+                              <br />
+                              <h4 class="ctm-text-sm wrapped-text" id="EACJobTitle4">
+                                Bachelor of Science in Computer Engineering
+                                Technology
+                              </h4>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACJobCompany4">
+                                Old Dominion University
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACJobYear4">
+                                2014
+                              </h5>
+                              <br />
+                              <h4 class="ctm-text-sm wrapped-text" id="EACJobTitle5">
+                                Bachelor of Science in Computer Engineering
+                                Technology
+                              </h4>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACJobCompany5">
+                                Old Dominion University
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACJobYear5">
+                                2014
+                              </h5>
+                            </div>
+                          </td>
+                        </tr>
 
-                          <!-- Certifications -->
-                          <tr>
-                            <td>
-                              <div>
-                                <h6 class="mb-0">Certifications:</h6>
-                                <br />
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACCertification1"
-                                >
-                                  Certification1
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACCertification2"
-                                >
-                                  Certification2
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACCertification3"
-                                >
-                                  Certification3
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACCertification4"
-                                >
-                                  Certification4
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACCertification5"
-                                >
-                                  Certification5
-                                </h5>
-                                <br />
-                              </div>
-                            </td>
-                          </tr>
+                        <!-- Certifications -->
+                        <tr>
+                          <td>
+                            <div>
+                              <h6 class="mb-0">Certifications:</h6>
+                              <br />
+                              <h5 class="ctm-text-sm wrapped-text" id="EACCertification1">
+                                Certification1
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACCertification2">
+                                Certification2
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACCertification3">
+                                Certification3
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACCertification4">
+                                Certification4
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACCertification5">
+                                Certification5
+                              </h5>
+                              <br />
+                            </div>
+                          </td>
+                        </tr>
 
-                          <!-- Accomplishments -->
-                          <tr>
-                            <td>
-                              <div>
-                                <h6 class="mb-0">Accomplishments:</h6>
-                                <br />
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACAccomplishment1"
-                                >
-                                  Accomplishment1
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACAccomplishment2"
-                                >
-                                  Accomplishment2
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACAccomplishment3"
-                                >
-                                  Accomplishment3
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACAccomplishment4"
-                                >
-                                  Accomplishment4
-                                </h5>
-                                <h5
-                                  class="ctm-text-sm wrapped-text"
-                                  id="EACAccomplishment5"
-                                >
-                                  Accomplishment5
-                                </h5>
-                                <br />
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                        <!-- Accomplishments -->
+                        <tr>
+                          <td>
+                            <div>
+                              <h6 class="mb-0">Accomplishments:</h6>
+                              <br />
+                              <h5 class="ctm-text-sm wrapped-text" id="EACAccomplishment1">
+                                Accomplishment1
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACAccomplishment2">
+                                Accomplishment2
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACAccomplishment3">
+                                Accomplishment3
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACAccomplishment4">
+                                Accomplishment4
+                              </h5>
+                              <h5 class="ctm-text-sm wrapped-text" id="EACAccomplishment5">
+                                Accomplishment5
+                              </h5>
+                              <br />
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 scrollbar-near-moon">
-              <!-- <div class="container card m-0" style="width: 100%; height: 50%">
+          </div>
+          <div class="col-md-6 scrollbar-near-moon">
+            <!-- <div class="container card m-0" style="width: 100%; height: 50%">
                 <h2>calendar</h2>
               </div> -->
-              <div class="container card mt-0" style="width: 100%; height: 50%">
+            <div class="row">
+              <div class="container card mt-0" style="width: 100%; height: 50%;">
                 <div class="card-header">
                   <h2 class="card-titles">
                     Schedule Interview for Selected Applicant
                   </h2>
+
                 </div>
                 <div class="form-creation">
                   <div class="row">
                     <div class="col-xl-6 col-sm-12 col-12">
                       <div class="form-group">
                         <label>Recipient:</label>
-                        <input
-                          type="text"
-                          class="full-width-input"
-                          placeholder="Applicant's Name"
-                        />
+                        <input type="text" class="full-width-input" placeholder="Applicant's Name" />
                       </div>
                     </div>
                     <div class="col-xl-6 col-sm-12 col-12">
                       <div class="form-group">
                         <label>Sender:</label>
-                        <input
-                          type="text"
-                          class="full-width-input"
-                          placeholder="XYZ Company"
-                        />
+                        <input type="text" class="full-width-input" placeholder="XYZ Company" />
                       </div>
                     </div>
                   </div>
@@ -731,93 +472,75 @@
                     <div class="col-xl-12 col-sm-12 col-12">
                       <div class="form-group">
                         <label>Message</label>
-                        <textarea
-                          rows="4"
-                          cols="50"
-                          class="scrollbar-near-moon"
-                        >
-                          I hope this message finds you well. I am writing to offer you an interview for the position you applied for at our company. We were impressed by your qualifications and experience, and we believe that you could be a valuable addition to our team.
-    
-                          To schedule your interview, please let us know your availability within the next week. We are looking to conduct interviews as soon as possible and we want to ensure we can accommodate your schedule.
-                          
-                          If there is a particular date or time that works best for you, please let us know and we will do our best to accommodate your schedule. Additionally, if there are any specific accommodations or requirements you need during the interview process, please don't hesitate to inform us so we can make appropriate arrangements.
-                          
-                          Please let us know your availability at your earliest convenience. We look forward to hearing back from you soon and hopefully having the opportunity to meet you in person.
-                          
-                          Best regards,
-                          
-                          John Watson</textarea
-                        >
+                        <textarea rows="4" cols="50" class="scrollbar-near-moon">
+                            I hope this message finds you well. I am writing to offer you an interview for the position you applied for at our company. We were impressed by your qualifications and experience, and we believe that you could be a valuable addition to our team.
+      
+                            To schedule your interview, please let us know your availability within the next week. We are looking to conduct interviews as soon as possible and we want to ensure we can accommodate your schedule.
+                            
+                            If there is a particular date or time that works best for you, please let us know and we will do our best to accommodate your schedule. Additionally, if there are any specific accommodations or requirements you need during the interview process, please don't hesitate to inform us so we can make appropriate arrangements.
+                            
+                            Please let us know your availability at your earliest convenience. We look forward to hearing back from you soon and hopefully having the opportunity to meet you in person.
+                            
+                            Best regards,
+                            
+                            John Watson</textarea>
                       </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xl-12 col-sm-12 col-12">
-                      <div class="form-btn">
-                        <a class="btn btn-submit">Send</a>
+                      <div class="row">
+                        <div class="col-xl-12 col-sm-12 col-12">
+                          <div class="form-btn">
+                            <a class="btn btn-submit">Send</a>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="container card mt-6"
-                style="width: 100%; box-sizing: border-box; margin-bottom: 0%"
-              >
-                <div class="card-header">
-                  <h2 class="card-titles">School and Work Verification</h2>
-                </div>
-                <div
-                  class="card-body d-flex flex-column align-items-center"
-                  style="max-height: 10%"
-                  id="verificationButton"
-                >
-                  <button
-                    class="btn btn-outline-primary"
-                    style="max-width: 60%"
-                    onclick="createVerificationContent()"
-                  >
-                    Find Verification Contact
-                  </button>
-                </div>
-                <div
-                  class="card-body d-flex flex-column"
-                  style="display: flex; flex-direction: column"
-                >
-                  <div id="contact-container"></div>
-                  <div
-                    style="
-                      display: flex;
-                      align-items: center;
-                      margin-right: auto;
-                      margin-top: 5%;
-                    "
-                  >
-                    <div
-                      id="spinner"
-                      class="spinner-border text-primary ml-3"
-                      style="display: none"
-                      role="status"
-                    >
-                      <span class="sr-only">Loading...</span>
+
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="container card mt-6" style="width: 100%; box-sizing: border-box; margin-bottom: 0%;">
+                <div class="card-header">
+                  <h2 class="card-titles">School and Work Verification</h2>
+                </div>
+                <div class="card-body d-flex flex-column align-items-center" id="verificationButton">
+                  <button class="btn btn-outline-primary" style="max-width: 60%;" onclick="createVerificationContent()">
+                    Find Verification Contact
+                  </button>
+                </div>
+                <div class="card-body d-flex flex-column"
+                  style="display: flex; flex-direction: column; padding-bottom: 0px;">
+                  <div id="contact-container"></div>
+                  <div style="
+                        display: flex;
+                        align-items: center;
+                        margin-right: auto;
+                        margin-top: 5%;
+                      ">
+                    <div id="spinner" class="spinner-border text-primary ml-3" style="display: none" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/feather.min.js"></script>
-    <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="../assets/plugins/apexchart/apexcharts.min.js"></script>
-    <script src="../assets/plugins/apexchart/chart-data.js"></script>
-    <script src="../assets\js\final-applicant-script.js"></script>
-    <script src="../assets\js\script-2.js"></script>
-  </body>
+  </div>
+  <script src="../assets/js/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="../assets/js/popper.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/feather.min.js"></script>
+  <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="../assets/plugins/apexchart/apexcharts.min.js"></script>
+  <script src="../assets/plugins/apexchart/chart-data.js"></script>
+  <script src="../assets\js\final-applicant-script.js"></script>
+  <script src="../assets\js\script-2.js"></script>
+</body>
+
 </html>
