@@ -2630,7 +2630,7 @@ html.menu-opened body {
 @media screen and (min-width: 1950px) {
   .day {
     width: 10vw;
-    height: 15vh;
+    height: 12.5vh;
   }
   #weekdays div {
     margin-left: 7.5vw;
