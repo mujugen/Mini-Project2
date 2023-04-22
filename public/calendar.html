@@ -1,352 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <title>CVSort</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
-  <title>CVSort</title>
+    <link rel="shortcut icon" href="../assets\img\favicon.ico" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/plugins/fullcalendar/fullcalendar.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/plugins/fontawesome/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/plugins/fontawesome/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="fullcalendar.css" />
+    <link
+      rel="stylesheet"
+      href="../assets\plugins\fullcalendar\fullcalendar.min.css"
+    />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script src="moment.js"></script>
+    <script type="text/javascript" src="fullcalendar.js"></script>
 
-  <link rel="shortcut icon" href="../assets\img\favicon.ico" />
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="../assets/plugins/fullcalendar/fullcalendar.min.css" />
-  <link rel="stylesheet" href="../assets/plugins/fontawesome/css/fontawesome.min.css" />
-  <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" type="text/css" href="fullcalendar.css" />
-  <link rel="stylesheet" href="../assets\plugins\fullcalendar\fullcalendar.min.css" />
-  <script type="text/javascript" src="jquery.js"></script>
-  <script src="moment.js"></script>
-  <script type="text/javascript" src="fullcalendar.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3d6f97d6cd.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-  <script src="https://kit.fontawesome.com/3d6f97d6cd.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-  <div class="main-wrapper">
-    <div class="header">
-      <!-- CVsort logo -->
-      <div class="header-left">
-        <a href="index.html" class="logo"> CVSort </a>
-        <!--CVSort Small Logo-->
-        <a href="index.html" class="logo logo-small">
-          <img src="../assets/img/logo-small.png" alt="Logo" width="30" height="30" />
-        </a>
-        <!-- Navbar icon -->
-        <a href="javascript:void(0);" id="toggle_btn">
-          <span class="bar-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </a>
-      </div>
-
-      <a class="mobile_btn" id="mobile_btn">
-        <i class="fas fa-bars"></i>
-      </a>
-
-      <!--NOTIFICATION ICON AND TOGGLE-->
-      <ul class="nav user-menu">
-        <li class="nav-item dropdown">
-          <a href="#" class="dropdown-toggle nav-link pr-0" data-toggle="dropdown">
-            <i data-feather="bell"></i> <span class="badge-pill"></span>
+  <body>
+    <div class="main-wrapper">
+      <div class="header">
+        <!-- CVsort logo -->
+        <div class="header-left">
+          <a href="index.html" class="logo"> CVSort </a>
+          <!--CVSort Small Logo-->
+          <a href="index.html" class="logo logo-small">
+            <img
+              src="../assets/img/logo-small.png"
+              alt="Logo"
+              width="30"
+              height="30"
+            />
           </a>
-          <div class="dropdown-menu notifications">
-            <div class="topnav-dropdown-header">
-              <span class="notification-title">Notifications</span>
-              <a href="javascript:void(0)" class="clear-noti"> Clear All</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="nav-item dropdown has-arrow main-drop">
-          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-            <span class="user-img">
-              <span class="status online"></span>
+          <!-- Navbar icon -->
+          <a href="javascript:void(0);" id="toggle_btn">
+            <span class="bar-icon">
+              <span></span>
+              <span></span>
+              <span></span>
             </span>
-            <span>HR Admin</span>
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="home.html"><i class="fa-solid fa-right-from-bracket"
-                style="margin-right: 10px"></i>EXIT</a>
+        </div>
+
+        <a class="mobile_btn" id="mobile_btn">
+          <i class="fas fa-bars"></i>
+        </a>
+
+        <!--NOTIFICATION ICON AND TOGGLE-->
+        <ul class="nav user-menu">
+          <li class="nav-item dropdown">
+            <a
+              href="#"
+              class="dropdown-toggle nav-link pr-0"
+              data-toggle="dropdown"
+            >
+              <i data-feather="bell"></i> <span class="badge-pill"></span>
+            </a>
+            <div class="dropdown-menu notifications">
+              <div class="topnav-dropdown-header">
+                <span class="notification-title">Notifications</span>
+                <a href="javascript:void(0)" class="clear-noti"> Clear All</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown has-arrow main-drop">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <span class="user-img">
+                <span class="status online"></span>
+              </span>
+              <span>HR Admin</span>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="home.html"
+                ><i
+                  class="fa-solid fa-right-from-bracket"
+                  style="margin-right: 10px"
+                ></i
+                >EXIT</a
+              >
+            </div>
+          </li>
+        </ul>
+        <div class="dropdown mobile-user-menu show">
+          <a
+            href="#"
+            class="nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="fa fa-ellipsis-v"></i
+          ></a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="home.html"
+              ><i
+                class="fa-solid fa-right-from-bracket"
+                style="margin-right: 10px"
+              ></i
+              >EXIT</a
+            >
           </div>
-        </li>
-      </ul>
-      <div class="dropdown mobile-user-menu show">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
-            class="fa fa-ellipsis-v"></i></a>
-        <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" href="home.html"><i class="fa-solid fa-right-from-bracket"
-              style="margin-right: 10px"></i>EXIT</a>
         </div>
       </div>
-    </div>
 
-    <!--MOBILE SIDE BAR WITH LOGO-->
-    <div class="sidebar" id="sidebar">
-      <div class="sidebar-inner slimscroll">
-        <div class="sidebar-contents">
-          <div id="sidebar-menu" class="sidebar-menu">
-            <div class="mobile-show">
-              <div class="offcanvas-menu">
-                <div class="user-info align-center bg-theme text-center">
-                  <span class="lnr lnr-cross text-white" id="mobile_btn_close">X</span>
-                  <a href="javascript:void(0)" class="d-block menu-style text-white">
-                    <div class="user-avatar d-inline-block mr-3">
-                      <img src="../assets\img\android-chrome-512x512.png" alt="CV-Sort logo" class="rounded-circle"
-                        width="50" />
-                    </div>
-                  </a>
+      <!--MOBILE SIDE BAR WITH LOGO-->
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-inner slimscroll">
+          <div class="sidebar-contents">
+            <div id="sidebar-menu" class="sidebar-menu">
+              <div class="mobile-show">
+                <div class="offcanvas-menu">
+                  <div class="user-info align-center bg-theme text-center">
+                    <span class="lnr lnr-cross text-white" id="mobile_btn_close"
+                      >X</span
+                    >
+                    <a
+                      href="javascript:void(0)"
+                      class="d-block menu-style text-white"
+                    >
+                      <div class="user-avatar d-inline-block mr-3">
+                        <img
+                          src="../assets\img\android-chrome-512x512.png"
+                          alt="CV-Sort logo"
+                          class="rounded-circle"
+                          width="50"
+                        />
+                      </div>
+                    </a>
+                  </div>
                 </div>
+
+                <!--SIDEBAR CONTENTS-->
+                <ul>
+                  <li>
+                    <a href="index.html"
+                      ><i class="fa-solid fa-splotch fa-2xl"></i
+                      ><span>Overview</span></a
+                    >
+                  </li>
+
+                  <li>
+                    <a><span> PROCESSING AND REMOVAL</span></a>
+                  </li>
+
+                  <li>
+                    <a
+                      ><i class="fa-solid fa-file-import fa-2xl"></i
+                      ><span> Upload and Extract</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      ><i class="fa-regular fa-rectangle-list fa-2xl"></i
+                      ><span>Process and Compile</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      ><i class="fa-solid fa-flag fa-2xl"></i
+                      ><span>Red Flag Checker </span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      ><i class="fa-solid fa-filter fa-2xl"></i
+                      ><span>Filter and Finalize</span></a
+                    >
+                  </li>
+
+                  <li>
+                    <a><span>Ranking and Shortlisting</span></a>
+                  </li>
+
+                  <li>
+                    <a
+                      ><i class="fa-solid fa-ranking-star fa-2xl"></i
+                      ><span>Applicant Ranking</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      ><i class="fa-solid fa-medal fa-2xl"></i
+                      ><span>Final Applicant</span></a
+                    >
+                  </li>
+
+                  <li>
+                    <a class="sidebar-title" href="#"><span>TOOLS</span></a>
+                  </li>
+                  <li>
+                    <a
+                      ><i class="fa-solid fa-user-tie fa-2xl"></i
+                      ><span>Interview Scheduler</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      ><i class="fa-solid fa-calendar fa-2xl"></i
+                      ><span>Calendar</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      ><i class="fa-solid fa-medal fa-2xl"></i
+                      ><span>Shortlisted Applicants</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      ><i class="fa-solid fa-user-xmark fa-2xl"></i
+                      ><span>Waitlisted Applicants</span></a
+                    >
+                  </li>
+                </ul>
               </div>
 
               <!--SIDEBAR CONTENTS-->
               <ul>
                 <li>
-                  <a href="index.html"><i class="fa-solid fa-splotch fa-2xl"></i><span>Overview</span></a>
+                  <a href="index.html"
+                    ><i class="fa-solid fa-splotch fa-2xl"></i
+                    ><span>Overview</span></a
+                  >
                 </li>
 
                 <li>
-                  <a class="sidebar-title" href="#"><span> PROCESSING AND REMOVAL</span></a>
+                  <a class="sidebar-title" href="#"
+                    ><span> PROCESSING AND REMOVAL</span></a
+                  >
                 </li>
 
                 <li>
-                  <a href="upload-extract.html"><i class="fa-solid fa-file-import fa-2xl"></i><span> Upload and
-                      Extract</span></a>
+                  <a
+                    ><i class="fa-solid fa-file-import fa-2xl"></i
+                    ><span> Upload and Extract</span></a
+                  >
                 </li>
                 <li>
-                  <a href="process-compile.html"><i class="fa-regular fa-rectangle-list fa-2xl"></i><span>Process and
-                      Compile</span></a>
+                  <a
+                    ><i class="fa-regular fa-rectangle-list fa-2xl"></i
+                    ><span>Process and Compile</span></a
+                  >
                 </li>
                 <li>
-                  <a href="redflag-checker.html"><i class="fa-solid fa-flag fa-2xl"></i><span>Red Flag Checker
-                    </span></a>
+                  <a
+                    ><i class="fa-solid fa-flag fa-2xl"></i
+                    ><span>Red Flag Checker </span></a
+                  >
                 </li>
                 <li>
-                  <a href="filter-finalize.html"><i class="fa-solid fa-filter fa-2xl"></i><span>Filter and
-                      Finalize</span></a>
+                  <a
+                    ><i class="fa-solid fa-filter fa-2xl"></i
+                    ><span>Filter and Finalize</span></a
+                  >
                 </li>
 
                 <li>
-                  <a class="sidebar-title" href="#"><span>Ranking and Shortlisting</span></a>
+                  <a class="sidebar-title" href="#"
+                    ><span>Ranking and Selection</span></a
+                  >
                 </li>
 
                 <li>
-                  <a href="applicant-ranking.html"><i class="fa-solid fa-ranking-star fa-2xl"></i><span>Applicant
-                      Ranking</span></a>
+                  <a
+                    ><i class="fa-solid fa-ranking-star fa-2xl"></i
+                    ><span>Applicant Ranking</span></a
+                  >
                 </li>
                 <li>
-                  <a href="final-applicant.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Final
-                      Applicant</span></a>
+                  <a
+                    ><i class="fa-solid fa-medal fa-2xl"></i
+                    ><span>Final Applicant</span></a
+                  >
                 </li>
 
                 <li>
                   <a class="sidebar-title" href="#"><span>TOOLS</span></a>
                 </li>
                 <li>
-                  <a href="interview-scheduler.html"><i class="fa-solid fa-user-tie fa-2xl"></i><span>Interview
-                      Scheduler</span></a>
+                  <a
+                    ><i class="fa-solid fa-user-tie fa-2xl"></i
+                    ><span>Interview Scheduler</span></a
+                  >
                 </li>
                 <li class="active">
-                  <a href="calendar.html"><i class="fa-solid fa-calendar fa-2xl"></i><span>Calendar</span></a>
+                  <a
+                    ><i class="fa-solid fa-calendar fa-2xl"></i
+                    ><span>Calendar</span></a
+                  >
                 </li>
                 <li>
-                  <a href="shortlisted.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Shortlisted
-                      Applicants</span></a>
+                  <a
+                    ><i class="fa-solid fa-medal fa-2xl"></i
+                    ><span>Shortlisted Applicants</span></a
+                  >
                 </li>
                 <li>
-                  <a href="waitlisted.html"><i class="fa-solid fa-user-xmark fa-2xl"></i><span>Waitlisted
-                      Applicants</span></a>
+                  <a
+                    ><i class="fa-solid fa-user-xmark fa-2xl"></i
+                    ><span>Waitlisted Applicants</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    ><i class="fa-solid fa-medal fa-2xl"></i
+                    ><span>Selected Applicants</span></a
+                  >
                 </li>
               </ul>
             </div>
-
-            <!--SIDEBAR CONTENTS-->
-            <ul>
-              <li>
-                <a href="index.html"><i class="fa-solid fa-splotch fa-2xl"></i><span>Overview</span></a>
-              </li>
-
-              <li>
-                <a class="sidebar-title" href="#"><span> PROCESSING AND REMOVAL</span></a>
-              </li>
-
-              <li>
-                <a href="upload-extract.html"><i class="fa-solid fa-file-import fa-2xl"></i><span> Upload and
-                    Extract</span></a>
-              </li>
-              <li>
-                <a href="process-compile.html"><i class="fa-regular fa-rectangle-list fa-2xl"></i><span>Process and
-                    Compile</span></a>
-              </li>
-              <li>
-                <a href="redflag-checker.html"><i class="fa-solid fa-flag fa-2xl"></i><span>Red Flag Checker </span></a>
-              </li>
-              <li>
-                <a href="filter-finalize.html"><i class="fa-solid fa-filter fa-2xl"></i><span>Filter and
-                    Finalize</span></a>
-              </li>
-
-              <li>
-                <a class="sidebar-title" href="#"><span>Ranking and Selection</span></a>
-              </li>
-
-              <li>
-                <a href="applicant-ranking.html"><i class="fa-solid fa-ranking-star fa-2xl"></i><span>Applicant
-                    Ranking</span></a>
-              </li>
-              <li>
-                <a href="final-applicant.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Final Applicant</span></a>
-              </li>
-
-              <li>
-                <a class="sidebar-title" href="#"><span>TOOLS</span></a>
-              </li>
-              <li>
-                <a href="interview-scheduler.html"><i class="fa-solid fa-user-tie fa-2xl"></i><span>Interview
-                    Scheduler</span></a>
-              </li>
-              <li class="active">
-                <a href="calendar.html"><i class="fa-solid fa-calendar fa-2xl"></i><span>Calendar</span></a>
-              </li>
-              <li>
-                <a href="shortlisted.html"><i class="fa-solid fa-medal fa-2xl"></i><span>Shortlisted
-                    Applicants</span></a>
-              </li>
-              <li>
-                <a href="waitlisted.html"><i class="fa-solid fa-user-xmark fa-2xl"></i><span>Waitlisted
-                    Applicants</span></a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- BODY OF SECTIONS -->
-    <div class="page-wrapper">
-      <div class="content calendar-container-fluid">
-        <div class="row">
-          <!-- upload cv files card -->
-          <div class="col-xl-12 col-sm-12 col-12">
-            <div class="breadcrumb-path mb-4">
-              <h3>Calendar</h3>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xl-12 col-sm-12 col-12">
-            <div class="card card-lists" id="proceedCard">
-              <div class="card-header">
-                <h2 class="card-titles">Email Selected Applicant</h2>
-                <button class="btn btn-head" type="button" id="proceedBtn">
-                  PROCEED
-                </button>
+      <!-- BODY OF SECTIONS -->
+      <div class="page-wrapper">
+        <div class="content calendar-container-fluid">
+          <div class="row">
+            <!-- upload cv files card -->
+            <div class="col-xl-12 col-sm-12 col-12">
+              <div class="breadcrumb-path mb-4">
+                <h3>Calendar</h3>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xl-12 col-sm-12 col-12">
-            <div class="card card-lists" id="proceedCard">
-              <div class="card-header">
-                <h2 class="card-titles">Select Interview Schedule Below</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="col-xl-12 col-sm-12 col-12">
-            <div id="calendar-container">
-              <div id="calendar-header">
-                <div id="monthDisplay"></div>
-                <div>
-                  <button id="backButton">Back</button>
-                  <button id="nextButton">Next</button>
+          <div class="row">
+            <div class="col-xl-12 col-sm-12 col-12">
+              <div class="card card-lists" id="proceedCard">
+                <div class="card-header">
+                  <h2 class="card-titles">Email Selected Applicant</h2>
+                  <button class="btn btn-head" type="button" id="proceedBtn">
+                    PROCEED
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div id="weekdays">
-                <div>Sunday</div>
-                <div>Monday</div>
-                <div>Tuesday</div>
-                <div>Wednesday</div>
-                <div>Thursday</div>
-                <div>Friday</div>
-                <div>Saturday</div>
+          <div class="row">
+            <div class="col-xl-12 col-sm-12 col-12">
+              <div class="card card-lists" id="proceedCard">
+                <div class="card-header">
+                  <h2 class="card-titles">Select Interview Schedule Below</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xl-12 col-sm-12 col-12">
+              <div id="calendar-container">
+                <div id="calendar-header">
+                  <div id="monthDisplay"></div>
+                  <div>
+                    <button id="backButton">Back</button>
+                    <button id="nextButton">Next</button>
+                  </div>
+                </div>
+
+                <div id="weekdays">
+                  <div>Sunday</div>
+                  <div>Monday</div>
+                  <div>Tuesday</div>
+                  <div>Wednesday</div>
+                  <div>Thursday</div>
+                  <div>Friday</div>
+                  <div>Saturday</div>
+                </div>
+
+                <div id="calendar"></div>
               </div>
 
-              <div id="calendar"></div>
-            </div>
+              <div
+                id="newEventModal"
+                style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3)"
+              >
+                <h2 style="margin-bottom: 10px">Set Interview</h2>
 
-            <div id="newEventModal" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3)">
-              <h2 style="margin-bottom: 10px">Set Interview</h2>
-
-              <div style="
+                <div
+                  style="
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                  ">
-                <h6 style="margin-right: 10px; width: 70px">Name:</h6>
-                <input id="applicantNameInput" placeholder="Applicant Name" style="margin-top: 10px" />
-              </div>
+                  "
+                >
+                  <h6 style="margin-right: 10px; width: 70px">Name:</h6>
+                  <input
+                    id="applicantNameInput"
+                    placeholder="Applicant Name"
+                    style="margin-top: 10px"
+                  />
+                </div>
 
-              <div style="
+                <div
+                  style="
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                  ">
-                <h6 style="margin-right: 10px; width: 70px">Time:</h6>
-                <input style="margin-top: 10px" type="time" id="interviewTimeInput" />
+                  "
+                >
+                  <h6 style="margin-right: 10px; width: 70px">Time:</h6>
+                  <input
+                    style="margin-top: 10px"
+                    type="time"
+                    id="interviewTimeInput"
+                  />
+                </div>
+
+                <br /><br />
+
+                <button id="saveButton">Save</button>
+                <button id="cancelButton">Cancel</button>
+              </div>
+              <div id="chooseModal">
+                <h2 style="margin-bottom: 20px">Create or Delete</h2>
+
+                <button id="chooseDeleteButton">Delete</button>
+                <button id="chooseCreateButton">Create</button>
               </div>
 
-              <br /><br />
+              <div id="deleteEventModal">
+                <h2 style="margin-bottom: 20px">Interview Schedule</h2>
 
-              <button id="saveButton">Save</button>
-              <button id="cancelButton">Cancel</button>
+                <ul id="eventList"></ul>
+
+                <button id="deleteButton" style="margin-top: 30px">
+                  Delete
+                </button>
+                <button id="closeButton">Close</button>
+              </div>
+
+              <div id="modalBackDrop"></div>
             </div>
-            <div id="chooseModal">
-              <h2 style="margin-bottom: 20px">Create or Delete</h2>
-
-              <button id="chooseDeleteButton">Delete</button>
-              <button id="chooseCreateButton">Create</button>
-            </div>
-
-            <div id="deleteEventModal">
-              <h2 style="margin-bottom: 20px">Interview Schedule</h2>
-
-              <ul id="eventList"></ul>
-
-              <button id="deleteButton" style="margin-top: 30px">
-                Delete
-              </button>
-              <button id="closeButton">Close</button>
-            </div>
-
-            <div id="modalBackDrop"></div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="../assets/js/jquery-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-  <script src="../assets/js/popper.min.js"></script>
-  <script src="../assets/js/bootstrap.min.js"></script>
-  <script src="../assets/js/feather.min.js"></script>
-  <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/feather.min.js"></script>
+    <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-  <script src="../assets\js\script-2.js"></script>
-  <script src="script.js"></script>
-  <script src="../assets\js\calendar-script.js"></script>
-  <script src="../assets\js\calendar-index.js"></script>
+    <script src="../assets\js\script-2.js"></script>
+    <script src="script.js"></script>
+    <script src="../assets\js\calendar-script.js"></script>
+    <script src="../assets\js\calendar-index.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  </body>
 </html>
