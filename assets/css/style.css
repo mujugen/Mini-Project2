@@ -2751,7 +2751,7 @@ a.start-sorting-btn {
   font-weight: 600;
   left: 52.5%;
   top: 38%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -120%);
 }
 
 a.start-sorting-btn:hover {
