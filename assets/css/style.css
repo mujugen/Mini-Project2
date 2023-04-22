@@ -2509,98 +2509,6 @@ html.menu-opened body {
   color: #fff;
 }
 
-[data-toggle="tooltip"] {
-  position: relative;
-  display: inline-block;
-  z-index: 999;
-}
-
-[data-toggle="tooltip"]::before {
-  content: "";
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 4px 6px 0 6px;
-  border-style: solid;
-  border-color: #181919 transparent transparent transparent;
-  z-index: 99;
-  opacity: 0;
-}
-
-[data-placement="left"]::before {
-  left: 0%;
-  top: 50%;
-  margin-left: -12px;
-  transform: translateY(-50%) rotate(-90deg);
-}
-
-[data-placement="top"]::before {
-  left: 50%;
-}
-
-[data-placement="bottom"]::before {
-  top: 100%;
-  margin-top: 8px;
-  transform: translateX(-50%) translatey(-100%) rotate(-180deg);
-}
-
-[data-placement="right"]::before {
-  left: 100%;
-  top: 50%;
-  margin-left: 1px;
-  transform: translateY(-50%) rotate(90deg);
-  transition: all 0.5s;
-}
-
-[data-toggle="tooltip"]::after {
-  content: attr(tooltip-title);
-  position: absolute;
-  left: 50%;
-  top: -6px;
-  transform: translateX(-50%) translateY(-100%);
-  background: #420ba1;
-  text-align: center;
-  color: #fff;
-  font-size: 12px;
-  min-width: 100px;
-  border-radius: 5px;
-  pointer-events: none;
-  padding: 5px 5px;
-  z-index: 99;
-  opacity: 0;
-  transition: all 0.5s;
-}
-
-[data-placement="left"]::after {
-  left: 0%;
-  top: 50%;
-  margin-left: -7px;
-  transform: translateX(-100%) translateY(-50%);
-}
-
-[data-placement="top"]::after {
-  left: 50%;
-}
-
-[data-placement="bottom"]::after {
-  top: 100%;
-  margin-top: 8px;
-  transform: translateX(-50%) translateY(0%);
-}
-
-[data-placement="right"]::after {
-  left: 100%;
-  top: 50%;
-  margin-left: 8px;
-  transform: translateX(0%) translateY(-50%);
-}
-
-[data-toggle="tooltip"]:hover::after,
-[data-toggle="tooltip"]:hover::before {
-  opacity: 1;
-}
-
 /* --------------------------------------------- Calendar ---------------------------------------------------------- */
 /* --------------------------------------------- Calendar ---------------------------------------------------------- */
 /* --------------------------------------------- Calendar ---------------------------------------------------------- */
@@ -2814,12 +2722,46 @@ html.menu-opened body {
 
 /* ------------------------------------------------- Content ------------------------------------------------------- */
 /* ------------------------------------------------- Content ------------------------------------------------------- */
-/* ------------------------------------------------- Content ------------------------------------------------------- */
+/* ------------------------------------------------- Content code ------------------------------------------------------- */
 
 .main-wrapper {
   width: 100%;
   height: 100vh;
   min-height: 100vh;
+}
+
+.curved-text {
+  position: relative;
+  width: 800px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  justify-content: center;
+  align-items: center;
+  margin: auto 30px 200px 30px;
+}
+a.start-sorting-btn {
+  position: absolute;
+  border: 1px solid #f56eb3;
+  color: #fff;
+  background: #f56eb3;
+  font-size: 22px;
+  padding: 1rem 3rem;
+  border-radius: 40px;
+  font-weight: 600;
+  left: 52.5%;
+  top: 38%;
+  transform: translate(-50%, -50%);
+}
+
+a.start-sorting-btn:hover {
+  border: 1px solid #f56eb3;
+  color: #f56eb3;
+  background-image: linear-gradient(
+    30deg,
+    rgba(255, 223, 254, 0.95),
+    rgba(229, 249, 255, 0.95)
+  );
 }
 
 /* main content wrapper */

@@ -12,6 +12,7 @@
   <script src="https://kit.fontawesome.com/3d6f97d6cd.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css" />
   <link rel="stylesheet" href="../assets/css/style.css" />
+
 </head>
 
 <div class="header">
@@ -240,14 +241,95 @@
   </div>
 
   <div id="popup_overlay"></div>
-  <div class="page-wrapper">
-    <!--WELCOME CARD-->
+  <!-- Required script for robot -->
+  <!-- Required script for robot -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <!-- Required script for robot -->
+  <!-- Required script for robot -->
 
+  <div class="page-wrapper">
     <div class="content container-fluid">
       <div class="row mb-4">
-        <div class="col-xl-12 col-sm-12 col-12" style="margin-top: 25px">
+        <div class="col-xl-12 col-sm-12 col-12" style="margin-top: 15px; margin-bottom: 5px;">
           <div class="breadcrumb-path">
-            <h3>CVSort Features</h3>
+            <h3>Welcome to CVSort</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Let's get sorting code -->
+      <div class="row mb-4">
+        <a href="upload-extract.html" class="start-sorting-btn">GET STARTED</a>
+        <div class="curved-text">
+          <img src="/assets\img\start-sorting-text.png" alt="">
+        </div>
+        <!-- Start of robot code -->
+        <!-- Start of code -->
+        <!-- Start of robot code -->
+        <!-- Start of robot code -->
+        <!-- Start of robot code -->
+        <!-- Check on required script import on header -->
+
+        <div id="model-container" style="
+                position:absolute ;
+                width: 50rem;
+                height: 50rem;
+                left: 50%;
+                top:52.5%;
+                margin: auto;
+                pointer-events: none;
+                z-index: 100000;
+                transform: translate(-47%, -120%);
+                align-items: center;
+                justify-content: center;
+              ">
+
+          <a-scene embedded vr-mode-ui="enabled: false" loading-screen="enabled: false">
+            <a-assets>
+              <a-asset-item id="my-model" src="bb_robot_copy.gltf"></a-asset-item>
+            </a-assets>
+
+            <a-entity gltf-model="#my-model" position="0 1.6 -2" scale="0.7 0.7 0.7"></a-entity>
+          </a-scene>
+        </div>
+
+        <script>
+          var modelEntity = document.querySelector('[gltf-model="#my-model"]');
+          var screenCenterX = window.innerWidth / 2;
+          var screenCenterY = window.innerHeight / 2;
+          var offsetX = 0; // Adjusted initial offset here
+          var offsetY = 700; // Adjusted initial offset here
+          document.addEventListener(
+            "mousemove",
+            function (event) {
+              var xAngle = (event.clientX - offsetX - screenCenterX) * 0.025; // Adjusted calculation here
+              var yAngle = (event.clientY - offsetY - screenCenterY) * 0.025; // Adjusted calculation here
+              modelEntity.setAttribute(
+                "rotation",
+                "" + yAngle + " " + xAngle + " 0"
+              );
+            },
+            false
+          );
+        </script>
+        <!-- Check on required script import on header -->
+        <!-- End of robot code -->
+        <!-- End of robot code -->
+        <!-- End of robot code -->
+        <!-- End of robot code -->
+        <!-- End of robot code -->
+      </div>
+
+
+
+      <!-- Start of How to Use CVSort -->
+      <!-- Start of How to Use CVSort -->
+      <!-- Start of How to Use CVSort -->
+      <!-- Start of How to Use CVSort -->
+      <div class="row mb-4">
+        <div class="col-xl-12 col-sm-12 col-12" style="margin-top: -10px">
+          <div class="breadcrumb-path">
+            <h3>How to Use CVSort</h3>
           </div>
         </div>
       </div>
@@ -272,9 +354,6 @@
                   <li>
                     Our AI Tool will extract text from each document that will
                     reduce biases and time spent
-                  </li>
-                  <li style="list-style-type: none">
-                    <a href="upload-extract.html" class="get-started">Get Started</a>
                   </li>
                 </ol>
               </div>
@@ -394,6 +473,7 @@
         </div>
       </div>
 
+
       <div class="row">
         <!-- Search for Applicants -->
         <div class="col-xl-6 d-flex">
@@ -489,6 +569,10 @@
   <script src="/assets/plugins/apexchart/chart-data.js"></script>
   <script src="/assets/js/index.js"></script>
   <script src="/assets/js/script-2.js"></script>
+
+
+
+
 </body>
 
 </html>
