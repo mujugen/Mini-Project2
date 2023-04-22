@@ -89,7 +89,8 @@ async function runRedFlag() {
       hasRedFlags = false;
       // Loop through redFlags object and check for values equal to 1
       for (let flag in redFlags) {
-        if (redFlags[flag] == 1) {
+        let flagNumber = flag.split("_")[2];
+        if (redFlags[flag] == 1 && filters.includes(flagNumber)) {
           const cardDiv = document.querySelector(container_id);
           const children = cardDiv.children;
           hasRedFlags = true;
