@@ -2771,7 +2771,7 @@ a.start-sorting-btn {
   font-weight: 600;
   left: 50%;
   top: 50%;
-  transform: translate(-47%, 429%);
+  transform: translate(-47%, 440%);
 }
 
 a.start-sorting-btn:hover {
@@ -5973,6 +5973,13 @@ a.btn.btn-visit {
   max-height: 80vh;
   box-sizing: border-box;
   z-index: -1;
+}
+
+@media only screen and (min-width: 800px) {
+  #expandedApplicantContainer {
+    max-width: 75vw;
+    max-height: 80vh;
+  }
 }
 
 .content-wrapper {
