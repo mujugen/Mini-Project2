@@ -20,6 +20,9 @@ body {
   font-weight: 700;
   margin-left: 30px;
 }
+.logo:hover {
+  color: #4e31aa;
+}
 
 .container {
   margin: 20px auto;
@@ -2635,19 +2638,16 @@ html.menu-opened body {
   #weekdays div {
     margin-left: 7.5vw;
   }
+  .event {
+    font-size: 16px;
+  }
 }
 
 .day:hover {
   background-color: #f5f0ff;
 }
-.day2:hover {
-  background-color: #f5f0ff;
-}
 
 .day + #currentDay {
-  background-color: #e7dafb;
-}
-.day2 + #currentDay {
   background-color: #e7dafb;
 }
 
