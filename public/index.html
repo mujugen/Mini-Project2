@@ -260,67 +260,69 @@
 
       <!-- Let's get to sorting code -->
       <div class="row mb-4">
-        <a href="upload-extract.html" class="start-sorting-btn">GET STARTED</a>
+
         <div class="curved-text">
           <img src="/assets\img\start-sorting-text.png" alt="">
+          <a href="upload-extract.html" class="start-sorting-btn">GET STARTED</a>
+          <!-- Start of robot code -->
+          <!-- Start of code -->
+          <!-- Start of robot code -->
+          <!-- Start of robot code -->
+          <!-- Start of robot code -->
+          <!-- Check on required script import on header -->
+
+          <div id="model-container" style="
+        position:absolute ;
+        width: 50rem;
+        height: 50rem;
+        left: 50%;
+        top:50%;
+        margin: auto;
+        pointer-events: none;
+        z-index: 100000;
+        transform: translate(-51%, -40%);
+        align-items: center;
+        justify-content: center;
+      
+      ">
+
+            <a-scene embedded vr-mode-ui="enabled: false" loading-screen="enabled: false">
+              <a-assets>
+                <a-asset-item id="my-model" src="bb_robot_copy.gltf"></a-asset-item>
+              </a-assets>
+
+              <a-entity gltf-model="#my-model" position="0 1.6 -2" scale="0.7 0.7 0.7"></a-entity>
+            </a-scene>
+          </div>
+
+          <script>
+            var modelEntity = document.querySelector('[gltf-model="#my-model"]');
+            var screenCenterX = window.innerWidth / 2;
+            var screenCenterY = window.innerHeight / 2;
+            var offsetX = 0; // Adjusted initial offset here
+            var offsetY = 700; // Adjusted initial offset here
+            document.addEventListener(
+              "mousemove",
+              function (event) {
+                var xAngle = (event.clientX - offsetX - screenCenterX) * 0.025; // Adjusted calculation here
+                var yAngle = (event.clientY - offsetY - screenCenterY) * 0.025; // Adjusted calculation here
+                modelEntity.setAttribute(
+                  "rotation",
+                  "" + yAngle + " " + xAngle + " 0"
+                );
+              },
+              false
+            );
+          </script>
+          <!-- Check on required script import on header -->
+          <!-- End of robot code -->
+          <!-- End of robot code -->
+          <!-- End of robot code -->
+          <!-- End of robot code -->
+          <!-- End of robot code -->
         </div>
-        <!-- Start of robot code -->
-        <!-- Start of code -->
-        <!-- Start of robot code -->
-        <!-- Start of robot code -->
-        <!-- Start of robot code -->
-        <!-- Check on required script import on header -->
-
-        <div id="model-container" style="
-                position:absolute ;
-                width: 50rem;
-                height: 50rem;
-                left: 50%;
-                top:52.5%;
-                margin: auto;
-                pointer-events: none;
-                z-index: 100000;
-                transform: translate(-47%, -125%);
-                align-items: center;
-                justify-content: center;
-              
-              ">
-
-          <a-scene embedded vr-mode-ui="enabled: false" loading-screen="enabled: false">
-            <a-assets>
-              <a-asset-item id="my-model" src="bb_robot_copy.gltf"></a-asset-item>
-            </a-assets>
-
-            <a-entity gltf-model="#my-model" position="0 1.6 -2" scale="0.7 0.7 0.7"></a-entity>
-          </a-scene>
-        </div>
-
-        <script>
-          var modelEntity = document.querySelector('[gltf-model="#my-model"]');
-          var screenCenterX = window.innerWidth / 2;
-          var screenCenterY = window.innerHeight / 2;
-          var offsetX = 0; // Adjusted initial offset here
-          var offsetY = 700; // Adjusted initial offset here
-          document.addEventListener(
-            "mousemove",
-            function (event) {
-              var xAngle = (event.clientX - offsetX - screenCenterX) * 0.025; // Adjusted calculation here
-              var yAngle = (event.clientY - offsetY - screenCenterY) * 0.025; // Adjusted calculation here
-              modelEntity.setAttribute(
-                "rotation",
-                "" + yAngle + " " + xAngle + " 0"
-              );
-            },
-            false
-          );
-        </script>
-        <!-- Check on required script import on header -->
-        <!-- End of robot code -->
-        <!-- End of robot code -->
-        <!-- End of robot code -->
-        <!-- End of robot code -->
-        <!-- End of robot code -->
       </div>
+
 
 
 
