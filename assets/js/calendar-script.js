@@ -1,3 +1,4 @@
+const user = Array.from([JSON.parse(localStorage.getItem("finalApplicant"))]);
 let nav = 0;
 let clicked = null;
 let events = localStorage.getItem("events")
@@ -9,6 +10,7 @@ const newEventModal = document.getElementById("newEventModal");
 const deleteEventModal = document.getElementById("deleteEventModal");
 const backDrop = document.getElementById("modalBackDrop");
 const applicantNameInput = document.getElementById("applicantNameInput");
+applicantNameInput.value = user[0].name;
 const interviewTimeInput = document.getElementById("interviewTimeInput");
 const weekdays = [
   "Sunday",
@@ -100,7 +102,6 @@ function closeModal() {
   newEventModal.style.display = "none";
   deleteEventModal.style.display = "none";
   backDrop.style.display = "none";
-  applicantNameInput.value = "";
   interviewTimeInput.value = "";
   clicked = null;
   load();
