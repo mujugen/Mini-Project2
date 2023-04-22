@@ -115,9 +115,21 @@ function saveEvent() {
     applicantNameInput.classList.remove("error");
     interviewTimeInput.classList.remove("error");
 
+    const time = interviewTimeInput.value.split(":");
+    let hours = parseInt(time[0]);
+    const minutes = time[1];
+
+    // Convert to 24-hour format
+    const period = interviewTimeInput.value.slice(-2);
+    if (period === "PM" && hours < 12) {
+      hours += 12;
+    } else if (period === "AM" && hours === 12) {
+      hours = 0;
+    }
+
     const eventName = {
       name: applicantNameInput.value,
-      time: interviewTimeInput.value,
+      time: `${hours.toString().padStart(2, "0")}:${minutes}`,
     };
 
     events.push({
