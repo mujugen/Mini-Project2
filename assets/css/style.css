@@ -1880,30 +1880,6 @@ button.bg-danger:hover {
   margin-bottom: 5px;
 }
 
-.progress-example .progress {
-  margin-bottom: 1.5rem;
-}
-
-.progress-xs {
-  height: 4px;
-}
-
-.progress-sm {
-  height: 15px;
-}
-
-.progress.progress-sm {
-  height: 6px;
-}
-
-.progress.progress-md {
-  height: 8px;
-}
-
-.progress.progress-lg {
-  height: 18px;
-}
-
 .row.row-sm {
   margin-left: -3px;
   margin-right: -3px;
@@ -1912,226 +1888,6 @@ button.bg-danger:hover {
 .row.row-sm > div {
   padding-left: 3px;
   padding-right: 3px;
-}
-
-.avatar {
-  position: relative;
-  display: inline-block;
-}
-
-.avatar-title {
-  width: 100%;
-  height: 100%;
-  background-color: #7638ff;
-  color: #fff;
-  display: flex;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatar-away:before,
-.avatar-offline:before,
-.avatar-online:before {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 25%;
-  height: 25%;
-  border-radius: 50%;
-  content: "";
-  border: 2px solid #fff;
-}
-
-.avatar-online:before {
-  background-color: #22cc62;
-}
-
-.avatar-offline:before {
-  background-color: #ef3737;
-}
-
-.avatar-away:before {
-  background-color: #ffbc34;
-}
-
-.employee-image .avatar > img {
-  width: 100px;
-  border: 1px solid #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-
-.avatar > img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-
-.member-formcontent .avatar > img {
-  width: 70px;
-  height: 70px;
-  border: 1px solid #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.avatar .border {
-  border-width: 3px !important;
-}
-
-.avatar .rounded {
-  border-radius: 6px !important;
-}
-
-.avatar .avatar-title {
-  font-size: 18px;
-}
-
-.avatar-xs {
-  width: 50px;
-}
-
-.avatar-xs .border {
-  border-width: 2px !important;
-}
-
-.avatar-xs .rounded {
-  border-radius: 4px !important;
-}
-
-.avatar-xs .avatar-title {
-  font-size: 12px;
-}
-
-.avatar-xs.avatar-away:before,
-.avatar-xs.avatar-offline:before,
-.avatar-xs.avatar-online:before {
-  border-width: 1px;
-}
-
-.avatar-sm {
-  width: 2.5rem;
-  height: 2.5rem;
-}
-
-.avatar-sm .border {
-  border-width: 3px !important;
-}
-
-.avatar-sm .rounded {
-  border-radius: 4px !important;
-}
-
-.avatar-sm .avatar-title {
-  font-size: 15px;
-}
-
-.avatar-sm.avatar-away:before,
-.avatar-sm.avatar-offline:before,
-.avatar-sm.avatar-online:before {
-  border-width: 2px;
-}
-
-.avatar-lg {
-  width: 3.75rem;
-  height: 3.75rem;
-}
-
-.avatar-lg .border {
-  border-width: 3px !important;
-}
-
-.avatar-lg .rounded {
-  border-radius: 8px !important;
-}
-
-.avatar-lg .avatar-title {
-  font-size: 24px;
-}
-
-.avatar-lg.avatar-away:before,
-.avatar-lg.avatar-offline:before,
-.avatar-lg.avatar-online:before {
-  border-width: 3px;
-}
-
-.avatar-xl {
-  width: 5rem;
-  height: 5rem;
-}
-
-.avatar-xl .border {
-  border-width: 4px !important;
-}
-
-.avatar-xl .rounded {
-  border-radius: 8px !important;
-}
-
-.avatar-xl .avatar-title {
-  font-size: 28px;
-}
-
-.avatar-xl.avatar-away:before,
-.avatar-xl.avatar-offline:before,
-.avatar-xl.avatar-online:before {
-  border-width: 4px;
-}
-
-.avatar-xxl {
-  width: 5.125rem;
-  height: 5.125rem;
-}
-
-.avatar-xxl .border {
-  border-width: 6px !important;
-}
-
-.avatar-xxl .rounded {
-  border-radius: 8px !important;
-}
-
-.avatar-xxl .avatar-title {
-  font-size: 30px;
-}
-
-.avatar-xxl.avatar-away:before,
-.avatar-xxl.avatar-offline:before,
-.avatar-xxl.avatar-online:before {
-  border-width: 4px;
-}
-
-.avatar-group {
-  display: inline-flex;
-}
-
-.avatar-group .avatar + .avatar {
-  margin-left: -0.75rem;
-}
-
-.avatar-group .avatar-xs + .avatar-xs {
-  margin-left: -0.40625rem;
-}
-
-.avatar-group .avatar-sm + .avatar-sm {
-  margin-left: -0.625rem;
-}
-
-.avatar-group .avatar-lg + .avatar-lg {
-  margin-left: -1rem;
-}
-
-.avatar-group .avatar-xl + .avatar-xl {
-  margin-left: -1.28125rem;
-}
-
-.avatar-group .avatar:hover {
-  z-index: 1;
 }
 
 /* --------------------------- NAVBAR STYLING ----------------------------- */
@@ -2919,15 +2675,9 @@ html.menu-opened body {
   text-align: right;
 }
 
-#weekdays2 {
-  width: 100%;
-  display: inline-flex;
-  color: #3a1078;
-  text-align: right;
-}
 #weekdays div {
   padding: 0;
-  margin: 0 65px;
+  margin-left: 5.5vw;
 }
 
 #calendar {
@@ -2937,30 +2687,48 @@ html.menu-opened body {
   flex-wrap: wrap;
 }
 .day {
-  width: 180px;
-  height: 100px;
+  width: 9vw;
+  height: 10vh;
   padding: 10px;
-  object-fit: cover;
   cursor: pointer;
   box-sizing: border-box;
   background-color: white;
   margin: 5px;
   box-shadow: 0px 0px 3px #cbd4c2;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
-.day2 {
-  width: 79px;
-  height: 79px;
-  cursor: pointer;
-  box-sizing: border-box;
-  background-color: white;
-  margin: 5px;
-  box-shadow: 0px 0px 3px #cbd4c2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+@media (max-width: 600px) {
+  .day {
+    width: 30vw;
+    height: 15vh;
+  }
 }
+@media (max-width: 1280px) {
+  .day {
+    width: 7vw;
+    height: 15vh;
+  }
+  #weekdays div {
+    margin: -0;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: small;
+    padding-right: 0px;
+  }
+}
+@media screen and (min-width: 1950px) {
+  .day {
+    width: 10vw;
+    height: 15vh;
+  }
+  #weekdays div {
+    margin-left: 7.5vw;
+  }
+}
+
 .day:hover {
   background-color: #f5f0ff;
 }
@@ -3088,6 +2856,23 @@ html.menu-opened body {
 .page-title {
   color: #333;
   margin-bottom: 5px;
+}
+.popup-card {
+  width: 40vw;
+  padding: 40px;
+  position: fixed;
+  top: 50%;
+  left: 60%;
+  background-color: white;
+  transform: translate(-40%, -50%);
+}
+@media (max-width: 575.98px) {
+  .popup-card {
+    width: 80vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 /* --------------------------------------------- Notifications ------------------------------------------ */
@@ -3317,12 +3102,6 @@ html.menu-opened body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.member-head.employee-image .avatar > img {
-  width: 78px;
-  -o-object-fit: cover;
-  object-fit: cover;
 }
 
 .member-imgs img,
@@ -4104,15 +3883,6 @@ a.delete {
   color: #00882e;
 }
 
-.profile-cover-img {
-  width: 100%;
-  height: 10rem;
-  -o-object-fit: cover;
-  object-fit: cover;
-  vertical-align: top;
-  border-radius: 0.75rem;
-}
-
 .cover-content {
   position: relative;
   z-index: 1;
@@ -4352,10 +4122,6 @@ a.btn-addmembers:hover {
   box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
 }
 
-.avatar-edit svg {
-  width: 18px;
-}
-
 .card-table
   div.table-responsive
   > div.dataTables_wrapper
@@ -4395,78 +4161,6 @@ a.btn-addmembers:hover {
   overflow: hidden;
   overflow-y: auto;
 }
-
-.profile-cover-avatar .avatar-img {
-  display: block;
-  max-width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  pointer-events: none;
-  border-radius: 50%;
-}
-
-.report-title {
-  font-size: 1.5rem;
-  text-decoration: underline;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.report-table {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-  margin-bottom: 20px;
-}
-
-.report-table th,
-.report-table td {
-  border: 0 !important;
-}
-
-.report-table td {
-  color: #777;
-}
-
-.report-table td.report-total {
-  color: #333;
-}
-
-.table.report-table > tbody > tr > th,
-.table.report-table > tbody > tr > td {
-  padding: 0 0 10px;
-}
-
-.table.report-table tbody + tbody {
-  border-top: 0;
-}
-
-.total-report-table tr th,
-.total-report-table tr td {
-  color: #272b41;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: inherit;
-}
-
-.total-report-table tr td {
-  font-weight: bold;
-  text-align: right;
-  color: #7638ff;
-}
-
-.total-report-table tr th,
-.total-report-table tr td {
-  border-top: 0;
-}
-
-.table.total-report-table > tbody > tr > th,
-.table.total-report-table > tbody > tr > td {
-  padding: 0;
-}
-
-/*-----------------
-	25. Employees
-----------------------*/
 
 .head-link-set {
   display: flex;
