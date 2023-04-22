@@ -46,6 +46,7 @@
           <span></span>
         </span>
       </a>
+<<<<<<< Updated upstream
     </div>
 
     <a class="mobile_btn" id="mobile_btn">
@@ -98,6 +99,11 @@
       ></a>
       <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item" href="#">Settings</a>
+=======
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="home.html"><i class="fa-solid fa-right-from-bracket"
+            style="margin-right: 10px"></i>EXIT</a>
+>>>>>>> Stashed changes
       </div>
     </div>
   </div>
@@ -322,6 +328,7 @@
             </div>
           </div>
         </div>
+<<<<<<< Updated upstream
         <div class="row">
           <div class="col-xl-12 col-sm-12 col-12">
             <div class="card">
@@ -402,9 +409,65 @@
                     <div class="form-btn">
                       <a href="#" class="btn btn-submit">Send</a>
                     </div>
+=======
+      </div>
+      <div class="row">
+        <div class="col-xl-12 col-sm-12 col-12">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-titles">
+                Schedule Interview for Selected Applicant
+              </h2>
+            </div>
+            <div class="form-creation">
+              <div class="row">
+                <div class="col-xl-6 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label for="recipient">Recipient's Name:</label>
+                    <input type="text" class="full-width-input" id="recipient" name="recipient"
+                      placeholder="Applicant's Name" />
+                  </div>
+                </div>
+                <div class="col-xl-6 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label for="company">Your Company:</label>
+                    <input type="text" id="company" name="company" class="full-width-input" placeholder="XYZ Company" />
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-xl-12 col-sm-12 col-12">
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="10" cols="50">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis quae labore ducimus quod omnis veritatis illo dolores harum, ratione rem quaerat dolorem, id saepe. Impedit, magni. Fugiat sunt nobis quasi veniam neque, vero voluptatibus ex sed culpa eligendi non nihil nesciunt odio! Odio qui laboriosam, quis unde amet dicta.</textarea>
+                    <input type="button" class="send-email-btn" value="Send Email" onclick="sendEmail()">
+                  </div>
+                </div>
+              </div>
+              <script>
+                function sendEmail() {
+                  const recipient = document.getElementById("recipient").value;
+                  const company = document.getElementById("company").value;
+                  const message = document.getElementById("message").value;
+
+                  const subject = `Email from ${company}`;
+                  const body = `Dear ${recipient},\n\n${message}\n\nSincerely,\n${company}`;
+
+                  const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                  window.open(mailtoLink, '_blank');
+                }
+              </script>
+
+              <!-- <div class="row">
+                <div class="col-xl-12 col-sm-12 col-12">
+                  <div class="form-btn">
+                    <a href="#" class="btn btn-submit">Send</a>
+>>>>>>> Stashed changes
+                  </div>
+                </div>
+              </div> -->
             </div>
           </div>
         </div>
