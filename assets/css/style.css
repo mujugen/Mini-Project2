@@ -2676,6 +2676,7 @@ html.menu-opened body {
   max-height: 55px;
   font-weight: 300;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 .padding {
   cursor: default !important;
@@ -2683,6 +2684,7 @@ html.menu-opened body {
   box-shadow: none !important;
 }
 #newEventModal,
+#chooseModal,
 #deleteEventModal {
   display: none;
   z-index: 20;
@@ -2708,6 +2710,7 @@ html.menu-opened body {
   border-radius: 10px;
 }
 #cancelButton,
+#chooseDeleteButton,
 #deleteButton {
   background-color: #d36c6c;
   border-radius: 5px;
@@ -2715,6 +2718,7 @@ html.menu-opened body {
   border: none;
 }
 #saveButton,
+#chooseCreateButton,
 #closeButton {
   background-color: #d0feff;
   border-radius: 5px;
@@ -6189,4 +6193,8 @@ body {
   font-family: "Montserrat", sans-serif;
   color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.selected {
+  background-color: grey;
 }
