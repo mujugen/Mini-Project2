@@ -71,18 +71,27 @@
       top: 105.5%;
       left: 50%;
       transform: translate(-50%, -30%);
+      z-index: 999999999999999999;
+      background-color: #F56EB3;
+      padding: 1rem 5rem;
+      border-radius: 40px;
+      border: solid 1px #F56EB3;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
     }
+
 
     #model-container {
       position: absolute;
       width: 92rem;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -5%);
+      transform: translate(-50%, -2%);
       height: 92rem;
       margin: 0 auto;
       pointer-events: none;
-      z-index: 100000;
+      z-index: 1;
       align-items: center;
       justify-content: center;
     }
@@ -90,25 +99,49 @@
     .home-subtitle {
       font-weight: 600;
       font-size: 45px;
-      line-height: 2rem;
-      margin: 3rem auto 5rem auto;
+      margin: 0px auto 50px auto;
       text-transform: capitalize;
       color: white;
+    }
+
+    .cvsort-title {
+      font-weight: 600;
+      font-size: 200px;
+      text-transform: capitalize;
+      color: white;
+      margin-top: 0px;
+    }
+
+    .first-section {
+      margin: 0px 4rem;
+      justify-content: center;
+      align-items: center;
     }
 
     /* laptop styling */
     @media (min-width: 600px) and (max-width: 1280px) {
       #model-container {
-        transform: translate(-50%, 0%);
-        width: 80rem;
-        height: 80rem;
+        transform: translate(-50%, 10%);
+        width: 65rem;
+        height: 65rem;
         align-items: center;
         justify-content: center;
       }
 
       .home-subtitle {
-        line-height: 4.5rem;
-        margin: 0rem auto 5rem auto;
+        line-height: 3rem;
+        margin: 0rem auto 4rem auto;
+      }
+
+      .cvsort-title {
+        font-size: 150px;
+
+      }
+
+      .get-started-home {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 300%);
       }
     }
 
@@ -2669,13 +2702,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           </button>
         </div>
       </nav>
-      <section class="sm:py-16 xs:py-8 py-12 sm:pl-16 pl-6 reveal fade-bottom" id="1stSection">
+      <section class="first-section" id="1stSection">
         <div class="2xl:max-w-[1280px] w-full mx-auto flex flex-col">
           <div class="flex justify-center items-center flex-col relative z-10">
-            <h1
-              class="font-bold lg:text-[200px] md:text-[100px] sm:text-[60px] text-[44px] lg:leading-[158.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px] uppercase text-white"
-              style="opacity: 1; transform: none">
-              CVSort
+            <h1 class="cvsort-title" style="opacity: 1;">
+              CVSORT
             </h1>
             <div class="flex flex-row justify-center items-center" style="opacity: 1; transform: none">
               <h1 class=" home-subtitle">
@@ -2699,8 +2730,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
             <div id="model-container">
 
-
-
               <a-scene embedded vr-mode-ui="enabled: false" loading-screen="enabled: false">
                 <a-assets>
                   <a-asset-item id="my-model" src="bb_robot_copy.gltf"></a-asset-item>
@@ -2709,11 +2738,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
                 <a-entity gltf-model="#my-model" position="0 1.6 -2" scale="0.78 0.78 0.78"></a-entity>
               </a-scene>
             </div>
-            <button type="button"
-              class="flex items-center h-fit py-4 px-12 bg-[#F56EB3] rounded-[40px] gap-[12px] get-started-home"
-              onclick="window.location.href = 'index.html'">
-              <span class="font-normal text-[26px] text-white">GET STARTED</span>
-            </button>
+            <a href="index.html" class="get-started-home">GET STARTED</a>
 
             <script>
               var modelEntity = document.querySelector(
