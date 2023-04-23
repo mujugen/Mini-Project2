@@ -1037,13 +1037,13 @@ button.bg-danger:hover {
 }
 
 .btn-outline-primary {
-  color: #7638ff;
-  border-color: #7638ff;
+  color: #4e31aa;
+  border-color: #4e31aa;
 }
 
 .btn-outline-primary:hover {
-  background-color: #7638ff;
-  border-color: #7638ff;
+  background-color: #4e31aa;
+  border-color: #4e31aa;
 }
 
 .btn-outline-primary:focus,
@@ -1053,54 +1053,20 @@ button.bg-danger:hover {
 
 .btn-outline-primary.disabled,
 .btn-outline-primary:disabled {
-  color: #7638ff;
+  color: #4e31aa;
   background-color: transparent;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active,
 .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
-  background-color: #7638ff;
-  border-color: #7638ff;
+  background-color: #4e31aa;
+  border-color: #4e31aa;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
 .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-primary.dropdown-toggle:focus {
-  box-shadow: none;
-}
-
-.btn-outline-success {
-  color: #22cc62;
-  border-color: #22cc62;
-}
-
-.btn-outline-success:hover {
-  background-color: #22cc62;
-  border-color: #22cc62;
-}
-
-.btn-outline-success:focus,
-.btn-outline-success.focus {
-  box-shadow: none;
-}
-
-.btn-outline-success.disabled,
-.btn-outline-success:disabled {
-  color: #22cc62;
-  background-color: transparent;
-}
-
-.btn-outline-success:not(:disabled):not(.disabled):active,
-.btn-outline-success:not(:disabled):not(.disabled).active,
-.show > .btn-outline-success.dropdown-toggle {
-  background-color: #22cc62;
-  border-color: #22cc62;
-}
-
-.btn-outline-success:not(:disabled):not(.disabled):active:focus,
-.btn-outline-success:not(:disabled):not(.disabled).active:focus,
-.show > .btn-outline-success.dropdown-toggle:focus {
   box-shadow: none;
 }
 
@@ -2793,7 +2759,7 @@ a.start-sorting-btn:hover {
 
 .robot-happy {
   position: absolute;
-  width: 35rem;
+  width: 30rem;
   left: 50%;
   top: 50%;
   transform: translate(-45%, -50%);
@@ -2819,21 +2785,39 @@ a.start-sorting-btn:hover {
   border: 2px solid #4e31aa;
 }
 
-@media (min-width: 600px) and (max-width: 1024px) {
+/* laptop screen styling */
+
+@media (min-width: 600px) and (max-width: 1280px) {
   .robot-happy {
     width: 10rem;
     left: 50%;
     top: 50%;
-    transform: translate(-45%, -50%);
+    transform: translate(-45%, -60%);
   }
   .interview-robot {
-    height: 200px;
+    height: 220px;
   }
   .gradient-button {
     font-size: 1rem;
-    padding: 5px 12px;
-    font-size: 10px;
-    transform: translate(-100%, -25%);
+    padding: 8px 14px;
+    font-size: 12px;
+    transform: translate(-100%, -45%);
+  }
+  .table thead tr th {
+    font-size: 13px;
+  }
+  .table tr td label {
+    font-size: 13px;
+    margin: 0px 5px;
+  }
+  .card .card-header .card-titles {
+    font-size: 18px !important;
+  }
+  button.btn.btn-head {
+    font-size: 14px !important;
+  }
+  a.btn.btn-head {
+    font-size: 14px !important;
   }
 }
 
