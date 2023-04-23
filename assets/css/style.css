@@ -2822,6 +2822,10 @@ a.start-sorting-btn:hover {
   .img-table {
     display: none;
   }
+  #expandedApplicantContainer {
+    max-width: 80vw !important;
+    max-height: 80vh;
+  }
 }
 
 /* main content wrapper */
@@ -6028,6 +6032,7 @@ a.btn.btn-visit {
   box-sizing: border-box;
   z-index: -1;
 }
+
 #expandedApplicantContainer {
   display: none;
   position: fixed;
