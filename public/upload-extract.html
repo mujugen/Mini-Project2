@@ -1,483 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=0"
-    />
-    <title>CVSort</title>
 
-    <link rel="shortcut icon" href="../assets\img\favicon.ico" />
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="../assets/plugins/fontawesome/css/fontawesome.min.css"
-    />
-    <script
-      src="https://kit.fontawesome.com/3d6f97d6cd.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="../assets/plugins/fontawesome/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../assets/css/style.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+  <title>CVSort</title>
 
-  <div class="header">
-    <!-- CVsort logo -->
-    <div class="header-left">
-      <a href="index.html" class="logo">CVSort</a>
-      <!--CVSort Small Logo-->
-      <a href="index.html" class="logo logo-small">
-        <img
-          src="../assets/img/logo-small.png"
-          alt="Logo"
-          width="30"
-          height="30"
-        />
-      </a>
-      <!-- Navbar icon -->
-      <a href="javascript:void(0);" id="toggle_btn">
-        <span class="bar-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </a>
-    </div>
+  <link rel="shortcut icon" href="../assets\img\favicon.ico" />
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/plugins/fontawesome/css/fontawesome.min.css" />
+  <script src="https://kit.fontawesome.com/3d6f97d6cd.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
 
-    <a class="mobile_btn" id="mobile_btn">
-      <i class="fas fa-bars"></i>
+<div class="header">
+  <!-- CVsort logo -->
+  <div class="header-left">
+    <a href="index.html" class="logo">CVSort</a>
+    <!--CVSort Small Logo-->
+    <a href="index.html" class="logo logo-small">
+      <img src="../assets/img/logo-small.png" alt="Logo" width="30" height="30" />
     </a>
-
-    <!--NOTIFICATION ICON AND TOGGLE-->
-    <ul class="nav user-menu">
-      <li class="nav-item dropdown">
-        <a
-          href="#"
-          class="dropdown-toggle nav-link pr-0"
-          data-toggle="dropdown"
-        >
-          <i data-feather="bell"></i> <span class="badge-pill"></span>
-        </a>
-        <div class="dropdown-menu notifications">
-          <div class="topnav-dropdown-header">
-            <span class="notification-title">Notifications</span>
-            <a href="javascript:void(0)" class="clear-noti"> Clear All</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown has-arrow main-drop">
-        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-          <span class="user-img">
-            <span class="status online"></span>
-          </span>
-          <span>HR Admin</span>
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="home.html"
-            ><i
-              class="fa-solid fa-right-from-bracket"
-              style="margin-right: 10px"
-            ></i
-            >EXIT</a
-          >
-        </div>
-      </li>
-    </ul>
-    <div class="dropdown mobile-user-menu show">
-      <a
-        href="#"
-        class="nav-link dropdown-toggle"
-        data-toggle="dropdown"
-        aria-expanded="false"
-        ><i class="fa fa-ellipsis-v"></i
-      ></a>
-      <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#">Settings</a>
-      </div>
-    </div>
+    <!-- Navbar icon -->
+    <a href="javascript:void(0);" id="toggle_btn">
+      <span class="bar-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </a>
   </div>
 
-  <!--MOBILE SIDE BAR WITH LOGO-->
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-inner slimscroll">
-      <div class="sidebar-contents">
-        <div id="sidebar-menu" class="sidebar-menu">
-          <div class="mobile-show">
-            <div class="offcanvas-menu">
-              <div class="user-info align-center bg-theme text-center">
-                <span class="lnr lnr-cross text-white" id="mobile_btn_close"
-                  >X</span
-                >
-                <a
-                  href="javascript:void(0)"
-                  class="d-block menu-style text-white"
-                >
-                  <div class="user-avatar d-inline-block mr-3">
-                    <img
-                      src="../assets\img\android-chrome-512x512.png"
-                      alt="CV-Sort logo"
-                      class="rounded-circle"
-                      width="50"
-                    />
-                  </div>
-                </a>
-              </div>
+  <a class="mobile_btn" id="mobile_btn">
+    <i class="fas fa-bars"></i>
+  </a>
+
+  <!--NOTIFICATION ICON AND TOGGLE-->
+  <ul class="nav user-menu">
+    <li class="nav-item dropdown">
+      <a href="#" class="dropdown-toggle nav-link pr-0" data-toggle="dropdown">
+        <i data-feather="bell"></i> <span class="badge-pill"></span>
+      </a>
+      <div class="dropdown-menu notifications">
+        <div class="topnav-dropdown-header">
+          <span class="notification-title">Notifications</span>
+          <a href="javascript:void(0)" class="clear-noti"> Clear All</a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item dropdown has-arrow main-drop">
+      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+        <span class="user-img">
+          <span class="status online"></span>
+        </span>
+        <span>HR Admin</span>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="home.html"><i class="fa-solid fa-right-from-bracket"
+            style="margin-right: 10px"></i>EXIT</a>
+      </div>
+    </li>
+  </ul>
+  <div class="dropdown mobile-user-menu show">
+    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+        class="fa fa-ellipsis-v"></i></a>
+    <div class="dropdown-menu dropdown-menu-right">
+      <a class="dropdown-item" href="#">Settings</a>
+    </div>
+  </div>
+</div>
+
+<!--MOBILE SIDE BAR WITH LOGO-->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-inner slimscroll">
+    <div class="sidebar-contents">
+      <div id="sidebar-menu" class="sidebar-menu">
+        <div class="mobile-show">
+          <div class="offcanvas-menu">
+            <div class="user-info align-center bg-theme text-center">
+              <span class="lnr lnr-cross text-white" id="mobile_btn_close">X</span>
+              <a href="javascript:void(0)" class="d-block menu-style text-white">
+                <div class="user-avatar d-inline-block mr-3">
+                  <img src="../assets\img\android-chrome-512x512.png" alt="CV-Sort logo" class="rounded-circle"
+                    width="50" />
+                </div>
+              </a>
             </div>
-
-            <!--SIDEBAR CONTENTS-->
-            <ul>
-              <li>
-                <a href="index.html"
-                  ><i class="fa-solid fa-splotch fa-2xl"></i
-                  ><span>Overview</span></a
-                >
-              </li>
-
-              <li>
-                <a><span> PROCESSING AND REMOVAL</span></a>
-              </li>
-
-              <li>
-                <a
-                  ><i class="fa-solid fa-file-import fa-2xl"></i
-                  ><span> Upload and Extract</span></a
-                >
-              </li>
-              <li>
-                <a
-                  ><i class="fa-regular fa-rectangle-list fa-2xl"></i
-                  ><span>Process and Compile</span></a
-                >
-              </li>
-              <li>
-                <a
-                  ><i class="fa-solid fa-flag fa-2xl"></i
-                  ><span>Red Flag Checker </span></a
-                >
-              </li>
-              <li>
-                <a
-                  ><i class="fa-solid fa-filter fa-2xl"></i
-                  ><span>Filter and Finalize</span></a
-                >
-              </li>
-
-              <li>
-                <a><span>Ranking and Shortlisting</span></a>
-              </li>
-
-              <li>
-                <a
-                  ><i class="fa-solid fa-ranking-star fa-2xl"></i
-                  ><span>Applicant Ranking</span></a
-                >
-              </li>
-              <li>
-                <a
-                  ><i class="fa-solid fa-medal fa-2xl"></i
-                  ><span>Final Applicant</span></a
-                >
-              </li>
-
-              <li>
-                <a class="sidebar-title" href="#"><span>TOOLS</span></a>
-              </li>
-              <li>
-                <a
-                  ><i class="fa-solid fa-user-tie fa-2xl"></i
-                  ><span>Interview Scheduler</span></a
-                >
-              </li>
-              <li>
-                <a
-                  ><i class="fa-solid fa-calendar fa-2xl"></i
-                  ><span>Calendar</span></a
-                >
-              </li>
-              <li>
-                <a
-                  ><i class="fa-solid fa-medal fa-2xl"></i
-                  ><span>Shortlisted Applicants</span></a
-                >
-              </li>
-              <li>
-                <a
-                  ><i class="fa-solid fa-user-xmark fa-2xl"></i
-                  ><span>Waitlisted Applicants</span></a
-                >
-              </li>
-            </ul>
           </div>
 
           <!--SIDEBAR CONTENTS-->
           <ul>
             <li>
-              <a href="index.html"
-                ><i class="fa-solid fa-splotch fa-2xl"></i
-                ><span>Overview</span></a
-              >
+              <a href="index.html"><i class="fa-solid fa-splotch fa-2xl"></i><span>Overview</span></a>
             </li>
 
             <li>
-              <a class="sidebar-title" href="#"
-                ><span> PROCESSING AND REMOVAL</span></a
-              >
-            </li>
-
-            <li class="active">
-              <a
-                ><i class="fa-solid fa-file-import fa-2xl"></i
-                ><span> Upload and Extract</span></a
-              >
-            </li>
-            <li>
-              <a
-                ><i class="fa-regular fa-rectangle-list fa-2xl"></i
-                ><span>Process and Compile</span></a
-              >
-            </li>
-            <li>
-              <a
-                ><i class="fa-solid fa-flag fa-2xl"></i
-                ><span>Red Flag Checker </span></a
-              >
-            </li>
-            <li>
-              <a
-                ><i class="fa-solid fa-filter fa-2xl"></i
-                ><span>Filter and Finalize</span></a
-              >
+              <a><span> PROCESSING AND REMOVAL</span></a>
             </li>
 
             <li>
-              <a class="sidebar-title" href="#"
-                ><span>Ranking and Selection</span></a
-              >
+              <a><i class="fa-solid fa-file-import fa-2xl"></i><span> Upload and Extract</span></a>
+            </li>
+            <li>
+              <a><i class="fa-regular fa-rectangle-list fa-2xl"></i><span>Process and Compile</span></a>
+            </li>
+            <li>
+              <a><i class="fa-solid fa-flag fa-2xl"></i><span>Red Flag Checker </span></a>
+            </li>
+            <li>
+              <a><i class="fa-solid fa-filter fa-2xl"></i><span>Filter and Finalize</span></a>
             </li>
 
             <li>
-              <a
-                ><i class="fa-solid fa-ranking-star fa-2xl"></i
-                ><span>Applicant Ranking</span></a
-              >
+              <a><span>Ranking and Shortlisting</span></a>
+            </li>
+
+            <li>
+              <a><i class="fa-solid fa-ranking-star fa-2xl"></i><span>Applicant Ranking</span></a>
             </li>
             <li>
-              <a
-                ><i class="fa-solid fa-medal fa-2xl"></i
-                ><span>Final Applicant</span></a
-              >
+              <a><i class="fa-solid fa-medal fa-2xl"></i><span>Final Applicant</span></a>
             </li>
 
             <li>
               <a class="sidebar-title" href="#"><span>TOOLS</span></a>
             </li>
             <li>
-              <a
-                ><i class="fa-solid fa-user-tie fa-2xl"></i
-                ><span>Interview Scheduler</span></a
-              >
+              <a><i class="fa-solid fa-user-tie fa-2xl"></i><span>Interview Scheduler</span></a>
             </li>
             <li>
-              <a
-                ><i class="fa-solid fa-calendar fa-2xl"></i
-                ><span>Calendar</span></a
-              >
+              <a><i class="fa-solid fa-calendar fa-2xl"></i><span>Calendar</span></a>
             </li>
             <li>
-              <a
-                ><i class="fa-solid fa-medal fa-2xl"></i
-                ><span>Shortlisted Applicants</span></a
-              >
+              <a><i class="fa-solid fa-medal fa-2xl"></i><span>Shortlisted Applicants</span></a>
             </li>
             <li>
-              <a
-                ><i class="fa-solid fa-user-xmark fa-2xl"></i
-                ><span>Waitlisted Applicants</span></a
-              >
-            </li>
-            <li>
-              <a
-                ><i class="fa-solid fa-medal fa-2xl"></i
-                ><span>Selected Applicants</span></a
-              >
+              <a><i class="fa-solid fa-user-xmark fa-2xl"></i><span>Waitlisted Applicants</span></a>
             </li>
           </ul>
+        </div>
+
+        <!--SIDEBAR CONTENTS-->
+        <ul>
+          <li>
+            <a href="index.html"><i class="fa-solid fa-splotch fa-2xl"></i><span>Overview</span></a>
+          </li>
+
+          <li>
+            <a class="sidebar-title" href="#"><span> PROCESSING AND REMOVAL</span></a>
+          </li>
+
+          <li class="active">
+            <a><i class="fa-solid fa-file-import fa-2xl"></i><span> Upload and Extract</span></a>
+          </li>
+          <li>
+            <a><i class="fa-regular fa-rectangle-list fa-2xl"></i><span>Process and Compile</span></a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-flag fa-2xl"></i><span>Red Flag Checker </span></a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-filter fa-2xl"></i><span>Filter and Finalize</span></a>
+          </li>
+
+          <li>
+            <a class="sidebar-title" href="#"><span>Ranking and Selection</span></a>
+          </li>
+
+          <li>
+            <a><i class="fa-solid fa-ranking-star fa-2xl"></i><span>Applicant Ranking</span></a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-medal fa-2xl"></i><span>Final Applicant</span></a>
+          </li>
+
+          <li>
+            <a class="sidebar-title" href="#"><span>TOOLS</span></a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-user-tie fa-2xl"></i><span>Interview Scheduler</span></a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-calendar fa-2xl"></i><span>Calendar</span></a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-medal fa-2xl"></i><span>Shortlisted Applicants</span></a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-user-xmark fa-2xl"></i><span>Waitlisted Applicants</span></a>
+          </li>
+          <li>
+            <a><i class="fa-solid fa-medal fa-2xl"></i><span>Selected Applicants</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BODY OF SECTIONS -->
+
+<body>
+  <div class="overlay" id="overlay" style="display: none"></div>
+  <div id="popup_overlay" style="display: none">
+    <div id="popup_card" class="d-flex justify-content-center align-items-center">
+      <div style="width: 30vw; background-color: white; padding: 5%">
+        <div class="d-flex flex-column align-items-center">
+          <h2>Error</h2>
+          <h5 class="mt-5 mb-5">Please use a valid API Key</h5>
+          <button id="close_popup" class="btn btn-outline-secondary">
+            Return to Home
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-wrapper">
+    <!-- START OF UPLOAD CV SECTION -->
+    <div class="content container-fluid">
+      <div class="row">
+        <!-- upload cv files card -->
+        <div class="col-xl-12 col-sm-12 col-12">
+          <div class="breadcrumb-path mb-4">
+            <h3>Upload CV Files and Extract Raw Text</h3>
+          </div>
+        </div>
+        <div class="col-xl-12 col-sm-12 col-12">
+          <div class="card card-lists" id="uploadDiv">
+            <div class="card-header">
+              <h2 class="card-titles">Add PDF Files</h2>
+              <form id="filter-finalize">
+                <div class="form-group" id="upload-style">
+                  <input type="file" class="form-control-file" id="fileInput" multiple />
+                  <button class="btn btn-head" type="button" onclick="(()=>{displayUploadedFiles();})()">
+                    UPLOAD
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="table custom-table no-footer">
+                  <thead>
+                    <tr>
+                      <th>Type</th>
+                      <th>Name</th>
+                      <th>Date</th>
+                      <th>Size</th>
+                    </tr>
+                  </thead>
+                  <!-- Where the uploaded files will be displayed -->
+                  <tbody id="rawPDFContainer"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END OF UPLOAD CV FILES CARD -->
+
+        <!-- EXTRACT RAW TEXT FROM UPLOADED FILES -->
+        <div class="content container-fluid">
+          <div class="row">
+            <div class="col-xl-12 col-sm-12 col-12">
+              <div class="card card-lists" id="extractCard">
+                <div class="card-header" style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                    ">
+                  <h2 class="card-titles">Extract Raw Text</h2>
+                  <div style="
+                        display: flex;
+                        align-items: center;
+                        margin-right: auto;
+                      ">
+                    <div id="spinner" class="spinner-border text-primary ml-3" style="display: none" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                  <button id="convertBtn" class="btn btn-head" type="button"
+                    onclick="(()=>{convertUploadedFiles();this.removeAttribute('onclick');})()">
+                    EXTRACT
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section that tells the user to proceed to the next step -->
+        <div class="content container-fluid">
+          <div class="row">
+            <div class="col-xl-12 col-sm-12 col-12">
+              <div class="card card-lists" id="proceedCard">
+                <div class="card-header">
+                  <h2 class="card-titles">
+                    Process Raw Text and View Applicant Information Here
+                  </h2>
+                  <a class="btn btn-head" onclick="moveToProcessCompilePage()">PROCEED</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extracted Text Section -->
+        <div class="content container-fluid">
+          <div class="row">
+            <div class="col-xl-12 col-sm-12 col-12">
+              <div class="card card-lists">
+                <div class="card-header">
+                  <h2 class="card-titles">Extracted Raw Text</h2>
+                </div>
+                <ul class="list-group list-group-flush" id="rawTextContainer"></ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- BODY OF SECTIONS -->
+  <script src="../assets/js/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="../assets/js/popper.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/feather.min.js"></script>
+  <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="../assets/plugins/apexchart/apexcharts.min.js"></script>
+  <script src="../assets/plugins/apexchart/chart-data.js"></script>
 
-  <body>
-    <div class="overlay" id="overlay" style="display: none"></div>
-    <div id="popup_overlay" style="display: none">
-      <div
-        id="popup_card"
-        class="d-flex justify-content-center align-items-center"
-      >
-        <div style="width: 30vw; background-color: white; padding: 5%">
-          <div class="d-flex flex-column align-items-center">
-            <h2>Error</h2>
-            <h5 class="mt-5 mb-5">Please use a valid API Key</h5>
-            <button id="close_popup" class="btn btn-outline-secondary">
-              Return to Home
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="page-wrapper">
-      <!-- START OF UPLOAD CV SECTION -->
-      <div class="content container-fluid">
-        <div class="row">
-          <!-- upload cv files card -->
-          <div class="col-xl-12 col-sm-12 col-12">
-            <div class="breadcrumb-path mb-4">
-              <h3>Upload CV Files and Extract Raw Text</h3>
-            </div>
-          </div>
-          <div class="col-xl-12 col-sm-12 col-12">
-            <div class="card card-lists" id="uploadDiv">
-              <div class="card-header">
-                <h2 class="card-titles">Add PDF Files</h2>
-                <form id="filter-finalize">
-                  <div class="form-group" id="upload-style">
-                    <input
-                      type="file"
-                      class="form-control-file"
-                      id="fileInput"
-                      multiple
-                    />
-                    <button
-                      class="btn btn-head"
-                      type="button"
-                      onclick="(()=>{displayUploadedFiles();})()"
-                    >
-                      UPLOAD
-                    </button>
-                  </div>
-                </form>
-              </div>
+  <script src="../assets\js\script-2.js"></script>
+  <script src="../assets\js\upload-extract-script.js"></script>
+</body>
 
-              <div class="card-body p-0">
-                <div class="table-responsive">
-                  <table class="table custom-table no-footer">
-                    <thead>
-                      <tr>
-                        <th>Type</th>
-                        <th>Name</th>
-                        <th>Date</th>
-                        <th>Size</th>
-                      </tr>
-                    </thead>
-                    <!-- Where the uploaded files will be displayed -->
-                    <tbody id="rawPDFContainer"></tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- END OF UPLOAD CV FILES CARD -->
-
-          <!-- EXTRACT RAW TEXT FROM UPLOADED FILES -->
-          <div class="content container-fluid">
-            <div class="row">
-              <div class="col-xl-12 col-sm-12 col-12">
-                <div class="card card-lists" id="extractCard">
-                  <div
-                    class="card-header"
-                    style="
-                      display: flex;
-                      align-items: center;
-                      justify-content: space-between;
-                    "
-                  >
-                    <h2 class="card-titles">Extract Raw Text</h2>
-                    <div
-                      style="
-                        display: flex;
-                        align-items: center;
-                        margin-right: auto;
-                      "
-                    >
-                      <div
-                        id="spinner"
-                        class="spinner-border text-primary ml-3"
-                        style="display: none"
-                        role="status"
-                      >
-                        <span class="sr-only">Loading...</span>
-                      </div>
-                    </div>
-                    <button
-                      id="convertBtn"
-                      class="btn btn-head"
-                      type="button"
-                      onclick="(()=>{convertUploadedFiles();this.removeAttribute('onclick');})()"
-                    >
-                      EXTRACT
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section that tells the user to proceed to the next step -->
-          <div class="content container-fluid">
-            <div class="row">
-              <div class="col-xl-12 col-sm-12 col-12">
-                <div class="card card-lists" id="proceedCard">
-                  <div class="card-header">
-                    <h2 class="card-titles">
-                      Process Raw Text and View Applicant Information Here
-                    </h2>
-                    <a class="btn btn-head" onclick="moveToProcessCompilePage()"
-                      >PROCEED</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Extracted Text Section -->
-          <div class="content container-fluid">
-            <div class="row">
-              <div class="col-xl-12 col-sm-12 col-12">
-                <div class="card card-lists">
-                  <div class="card-header">
-                    <h2 class="card-titles">Extracted Raw Text</h2>
-                  </div>
-                  <ul
-                    class="list-group list-group-flush"
-                    id="rawTextContainer"
-                  ></ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/feather.min.js"></script>
-    <script src="../assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="../assets/plugins/apexchart/apexcharts.min.js"></script>
-    <script src="../assets/plugins/apexchart/chart-data.js"></script>
-
-    <script src="../assets\js\script-2.js"></script>
-    <script src="../assets\js\upload-extract-script.js"></script>
-  </body>
 </html>

@@ -2744,7 +2744,7 @@ a.start-sorting-btn:hover {
   position: relative;
   left: 50%;
   top: 50%;
-  transform: translate(-95%, -100%);
+  transform: translate(-90%, -100%);
   z-index: 10000000;
 }
 
@@ -2767,7 +2767,12 @@ a.start-sorting-btn:hover {
   color: #3a1078;
   background-color: white;
 }
-
+@media screen and (min-width: 1920px) {
+  /* Set initial zoom level to 1.0 for screens wider than 1920px */
+  meta[name="viewport"] {
+    content: initial-scale=1;
+  }
+}
 /* laptop screen styling */
 
 @media (min-width: 600px) and (max-width: 1280px) {
@@ -2795,7 +2800,7 @@ a.start-sorting-btn:hover {
     font-size: 1rem;
     padding: 8px 14px;
     font-size: 12px;
-    transform: translate(-100%, -45%);
+    transform: translate(-120%, -45%);
   }
   .table thead tr th {
     font-size: 13px;
