@@ -68,9 +68,9 @@
 
     .get-started-home {
       position: absolute;
-      top: 105.5%;
+      top: 50%;
       left: 50%;
-      transform: translate(-50%, -30%);
+      transform: translate(-50%, 270%);
       z-index: 2147483647;
       background-color: #F56EB3;
       padding: 1rem 5rem;
@@ -99,17 +99,19 @@
     .home-subtitle {
       font-weight: 600;
       font-size: 45px;
-      margin: 0px auto 50px auto;
+      margin: 0px auto 40px auto;
       text-transform: capitalize;
       color: white;
+      top: 16rem;
+      position: absolute;
     }
 
     .cvsort-title {
       font-weight: 600;
       font-size: 200px;
-      text-transform: capitalize;
       color: white;
       margin-top: 0px;
+      top: 0px;
     }
 
     .first-section {
@@ -121,29 +123,40 @@
     /* laptop styling */
     @media (min-width: 600px) and (max-width: 1280px) {
       #model-container {
-        transform: translate(-50%, 10%);
-        width: 65rem;
-        height: 65rem;
+        transform: translate(-50%, 8%);
+        width: 55rem;
+        height: 55rem;
         align-items: center;
         justify-content: center;
       }
 
       .home-subtitle {
-        line-height: 3rem;
         margin: 0rem auto 4rem auto;
+        position: absolute;
+        top: 200px;
       }
 
       .cvsort-title {
-        font-size: 150px;
+        font-size: 140px;
 
       }
 
       .get-started-home {
         top: 50%;
         left: 50%;
-        transform: translate(-50%, 300%);
+        transform: translate(-50%, 280%);
         padding: 1rem 3rem;
         font-size: 20px;
+      }
+
+      .pattern-bg-left {
+        top: 400px;
+        left: -570px;
+      }
+
+      .pattern-bg-right {
+        top: 400px;
+        right: -570px;
       }
     }
 
@@ -2786,7 +2799,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
           <div class="gradient-02 z-0"></div>
           <div class="2xl:max-w-[1280px] w-full mx-auto flex justify-center items-center flex-col">
             <p class="font-normal text-[14px] text-secondary-white text-center text-2xl font-bold"
-              style="opacity: 1; margin-top: 57rem; margin-bottom: none">
+              style="opacity: 1; margin-top: 70rem; margin-bottom: none">
               <span style="opacity: 1; transform: none">|</span><span
                 style="opacity: 1; transform: none">&nbsp;</span><span style="opacity: 1; transform: none">A</span><span
                 style="opacity: 1; transform: none">b</span><span style="opacity: 1; transform: none">o</span><span
