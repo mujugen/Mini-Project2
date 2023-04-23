@@ -852,7 +852,7 @@ async function askAIOpinion() {
       prompt += textArray[i];
       prompt += `\n`;
     }
-    prompt += `Why do you think ${currentViewedUser.name} is better than the rest of them? Keep it within 500 words`;
+    prompt += `Why do you think ${currentViewedUser.name} is better than the rest of them? Make it concise and keep it within 250 words`;
 
     if (prompt.length < 10000) {
       try {
