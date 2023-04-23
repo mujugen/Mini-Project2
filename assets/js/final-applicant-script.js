@@ -309,3 +309,8 @@ function toggleSpinner() {
     spinnerVisible = false;
   }
 }
+
+localStorage.setItem(
+  "calendarPrevPage",
+  JSON.stringify("final-applicant.html")
+);
