@@ -12,6 +12,7 @@ function updateTextArea() {
   phone_number = document.getElementById("phone_number").value;
   email = document.getElementById("email").value;
   company = document.getElementById("company").value;
+  subject = `Interview Invite From ${company}`;
   textarea = document.getElementById("message");
   textarea.value = `Dear ${userDetails[0].name},
   
@@ -32,7 +33,7 @@ function updateTextArea() {
 function sendEmail() {
   const mailtoLink = `mailto:${email}?to=&subject=${encodeURIComponent(
     subject
-  )}&body=${encodeURIComponent(body)}`;
+  )}&body=${encodeURIComponent(body.value)}`;
 
   window.open(mailtoLink, "_blank");
   window.location.href = "final-summary.html";
