@@ -743,24 +743,9 @@ button.bg-danger:hover {
   color: #7638ff !important;
 }
 
-.text-success,
-.dropdown-menu > li > a.text-success {
-  color: #22cc62 !important;
-}
-
-.text-danger,
-.dropdown-menu > li > a.text-danger {
-  color: #ef3737 !important;
-}
-
 .text-info,
 .dropdown-menu > li > a.text-info {
   color: #009efb !important;
-}
-
-.text-warning,
-.dropdown-menu > li > a.text-warning {
-  color: #ffbc34 !important;
 }
 
 .text-purple,
@@ -2767,7 +2752,7 @@ a.start-sorting-btn:hover {
 .gradient-button {
   background-color: #4e31aa;
   border-radius: 35px;
-  padding: 25px 4.5rem 25px 4.5rem;
+  padding: 15px 4.5rem 15px 4.5rem;
   border: none;
   font-size: 1.25rem;
   font-family: "Montserrat", sans-serif;
@@ -6031,6 +6016,16 @@ a.btn.btn-visit {
   max-height: 80vh;
   box-sizing: border-box;
   z-index: -1;
+  overflow-x: hidden !important;
+}
+
+.applicant-content {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+table {
+  display: inline-table;
 }
 
 #expandedApplicantContainer {
@@ -6260,4 +6255,8 @@ body {
 
 .selected {
   background-color: grey;
+}
+
+.text-wrap {
+  display: inline-block !important;
 }
