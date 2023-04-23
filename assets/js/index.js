@@ -87,3 +87,61 @@ async function clearApiKey() {
     console.error("Error clearing API key:", error);
   }
 }
+
+function getRandomImage() {
+  const images = [
+    "4.png",
+    "5.png",
+    "admin-img.png",
+    "male-1.png",
+    "male-2.png",
+  ];
+
+  const randomIndex = Math.floor(Math.random() * images.length);
+  return "../assets/img/profiles/" + images[randomIndex];
+}
+
+function addUserDivs(globalUserArray) {
+  const container = document.getElementById("usersInGUAContainer");
+
+  for (let i = 0; i < globalUserArray.length; i++) {
+    const userDiv = document.createElement("div");
+    userDiv.classList.add("team-list");
+    userDiv.innerHTML = `
+      <div class="team-view">
+        <div class="team-img">
+          <img src="${getRandomImage()}" alt="avatar" />
+        </div>
+        <div class="team-content">
+          <a href="#">${globalUserArray[i].name}</a>
+          <span>${globalUserArray[i].highestEducation}</span>
+        </div>
+      </div>
+    `;
+    container.appendChild(userDiv);
+  }
+}
+
+addUserDivs(globalUserArray);
+
+document.getElementById("skillSearch").addEventListener("keyup", function () {
+  const searchQuery = this.value.toLowerCase();
+  const applicantList = document.getElementById("usersInGUAContainer");
+  const teamLists = applicantList.getElementsByClassName("team-list");
+
+  for (let i = 0; i < teamLists.length; i++) {
+    const nameElement = teamLists[i].querySelector(".team-content a");
+    const nameText = nameElement.textContent || nameElement.innerText;
+    const spanElement = teamLists[i].querySelector(".team-content span");
+    const spanText = spanElement.textContent || spanElement.innerText;
+
+    if (
+      nameText.toLowerCase().indexOf(searchQuery) !== -1 ||
+      spanText.toLowerCase().indexOf(searchQuery) !== -1
+    ) {
+      teamLists[i].style.display = "";
+    } else {
+      teamLists[i].style.display = "none";
+    }
+  }
+});

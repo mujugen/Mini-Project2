@@ -23,6 +23,11 @@
       href="../assets/plugins/fontawesome/css/all.min.css"
     />
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <!-- Required script for robot -->
+    <!-- Required script for robot -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- Required script for robot -->
+    <!-- Required script for robot -->
   </head>
 
   <div class="header">
@@ -370,11 +375,6 @@
     </div>
 
     <div id="popup_overlay"></div>
-    <!-- Required script for robot -->
-    <!-- Required script for robot -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <!-- Required script for robot -->
-    <!-- Required script for robot -->
 
     <div class="page-wrapper">
       <div class="content container-fluid">
@@ -667,7 +667,7 @@
         <div class="row">
           <!-- Search for Applicants -->
           <div class="col-xl-6 d-flex">
-            <div class="card flex-fill">
+            <div class="card flex-fill" style="padding-bottom: 20px">
               <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="card-title">Search for Applicant</h5>
@@ -689,8 +689,13 @@
                 </div>
               </div>
               <!-- Applicant Search List -->
-              <div class="card-body">
-                <div class="team-list">
+              <div
+                class="card-body scrollbar-near-moon"
+                style="overflow-x: auto; max-height: 30vh"
+                id="usersInGUAContainer"
+              >
+                <!-- start of template -->
+                <!-- <div class="team-list">
                   <div class="team-view">
                     <div class="team-img">
                       <img
@@ -703,43 +708,9 @@
                       <span>Information Technology</span>
                     </div>
                   </div>
-                </div>
-                <div class="team-list">
-                  <div class="team-view">
-                    <div class="team-img">
-                      <img
-                        src="../assets\img\profiles\male-2.png"
-                        alt="avatar"
-                      />
-                    </div>
-                    <div class="team-content">
-                      <a href="#">Moses Matovu</a>
-                      <span>Computer Science</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="team-list">
-                  <div class="team-view">
-                    <div class="team-img">
-                      <img src="../assets\img\profiles\5.png" alt="avatar" />
-                    </div>
-                    <div class="team-content">
-                      <a href="#">Lucy Cunningway</a>
-                      <span>Hardware System Design</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="team-list">
-                  <div class="team-view">
-                    <div class="team-img">
-                      <img src="../assets\img\profiles\4.png" alt="avatar" />
-                    </div>
-                    <div class="team-content">
-                      <a href="#">Jessica Clifford</a>
-                      <span>Mobile Development</span>
-                    </div>
-                  </div>
-                </div>
+                </div> -->
+                <!-- end of template -->
+                <!-- end of templates -->
               </div>
             </div>
           </div>
