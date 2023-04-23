@@ -739,3 +739,5 @@ document.getElementById("close_popup").addEventListener("click", function () {
 function moveToHome() {
   window.location.href = "index.html";
 }
+
+async function askWhatAIThinks() {}
