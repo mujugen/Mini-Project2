@@ -2819,6 +2819,9 @@ a.start-sorting-btn:hover {
   a.btn.btn-head {
     font-size: 14px !important;
   }
+  .img-table {
+    display: none;
+  }
 }
 
 /* main content wrapper */
