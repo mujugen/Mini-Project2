@@ -2783,6 +2783,59 @@ a.start-sorting-btn:hover {
     rgba(229, 249, 255, 0.95)
   );
 }
+.interview-robot {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0%;
+  padding-bottom: 3rem;
+  height: 450px;
+}
+
+.robot-happy {
+  position: absolute;
+  width: 35rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-45%, -50%);
+}
+.gradient-button {
+  background-color: #4e31aa;
+  border-radius: 35px;
+  padding: 25px 4.5rem 25px 4.5rem;
+  border: none;
+  font-size: 1.25rem;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-95%, -100%);
+  z-index: 10000000;
+}
+
+.gradient-button:hover {
+  background-color: #fff;
+  color: #4e31aa;
+  border: 2px solid #4e31aa;
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .robot-happy {
+    width: 10rem;
+    left: 50%;
+    top: 50%;
+    transform: translate(-45%, -50%);
+  }
+  .interview-robot {
+    height: 200px;
+  }
+  .gradient-button {
+    font-size: 1rem;
+    padding: 5px 12px;
+    font-size: 10px;
+    transform: translate(-100%, -25%);
+  }
+}
 
 /* main content wrapper */
 .page-wrapper {
@@ -6200,27 +6253,6 @@ body {
   width: 500px;
   height: 500px;
   margin: 0 auto;
-}
-
-.gradient-button {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    from(#ec76f9),
-    to(#a151ed)
-  );
-  background-image: -webkit-linear-gradient(bottom, #a151ed 0%, #ec76f9 100%);
-  background-image: linear-gradient(to top, #a151ed 0%, #ec76f9 100%);
-  border-radius: 35px;
-  padding: 25px 20px 25px 20px;
-  border: none;
-  font-size: 1.25rem;
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .selected {
