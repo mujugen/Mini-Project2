@@ -331,3 +331,5 @@ function putApplicantInfoInEAC(i) {
 }
 
 displayUserSummary();
+
+localStorage.setItem("calendarPrevPage", JSON.stringify("final-summary.html"));

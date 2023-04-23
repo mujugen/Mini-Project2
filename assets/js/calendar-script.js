@@ -345,3 +345,12 @@ function toggleGlowOverlay(elementId) {
 }
 
 toggleDarkOverlay("proceedCard");
+
+let calendarPrevPage = localStorage.getItem("calendarPrevPage");
+
+if (calendarPrevPage == '"final-summary.html"') {
+  applicantNameInput.value = "";
+  const divToRemove = document.getElementById("proceedCard");
+  divToRemove.remove();
+  localStorage.setItem("calendarPrevPage", JSON.stringify("calendar.html"));
+}
