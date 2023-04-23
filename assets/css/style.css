@@ -2767,10 +2767,11 @@ a.start-sorting-btn:hover {
   color: #3a1078;
   background-color: white;
 }
+/* big screen initial scale modification */
 @media screen and (min-width: 1920px) {
-  /* Set initial zoom level to 1.0 for screens wider than 1920px */
+  /* Set initial zoom level to 1.2 for screens wider than 1920px */
   meta[name="viewport"] {
-    content: initial-scale=1;
+    content: initial-scale=1.2;
   }
 }
 /* laptop screen styling */
