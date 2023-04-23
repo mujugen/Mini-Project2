@@ -15,4 +15,5 @@ function sendEmail() {
   )}&body=${encodeURIComponent(body)}`;
 
   window.open(mailtoLink, "_blank");
+  window.location.href = "final-summary.html";
 }

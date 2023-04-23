@@ -421,7 +421,7 @@ async function fetchAskRank(prompt) {
 }
 
 function toggleExpandedApplicantContainer() {
-  const container = document.getElementById("expandedApplicantContainer");
+  const container = document.getElementById("expandedApplicantContainer2");
   const overlay = document.getElementById("overlayExpanded");
 
   // If the overlay doesn't exist, create it

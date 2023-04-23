@@ -138,6 +138,8 @@ function saveEvent() {
     });
 
     localStorage.setItem("events", JSON.stringify(events));
+    toggleDarkOverlay("proceedCard");
+    toggleGlowOverlay("proceedCard");
     closeModal();
   } else {
     if (!applicantNameInput.value) {
@@ -260,3 +262,86 @@ document.getElementById("proceedBtn").addEventListener("click", () => {
 
 initButtons();
 load();
+
+function toggleDarkOverlay(elementId) {
+  const element = document.getElementById(elementId);
+
+  if (!element) {
+    console.error(`Element with ID "${elementId}" not found.`);
+    return;
+  }
+
+  const existingOverlay = element.querySelector(".dark-overlay");
+
+  if (existingOverlay) {
+    existingOverlay.style.opacity = "0";
+    setTimeout(() => {
+      element.removeChild(existingOverlay);
+      element.style.pointerEvents = "auto";
+    }, 300);
+    return;
+  }
+
+  const overlay = document.createElement("div");
+  overlay.classList.add("dark-overlay");
+  overlay.style.position = "absolute";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+  overlay.style.pointerEvents = "none";
+  overlay.style.opacity = "0";
+  overlay.style.transition = "opacity 0.3s";
+
+  const borderRadius = window.getComputedStyle(element).borderRadius;
+  if (borderRadius) {
+    overlay.style.borderRadius = borderRadius;
+  }
+
+  element.style.position = "relative";
+  element.style.pointerEvents = "none";
+  element.appendChild(overlay);
+
+  setTimeout(() => {
+    overlay.style.opacity = "1";
+  }, 10);
+}
+
+function toggleGlowOverlay(elementId) {
+  const element = document.getElementById(elementId);
+
+  if (!element) {
+    console.error(`Element with ID "${elementId}" not found.`);
+    return;
+  }
+
+  const existingOverlay = element.querySelector(".glow-overlay");
+
+  if (existingOverlay) {
+    element.removeChild(existingOverlay);
+    return;
+  }
+
+  const overlay = document.createElement("div");
+  overlay.classList.add("glow-overlay");
+  overlay.style.position = "absolute";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.zIndex = "-1";
+
+  overlay.style.boxShadow =
+    "0 0 5px rgba(113, 73, 198, 0.2), 0 0 10px rgba(113, 73, 198, 0.2), 0 0 15px rgba(113, 73, 198, 0.2), 0 0 20px rgba(113, 73, 198, 0.2), 0 0 35px rgba(113, 73, 198, 0.2), 0 0 40px rgba(113, 73, 198, 0.2), 0 0 50px rgba(113, 73, 198, 0.2)";
+
+  const borderRadius = window.getComputedStyle(element).borderRadius;
+  if (borderRadius) {
+    overlay.style.borderRadius = borderRadius;
+  }
+
+  element.style.position = "relative";
+  element.appendChild(overlay);
+}
+
+toggleDarkOverlay("proceedCard");
