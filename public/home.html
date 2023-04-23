@@ -73,6 +73,47 @@
       transform: translate(-50%, -30%);
     }
 
+    #model-container {
+      position: absolute;
+      width: 92rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -5%);
+      height: 92rem;
+      margin: 0 auto;
+      pointer-events: none;
+      z-index: 100000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .home-subtitle {
+      font-weight: 600;
+      font-size: 45px;
+      line-height: 2rem;
+      margin: 3rem auto 5rem auto;
+      text-transform: capitalize;
+      color: white;
+    }
+
+    /* laptop styling */
+    @media (min-width: 600px) and (max-width: 1280px) {
+      #model-container {
+        transform: translate(-50%, 0%);
+        width: 80rem;
+        height: 80rem;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .home-subtitle {
+        line-height: 4.5rem;
+        margin: 0rem auto 5rem auto;
+      }
+    }
+
+
+
 
     /*
 1. Use a consistent sensible line-height in all browsers.
@@ -2637,8 +2678,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
               CVSort
             </h1>
             <div class="flex flex-row justify-center items-center" style="opacity: 1; transform: none">
-              <h1
-                class="font-bold lg:text-[45px] md:text-[28px] sm:text-[20px] text-[11px] lg:leading-[158.4px] md:leading-[114.4px] sm:leading-[74.4px] leading-[64.4px] uppercase text-white">
+              <h1 class=" home-subtitle">
                 Revolutionize Your Recruitment Process with AI
               </h1>
             </div>
@@ -2657,19 +2697,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
             <!-- Start of robot code -->
             <!-- Check on required script import on header -->
 
-            <div id="model-container" style="
-                  position: absolute;
-                  width: 92rem;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%,-5%);
-                  height: 92rem;
-                  margin: 0 auto;
-                  pointer-events: none;
-                  z-index: 100000;
-                  align-items: center;
-                  justify-content: center;
-                ">
+            <div id="model-container">
 
 
 
