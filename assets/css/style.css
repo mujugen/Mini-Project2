@@ -5982,18 +5982,25 @@ a.btn.btn-visit {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 50vw;
+  transform: translate(0%, -50%);
+  max-width: 100vw;
   max-height: 80vh;
   box-sizing: border-box;
   z-index: -1;
 }
 
-@media only screen and (min-width: 800px) {
-  #expandedApplicantContainer {
-    max-width: 75vw;
-    max-height: 80vh;
-  }
+.card-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.card-container {
+  max-width: 50%;
+  box-sizing: border-box;
 }
 
 .content-wrapper {
