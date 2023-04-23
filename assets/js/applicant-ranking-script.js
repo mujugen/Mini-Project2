@@ -740,4 +740,169 @@ function moveToHome() {
   window.location.href = "index.html";
 }
 
-async function askWhatAIThinks() {}
+async function askAIOpinion() {
+  var AIOpinion;
+  toggleSpinner2();
+  if (browsingMethod == "Online") {
+    if (globalUserArray.length <= 1) {
+      let childId = $("#userContainers").children().first().attr("id");
+      console.log("Only one applicant. No need to rank.");
+      setOverlayOpacity(childId, 1, 1);
+      return;
+    }
+    let textArray = [];
+    let containertextIDArray = [];
+    for (let i = 0; i < globalUserArray.length; i++) {
+      let container_id =
+        "#container_" +
+        globalUserArray[i].name
+          .replace(/ /g, "_")
+          .replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
+      let currentText = "";
+      currentText += checkValueRemoveNA(globalUserArray[i].name);
+      currentText += checkValueRemoveNA(globalUserArray[i].educationFullTitle1);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].educationSchoolName1
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].educationYearEnded1);
+      currentText += checkValueRemoveNA(globalUserArray[i].educationFullTitle2);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].educationSchoolName2
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].educationYearEnded2);
+      currentText += checkValueRemoveNA(globalUserArray[i].educationFullTitle3);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].educationSchoolName3
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].educationYearEnded3);
+      currentText += checkValueRemoveNA(globalUserArray[i].jobExperienceTitle1);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceCompany1
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceYearEnded1
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].jobExperienceTitle2);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceCompany2
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceYearEnded2
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].jobExperienceTitle3);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceCompany3
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceYearEnded3
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].jobExperience4Title);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceCompany4
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceYearEnded4
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].jobExperience5Title);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceCompany5
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].jobExperienceYearEnded5
+      );
+      currentText += checkValueRemoveNA(globalUserArray[i].skill1);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill2);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill3);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill4);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill5);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill6);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill7);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill8);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill9);
+      currentText += checkValueRemoveNA(globalUserArray[i].skill10);
+      currentText += checkValueRemoveNA(globalUserArray[i].certification1Title);
+      currentText += checkValueRemoveNA(globalUserArray[i].certification2Title);
+      currentText += checkValueRemoveNA(globalUserArray[i].certification3Title);
+      currentText += checkValueRemoveNA(globalUserArray[i].certification4Title);
+      currentText += checkValueRemoveNA(globalUserArray[i].certification5Title);
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].accomplishment1Title
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].accomplishment2Title
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].accomplishment3Title
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].accomplishment4Title
+      );
+      currentText += checkValueRemoveNA(
+        globalUserArray[i].accomplishment5Title
+      );
+      containertextIDArray.push(container_id);
+      textArray.push(currentText);
+    }
+
+    console.log(containertextIDArray);
+
+    prompt = ``;
+    for (let i = 0; i < textArray.length; i++) {
+      prompt += `Applicant ${i + 1}:\n`;
+      prompt += textArray[i];
+      prompt += `\n`;
+    }
+    prompt += `Why do you think ${currentViewedUser.name} is better than the rest of them? Keep it within 500 words`;
+
+    if (prompt.length < 10000) {
+      try {
+        console.log(prompt);
+        response = await fetchAskRank(prompt);
+        AIOpinion = response;
+        const myDiv = document.getElementById("AIComment");
+
+        // Change the content of the div
+        myDiv.textContent = AIOpinion;
+      } catch (error) {
+        console.error("Error occurred:", error);
+      }
+    } else {
+      const myDiv = document.getElementById("AIComment");
+
+      // Change the content of the div
+      myDiv.textContent = "Too many to compare to!";
+      return "Too much to rank!";
+    }
+  } else {
+    const myDiv = document.getElementById("AIComment");
+
+    // Change the content of the div
+    myDiv.textContent = "Must be in online mode!";
+    console.error("Must be in online mode");
+  }
+  toggleSpinner2();
+}
+
+function toggleSpinner2() {
+  const spinner = document.getElementById("spinner2");
+  const body = document.getElementsByTagName("html")[0];
+
+  if (!spinnerVisible) {
+    spinner.style.display = "inline-block";
+    body.classList.add("disable-pointer-events");
+    spinner.style.float = "left";
+    spinnerVisible = true;
+  } else {
+    spinner.style.display = "none";
+    body.classList.remove("disable-pointer-events");
+    spinnerVisible = false;
+  }
+  const overlay = document.getElementById("overlay");
+  overlayVisible = !overlayVisible;
+
+  if (overlayVisible) {
+    overlay.style.display = "block";
+  } else {
+    overlay.style.display = "none";
+  }
+}

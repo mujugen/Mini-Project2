@@ -628,7 +628,7 @@
             class="card"
             style="width: 30vw; height: 70%; border-radius: 10px"
           >
-            <div class="card-body" id="AIComment">
+            <div class="card-body">
               <!-- card contents go here -->
               <div>
                 <img
@@ -643,8 +643,27 @@
                     height: auto;
                   "
                 />
-                <button class="gradient-button">Get AI Opinion</button>
+                <button
+                  class="gradient-button"
+                  style="transform: translate(-25%, -150%); z-index: 2"
+                  onclick="(()=>{askAIOpinion();this.removeAttribute('onclick');})();"
+                >
+                  Get AI Opinion
+                </button>
               </div>
+              <div
+                style="display: flex; align-items: center; margin-right: auto"
+              >
+                <div
+                  id="spinner2"
+                  class="spinner-border text-primary ml-3"
+                  style="display: none"
+                  role="status"
+                >
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <div style="margin: 0 5% 5% 5%" id="AIComment"></div>
 
               <!-- card contents go here -->
             </div>
