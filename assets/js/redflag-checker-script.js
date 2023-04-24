@@ -1,4 +1,4 @@
-const globalUserArray = JSON.parse(localStorage.getItem("globalUserArray"));
+var globalUserArray = JSON.parse(localStorage.getItem("globalUserArray"));
 
 // Function to retrieve filter data
 function getSelectedFilters() {
@@ -159,6 +159,7 @@ async function runRedFlag() {
     toggleGlowOverlay("removeCard");
     toggleGlowOverlay("displayCard");
   }
+  initializeGlobalUserArray();
 }
 
 // Connected to Remove Red Flags section button
@@ -665,3 +666,22 @@ async function initializeApiKey(apiKey) {
 }
 
 initializeApiKey(apiKeyValue);
+
+async function initializeGlobalUserArray() {
+  globalUserArray = await fetchUserDBP();
+}
+
+// Fetches user DB and returns array
+async function fetchUserDBP() {
+  try {
+    const response = await fetch("/users");
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const users = await response.json();
+    /* console.log(users); */
+    return users;
+  } catch (error) {
+    console.error("Error fetching users:", error);
+  }
+}
