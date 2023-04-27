@@ -145,3 +145,23 @@ document.getElementById("skillSearch").addEventListener("keyup", function () {
     }
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const myElement = document.getElementById("model-container");
+  const curve_img = document.getElementById("curve-img");
+  const mediaQuery = window.matchMedia("(max-width: 600px)");
+
+  function handleScreenChange(e) {
+    if (e.matches) {
+      // Screen size is less than 600px, remove myElement and add newElement
+      if (myElement && myElement.parentNode) {
+        parentElement = myElement.parentNode;
+        parentElement.removeChild(myElement);
+        curve_img.src = "/assets/img/start-sorting-text-with-wave.png";
+      }
+    }
+  }
+
+  mediaQuery.addListener(handleScreenChange); // Listen for changes in screen size
+  handleScreenChange(mediaQuery); // Call the function initially to check the screen size
+});
