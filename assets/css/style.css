@@ -2696,7 +2696,6 @@ html.menu-opened body {
   margin: auto 30px 200px 30px;
 }
 a.start-sorting-btn {
-  position: absolute;
   border: 1px solid #f56eb3;
   color: #fff;
   background: #f56eb3;
@@ -2706,7 +2705,6 @@ a.start-sorting-btn {
   font-weight: 600;
   left: 50%;
   top: 50%;
-  transform: translate(-47%, 440%);
 }
 
 a.start-sorting-btn:hover {
