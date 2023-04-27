@@ -6034,6 +6034,15 @@ table {
   height: 70%;
   border-radius: 10px;
 }
+
+.EACFinal {
+  display: block;
+  position: static;
+  top: auto;
+  left: auto;
+  transform: none;
+  max-width: 40vw;
+}
 @media screen and (max-width: 600px) {
   #expandedApplicantContainer {
     display: none;
@@ -6074,6 +6083,17 @@ table {
   #aicommentbutton {
     font-size: 20px;
     padding: 5px;
+  }
+  .EACFinal {
+    max-width: 100vw;
+  }
+  .righthalffinal {
+    margin-top: -15vh;
+  }
+  #schedinterviewbtn {
+    font-size: 1rem;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 }
 
@@ -6305,4 +6325,3 @@ body {
 .text-wrap {
   display: inline-block !important;
 }
-
