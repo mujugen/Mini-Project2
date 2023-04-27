@@ -5970,7 +5970,7 @@ a.btn.btn-visit {
 
 .custom-table {
   width: 100%;
-  table-layout: fixed;
+  table-layout: auto;
   border-collapse: collapse;
 }
 
@@ -6028,6 +6028,26 @@ table {
   max-height: 80vh;
   box-sizing: border-box;
   z-index: -1;
+}
+
+@media screen and (max-width: 600px) {
+  #expandedApplicantContainer {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 95vw;
+    max-height: 80vw;
+    box-sizing: border-box;
+    z-index: -1;
+  }
+  .applicant-card {
+    margin: 35px;
+    max-width: 100%;
+    min-width: 45%;
+    word-wrap: break-word;
+  }
 }
 
 .card-wrapper {
@@ -6143,6 +6163,14 @@ body {
   max-width: 45%;
   min-width: 45%;
   word-wrap: break-word;
+}
+@media screen and (max-width: 600px) {
+  .applicant-card {
+    margin: 35px;
+    max-width: 100%;
+    min-width: 45%;
+    word-wrap: break-word;
+  }
 }
 
 .flex-container {
