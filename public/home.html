@@ -73,11 +73,6 @@
       }
 
       .get-started-home {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 270%);
-        z-index: 2147483647;
         background-color: #f56eb3;
         padding: 1rem 5rem;
         border-radius: 40px;
@@ -103,17 +98,17 @@
 
       .home-subtitle {
         font-weight: 600;
-        font-size: 45px;
+        font-size: 2rem;
         margin: 0px auto 40px auto;
         text-transform: capitalize;
         color: white;
         top: 16rem;
-        position: absolute;
+        text-align: center;
       }
 
       .cvsort-title {
         font-weight: 600;
-        font-size: 200px;
+        font-size: 110px;
         color: white;
         margin-top: 0px;
         top: 0px;
@@ -135,22 +130,8 @@
           justify-content: center;
         }
 
-        .home-subtitle {
-          margin: 0rem auto 4rem auto;
-          position: absolute;
-          top: 200px;
-        }
-
         .cvsort-title {
           font-size: 140px;
-        }
-
-        .get-started-home {
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, 280%);
-          padding: 1rem 3rem;
-          font-size: 20px;
         }
 
         .pattern-bg-left {
@@ -2640,6 +2621,34 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
       }
     </style>
     <script defer>
+      document.addEventListener("DOMContentLoaded", function () {
+        const myElement = document.getElementById("model-container");
+        const pbellow = document.getElementById("p-below-robot");
+        const mediaQuery = window.matchMedia("(max-width: 600px)");
+        const div = document.createElement("div");
+        const img = document.createElement("img");
+        img.src = "/assets/img/robot-wave.png";
+        img.style = "object-fit:cover";
+        div.appendChild(img);
+        div.style = "min-width:30vw";
+
+        function handleScreenChange(e) {
+          if (e.matches) {
+            // Screen size is less than 600px, remove myElement and add newElement
+            if (myElement && myElement.parentNode) {
+              parentElement = myElement.parentNode;
+              parentElement.removeChild(myElement);
+              parentElement.appendChild(div);
+              pbellow.style = "margin-top:15vh";
+            }
+          }
+        }
+
+        mediaQuery.addListener(handleScreenChange); // Listen for changes in screen size
+        handleScreenChange(mediaQuery); // Call the function initially to check the screen size
+      });
+
+      //////
       let prevCell = null;
 
       function changeFlex(clickedElement) {
@@ -2775,28 +2784,59 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
               <!-- Start of robot code -->
               <!-- Check on required script import on header -->
 
-              <div id="model-container">
-                <a-scene
-                  embedded
-                  vr-mode-ui="enabled: false"
-                  loading-screen="enabled: false"
-                  device-orientation-permission-ui="enabled: false"
+              <div
+                id="robot-container"
+                style="
+                  justify-content: center;
+                  align-items: center;
+                  display: flex;
+                  flex-wrap: wrap;
+                "
+              >
+                <a
+                  href="index.html"
+                  class="get-started-home"
+                  style="
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    width: 100%;
+                  "
+                  >GET STARTED</a
                 >
-                  <a-assets>
-                    <a-asset-item
-                      id="my-model"
-                      src="bb_robot_copy.gltf"
-                    ></a-asset-item>
-                  </a-assets>
+                <div id="model-container">
+                  <a-scene
+                    embedded
+                    vr-mode-ui="enabled: false"
+                    loading-screen="enabled: false"
+                    device-orientation-permission-ui="enabled: false"
+                  >
+                    <a-assets>
+                      <a-asset-item
+                        id="my-model"
+                        src="bb_robot_copy.gltf"
+                      ></a-asset-item>
+                    </a-assets>
 
-                  <a-entity
-                    gltf-model="#my-model"
-                    position="0 1.6 -2"
-                    scale="0.78 0.78 0.78"
-                  ></a-entity>
-                </a-scene>
+                    <a-entity
+                      gltf-model="#my-model"
+                      position="0 1.6 -2"
+                      scale="0.78 0.78 0.78"
+                    ></a-entity>
+                  </a-scene>
+                </div>
               </div>
-              <a href="index.html" class="get-started-home">GET STARTED</a>
+              <!-- <button
+                style="
+                  background-color: #4caf50;
+                  color: white;
+                  padding: 10px 20px;
+                  border: none;
+                  border-radius: 4px;
+                "
+              >
+                Click me
+              </button> -->
 
               <script>
                 var modelEntity = document.querySelector(
@@ -2851,6 +2891,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
               <p
                 class="font-normal text-[14px] text-secondary-white text-center text-2xl font-bold"
                 style="opacity: 1; margin-top: 65rem; margin-bottom: none"
+                id="p-below-robot"
               >
                 <span style="opacity: 1; transform: none">|</span
                 ><span style="opacity: 1; transform: none">&nbsp;</span
