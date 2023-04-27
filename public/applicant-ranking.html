@@ -387,8 +387,8 @@
     </div>
     <!-- Expanded Applicant More Information -->
     <div class="col-xl-12 col-sm-12 col-12" id="expandedApplicantContainer2">
-      <div class="card-wrapper">
-        <div class="card-container">
+      <div class="card-wrapper" id="EAC2Wrapper">
+        <div class="card-container" id="EAC2Content">
           <div class="card">
             <div class="card-body p-0">
               <div class="table-responsive content-wrapper scrollbar-near-moon">
@@ -630,11 +630,8 @@
             </div>
           </div>
         </div>
-        <div class="card-container">
-          <div
-            class="card"
-            style="width: 30vw; height: 70%; border-radius: 10px"
-          >
+        <div class="card-container" id="AIComment-parent">
+          <div class="card" id="AIComment-child">
             <div class="card-body" style="height: 60vh">
               <!-- card contents go here -->
               <div>
@@ -654,6 +651,7 @@
                   class="gradient-button"
                   style="transform: translate(-25%, -150%); z-index: 2"
                   onclick="(()=>{askAIOpinion();this.removeAttribute('onclick');})();"
+                  id="aicommentbutton"
                 >
                   Get AI Opinion
                 </button>

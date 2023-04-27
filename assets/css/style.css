@@ -6029,7 +6029,11 @@ table {
   box-sizing: border-box;
   z-index: -1;
 }
-
+#AIComment-child {
+  width: 30vw;
+  height: 70%;
+  border-radius: 10px;
+}
 @media screen and (max-width: 600px) {
   #expandedApplicantContainer {
     display: none;
@@ -6042,11 +6046,34 @@ table {
     box-sizing: border-box;
     z-index: -1;
   }
-  .applicant-card {
-    margin: 35px;
-    max-width: 100%;
-    min-width: 45%;
-    word-wrap: break-word;
+  #EAC2Wrapper {
+    flex-direction: column;
+  }
+  #expandedApplicantContainer2 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -50%);
+    max-width: 100vw;
+    max-height: 80vh;
+    box-sizing: border-box;
+    z-index: -1;
+    overflow-x: hidden !important;
+  }
+  #AIComment-parent {
+    max-width: 100vw;
+  }
+  #AIComment-child {
+    width: 100%;
+  }
+  #EAC2Content {
+    max-width: 100vw;
+    width: 100%;
+  }
+  #aicommentbutton {
+    font-size: 20px;
+    padding: 5px;
   }
 }
 
@@ -6278,3 +6305,4 @@ body {
 .text-wrap {
   display: inline-block !important;
 }
+
