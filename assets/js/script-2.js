@@ -203,3 +203,45 @@
 //    return true;
 //  });
 //})(jQuery);
+
+function toggleSidebar() {
+  console.log("btn clicked");
+  var sidebar = document.getElementById("sidebar-custom");
+  sidebar.classList.toggle("show");
+}
+
+var mobileBtn = document.getElementById("mobile_btn");
+mobileBtn.addEventListener("click", toggleSidebar);
+
+$(document).on("click", "#toggle_btn", function () {
+  if ($("body").hasClass("mini-sidebar")) {
+    $("body").removeClass("mini-sidebar");
+    $(".subdrop + ul").slideDown();
+  } else {
+    $("body").addClass("mini-sidebar");
+    $(".subdrop + ul").slideUp();
+  }
+  setTimeout(function () {}, 300);
+  return false;
+});
+
+const mediaQuery_custom = window.matchMedia("(max-width: 600px)");
+
+// Add an event listener to the media query
+mediaQuery_custom.addEventListener("change", (e) => {
+  if (e.matches) {
+    // The viewport matches the media query
+    console.log("Viewport width is less than 600px");
+    sidebar = document.getElementById("sidebar-custom");
+    if (sidebar.classList.contains("show")) {
+      sidebar.classList.toggle("show");
+    }
+  } else {
+    // The viewport does not match the media query
+    console.log("Viewport width is greater than or equal to 600px");
+    sidebar = document.getElementById("sidebar-custom");
+    if (sidebar.classList.contains("show")) {
+      sidebar.classList.toggle("show");
+    }
+  }
+});

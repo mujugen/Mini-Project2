@@ -6325,3 +6325,21 @@ body {
 .text-wrap {
   display: inline-block !important;
 }
+
+#sidebar-custom {
+  position: fixed;
+  top: 0;
+  left: -80%; /* Hide the sidebar off-screen by default */
+  width: 80%;
+  height: 100vh; /* Set the sidebar height to 100% of the viewport height */
+  background-color: white;
+  transition: left 0.3s; /* Add a transition effect when the sidebar position changes */
+}
+
+#sidebar-custom.show {
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
+
+  left: 0; /* Show the sidebar when the "show" class is added */
+}
+
+

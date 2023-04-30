@@ -165,3 +165,5 @@ document.addEventListener("DOMContentLoaded", function () {
   mediaQuery.addListener(handleScreenChange); // Listen for changes in screen size
   handleScreenChange(mediaQuery); // Call the function initially to check the screen size
 });
+
+
